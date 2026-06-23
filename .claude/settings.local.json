@@ -10,7 +10,9 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/solutions)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/industries)",
       "Bash(node -e \"const tw = require\\('tailwindcss/package.json'\\); console.log\\(tw.version\\)\")",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(echo \"PID: $!\")"
     ]
   }
 }

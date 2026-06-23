@@ -1,16 +1,15 @@
 import Hero from '@/components/sections/Hero';
 import TrustedBy from '@/components/sections/TrustedBy';
-import Introduction from '@/components/sections/Introduction';
 import HowItWorks from '@/components/sections/HowItWorks';
+import ProductPreview from '@/components/sections/ProductPreview';
+import SecurityCompliance from '@/components/sections/SecurityCompliance';
 import About from '@/components/sections/About';
-import Testimonials from '@/components/sections/Testimonials';
-import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import FAQ from '@/components/sections/FAQ';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Wathiq Digital | Building Digital Trust for the Future',
-  description: 'A UK-registered digital identity and trust technology company. We help organisations verify identities, prevent fraud, and build secure digital experiences across the Middle East and beyond.',
+  title: 'Wathiq | Identity Verification & Digital Trust for Regulated Organisations',
+  description: 'Verify identities, reduce fraud, and streamline onboarding for banks, universities, government agencies, and enterprises. UK-registered. GDPR compliant. ICO registered.',
 };
 
 export default function HomePage() {
@@ -18,11 +17,10 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustedBy />
-      <Introduction />
       <HowItWorks />
-      <Testimonials />
+      <ProductPreview />
+      <SecurityCompliance />
       <About />
-      <WhyChooseUs />
       <FAQ />
     </>
   );

@@ -16,16 +16,12 @@ export const translations = {
 
     // Hero
     hero: {
-      badge: 'Digital Trust Technology',
-      headline1: 'Building Digital Trust',
-      headline2: 'for the Future',
-      subheadline: 'Helping organizations create trusted digital experiences through modern identity solutions, secure verification technologies, and innovative fraud prevention systems.',
-      cta1: 'Request a Business Consultation',
-      cta2: 'Contact Our Team',
-      stat1: { value: '50+', label: 'Enterprise Partners' },
-      stat2: { value: '99.9%', label: 'Uptime Reliability' },
-      stat3: { value: '10+', label: 'Industries Served' },
-      stat4: { value: '5+', label: 'Years of Innovation' },
+      badge: 'Enterprise Identity Verification',
+      headline1: 'Identity Verification & Digital Trust Solutions',
+      headline2: 'for Regulated Organisations',
+      subheadline: 'Verify identities, reduce fraud, and streamline onboarding for banks, universities, government agencies, and enterprises.',
+      cta1: 'Book a Demo',
+      cta2: 'Talk to Sales',
     },
 
     // Introduction
@@ -279,16 +275,12 @@ export const translations = {
     },
 
     hero: {
-      badge: 'تقنية الثقة الرقمية',
-      headline1: 'بناء الثقة الرقمية',
-      headline2: 'لمستقبل أكثر أماناً',
-      subheadline: 'نساعد المؤسسات على خلق تجارب رقمية موثوقة من خلال حلول الهوية الحديثة وتقنيات التحقق الآمن وأنظمة منع الاحتيال المبتكرة.',
-      cta1: 'طلب استشارة أعمال',
-      cta2: 'تواصل مع فريقنا',
-      stat1: { value: '+50', label: 'شريك مؤسسي' },
-      stat2: { value: '99.9%', label: 'موثوقية التشغيل' },
-      stat3: { value: '+10', label: 'قطاع خدمي' },
-      stat4: { value: '+5', label: 'سنوات من الابتكار' },
+      badge: 'التحقق من الهوية للمؤسسات',
+      headline1: 'حلول التحقق من الهوية والثقة الرقمية',
+      headline2: 'للمؤسسات المنظمة',
+      subheadline: 'تحقق من الهويات، وقلل الاحتيال، وبسّط عملية الإعداد للبنوك والجامعات والجهات الحكومية والشركات.',
+      cta1: 'احجز عرضاً تجريبياً',
+      cta2: 'تحدث إلى فريق المبيعات',
     },
 
     intro: {

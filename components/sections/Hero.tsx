@@ -1,31 +1,11 @@
 'use client';
 
-import { memo, useRef, useEffect, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { memo } from 'react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import TechBackground from '@/components/ui/TechBackground';
 
-function CountUp({ to, suffix = '' }: { to: number; suffix?: string }) {
-  const [val, setVal] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
-  useEffect(() => {
-    if (!inView) return;
-    let raf: number;
-    const start = performance.now();
-    const duration = 1800;
-    const tick = (now: number) => {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setVal(Math.floor(eased * to));
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [inView, to]);
-  return <span ref={ref}>{val}{suffix}</span>;
-}
 
 const NetworkSVG = memo(function NetworkSVG() {
   return (
@@ -59,10 +39,10 @@ function HeroIllustration({ isRTL }: { isRTL: boolean }) {
   return (
     <div className="relative w-full h-full flex items-center justify-center">
       <div
-        className="relative z-10 scale-50 sm:scale-100"
+        className="relative z-10"
         style={{ animation: 'tech-float 6s ease-in-out infinite', willChange: 'transform' }}
       >
-        <svg width="220" height="260" viewBox="0 0 260 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-24 sm:w-[220px] h-auto" viewBox="0 0 260 300" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="130" cy="200" rx="90" ry="18" fill="#2563EB" opacity="0.12" />
           <path d="M130 20L220 60V160C220 210 180 255 130 270C80 255 40 210 40 160V60L130 20Z" fill="url(#shieldGrad)" opacity="0.95" />
           <path d="M130 35L205 70V160C205 205 170 245 130 258C90 245 55 205 55 160V70L130 35Z" fill="url(#shieldInner)" opacity="0.5" />
@@ -217,27 +197,6 @@ export default function Hero() {
               </Link>
             </motion.div>
 
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 sm:mt-12 pt-8 sm:pt-10 border-t border-white/10"
-            >
-              {[
-                { to: 50,  suffix: '+',   label: h.stat1.label },
-                { to: 99,  suffix: '.9%', label: h.stat2.label },
-                { to: 10,  suffix: '+',   label: h.stat3.label },
-                { to: 5,   suffix: '+',   label: h.stat4.label },
-              ].map((stat, i) => (
-                <div key={i}>
-                  <div className="text-2xl sm:text-3xl font-bold text-white tabular-nums">
-                    <CountUp to={stat.to} suffix={stat.suffix} />
-                  </div>
-                  <div className="text-slate-400 text-xs mt-1">{stat.label}</div>
-                </div>
-              ))}
-            </motion.div>
           </motion.div>
 
           {/* ── Illustration column ── */}

@@ -12,7 +12,20 @@
       "Bash(node -e \"const tw = require\\('tailwindcss/package.json'\\); console.log\\(tw.version\\)\")",
       "Bash(npx tsc *)",
       "Bash(npm run *)",
-      "Bash(echo \"PID: $!\")"
+      "Bash(echo \"PID: $!\")",
+      "Bash(node -e \"const {execSync} = require\\('child_process'\\); console.log\\(execSync\\('npx tsc --noEmit 2>&1', {cwd:'/Users/adhamkaraker/Desktop/WATHIQ'}\\).toString\\(\\)\\)\")",
+      "Bash(node_modules/.bin/next build *)",
+      "Bash(nvm list *)",
+      "Bash(ls ~/.nvm/versions/node/ 2>/dev/null; ls ~/.fnm/ 2>/dev/null; cat /Users/adhamkaraker/Desktop/WATHIQ/.nvmrc 2>/dev/null; cat /Users/adhamkaraker/Desktop/WATHIQ/.node-version 2>/dev/null)",
+      "Read(//Users/adhamkaraker/**)",
+      "Bash(~/.nvm/versions/node/v18.20.8/bin/node --version)",
+      "Bash(~/.nvm/versions/node/v18.20.8/bin/npx tsc *)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(curl -s http://localhost:3000/blog)",
+      "Bash(curl -s http://localhost:3000/pricing)",
+      "Bash(curl -s http://localhost:3000/case-studies)",
+      "Bash(curl -s http://localhost:3000/contact)"
     ]
   }
 }

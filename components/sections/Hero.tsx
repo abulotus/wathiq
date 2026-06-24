@@ -15,6 +15,7 @@ const NetworkSVG = memo(function NetworkSVG() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
     >
       <circle cx="400" cy="300" r="5" fill="#60A5FA" opacity="0.9" />
       <circle cx="200" cy="150" r="3.5" fill="#60A5FA" opacity="0.7" />
@@ -42,7 +43,7 @@ function HeroIllustration({ isRTL }: { isRTL: boolean }) {
         className="relative z-10"
         style={{ animation: 'tech-float 6s ease-in-out infinite', willChange: 'transform' }}
       >
-        <svg className="w-24 sm:w-[220px] h-auto" viewBox="0 0 260 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-24 sm:w-[220px] h-auto" viewBox="0 0 260 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <ellipse cx="130" cy="200" rx="90" ry="18" fill="#2563EB" opacity="0.12" />
           <path d="M130 20L220 60V160C220 210 180 255 130 270C80 255 40 210 40 160V60L130 20Z" fill="url(#shieldGrad)" opacity="0.95" />
           <path d="M130 35L205 70V160C205 205 170 245 130 258C90 245 55 205 55 160V70L130 35Z" fill="url(#shieldInner)" opacity="0.5" />

@@ -438,7 +438,7 @@ export const translations = {
       info: {
         location: { label: 'العنوان المسجل', value: '71-75 شيلتون ستريت، لندن، WC2H 9JQ، المملكة المتحدة' },
         email: { label: 'البريد الإلكتروني', value: 'contact@wathiq.digital' },
-        phone: { label: 'الهاتف', value: '+963 11 XXX XXXX' },
+        phone: { label: 'الهاتف', value: '+44 7547 044020' },
         hours: { label: 'ساعات العمل', value: 'الأحد – الخميس، 9:00 صباحاً – 5:00 مساءً' },
       },
     },

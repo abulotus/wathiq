@@ -6,6 +6,7 @@ import PageHero from '@/components/ui/PageHero';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
 import SectionTag from '@/components/ui/SectionTag';
 import TechBackground from '@/components/ui/TechBackground';
+import { validateContactForm, ValidationError } from '@/lib/validation';
 
 const infoIcons = {
   location: (
@@ -45,18 +46,49 @@ export default function ContactPage() {
     industry: '',
     message: '',
   });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+  const [errors, setErrors] = useState<ValidationError>({});
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setFormState((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: '' }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const validationErrors = validateContactForm(formState);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
     setStatus('sending');
-    // Simulate form submission
-    await new Promise((r) => setTimeout(r, 1500));
-    setStatus('sent');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setStatus('sent');
+      setFormState({ company: '', name: '', email: '', phone: '', industry: '', message: '' });
+    } catch (err) {
+      setStatus('error');
+      setErrorMessage(err instanceof Error ? err.message : 'Failed to send message. Please try again.');
+      console.error('Contact form error:', err);
+    }
   };
 
   const infoItems = [
@@ -140,6 +172,27 @@ export default function ContactPage() {
                     </h3>
                     <p className="text-slate-600">{form.success}</p>
                   </div>
+                ) : status === 'error' ? (
+                  <div
+                    className="bg-red-50 border border-red-200 rounded-3xl p-8 sm:p-12 text-center"
+                    style={{ animation: 'fadeSlideUp 0.4s ease-out both' }}
+                  >
+                    <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-5">
+                      <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </div>
+                    <h3 className="text-navy-900 font-bold text-2xl mb-2">
+                      {isRTL ? 'حدث خطأ' : 'Error'}
+                    </h3>
+                    <p className="text-slate-600 mb-6">{errorMessage}</p>
+                    <button
+                      onClick={() => setStatus('idle')}
+                      className="btn-primary px-6 py-2"
+                    >
+                      {isRTL ? 'حاول مرة أخرى' : 'Try Again'}
+                    </button>
+                  </div>
                 ) : (
                   <form
                     onSubmit={handleSubmit}
@@ -147,64 +200,74 @@ export default function ContactPage() {
                   >
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-1.5">{form.company} *</label>
+                        <label htmlFor="company" className="block text-sm font-semibold text-slate-700 mb-1.5">{form.company} *</label>
                         <input
+                          id="company"
                           name="company"
                           type="text"
-                          required
                           value={formState.company}
                           onChange={handleChange}
                           placeholder={form.company}
-                          className="input-field"
+                          className={`input-field ${errors.company ? 'border-red-500 ring-1 ring-red-500' : ''}`}
                           dir={isRTL ? 'rtl' : 'ltr'}
+                          aria-describedby={errors.company ? 'company-error' : undefined}
                         />
+                        {errors.company && <p id="company-error" className="text-red-600 text-xs mt-1">{errors.company}</p>}
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-1.5">{form.name} *</label>
+                        <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-1.5">{form.name} *</label>
                         <input
+                          id="name"
                           name="name"
                           type="text"
-                          required
                           value={formState.name}
                           onChange={handleChange}
                           placeholder={form.name}
-                          className="input-field"
+                          className={`input-field ${errors.name ? 'border-red-500 ring-1 ring-red-500' : ''}`}
                           dir={isRTL ? 'rtl' : 'ltr'}
+                          aria-describedby={errors.name ? 'name-error' : undefined}
                         />
+                        {errors.name && <p id="name-error" className="text-red-600 text-xs mt-1">{errors.name}</p>}
                       </div>
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-1.5">{form.email} *</label>
+                        <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-1.5">{form.email} *</label>
                         <input
+                          id="email"
                           name="email"
                           type="email"
-                          required
                           value={formState.email}
                           onChange={handleChange}
                           placeholder="you@company.com"
-                          className="input-field"
+                          className={`input-field ${errors.email ? 'border-red-500 ring-1 ring-red-500' : ''}`}
                           dir="ltr"
+                          aria-describedby={errors.email ? 'email-error' : undefined}
                         />
+                        {errors.email && <p id="email-error" className="text-red-600 text-xs mt-1">{errors.email}</p>}
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-1.5">{form.phone}</label>
+                        <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-1.5">{form.phone}</label>
                         <input
+                          id="phone"
                           name="phone"
                           type="tel"
                           value={formState.phone}
                           onChange={handleChange}
                           placeholder="+44 7547 044020"
-                          className="input-field"
+                          className={`input-field ${errors.phone ? 'border-red-500 ring-1 ring-red-500' : ''}`}
                           dir="ltr"
+                          aria-describedby={errors.phone ? 'phone-error' : undefined}
                         />
+                        {errors.phone && <p id="phone-error" className="text-red-600 text-xs mt-1">{errors.phone}</p>}
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-1.5">{form.industry}</label>
+                      <label htmlFor="industry" className="block text-sm font-semibold text-slate-700 mb-1.5">{form.industry}</label>
                       <select
+                        id="industry"
                         name="industry"
                         value={formState.industry}
                         onChange={handleChange}
@@ -220,17 +283,19 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-1.5">{form.message} *</label>
+                      <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-1.5">{form.message} *</label>
                       <textarea
+                        id="message"
                         name="message"
-                        required
                         rows={5}
                         value={formState.message}
                         onChange={handleChange}
                         placeholder={isRTL ? 'أخبرنا كيف يمكننا مساعدتك...' : 'Tell us how we can help your organization...'}
-                        className="input-field resize-none"
+                        className={`input-field resize-none ${errors.message ? 'border-red-500 ring-1 ring-red-500' : ''}`}
                         dir={isRTL ? 'rtl' : 'ltr'}
+                        aria-describedby={errors.message ? 'message-error' : undefined}
                       />
+                      {errors.message && <p id="message-error" className="text-red-600 text-xs mt-1">{errors.message}</p>}
                     </div>
 
                     <button

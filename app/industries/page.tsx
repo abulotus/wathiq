@@ -71,7 +71,8 @@ export default function IndustriesPage() {
               return (
                 <AnimatedItem key={i} index={i}>
                   <div
-                    className={`group relative bg-white rounded-3xl border border-slate-100 p-7 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 overflow-hidden h-full flex flex-col ${isRTL ? 'text-right' : ''}`}
+                    id={`industry-${item.icon}`}
+                    className={`group relative scroll-mt-24 bg-white rounded-3xl border border-slate-100 p-7 shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 overflow-hidden h-full flex flex-col ${isRTL ? 'text-right' : ''}`}
                   >
                     {/* Top accent bar */}
                     <div className={`absolute top-0 left-0 right-0 h-1.5 ${color.bg} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />

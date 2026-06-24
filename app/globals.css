@@ -228,6 +228,13 @@ body {
   letter-spacing: 0;
 }
 
+/* Arabic is a connected script — negative letter-spacing makes letters overlap.
+   Neutralise the tightening utilities for any RTL text. */
+[dir="rtl"] .tracking-tight,
+[dir="rtl"] .tracking-tighter {
+  letter-spacing: 0;
+}
+
 /* ─── Hero background pattern ─── */
 .hero-pattern {
   background-image:

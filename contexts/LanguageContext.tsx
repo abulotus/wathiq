@@ -13,32 +13,44 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>('en');
+/** Persist the choice so the server can render the correct lang/dir on the next request. */
+function persistLanguage(lang: Language) {
+  localStorage.setItem('wathiq-lang', lang);
+  // 1-year cookie, read server-side in app/layout.tsx to avoid first-paint flash.
+  document.cookie = `wathiq-lang=${lang};path=/;max-age=31536000;samesite=lax`;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+}
+
+export function LanguageProvider({
+  children,
+  initialLanguage = 'en',
+}: {
+  children: React.ReactNode;
+  initialLanguage?: Language;
+}) {
+  const [language, setLanguageState] = useState<Language>(initialLanguage);
 
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
-    localStorage.setItem('wathiq-lang', lang);
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    persistLanguage(lang);
   }, []);
 
   const toggleLanguage = useCallback(() => {
     setLanguageState(prev => {
       const next = prev === 'en' ? 'ar' : 'en';
-      localStorage.setItem('wathiq-lang', next);
-      document.documentElement.lang = next;
-      document.documentElement.dir = next === 'ar' ? 'rtl' : 'ltr';
+      persistLanguage(next);
       return next;
     });
   }, []);
 
+  // Reconcile with a stored preference that predates the cookie (e.g. localStorage only).
   useEffect(() => {
     const stored = localStorage.getItem('wathiq-lang') as Language | null;
-    if (stored && (stored === 'en' || stored === 'ar')) {
+    if (stored && (stored === 'en' || stored === 'ar') && stored !== initialLanguage) {
       setLanguage(stored);
     }
-  }, [setLanguage]);
+  }, [setLanguage, initialLanguage]);
 
   const isRTL = language === 'ar';
   const t = translations[language];

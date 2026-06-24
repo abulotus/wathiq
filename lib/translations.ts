@@ -25,17 +25,6 @@ export const translations = {
     },
 
     // Introduction
-    intro: {
-      tag: 'Why Digital Trust Matters',
-      title: 'Digital Trust Is the Foundation of the Modern Economy',
-      body1: 'As businesses move increasingly online, trust becomes essential. Customers, companies, and institutions need secure ways to interact digitally.',
-      body2: 'We provide technology solutions designed to help organizations verify identities, protect users, and create safer digital ecosystems.',
-      card1: { title: 'Identity Verification', desc: 'Confirm who your customers are before they access your services.' },
-      card2: { title: 'Fraud Prevention', desc: 'Detect and stop suspicious activity before it impacts your business.' },
-      card3: { title: 'Secure Access', desc: 'Protect sensitive systems and services with modern access controls.' },
-      card4: { title: 'Digital Onboarding', desc: 'Create seamless, secure customer journeys from the first interaction.' },
-    },
-
     // About
     about: {
       tag: 'Our Company',
@@ -58,18 +47,6 @@ export const translations = {
           { title: 'Simplicity', desc: 'Making complex technology easy to adopt.' },
         ],
       },
-    },
-
-    // Why Choose Us
-    why: {
-      tag: 'Our Advantage',
-      title: 'Why Businesses Choose Us',
-      items: [
-        { title: 'Regional Understanding', desc: 'We understand business needs and digital challenges specific to the Middle East, with a UK-registered global outlook.' },
-        { title: 'Modern Technology', desc: 'Building solutions based on current security and technology standards used by leading global companies.' },
-        { title: 'Business Partnership', desc: 'We work closely with organizations to create practical digital solutions tailored to their needs.' },
-        { title: 'Scalable Future', desc: 'Designed to support business growth and evolving digital transformation requirements.' },
-      ],
     },
 
     // Solutions
@@ -277,21 +254,10 @@ export const translations = {
     hero: {
       badge: 'التحقق من الهوية للمؤسسات',
       headline1: 'حلول التحقق من الهوية والثقة الرقمية',
-      headline2: 'للمؤسسات المنظمة',
+      headline2: 'للمؤسسات والشركات',
       subheadline: 'تحقق من الهويات، وقلل الاحتيال، وبسّط عملية الإعداد للبنوك والجامعات والجهات الحكومية والشركات.',
       cta1: 'احجز عرضاً تجريبياً',
       cta2: 'تحدث إلى فريق المبيعات',
-    },
-
-    intro: {
-      tag: 'لماذا الثقة الرقمية مهمة',
-      title: 'الثقة الرقمية هي أساس الاقتصاد الحديث',
-      body1: 'مع التحول المتزايد للأعمال نحو الفضاء الرقمي، أصبحت الثقة ضرورة حتمية. يحتاج العملاء والشركات والمؤسسات إلى طرق آمنة للتفاعل رقمياً.',
-      body2: 'نقدم حلولاً تقنية مصممة لمساعدة المؤسسات على التحقق من الهويات وحماية المستخدمين وإنشاء بيئات رقمية أكثر أماناً.',
-      card1: { title: 'التحقق من الهوية', desc: 'تأكيد هوية عملائك قبل الوصول إلى خدماتك.' },
-      card2: { title: 'منع الاحتيال', desc: 'اكتشاف النشاط المشبوه وإيقافه قبل أن يؤثر على عملك.' },
-      card3: { title: 'الوصول الآمن', desc: 'حماية الأنظمة والخدمات الحساسة بضوابط وصول حديثة.' },
-      card4: { title: 'الإعداد الرقمي', desc: 'إنشاء رحلات عميل سلسة وآمنة منذ التفاعل الأول.' },
     },
 
     about: {
@@ -315,17 +281,6 @@ export const translations = {
           { title: 'البساطة', desc: 'جعل التقنية المعقدة سهلة التبني والاستخدام.' },
         ],
       },
-    },
-
-    why: {
-      tag: 'ميزتنا التنافسية',
-      title: 'لماذا تختارنا الشركات',
-      items: [
-        { title: 'فهم إقليمي عميق', desc: 'نفهم احتياجات الأعمال الإقليمية والتحديات الرقمية الخاصة بالشرق الأوسط، مع نظرة عالمية من مقرنا في المملكة المتحدة.' },
-        { title: 'تقنية حديثة', desc: 'نبني حلولاً وفق أحدث معايير الأمن والتقنية المستخدمة من قبل الشركات العالمية الرائدة.' },
-        { title: 'شراكة أعمال حقيقية', desc: 'نعمل عن كثب مع المؤسسات لإنشاء حلول رقمية عملية مصممة وفق احتياجاتها الخاصة.' },
-        { title: 'مستقبل قابل للتوسع', desc: 'مصمم لدعم نمو الأعمال ومتطلبات التحول الرقمي المتطورة.' },
-      ],
     },
 
     solutions: {

@@ -160,10 +160,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight mb-6"
+              className={`text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6 ${isRTL ? '!leading-[1.35] py-1' : '!leading-[1.1]'}`}
             >
               {h.headline1}{' '}
-              <span className="gradient-text">{h.headline2}</span>
+              <span className={isRTL ? 'text-teal-400' : 'gradient-text'}>{h.headline2}</span>
             </motion.h1>
 
             {/* Sub */}
@@ -171,7 +171,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-base lg:text-lg text-slate-300 leading-relaxed max-w-xl mb-10"
+              className={`text-base lg:text-lg text-slate-300 max-w-xl mb-10 ${isRTL ? 'leading-[2]' : 'leading-relaxed'}`}
             >
               {h.subheadline}
             </motion.p>
@@ -211,7 +211,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Section divider — diagonal geometric cut, fills with Introduction's white background */}
+      {/* Section divider — diagonal geometric cut, fills with TrustedBy's white background */}
       <div className="absolute bottom-0 inset-x-0 overflow-hidden leading-none pointer-events-none" style={{ height: 72 }}>
         <svg
           viewBox="0 0 1440 72"

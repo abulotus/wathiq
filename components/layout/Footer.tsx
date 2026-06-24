@@ -41,7 +41,7 @@ export default function Footer() {
   const navGroups = [
     { title: links.company.title, items: links.company.items, hrefs: ['/about', '/about#mission', '/careers', '/contact'] },
     { title: links.solutions.title, items: links.solutions.items, hrefs: ['/solutions', '/solutions#fraud', '/solutions#business'] },
-    { title: links.industries.title, items: links.industries.items, hrefs: ['/industries', '/industries', '/industries', '/industries', '/industries'] },
+    { title: links.industries.title, items: links.industries.items, hrefs: ['/industries#industry-finance', '/industries#industry-telecom', '/industries#industry-ecommerce', '/industries#industry-health', '/industries#industry-gov'] },
     { title: links.legal.title, items: links.legal.items, hrefs: ['/privacy', '/terms', '/cookies'] },
   ];
 

@@ -115,8 +115,13 @@ function DesktopApp({
       {/* Windows title bar */}
       <div className="flex items-center justify-between bg-slate-100 border-b border-slate-200 h-9 select-none">
         <div className="flex items-center gap-2 ps-3">
-          <div className="w-4 h-4 rounded bg-gradient-to-br from-electric-500 to-teal-500 flex items-center justify-center text-white text-[8px] font-black">W</div>
-          <span className="text-slate-500 text-[11px] font-medium">{isRTL ? 'وثيق — منصة التحقق' : 'Wathiq — Verification Platform'}</span>
+          <div className="w-4 h-4 rounded bg-navy-950 flex items-center justify-center overflow-hidden flex-shrink-0">
+            <svg viewBox="0 0 1254 1254" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 328 376 L 308 398 L 295 418 L 284 442 L 276 472 L 274 492 L 274 635 L 276 653 L 284 682 L 292 699 L 302 714 L 315 728 L 405 811 L 430 826 L 457 833 L 570 833 L 577 826 L 577 818 L 575 814 L 433 684 L 422 666 L 417 648 L 417 517 L 426 491 L 443 471 L 463 459 L 484 454 L 816 454 L 837 459 L 857 471 L 875 492 L 883 514 L 884 841 L 878 867 L 872 880 L 860 897 L 849 908 L 833 919 L 808 928 L 425 928 L 405 924 L 383 916 L 355 899 L 196 757 L 189 753 L 179 754 L 173 762 L 174 931 L 178 939 L 260 1019 L 285 1038 L 320 1057 L 354 1069 L 400 1077 L 870 1077 L 911 1069 L 942 1056 L 973 1035 L 993 1015 L 1010 991 L 1023 963 L 1031 930 L 1031 904 L 1027 904 L 1009 922 L 988 933 L 974 937 L 944 940 L 943 937 L 972 924 L 996 904 L 1016 876 L 1028 843 L 1030 828 L 1031 484 L 1025 451 L 1019 434 L 1009 414 L 992 390 L 974 372 L 954 357 L 934 346 L 904 335 L 877 330 L 441 329 L 411 333 L 382 342 L 356 355 Z" fill="#FFFFFF" fillRule="evenodd" />
+              <path d="M 526 705 L 526 711 L 528 716 L 533 719 L 637 820 L 652 832 L 659 834 L 800 834 L 807 831 L 811 826 L 812 765 L 810 760 L 749 701 L 744 698 L 737 696 L 537 696 L 530 699 Z M 414 242 L 417 251 L 425 256 L 855 256 L 867 250 L 925 191 L 927 181 L 925 176 L 918 171 L 469 171 L 417 198 L 414 205 Z" fill="#2563EB" fillRule="evenodd" />
+            </svg>
+          </div>
+          <span className="text-slate-500 text-[11px] font-medium">{isRTL ? 'واثق — منصة التحقق' : 'Wathiq — Verification Platform'}</span>
         </div>
         <WinControls />
       </div>
@@ -124,7 +129,12 @@ function DesktopApp({
       <div className="flex">
         {/* Dark branded sidebar */}
         <div className="w-14 bg-navy-900 flex flex-col items-center py-3 gap-1 flex-shrink-0">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-electric-500 to-teal-500 flex items-center justify-center text-white text-sm font-black mb-2">W</div>
+          <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center overflow-hidden mb-2 flex-shrink-0">
+            <svg viewBox="0 0 1254 1254" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 328 376 L 308 398 L 295 418 L 284 442 L 276 472 L 274 492 L 274 635 L 276 653 L 284 682 L 292 699 L 302 714 L 315 728 L 405 811 L 430 826 L 457 833 L 570 833 L 577 826 L 577 818 L 575 814 L 433 684 L 422 666 L 417 648 L 417 517 L 426 491 L 443 471 L 463 459 L 484 454 L 816 454 L 837 459 L 857 471 L 875 492 L 883 514 L 884 841 L 878 867 L 872 880 L 860 897 L 849 908 L 833 919 L 808 928 L 425 928 L 405 924 L 383 916 L 355 899 L 196 757 L 189 753 L 179 754 L 173 762 L 174 931 L 178 939 L 260 1019 L 285 1038 L 320 1057 L 354 1069 L 400 1077 L 870 1077 L 911 1069 L 942 1056 L 973 1035 L 993 1015 L 1010 991 L 1023 963 L 1031 930 L 1031 904 L 1027 904 L 1009 922 L 988 933 L 974 937 L 944 940 L 943 937 L 972 924 L 996 904 L 1016 876 L 1028 843 L 1030 828 L 1031 484 L 1025 451 L 1019 434 L 1009 414 L 992 390 L 974 372 L 954 357 L 934 346 L 904 335 L 877 330 L 441 329 L 411 333 L 382 342 L 356 355 Z" fill="#FFFFFF" fillRule="evenodd" />
+              <path d="M 526 705 L 526 711 L 528 716 L 533 719 L 637 820 L 652 832 L 659 834 L 800 834 L 807 831 L 811 826 L 812 765 L 810 760 L 749 701 L 744 698 L 737 696 L 537 696 L 530 699 Z M 414 242 L 417 251 L 425 256 L 855 256 L 867 250 L 925 191 L 927 181 L 925 176 L 918 171 L 469 171 L 417 198 L 414 205 Z" fill="#60A5FA" fillRule="evenodd" />
+            </svg>
+          </div>
           <div className="w-7 h-px bg-white/10 mb-1" />
           {railItems.map((item) => (
             <span
@@ -498,7 +508,7 @@ export default function ProductPreview() {
         <AnimatedSection className="text-center mb-12">
           <SectionTag label={isRTL ? 'المنتج' : 'Product'} />
           <h2 className="heading-lg text-navy-900 mt-4">
-            {isRTL ? 'تعرّف على وثيق من الداخل' : 'See Wathiq in Action'}
+            {isRTL ? 'تعرّف على واثق من الداخل' : 'See Wathiq in Action'}
           </h2>
           <p className="body-lg mt-4 max-w-xl mx-auto">
             {isRTL

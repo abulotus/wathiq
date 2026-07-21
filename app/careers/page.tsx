@@ -180,7 +180,7 @@ export default function CareersPage() {
         <TechBackground variant="light" />
         <div className="container-wide relative z-10">
           <AnimatedSection className={`text-center max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
-            <SectionTag label={isRTL ? 'لماذا وثيق' : 'Why WATHIQ'} />
+            <SectionTag label={isRTL ? 'لماذا واثق' : 'Why WATHIQ'} />
             <h2 className="heading-lg text-navy-900 mt-4">
               {isRTL ? 'ما الذي يجعل العمل هنا مختلفاً' : 'What Makes Working Here Different'}
             </h2>

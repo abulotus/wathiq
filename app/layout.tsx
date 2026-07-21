@@ -11,14 +11,18 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https:
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Wathiq Digital | وثيق ديجيتال',
+    default: 'Wathiq Digital | واثق ديجيتال',
     template: '%s | Wathiq Digital',
   },
   description: 'Helping organizations across the Middle East and beyond build digital trust through identity verification, fraud prevention, and digital transformation solutions.',
-  keywords: 'digital identity, trust technology, Middle East, fraud prevention, identity verification, digital transformation, وثيق, London, UK',
+  keywords: 'digital identity, trust technology, Middle East, fraud prevention, identity verification, digital transformation, واثق, London, UK',
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     title: 'Wathiq Digital — Building Digital Trust for the Future',

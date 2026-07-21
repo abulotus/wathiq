@@ -1,13 +1,7 @@
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M24 2L44 13.5V34.5L24 46L4 34.5V13.5L24 2Z" fill="url(#lg)"/>
-  <path d="M24 10L36 16V27C36 33 30 38 24 40C18 38 12 33 12 27V16L24 10Z" fill="rgba(255,255,255,0.15)"/>
-  <path d="M17 20L20 30L24 23L28 30L31 20" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="24" cy="33" r="2" fill="#2DD4BF"/>
-  <defs>
-    <linearGradient id="lg" x1="4" y1="2" x2="44" y2="46" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#1E3A8A"/>
-      <stop offset="50%" stop-color="#2563EB"/>
-      <stop offset="100%" stop-color="#0891B2"/>
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" role="img" aria-labelledby="title desc">
+  <title id="title">Wathiq</title>
+  <desc id="desc">White geometric Wathiq symbol with electric-blue accents on a dark navy background.</desc>
+  <rect width="1254" height="1254" fill="#04091C"/>
+  <path d="M 328 376 L 308 398 L 295 418 L 284 442 L 276 472 L 274 492 L 274 635 L 276 653 L 284 682 L 292 699 L 302 714 L 315 728 L 405 811 L 430 826 L 457 833 L 570 833 L 577 826 L 577 818 L 575 814 L 433 684 L 422 666 L 417 648 L 417 517 L 426 491 L 443 471 L 463 459 L 484 454 L 816 454 L 837 459 L 857 471 L 875 492 L 883 514 L 884 841 L 878 867 L 872 880 L 860 897 L 849 908 L 833 919 L 808 928 L 425 928 L 405 924 L 383 916 L 355 899 L 196 757 L 189 753 L 179 754 L 173 762 L 174 931 L 178 939 L 260 1019 L 285 1038 L 320 1057 L 354 1069 L 400 1077 L 870 1077 L 911 1069 L 942 1056 L 973 1035 L 993 1015 L 1010 991 L 1023 963 L 1031 930 L 1031 904 L 1027 904 L 1009 922 L 988 933 L 974 937 L 944 940 L 943 937 L 972 924 L 996 904 L 1016 876 L 1028 843 L 1030 828 L 1031 484 L 1025 451 L 1019 434 L 1009 414 L 992 390 L 974 372 L 954 357 L 934 346 L 904 335 L 877 330 L 441 329 L 411 333 L 382 342 L 356 355 Z" fill="#FFFFFF" fill-rule="evenodd"/>
+  <path d="M 526 705 L 526 711 L 528 716 L 533 719 L 637 820 L 652 832 L 659 834 L 800 834 L 807 831 L 811 826 L 812 765 L 810 760 L 749 701 L 744 698 L 737 696 L 537 696 L 530 699 Z M 414 242 L 417 251 L 425 256 L 855 256 L 867 250 L 925 191 L 927 181 L 925 176 L 918 171 L 469 171 L 417 198 L 414 205 Z" fill="#2563EB" fill-rule="evenodd"/>
 </svg>

@@ -93,7 +93,7 @@ const caseStudies = {
       company: 'منصة تجارة إلكترونية بالشرق الأوسط',
       industry: 'التجارة الإلكترونية',
       challenge: 'كانت المنصة تعاني من 15% حسابات بائعين احتيالية. ثقة المشترين كانت تتراجع.',
-      solution: 'بناء نظام التحقق من البائعين والهوية التجارية باستخدام حلول وثيق.',
+      solution: 'بناء نظام التحقق من البائعين والهوية التجارية باستخدام حلول واثق.',
       results: [
         'انخفاض حسابات البائعين الاحتيالية من 15% إلى 1.2%',
         'زيادة احتفاظ المشترين بنسبة 42%',
@@ -137,7 +137,7 @@ export default function CaseStudiesPage() {
       <PageHero
         tag={isRTL ? 'دراسات الحالات' : 'Case Studies'}
         title={isRTL ? 'نتائج ملموسة' : 'Proven Results'}
-        subtitle={isRTL ? 'اكتشف كيف أحدثت حلول وثيق فرقاً حقيقياً لعملائنا.' : 'Discover how Wathiq\'s solutions have made real impact for our clients.'}
+        subtitle={isRTL ? 'اكتشف كيف أحدثت حلول واثق فرقاً حقيقياً لعملائنا.' : 'Discover how Wathiq\'s solutions have made real impact for our clients.'}
       />
 
       <section className="py-14 sm:py-20 bg-white relative overflow-hidden">

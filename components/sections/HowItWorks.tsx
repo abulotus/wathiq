@@ -83,7 +83,7 @@ export default function HowItWorks() {
 
       <div className="container-wide relative z-10">
         <AnimatedSection className={`max-w-2xl mx-auto text-center mb-16 sm:mb-20`}>
-          <SectionTag label={isRTL ? 'كيف يعمل وثيق' : 'How It Works'} variant="white" />
+          <SectionTag label={isRTL ? 'كيف يعمل واثق' : 'How It Works'} variant="white" />
           <h2 className="heading-lg text-white mt-4">
             {isRTL ? 'ثلاث خطوات إلى الثقة الرقمية' : 'Three Steps to Digital Trust'}
           </h2>

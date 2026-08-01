@@ -17,12 +17,12 @@ const steps = [
     glow: 'shadow-[0_0_30px_rgba(37,99,235,0.35)]',
     en: {
       title: 'Integrate',
-      desc: 'Connect your systems to Wathiq through our API. Receive verification results and status updates through webhook notifications.',
+      desc: 'Connect your system or platform to Wathiq through our API, and receive verification results and status updates through webhook notifications.',
       detail: 'API · Webhooks',
     },
     ar: {
       title: 'التكامل',
-      desc: 'اربط أنظمتك بواثق من خلال واجهة برمجة التطبيقات. استلم نتائج التحقق وتحديثات الحالة عبر إشعارات Webhook.',
+      desc: 'اربط نظامك أو منصتك بنظام واثق من خلال واجهة برمجة التطبيقات، واستلم نتائج التحقق وتحديثات الحالة عبر إشعارات Webhook.',
       detail: 'API · Webhooks',
     },
   },
@@ -37,13 +37,13 @@ const steps = [
     glow: 'shadow-[0_0_30px_rgba(20,184,166,0.35)]',
     en: {
       title: 'Verify',
-      desc: 'Your user completes the supported ePassport verification journey through Wathiq\'s Arabic-first mobile experience.',
-      detail: 'Mobile app · Arabic-first',
+      desc: "The user completes the verification journey for an ePassport or personal ID card through Wathiq's Arabic-first mobile app or browser experience.",
+      detail: 'Mobile app · Web browser',
     },
     ar: {
       title: 'التحقق',
-      desc: 'يكمل المستخدم رحلة التحقق من جواز السفر الإلكتروني المدعوم عبر تجربة واثق للجوال ذات الواجهة العربية.',
-      detail: 'تطبيق الجوال · واجهة عربية',
+      desc: 'يكمل المستخدم رحلة التحقق من جواز السفر الإلكتروني أو البطاقة الشخصية عبر تجربة واثق للجوال أو عبر المتصفح ذات الواجهة العربية.',
+      detail: 'تطبيق الجوال · المتصفح',
     },
   },
   {
@@ -57,12 +57,12 @@ const steps = [
     glow: 'shadow-[0_0_30px_rgba(99,102,241,0.35)]',
     en: {
       title: 'Manage',
-      desc: 'Review verification activity and results through the client dashboard, and receive webhook notifications as they happen.',
+      desc: 'Verification results appear directly in the dashboard, with notifications delivered through webhooks.',
       detail: 'Client dashboard · Webhook status',
     },
     ar: {
       title: 'الإدارة',
-      desc: 'راجع نشاط التحقق ونتائجه عبر لوحة تحكم العملاء، واستلم إشعارات Webhook فور حدوثها.',
+      desc: 'نتائج التحقق تظهر مباشرة عبر لوحة التحكم، مع استلام إشعارات عبر Webhook.',
       detail: 'لوحة تحكم العملاء · حالة Webhook',
     },
   },
@@ -139,8 +139,8 @@ export default function HowItWorks() {
             <div className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
             <span className="text-slate-400 text-sm">
               {isRTL
-                ? 'API وWebhooks ولوحة تحكم — متصلة من طرف إلى طرف'
-                : 'API, webhooks, and a client dashboard — connected end to end'}
+                ? 'لوحة تحكم بواجهة عربية أو اتصال كامل عبر API وWebhook'
+                : 'An Arabic-interface dashboard, or full connectivity through API and webhook'}
             </span>
           </div>
         </AnimatedSection>

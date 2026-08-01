@@ -7,26 +7,35 @@ import SectionTag from '@/components/ui/SectionTag';
 
 const pillars = {
   en: [
-    { tag: 'ePassport Verification', title: 'Verify supported ePassports', body: '140 supported ePassports worldwide, verified through an Arabic-first journey.', path: '/epassport-coverage', linkLabel: 'See coverage' },
-    { tag: 'API & Webhooks', title: 'Connect your systems', body: 'Start verifications and receive results and status updates through Wathiq.', path: '/developers', linkLabel: 'View Developers' },
-    { tag: 'Client Dashboard', title: 'Manage verification activity', body: 'Review references, status, and webhook delivery in one place.', path: '/client-dashboard', linkLabel: 'View Dashboard' },
+    { tag: 'ePassport Verification', title: 'Verify modern ePassports (with chip)', body: 'Verify modern electronic passports with a chip, issued by multiple countries worldwide, through an Arabic-first journey.', path: '/epassport-coverage', linkLabel: 'See coverage' },
+    { tag: 'API & Webhooks', title: 'Connect your systems', body: 'Start verifications and receive results and status updates by connecting your system with Wathiq.', path: '/developers', linkLabel: 'View Developers' },
+    { tag: 'Client Dashboard', title: 'Client Dashboard', body: 'Manage verification operations and review status and results from one place.', path: '/client-dashboard', linkLabel: 'View Dashboard' },
   ],
   ar: [
-    { tag: 'التحقق من جوازات السفر الإلكترونية', title: 'تحقّق من جوازات السفر المدعومة', body: '140 جواز سفر إلكتروني مدعوم حول العالم، عبر رحلة بواجهة عربية أولاً.', path: '/epassport-coverage', linkLabel: 'اطّلع على التغطية' },
-    { tag: 'API وWebhooks', title: 'اربط أنظمتك', body: 'ابدأ عمليات التحقق واستلم النتائج وتحديثات الحالة من خلال واثق.', path: '/developers', linkLabel: 'استعرض المطورين' },
-    { tag: 'لوحة تحكم العملاء', title: 'أدر نشاط التحقق', body: 'راجع المراجع والحالة وحالة تسليم Webhook من مكان واحد.', path: '/client-dashboard', linkLabel: 'استعرض لوحة التحكم' },
+    { tag: 'التحقق من جوازات السفر الإلكترونية', title: 'التحقق من جوازات السفر الحديثة (مع شريحة)', body: 'تحقّق من جوازات السفر الحديثة التي تحتوي على شريحة والصادرة عن عدة دول حول العالم، عبر رحلة بواجهة عربية أولاً.', path: '/epassport-coverage', linkLabel: 'اطّلع على التغطية' },
+    { tag: 'API وWebhooks', title: 'اربط أنظمتك', body: 'ابدأ عمليات التحقق واستلم النتائج وتحديثات الحالة من خلال ربط نظامك مع واثق.', path: '/developers', linkLabel: 'استعرض المطورين' },
+    { tag: 'لوحة تحكم العملاء', title: 'لوحة تحكم العملاء', body: 'أدر عمليات التحقق وراجع الحالة والنتائج من مكان واحد.', path: '/client-dashboard', linkLabel: 'استعرض لوحة التحكم' },
   ],
 };
 
 const icons = [
+  // Verification: ID/document with a check badge
   <svg key="a" className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0" />
+    <rect x="3" y="4" width="14" height="16" rx="2" />
+    <path strokeLinecap="round" d="M7 8.5h6M7 12h4" />
+    <circle cx="17" cy="17" r="5" fill="white" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M15 17l1.5 1.5L19.5 15" />
   </svg>,
+  // API / connection: link icon
   <svg key="b" className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
   </svg>,
+  // Dashboard: widget grid
   <svg key="c" className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M4 5a1 1 0 011-1h5a1 1 0 011 1v5a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM13 5a1 1 0 011-1h5a1 1 0 011 1v3a1 1 0 01-1 1h-5a1 1 0 01-1-1V5zM13 13a1 1 0 011-1h5a1 1 0 011 1v6a1 1 0 01-1 1h-5a1 1 0 01-1-1v-6zM4 15a1 1 0 011-1h5a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4z" />
+    <rect x="3.5" y="3.5" width="7" height="7" rx="1.5" />
+    <rect x="13.5" y="3.5" width="7" height="4.5" rx="1.5" />
+    <rect x="13.5" y="10.5" width="7" height="10" rx="1.5" />
+    <rect x="3.5" y="13" width="7" height="7.5" rx="1.5" />
   </svg>,
 ];
 
@@ -40,7 +49,7 @@ export default function PlatformOverview() {
         <AnimatedSection className="text-center max-w-2xl mx-auto mb-14">
           <SectionTag label={isRTL ? 'المنصة' : 'Platform'} />
           <h2 className="heading-lg text-navy-900 mt-4">
-            {isRTL ? 'ثلاثة مكونات متصلة' : 'Three connected components'}
+            {isRTL ? 'ثلاث ميزات أساسية' : 'Three core features'}
           </h2>
         </AnimatedSection>
 

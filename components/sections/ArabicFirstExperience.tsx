@@ -6,13 +6,13 @@ import SectionTag from '@/components/ui/SectionTag';
 
 const points = {
   en: [
-    { title: 'A real Arabic interface', desc: 'The product itself is built in Arabic — not just the marketing pages.' },
-    { title: 'Proper right-to-left journeys', desc: 'Verification flows and the dashboard follow correct RTL structure and reading order.' },
+    { title: 'An easy Arabic interface', desc: 'The product itself is built in Arabic, not just the marketing pages.' },
+    { title: 'Simple, clear steps', desc: 'Clear instructions guide the user to complete the verification process smoothly.' },
     { title: 'Consistent across platforms', desc: 'The same Arabic-first experience carries through the mobile app and client dashboard.' },
   ],
   ar: [
-    { title: 'واجهة عربية حقيقية', desc: 'المنتج نفسه مبني بالعربية — وليس فقط صفحات التسويق.' },
-    { title: 'رحلات صحيحة من اليمين إلى اليسار', desc: 'تتبع مسارات التحقق ولوحة التحكم بنية RTL وترتيب قراءة صحيحين.' },
+    { title: 'واجهة عربية سهلة', desc: 'المنتج نفسه مبني بالعربية وليس فقط صفحات التسويق.' },
+    { title: 'إجراءات بسيطة وواضحة', desc: 'تعليمات للمستخدم لإكمال عملية التحقق بسلاسة ووضوح.' },
     { title: 'تجربة متسقة عبر المنصات', desc: 'التجربة العربية نفسها تمتد عبر تطبيق الجوال ولوحة تحكم العملاء.' },
   ],
 };
@@ -27,7 +27,7 @@ export default function ArabicFirstExperience() {
         <AnimatedSection className="text-center max-w-2xl mx-auto mb-14">
           <SectionTag label={isRTL ? 'تجربة عربية أولاً' : 'Arabic-First Experience'} />
           <h2 className="heading-lg text-navy-900 mt-4">
-            {isRTL ? 'مصممة حول المستخدمين الناطقين بالعربية' : 'Designed around Arabic-speaking users'}
+            {isRTL ? 'مصممة خصيصاً للمستخدمين الناطقين بالعربية' : 'Designed specifically for Arabic-speaking users'}
           </h2>
         </AnimatedSection>
 

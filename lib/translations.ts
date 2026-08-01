@@ -16,10 +16,10 @@ export const translations = {
 
     // Hero
     hero: {
-      badge: 'ePassport Verification',
-      headline1: 'Arabic-first ePassport verification',
-      headline2: 'for Syria and beyond.',
-      subheadline: "Verify supported electronic passports, manage results through a central client dashboard and connect your systems using Wathiq's API and webhooks — all through an Arabic-first, cross-platform experience.",
+      badge: 'Biometric Identity Verification',
+      headline1: 'Biometric identity verification',
+      headline2: 'for ID cards and modern ePassports.',
+      subheadline: "Wathiq enables organisations to verify personal ID cards or modern passports with an electronic chip, track results through a central dashboard, and connect your verification system through our API and webhook notifications.",
       cta1: 'Request a Demo',
       cta2: 'See How It Works',
     },
@@ -224,10 +224,10 @@ export const translations = {
     },
 
     hero: {
-      badge: 'التحقق من جوازات السفر الإلكترونية',
-      headline1: 'تحقّق من جوازات السفر الإلكترونية',
-      headline2: 'بواجهة عربية',
-      subheadline: 'تمكّن واثق المؤسسات من التحقق من جوازات السفر الإلكترونية المدعومة، ومتابعة النتائج عبر لوحة تحكم مركزية، وربط الأنظمة من خلال واجهة برمجة التطبيقات وإشعارات Webhook.',
+      badge: 'التحقق من الهوية البيومترية',
+      headline1: 'تحقق من الهوية البيومترية',
+      headline2: 'سواء البطاقة الشخصية أو جواز السفر الحديث',
+      subheadline: 'تمكّن واثق المؤسسات من التحقق من البطاقة الشخصية أو جواز السفر الحديث الذي يحتوي على شريحة إلكترونية، ومتابعة النتائج عبر لوحة تحكم مركزية، وربط نظام التحقق عبر واجهة برمجة التطبيقات وإشعارات Webhook.',
       cta1: 'اطلب عرضاً تجريبياً',
       cta2: 'شاهد كيف يعمل',
     },

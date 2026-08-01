@@ -19,8 +19,8 @@ export default function ProductShowcase() {
           </h2>
           <p className="body-lg mt-4">
             {isRTL
-              ? 'يعرض واثق فحوصات التحقق التي يديرها الخادم — بيانات الوثيقة، الباركود، والتحقق البيومتري — بنتائج واضحة لفريقك.'
-              : "Wathiq shows the server-managed verification checks — document data, barcode, and biometric — with clear results for your team."}
+              ? 'يعرض واثق فحوصات التحقق التي يقوم بها النظام كبيانات الوثيقة والباركود والتحقق البيومتري.'
+              : 'Wathiq shows the verification checks performed by the system, such as document data, barcode, and biometric verification.'}
           </p>
         </AnimatedSection>
 

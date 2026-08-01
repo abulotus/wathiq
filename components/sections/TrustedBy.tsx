@@ -3,89 +3,48 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import TechBackground from '@/components/ui/TechBackground';
 
-const sectors = [
+const facts = [
   {
-    en: 'Banking & Finance',
-    ar: 'البنوك والخدمات المالية',
+    val: '140',
+    en: 'Supported ePassports Worldwide',
+    ar: 'جواز سفر إلكتروني مدعوم حول العالم',
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-        <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 10v11M12 10v11M16 10v11" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
   {
-    en: 'Government & Public Sector',
-    ar: 'الحكومة والقطاع العام',
+    val: 'AR',
+    en: 'Arabic-First Interface',
+    ar: 'واجهة عربية أولاً',
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-        <path d="M3 22V12l9-9 9 9v10M9 22v-6h6v6" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M8 12h8M8 8h8M8 16h5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
   {
-    en: 'Higher Education',
-    ar: 'التعليم العالي',
+    val: 'API',
+    en: 'API & Webhook Integration',
+    ar: 'تكامل عبر API وWebhooks',
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-        <path d="M12 3L2 8l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
   {
-    en: 'Insurance',
-    ar: 'التأمين',
+    val: '2',
+    en: 'Client Dashboard & Mobile App',
+    ar: 'لوحة تحكم وتطبيق جوال',
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-        <path d="M12 3L4 7v5c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V7L12 3Z" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  {
-    en: 'FinTech & Payments',
-    ar: 'التقنية المالية والمدفوعات',
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  {
-    en: 'Healthcare',
-    ar: 'الرعاية الصحية',
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  {
-    en: 'Legal & Professional Services',
-    ar: 'الخدمات القانونية والمهنية',
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-        <path d="M12 1v22M17 5H9.5M15 12H9M17 19H9" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  {
-    en: 'Telecommunications',
-    ar: 'الاتصالات',
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-        <path d="M1.5 8.5C5.5 4.5 18.5 4.5 22.5 8.5M5 12c2-2 12-2 14 0M8.5 15.5c1-1 6-1 7 0M12 19v.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M4 5a1 1 0 011-1h5a1 1 0 011 1v5a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM13 5a1 1 0 011-1h5a1 1 0 011 1v3a1 1 0 01-1 1h-5a1 1 0 01-1-1V5zM13 13a1 1 0 011-1h5a1 1 0 011 1v6a1 1 0 01-1 1h-5a1 1 0 01-1-1v-6zM4 15a1 1 0 011-1h5a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4z" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
 ];
-
-const badges = [
-  { label: 'GDPR Compliant', color: 'text-teal-700 bg-teal-50 border-teal-200' },
-  { label: 'SOC 2 Type II', color: 'text-indigo-700 bg-indigo-50 border-indigo-200' },
-  { label: 'ICO Registered', color: 'text-slate-700 bg-slate-50 border-slate-200' },
-  { label: 'eIDAS Compliant', color: 'text-purple-700 bg-purple-50 border-purple-200' },
-];
-
-const doubled = [...sectors, ...sectors];
 
 export default function TrustedBy() {
   const { isRTL } = useLanguage();
@@ -93,48 +52,28 @@ export default function TrustedBy() {
   return (
     <section className="bg-white border-b border-slate-100 py-14 relative overflow-hidden">
       <TechBackground variant="light" />
-      <div className="container-wide mb-8 text-center relative z-10">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
-          {isRTL ? 'نخدم المؤسسات المنظمة في' : 'Built for regulated organisations in'}
+      <div className="container-wide relative z-10">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 text-center mb-8">
+          {isRTL ? 'حقائق مؤكدة عن المنصة' : 'Verified platform facts'}
         </p>
-      </div>
-
-      {/* Marquee */}
-      <div className="relative z-10 overflow-hidden">
-        <div className="absolute inset-y-0 start-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 end-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-        <div
-          className="flex gap-10 w-max"
-          style={{ animation: 'marquee 35s linear infinite' }}
-        >
-          {doubled.map((s, i) => (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+          {facts.map((f, i) => (
             <div
               key={i}
-              className="flex items-center gap-2.5 px-5 py-3 rounded-xl border border-slate-100 bg-slate-50/60 flex-shrink-0"
+              className="flex items-center gap-3 px-5 py-4 rounded-2xl border border-slate-100 bg-slate-50/60"
             >
-              <span className="text-slate-400">{s.icon}</span>
-              <span className="text-slate-600 font-medium text-sm whitespace-nowrap">
-                {isRTL ? s.ar : s.en}
+              <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-electric-50 text-electric-600 flex items-center justify-center">
+                {f.icon}
               </span>
+              <div>
+                <div className="text-navy-900 font-black text-lg leading-none">{f.val}</div>
+                <div className="text-slate-500 text-xs font-medium mt-1 leading-tight">
+                  {isRTL ? f.ar : f.en}
+                </div>
+              </div>
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Compliance badges */}
-      <div className="container-wide mt-10 flex flex-wrap items-center justify-center gap-3 relative z-10">
-        {badges.map((b, i) => (
-          <span
-            key={i}
-            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border ${b.color}`}
-          >
-            <svg className="w-3 h-3" viewBox="0 0 12 12" fill="currentColor">
-              <path d="M6 1L1 3.5v3C1 9.5 3.3 11.7 6 12c2.7-.3 5-2.5 5-5.5v-3L6 1Z" />
-            </svg>
-            {b.label}
-          </span>
-        ))}
       </div>
     </section>
   );

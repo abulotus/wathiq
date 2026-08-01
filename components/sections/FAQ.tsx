@@ -8,76 +8,100 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const faqs = {
   en: [
     {
-      q: 'What is digital identity verification and why does my business need it?',
-      a: 'Digital identity verification is the process of confirming that a person is who they claim to be online — using document checks, biometric matching, and behavioural signals. Businesses in finance, e-commerce, healthcare, and government use it to prevent fraud, meet KYC/AML regulations, and build trusted customer relationships from the very first interaction.',
+      q: 'What does Wathiq verify?',
+      a: "For the Syrian market, Wathiq reads the PDF417 barcode on the Syrian national ID card and the older (non-electronic) Syrian passport, and verifies electronic passports for Syrian citizens and 140 countries worldwide. An organisation initiates a verification, the applicant completes document and biometric capture through Wathiq's mobile experience, and a decision — accepted, in review, or rejected — is returned to the organisation.",
     },
     {
-      q: 'How quickly can we integrate WATHIQ into our existing platform?',
-      a: 'Most integrations are live within 24–48 hours. We provide a RESTful API, pre-built SDKs for all major languages, a no-code configuration dashboard, and a full sandbox environment for testing. Our integration team provides dedicated support from day one — no lengthy procurement cycles or months of setup.',
+      q: 'Which ePassports are supported?',
+      a: 'Wathiq supports electronic passports issued by 140 countries, including EU member states, the United States, and most Middle Eastern countries, alongside the Syrian national ID card and older Syrian passport. Support can depend on the specific document version, so if you need to confirm a particular country or document, contact our team.',
     },
     {
-      q: 'Which countries and regions does WATHIQ serve?',
-      a: 'We are headquartered in London (UK) with a primary focus on the Middle East and North Africa region — including Saudi Arabia, UAE, Egypt, Jordan, Iraq, and the wider GCC. Our platform is built to handle the regulatory, linguistic, and document requirements across these markets, with English and Arabic support throughout.',
+      q: 'Does Wathiq check biometrics, not just documents?',
+      a: "Yes. Alongside document data extraction (OCR) and barcode validation, Wathiq performs a biometric liveness check and matches the applicant's face against their document photo as part of the verification.",
     },
     {
-      q: 'What compliance and regulatory standards does WATHIQ align with?',
-      a: 'WATHIQ is built with compliance by design. Our platform aligns with GDPR (EU), UK data protection law, and major regional frameworks. We apply AES-256 encryption for data at rest, TLS 1.3 for all data in transit, and our processes are structured around KYC, AML, and eKYC requirements common across MENA financial regulators.',
+      q: 'Is the experience available in Arabic?',
+      a: 'Yes. Wathiq is Arabic-first — the interface, verification journey, and client dashboard are all available in Arabic, with a right-to-left experience designed as a first-class product, not a translated afterthought.',
     },
     {
-      q: "How is our data and our customers' data protected?",
-      a: 'Security is not an afterthought — it is the foundation of everything we build. All data is encrypted at rest (AES-256) and in transit (TLS 1.3). We follow a zero-trust architecture, apply strict data minimisation principles, and maintain clear data residency controls. We do not sell or share customer data with third parties.',
+      q: 'How does API integration work?',
+      a: 'You connect your systems to Wathiq through our API to initiate verifications and retrieve results. Contact our team to request API access and documentation.',
     },
     {
-      q: 'Can WATHIQ work for our specific industry?',
-      a: 'Yes. We serve financial services, e-commerce, telecommunications, healthcare, government, and enterprise clients. Each industry has distinct verification requirements, regulatory obligations, and risk profiles — and our platform is configurable to meet them. Speak with our team for a vertical-specific assessment.',
+      q: 'What information is provided through webhooks?',
+      a: 'Wathiq sends webhook notifications so your systems are updated as a verification\'s status changes, without needing to poll the API.',
     },
     {
-      q: 'Is there a demo or trial available before committing?',
-      a: 'Absolutely. We offer a live product demo with a member of our team and access to a full sandbox environment so your technical team can evaluate the API before any commitment. Contact us to arrange a session — typically within 1–2 business days.',
+      q: 'Can results be reviewed in the dashboard?',
+      a: 'Yes. The client dashboard lets your team review verification references, status, and details, and see webhook delivery status for each event.',
     },
     {
-      q: 'What kind of ongoing support does WATHIQ provide?',
-      a: 'Every client receives dedicated onboarding support, access to comprehensive documentation, and direct communication with our technical team. We offer 24/7 monitoring of platform availability, proactive incident notification, and regular check-ins to ensure the integration continues to perform at your required scale.',
+      q: 'What is the role of the mobile application?',
+      a: "Wathiq's mobile application is where the applicant completes the verification journey — document capture, data extraction, and a biometric liveness and face-match check — in Arabic, from start through to a result.",
+    },
+    {
+      q: 'Does Wathiq provide a mobile SDK?',
+      a: "Wathiq does not currently provide a mobile SDK. Business systems can connect through the available API and webhooks, while Wathiq's mobile application provides the supported mobile verification experience.",
+    },
+    {
+      q: 'How is verification information handled?',
+      a: 'We are finalising complete security and privacy documentation covering data handling, retention, and access controls, and will publish it here once verified. Contact us if you need specific answers sooner.',
+    },
+    {
+      q: 'How can an organisation request access?',
+      a: 'Request a demo or contact our team, and we will walk through your verification requirements and how Wathiq can connect to your systems.',
     },
   ],
   ar: [
     {
-      q: 'ما هو التحقق من الهوية الرقمية ولماذا يحتاجه عملي؟',
-      a: 'التحقق من الهوية الرقمية هو عملية التأكد من أن الشخص هو فعلاً من يدّعي أنه هو عبر الإنترنت — باستخدام التحقق من المستندات والمطابقة البيومترية والإشارات السلوكية. تستخدمه الشركات في مجالات المال والتجارة الإلكترونية والرعاية الصحية والحكومة لمنع الاحتيال والامتثال لمتطلبات KYC/AML وبناء علاقات موثوقة مع العملاء منذ أول تفاعل.',
+      q: 'ما الذي يتحقق منه واثق؟',
+      a: 'للسوق السورية، يقرأ واثق باركود PDF417 على بطاقة الهوية الوطنية السورية وجواز السفر السوري القديم (غير الإلكتروني)، ويتحقق من جوازات السفر الإلكترونية للمواطنين السوريين ولـ140 دولة حول العالم. تبدأ المؤسسة عملية تحقق، ويكمل المتقدّم التقاط الوثيقة والبيانات الحيوية عبر تجربة واثق للجوال، ثم يصل قرار — مقبول أو قيد المراجعة أو مرفوض — إلى المؤسسة.',
     },
     {
-      q: 'كم يستغرق التكامل مع واثق؟',
-      a: 'معظم عمليات التكامل تكون جاهزة للعمل خلال 24–48 ساعة. نوفر REST API وحزم SDK جاهزة لجميع اللغات الرئيسية، ولوحة تحكم بدون كود لإعدادات الإطار، وبيئة اختبار كاملة. يقدم فريق التكامل لدينا دعماً مخصصاً من اليوم الأول.',
+      q: 'ما جوازات السفر الإلكترونية المدعومة؟',
+      a: 'يدعم واثق جوازات السفر الإلكترونية الصادرة عن 140 دولة، منها دول الاتحاد الأوروبي والولايات المتحدة ومعظم دول الشرق الأوسط، إلى جانب بطاقة الهوية الوطنية السورية وجواز السفر السوري القديم. قد يعتمد الدعم على إصدار الوثيقة تحديداً، فإذا احتجت إلى تأكيد دعم دولة أو وثيقة معينة، تواصل مع فريقنا.',
     },
     {
-      q: 'ما الدول والمناطق التي تخدمها واثق؟',
-      a: 'مقرنا في لندن (المملكة المتحدة) مع تركيز أساسي على منطقة الشرق الأوسط وشمال أفريقيا — بما فيها السعودية والإمارات ومصر والأردن والعراق ودول الخليج العربي. تم بناء منصتنا لتلبية المتطلبات التنظيمية واللغوية والوثائقية في هذه الأسواق، مع دعم كامل للعربية والإنجليزية.',
+      q: 'هل يفحص واثق البيانات الحيوية وليس المستندات فقط؟',
+      a: 'نعم. إلى جانب استخراج بيانات المستند (OCR) والتحقق من الباركود، يجري واثق فحصاً حيوياً للتحقق من الحيوية ومطابقة وجه المتقدّم مع صورته في المستند كجزء من عملية التحقق.',
     },
     {
-      q: 'ما معايير الامتثال التي يتوافق معها واثق؟',
-      a: 'بُني واثق بالامتثال كأساس. منصتنا متوافقة مع GDPR (الاتحاد الأوروبي) وقانون حماية البيانات البريطاني والأطر الإقليمية الرئيسية. نطبق تشفير AES-256 للبيانات المخزنة وTLS 1.3 لجميع البيانات المنقولة، وعملياتنا مبنية حول متطلبات KYC وAML وeKYC الشائعة لدى الجهات التنظيمية المالية في منطقة الشرق الأوسط.',
+      q: 'هل التجربة متوفرة باللغة العربية؟',
+      a: 'نعم. واثق منصة عربية أولاً — الواجهة ورحلة التحقق ولوحة تحكم العملاء متوفرة جميعها باللغة العربية، مع تجربة من اليمين إلى اليسار مصممة كميزة أساسية في المنتج، لا كترجمة لاحقة.',
     },
     {
-      q: 'كيف تُحمى بياناتنا وبيانات عملائنا؟',
-      a: 'الأمن ليس فكرة لاحقة — بل هو الأساس الذي نبني عليه كل شيء. جميع البيانات مشفرة في حالة السكون (AES-256) وفي حالة النقل (TLS 1.3). نتبع معمارية الثقة الصفرية، ونطبق مبادئ الحد الأدنى من البيانات، ونحافظ على ضوابط واضحة لإقامة البيانات. لا نبيع أو نشارك بيانات العملاء مع أطراف ثالثة.',
+      q: 'كيف يعمل التكامل عبر API؟',
+      a: 'تربط أنظمتك بواثق من خلال واجهة برمجة التطبيقات لبدء عمليات التحقق واسترجاع النتائج. تواصل مع فريقنا لطلب الوصول إلى API والتوثيق الخاص به.',
     },
     {
-      q: 'هل تعمل منصة واثق مع قطاعنا المحدد؟',
-      a: 'نعم. نخدم عملاء في الخدمات المالية والتجارة الإلكترونية والاتصالات والرعاية الصحية والحكومة والمؤسسات الكبرى. لكل قطاع متطلبات تحقق وإلزامات تنظيمية وملفات مخاطر مختلفة — ومنصتنا قابلة للتهيئة لتلبيتها. تحدث مع فريقنا للحصول على تقييم خاص بقطاعك.',
+      q: 'ما المعلومات التي تصل عبر Webhooks؟',
+      a: 'يرسل واثق إشعارات Webhook لتحديث أنظمتك عند تغيّر حالة عملية التحقق، دون الحاجة إلى استعلام API بشكل متكرر.',
     },
     {
-      q: 'هل يتوفر عرض توضيحي أو تجربة مجانية؟',
-      a: 'بالتأكيد. نقدم عرضاً تجريبياً حياً مع أحد أعضاء فريقنا وإمكانية الوصول إلى بيئة اختبار كاملة لتمكين فريقك التقني من تقييم API قبل أي التزام. تواصل معنا لترتيب جلسة — عادةً خلال 1–2 أيام عمل.',
+      q: 'هل يمكن مراجعة النتائج عبر لوحة التحكم؟',
+      a: 'نعم. تتيح لوحة تحكم العملاء لفريقك مراجعة مراجع التحقق وحالتها وتفاصيلها، ومتابعة حالة تسليم إشعارات Webhook لكل عملية.',
     },
     {
-      q: 'ما نوع الدعم المستمر الذي يقدمه واثق؟',
-      a: 'يحصل كل عميل على دعم تأهيل مخصص والوصول إلى توثيق شامل والتواصل المباشر مع فريقنا التقني. نوفر مراقبة على مدار الساعة لتوفر المنصة وإشعاراً فورياً بالحوادث واجتماعات دورية لضمان استمرار أداء التكامل بالحجم المطلوب.',
+      q: 'ما دور التطبيق الجوال؟',
+      a: 'يُكمل المتقدّم عبر تطبيق واثق للجوال رحلة التحقق — التقاط الوثيقة واستخراج البيانات وفحص حيوي للتحقق من الحيوية ومطابقة الوجه — باللغة العربية، من البداية وحتى صدور النتيجة.',
+    },
+    {
+      q: 'هل يوفر واثق SDK للجوال؟',
+      a: 'لا يوفر واثق حالياً SDK للجوال. يمكن لأنظمة الأعمال الاتصال عبر API وWebhooks المتاحة، بينما يوفر تطبيق واثق للجوال تجربة التحقق المدعومة عبر الهاتف.',
+    },
+    {
+      q: 'كيف تُعالَج معلومات التحقق؟',
+      a: 'نعمل على استكمال توثيق كامل للأمان والخصوصية يغطي التعامل مع البيانات والاحتفاظ بها وضوابط الوصول، وسننشره هنا فور التحقق منه. تواصل معنا إن احتجت إجابات محددة بشكل أسرع.',
+    },
+    {
+      q: 'كيف يمكن لمؤسسة طلب الوصول؟',
+      a: 'اطلب عرضاً تجريبياً أو تواصل مع فريقنا، وسنستعرض معك متطلبات التحقق لديك وكيفية ربط واثق بأنظمتك.',
     },
   ],
 };
 
 export default function FAQ() {
-  const { isRTL } = useLanguage();
+  const { isRTL, href } = useLanguage();
   const [open, setOpen] = useState<number | null>(null);
   const items = isRTL ? faqs.ar : faqs.en;
 
@@ -133,7 +157,7 @@ export default function FAQ() {
           <p className="text-slate-500 text-sm">
             {isRTL ? 'لم تجد إجابة لسؤالك؟' : "Didn't find what you were looking for?"}
             {' '}
-            <a href="/contact" className="text-electric-600 font-semibold hover:underline">
+            <a href={href('/contact')} className="text-electric-600 font-semibold hover:underline">
               {isRTL ? 'تواصل مع فريقنا' : 'Talk to our team'}
             </a>
           </p>

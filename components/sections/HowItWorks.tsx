@@ -17,13 +17,13 @@ const steps = [
     glow: 'shadow-[0_0_30px_rgba(37,99,235,0.35)]',
     en: {
       title: 'Integrate',
-      desc: 'Connect via our RESTful API or pre-built SDKs. Full documentation, sandbox environment, and dedicated support from day one.',
-      detail: 'REST API · SDKs · Webhooks',
+      desc: 'Connect your systems to Wathiq through our API. Receive verification results and status updates through webhook notifications.',
+      detail: 'API · Webhooks',
     },
     ar: {
       title: 'التكامل',
-      desc: 'تكامل سريع عبر REST API أو SDKs جاهزة للاستخدام. توثيق شامل وبيئة اختبار ودعم فني من اليوم الأول.',
-      detail: 'REST API · SDKs · Webhooks',
+      desc: 'اربط أنظمتك بواثق من خلال واجهة برمجة التطبيقات. استلم نتائج التحقق وتحديثات الحالة عبر إشعارات Webhook.',
+      detail: 'API · Webhooks',
     },
   },
   {
@@ -36,14 +36,14 @@ const steps = [
     gradient: 'from-teal-500 to-teal-600',
     glow: 'shadow-[0_0_30px_rgba(20,184,166,0.35)]',
     en: {
-      title: 'Configure',
-      desc: 'Define your verification flows, risk thresholds, and compliance rules through our no-code dashboard or configuration API.',
-      detail: 'No-code dashboard · Rules engine · Compliance',
+      title: 'Verify',
+      desc: 'Your user completes the supported ePassport verification journey through Wathiq\'s Arabic-first mobile experience.',
+      detail: 'Mobile app · Arabic-first',
     },
     ar: {
-      title: 'الإعداد',
-      desc: 'حدد مسارات التحقق وقواعد المخاطر ومتطلبات الامتثال من خلال لوحة التحكم بدون كود أو عبر API الإعداد.',
-      detail: 'لوحة تحكم · محرك قواعد · امتثال',
+      title: 'التحقق',
+      desc: 'يكمل المستخدم رحلة التحقق من جواز السفر الإلكتروني المدعوم عبر تجربة واثق للجوال ذات الواجهة العربية.',
+      detail: 'تطبيق الجوال · واجهة عربية',
     },
   },
   {
@@ -56,14 +56,14 @@ const steps = [
     gradient: 'from-indigo-500 to-purple-600',
     glow: 'shadow-[0_0_30px_rgba(99,102,241,0.35)]',
     en: {
-      title: 'Go Live',
-      desc: 'Deploy with confidence. Real-time identity verification, fraud detection, and trust scoring running at enterprise scale.',
-      detail: 'Real-time · 99.9% uptime · Enterprise scale',
+      title: 'Manage',
+      desc: 'Review verification activity and results through the client dashboard, and receive webhook notifications as they happen.',
+      detail: 'Client dashboard · Webhook status',
     },
     ar: {
-      title: 'الإطلاق',
-      desc: 'انشر بثقة تامة. التحقق من الهوية في الوقت الفعلي وكشف الاحتيال وتسجيل الثقة على نطاق المؤسسات.',
-      detail: 'وقت فعلي · 99.9% جاهزية · نطاق مؤسسي',
+      title: 'الإدارة',
+      desc: 'راجع نشاط التحقق ونتائجه عبر لوحة تحكم العملاء، واستلم إشعارات Webhook فور حدوثها.',
+      detail: 'لوحة تحكم العملاء · حالة Webhook',
     },
   },
 ];
@@ -72,7 +72,7 @@ export default function HowItWorks() {
   const { isRTL } = useLanguage();
 
   return (
-    <section className="section-pad bg-navy-950 relative overflow-hidden">
+    <section id="how-it-works" className="section-pad bg-navy-950 relative overflow-hidden scroll-mt-20">
       <div className="absolute inset-0 grid-mesh opacity-20" />
       <TechBackground variant="dark" />
       {/* Radial gradient blobs — fade to transparent so overflow-hidden doesn't create a hard cut */}
@@ -85,12 +85,12 @@ export default function HowItWorks() {
         <AnimatedSection className={`max-w-2xl mx-auto text-center mb-16 sm:mb-20`}>
           <SectionTag label={isRTL ? 'كيف يعمل واثق' : 'How It Works'} variant="white" />
           <h2 className="heading-lg text-white mt-4">
-            {isRTL ? 'ثلاث خطوات إلى الثقة الرقمية' : 'Three Steps to Digital Trust'}
+            {isRTL ? 'ثلاث خطوات إلى التحقق' : 'Three Steps to Verification'}
           </h2>
           <p className="body-lg text-slate-400 mt-4 max-w-xl mx-auto">
             {isRTL
-              ? 'من التكامل إلى الإنتاج في أيام، وليس أشهر.'
-              : 'From integration to production in days, not months.'}
+              ? 'من التكامل إلى النتيجة في لوحة التحكم.'
+              : 'From integration to a result in your client dashboard.'}
           </p>
         </AnimatedSection>
 
@@ -139,8 +139,8 @@ export default function HowItWorks() {
             <div className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
             <span className="text-slate-400 text-sm">
               {isRTL
-                ? 'متوسط وقت التكامل: أقل من 48 ساعة'
-                : 'Average integration time: under 48 hours'}
+                ? 'API وWebhooks ولوحة تحكم — متصلة من طرف إلى طرف'
+                : 'API, webhooks, and a client dashboard — connected end to end'}
             </span>
           </div>
         </AnimatedSection>

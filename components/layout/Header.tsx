@@ -6,13 +6,24 @@ import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import WathiqLogo from '@/components/ui/WathiqLogo';
 
+const navItems = [
+  { path: '/platform', en: 'Platform', ar: 'المنصة' },
+  { path: '/epassport-coverage', en: 'ePassport Coverage', ar: 'تغطية الجوازات' },
+  { path: '/developers', en: 'Developers', ar: 'المطورون' },
+  { path: '/client-dashboard', en: 'Client Dashboard', ar: 'لوحة التحكم' },
+  { path: '/mobile-app', en: 'Mobile App', ar: 'تطبيق الجوال' },
+  { path: '/security', en: 'Security', ar: 'الأمان' },
+  { path: '/company', en: 'Company', ar: 'الشركة' },
+];
+
 export default function Header() {
-  const { t, toggleLanguage, isRTL } = useLanguage();
+  const { isRTL, href, otherLocaleHref } = useLanguage();
   const [solidBg, setSolidBg] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
 
-  const isHomePage = pathname === '/';
+  const homeHref = href('/');
+  const isHomePage = pathname === homeHref;
 
   useEffect(() => {
     let rafId: number;
@@ -33,17 +44,13 @@ export default function Header() {
     return () => { document.body.classList.remove('overflow-hidden'); };
   }, [mobileOpen]);
 
-  const navLinks = [
-    { href: '/', label: t.nav.home },
-    { href: '/solutions', label: t.nav.solutions },
-    { href: '/industries', label: t.nav.industries },
-    { href: '/security', label: t.nav.security },
-    { href: '/partnership', label: t.nav.partnership },
-    { href: '/contact', label: t.nav.contact },
-  ];
-
-  const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
+  const isActive = (path: string) => pathname.startsWith(href(path));
   const dark = !solidBg;
+
+  function switchLanguage() {
+    const target = otherLocaleHref(pathname);
+    document.cookie = `wathiq-lang=${target.startsWith('/ar') ? 'ar' : 'en'};path=/;max-age=31536000;samesite=lax`;
+  }
 
   return (
     <>
@@ -55,42 +62,51 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
 
-            <Link href="/" className="flex-shrink-0 z-10">
+            <Link href={homeHref} className="flex-shrink-0 z-10">
               <WathiqLogo variant={dark ? 'light' : 'dark'} size="md" />
             </Link>
 
             <nav className="hidden lg:flex items-center gap-0.5">
-              {navLinks.map((link) => (
+              {navItems.map((item) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 whitespace-nowrap ${
-                    isActive(link.href)
+                  key={item.path}
+                  href={href(item.path)}
+                  className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors duration-150 whitespace-nowrap ${
+                    isActive(item.path)
                       ? dark ? 'text-white bg-white/15' : 'text-electric-600 bg-electric-50'
                       : dark ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                   }`}
                 >
-                  {link.label}
+                  {isRTL ? item.ar : item.en}
                 </Link>
               ))}
             </nav>
 
             <div className="hidden lg:flex items-center gap-3">
-              <button
-                onClick={toggleLanguage}
+              <Link
+                href={otherLocaleHref(pathname)}
+                onClick={switchLanguage}
                 className={`px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors duration-150 ${
                   dark
                     ? 'text-white/80 hover:text-white border-white/25 hover:border-white/50'
                     : 'text-slate-600 hover:text-slate-900 border-slate-200 hover:border-slate-300 bg-white'
                 }`}
               >
-                {t.nav.switchLang}
-              </button>
+                {isRTL ? 'English' : 'العربية'}
+              </Link>
+              <a
+                href="#"
+                className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors duration-150 ${
+                  dark ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                }`}
+              >
+                {isRTL ? 'دخول العملاء' : 'Client Login'}
+              </a>
               <Link
-                href="/contact"
+                href={href('/contact')}
                 className="px-5 py-2 rounded-lg text-sm font-semibold bg-electric-500 text-white hover:bg-electric-600 transition-colors duration-150 shadow-sm"
               >
-                {t.nav.getStarted}
+                {isRTL ? 'اطلب عرضاً تجريبياً' : 'Request a Demo'}
               </Link>
             </div>
 
@@ -110,7 +126,6 @@ export default function Header() {
       </header>
 
       {/* Mobile menu — CSS only, no framer-motion */}
-      {/* Backdrop */}
       <div
         className={`fixed inset-0 z-40 bg-navy-950/60 lg:hidden transition-opacity duration-200 ${
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
@@ -118,7 +133,6 @@ export default function Header() {
         onClick={() => setMobileOpen(false)}
       />
 
-      {/* Slide panel */}
       <div
         className={`fixed top-0 z-50 w-72 h-full bg-white shadow-2xl flex flex-col lg:hidden transition-transform duration-300 ease-in-out ${
           isRTL ? 'left-0' : 'right-0'
@@ -140,34 +154,42 @@ export default function Header() {
         </div>
 
         <nav className="flex-1 overflow-y-auto py-4 px-3">
-          {navLinks.map((link) => (
+          {navItems.map((item) => (
             <Link
-              key={link.href}
-              href={link.href}
+              key={item.path}
+              href={href(item.path)}
               onClick={() => setMobileOpen(false)}
               className={`flex items-center px-4 py-3 rounded-xl text-sm font-medium mb-1 transition-colors ${
-                isActive(link.href) ? 'text-electric-600 bg-electric-50' : 'text-slate-700 hover:bg-slate-50'
+                isActive(item.path) ? 'text-electric-600 bg-electric-50' : 'text-slate-700 hover:bg-slate-50'
               }`}
             >
-              {link.label}
+              {isRTL ? item.ar : item.en}
             </Link>
           ))}
+          <a
+            href="#"
+            onClick={() => setMobileOpen(false)}
+            className="flex items-center px-4 py-3 rounded-xl text-sm font-medium mb-1 text-slate-700 hover:bg-slate-50"
+          >
+            {isRTL ? 'دخول العملاء' : 'Client Login'}
+          </a>
         </nav>
 
         <div className="p-4 border-t border-slate-100 space-y-3">
           <Link
-            href="/contact"
+            href={href('/contact')}
             onClick={() => setMobileOpen(false)}
             className="flex items-center justify-center w-full px-5 py-3 bg-electric-500 text-white text-sm font-semibold rounded-xl hover:bg-electric-600 transition-colors"
           >
-            {t.nav.getStarted}
+            {isRTL ? 'اطلب عرضاً تجريبياً' : 'Request a Demo'}
           </Link>
-          <button
-            onClick={() => { toggleLanguage(); setMobileOpen(false); }}
+          <Link
+            href={otherLocaleHref(pathname)}
+            onClick={() => { switchLanguage(); setMobileOpen(false); }}
             className="flex items-center justify-center w-full px-5 py-2.5 border border-slate-200 text-slate-600 text-sm font-medium rounded-xl hover:bg-slate-50 transition-colors"
           >
-            {t.nav.switchLang}
-          </button>
+            {isRTL ? 'English' : 'العربية'}
+          </Link>
         </div>
       </div>
     </>

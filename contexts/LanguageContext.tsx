@@ -1,63 +1,51 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
+import React, { createContext, useContext, useMemo, useCallback } from 'react';
 import { translations, Language, Translations } from '@/lib/translations';
 
 interface LanguageContextType {
   language: Language;
-  setLanguage: (lang: Language) => void;
+  locale: Language;
   t: Translations;
   isRTL: boolean;
-  toggleLanguage: () => void;
+  /** Build a same-locale href for an internal path, e.g. href('/contact') -> '/en/contact'. */
+  href: (path: string) => string;
+  /** Path to the current page under the other locale, for the language switcher. */
+  otherLocaleHref: (currentPathname: string) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-/** Persist the choice so the server can render the correct lang/dir on the next request. */
-function persistLanguage(lang: Language) {
-  localStorage.setItem('wathiq-lang', lang);
-  // 1-year cookie, read server-side in app/layout.tsx to avoid first-paint flash.
-  document.cookie = `wathiq-lang=${lang};path=/;max-age=31536000;samesite=lax`;
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-}
-
 export function LanguageProvider({
   children,
-  initialLanguage = 'en',
+  locale,
 }: {
   children: React.ReactNode;
-  initialLanguage?: Language;
+  locale: Language;
 }) {
-  const [language, setLanguageState] = useState<Language>(initialLanguage);
+  const isRTL = locale === 'ar';
+  const t = translations[locale];
 
-  const setLanguage = useCallback((lang: Language) => {
-    setLanguageState(lang);
-    persistLanguage(lang);
-  }, []);
+  const href = useCallback(
+    (path: string) => {
+      const clean = path === '/' ? '' : path;
+      return `/${locale}${clean}`;
+    },
+    [locale]
+  );
 
-  const toggleLanguage = useCallback(() => {
-    setLanguageState(prev => {
-      const next = prev === 'en' ? 'ar' : 'en';
-      persistLanguage(next);
-      return next;
-    });
-  }, []);
-
-  // Reconcile with a stored preference that predates the cookie (e.g. localStorage only).
-  useEffect(() => {
-    const stored = localStorage.getItem('wathiq-lang') as Language | null;
-    if (stored && (stored === 'en' || stored === 'ar') && stored !== initialLanguage) {
-      setLanguage(stored);
-    }
-  }, [setLanguage, initialLanguage]);
-
-  const isRTL = language === 'ar';
-  const t = translations[language];
+  const otherLocaleHref = useCallback(
+    (currentPathname: string) => {
+      const other: Language = locale === 'en' ? 'ar' : 'en';
+      const withoutLocale = currentPathname.replace(/^\/(en|ar)/, '') || '';
+      return `/${other}${withoutLocale}`;
+    },
+    [locale]
+  );
 
   const value = useMemo(
-    () => ({ language, setLanguage, t, isRTL, toggleLanguage }),
-    [language, setLanguage, t, isRTL, toggleLanguage]
+    () => ({ language: locale, locale, t, isRTL, href, otherLocaleHref }),
+    [locale, t, isRTL, href, otherLocaleHref]
   );
 
   return (

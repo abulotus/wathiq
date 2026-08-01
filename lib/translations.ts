@@ -16,20 +16,20 @@ export const translations = {
 
     // Hero
     hero: {
-      badge: 'Enterprise Identity Verification',
-      headline1: 'Identity Verification & Digital Trust Solutions',
-      headline2: 'for Regulated Organisations',
-      subheadline: 'Verify identities, reduce fraud, and streamline onboarding for banks, universities, government agencies, and enterprises.',
-      cta1: 'Book a Demo',
-      cta2: 'Talk to Sales',
+      badge: 'ePassport Verification',
+      headline1: 'Arabic-first ePassport verification',
+      headline2: 'for Syria and beyond.',
+      subheadline: "Verify supported electronic passports, manage results through a central client dashboard and connect your systems using Wathiq's API and webhooks — all through an Arabic-first, cross-platform experience.",
+      cta1: 'Request a Demo',
+      cta2: 'See How It Works',
     },
 
     // Introduction
     // About
     about: {
       tag: 'Our Company',
-      title: 'Technology Built for the Region',
-      body: 'We are a UK-registered technology company focused on helping organisations across the Middle East and beyond adopt secure digital solutions. Our mission is to simplify digital trust by providing businesses with reliable tools and modern approaches to identity, security, and customer protection.',
+      title: 'Built for the Syrian Market',
+      body: 'Wathiq is an Arabic-first ePassport verification platform, designed for the Syrian market and connected internationally. We are registered in the United Kingdom, and our mission is to make ePassport verification, Arabic-language customer experience, and system integration straightforward for organisations that need them.',
       mission: {
         title: 'Our Mission',
         body: 'Enable businesses to deliver secure and seamless digital experiences.',
@@ -57,42 +57,14 @@ export const translations = {
         subtitle: 'Modern identity and security technologies designed for businesses across the Middle East and beyond.',
       },
       identity: {
-        tag: 'Identity',
-        title: 'Know Your Customers. Build Trust.',
-        body: 'Digital identity solutions help organizations create secure customer journeys while reducing risks associated with online interactions.',
+        tag: 'ePassport Verification',
+        title: 'Verify Supported Electronic Passports',
+        body: 'Wathiq verifies supported electronic passports and returns a result your organisation can act on — connected to your systems through an API and a client dashboard.',
         features: [
           'Customer Identity Verification',
-          'Digital Onboarding Frameworks',
-          'Identity Lifecycle Management',
-          'Secure Access Solutions',
-          'Multi-Factor Authentication',
-          'Biometric Integration Concepts',
-        ],
-      },
-      fraud: {
-        tag: 'Fraud Prevention',
-        title: 'Protect Your Business From Digital Risks',
-        body: 'Online fraud continues to evolve. Businesses need smarter ways to identify risks and protect their customers from sophisticated threats.',
-        features: [
-          'Fraud Risk Management',
-          'Suspicious Activity Awareness',
-          'Account Security Frameworks',
-          'Digital Protection Strategies',
-          'Risk Scoring Models',
-          'Behavioral Analysis Approaches',
-        ],
-      },
-      business: {
-        tag: 'Business Verification',
-        title: 'Create Trusted Business Networks',
-        body: 'Organizations need confidence when working with customers, suppliers, and partners. Establish trust at every business interaction.',
-        features: [
-          'Business Identity Verification',
-          'Partner Due Diligence',
-          'Trust Framework Design',
-          'Secure Business Ecosystems',
+          'Digital Onboarding Journeys',
+          'Secure Document Handling',
           'Document Verification',
-          'Compliance Support',
         ],
       },
     },
@@ -224,7 +196,7 @@ export const translations = {
         },
         solutions: {
           title: 'Solutions',
-          items: ['Digital Identity', 'Fraud Prevention', 'Business Verification'],
+          items: ['ePassport Verification'],
         },
         industries: {
           title: 'Industries',
@@ -235,7 +207,7 @@ export const translations = {
           items: ['Privacy Policy', 'Terms of Service', 'Cookie Policy'],
         },
       },
-      copyright: '© 2025 Wathiq Digital Technologies. All rights reserved.',
+      copyright: 'Wathiq Digital Technologies. All rights reserved.',
     },
   },
 
@@ -252,18 +224,18 @@ export const translations = {
     },
 
     hero: {
-      badge: 'التحقق من الهوية للمؤسسات',
-      headline1: 'حلول التحقق من الهوية والثقة الرقمية',
-      headline2: 'للمؤسسات والشركات',
-      subheadline: 'تحقق من الهويات، وقلل الاحتيال، وبسّط عملية الإعداد للبنوك والجامعات والجهات الحكومية والشركات.',
-      cta1: 'احجز عرضاً تجريبياً',
-      cta2: 'تحدث إلى فريق المبيعات',
+      badge: 'التحقق من جوازات السفر الإلكترونية',
+      headline1: 'تحقّق من جوازات السفر الإلكترونية',
+      headline2: 'بواجهة عربية',
+      subheadline: 'تمكّن واثق المؤسسات من التحقق من جوازات السفر الإلكترونية المدعومة، ومتابعة النتائج عبر لوحة تحكم مركزية، وربط الأنظمة من خلال واجهة برمجة التطبيقات وإشعارات Webhook.',
+      cta1: 'اطلب عرضاً تجريبياً',
+      cta2: 'شاهد كيف يعمل',
     },
 
     about: {
       tag: 'شركتنا',
-      title: 'تقنية مبنية للاحتياجات المحلية',
-      body: 'نحن شركة تقنية مسجلة في المملكة المتحدة، متخصصة في مساعدة المؤسسات في الشرق الأوسط وما وراءه على تبني حلول رقمية آمنة. مهمتنا هي تبسيط الثقة الرقمية من خلال توفير أدوات موثوقة ومناهج حديثة في الهوية والأمن وحماية العملاء.',
+      title: 'منصة بُنيت للسوق السورية',
+      body: 'واثق منصة عربية أولاً للتحقق من جوازات السفر الإلكترونية المدعومة، مصممة للسوق السورية ومتصلة عالمياً. الشركة مسجلة في المملكة المتحدة، ومهمتنا هي تبسيط التحقق من جوازات السفر الإلكترونية، وتجربة العملاء بالعربية، وربط الأنظمة للمؤسسات التي تحتاجها.',
       mission: {
         title: 'مهمتنا',
         body: 'تمكين الشركات من تقديم تجارب رقمية آمنة وسلسة.',
@@ -290,42 +262,14 @@ export const translations = {
         subtitle: 'تقنيات هوية وأمن حديثة مصممة للشركات في الشرق الأوسط وما وراءه.',
       },
       identity: {
-        tag: 'الهوية الرقمية',
-        title: 'اعرف عملاءك. ابنِ الثقة.',
-        body: 'تساعد حلول الهوية الرقمية المؤسسات على إنشاء رحلات عميل آمنة مع تقليل المخاطر المرتبطة بالتفاعلات عبر الإنترنت.',
+        tag: 'التحقق من جوازات السفر الإلكترونية',
+        title: 'تحقّق من جوازات السفر الإلكترونية المدعومة',
+        body: 'يتحقق واثق من جوازات السفر الإلكترونية المدعومة ويعيد نتيجة يمكن لمؤسستك التعامل معها — متصلة بأنظمتك عبر واجهة برمجة تطبيقات ولوحة تحكم للعملاء.',
         features: [
           'التحقق من هوية العملاء',
-          'أطر الإعداد الرقمي',
-          'إدارة دورة حياة الهوية',
-          'حلول الوصول الآمن',
-          'المصادقة متعددة العوامل',
-          'مفاهيم التكامل البيومتري',
-        ],
-      },
-      fraud: {
-        tag: 'منع الاحتيال',
-        title: 'احمِ عملك من المخاطر الرقمية',
-        body: 'يتطور الاحتيال الإلكتروني باستمرار. تحتاج الشركات إلى طرق أكثر ذكاءً لتحديد المخاطر وحماية عملائها من التهديدات المتطورة.',
-        features: [
-          'إدارة مخاطر الاحتيال',
-          'الوعي بالنشاط المشبوه',
-          'أطر أمن الحسابات',
-          'استراتيجيات الحماية الرقمية',
-          'نماذج تقييم المخاطر',
-          'مناهج التحليل السلوكي',
-        ],
-      },
-      business: {
-        tag: 'التحقق من الأعمال',
-        title: 'أنشئ شبكات أعمال موثوقة',
-        body: 'تحتاج المؤسسات إلى الثقة عند التعامل مع العملاء والموردين والشركاء. أرسِ الثقة في كل تفاعل تجاري.',
-        features: [
-          'التحقق من هوية الأعمال',
-          'العناية الواجبة بالشركاء',
-          'تصميم إطار الثقة',
-          'بيئات الأعمال الآمنة',
+          'رحلات الإعداد الرقمي',
+          'التعامل الآمن مع الوثائق',
           'التحقق من الوثائق',
-          'دعم الامتثال',
         ],
       },
     },
@@ -452,7 +396,7 @@ export const translations = {
         },
         solutions: {
           title: 'الحلول',
-          items: ['الهوية الرقمية', 'منع الاحتيال', 'التحقق من الأعمال'],
+          items: ['التحقق من جوازات السفر الإلكترونية'],
         },
         industries: {
           title: 'القطاعات',
@@ -463,7 +407,7 @@ export const translations = {
           items: ['سياسة الخصوصية', 'شروط الخدمة', 'سياسة الكوكيز'],
         },
       },
-      copyright: '© 2025 واثق للتقنيات الرقمية. جميع الحقوق محفوظة.',
+      copyright: 'واثق للتقنيات الرقمية. جميع الحقوق محفوظة.',
     },
   },
 };

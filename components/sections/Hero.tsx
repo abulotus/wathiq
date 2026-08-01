@@ -88,11 +88,11 @@ function HeroIllustration({ isRTL }: { isRTL: boolean }) {
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
           <span className="text-white font-semibold text-xs whitespace-nowrap">
-            {isRTL ? 'تم حجب الاحتيال' : 'Fraud Blocked'}
+            {isRTL ? 'تم إرسال النتيجة' : 'Result Delivered'}
           </span>
         </div>
         <div className="text-white/55 text-xs mt-1">
-          {isRTL ? 'درجة المخاطرة: منخفضة' : 'Risk score: Low'}
+          {isRTL ? 'عبر Webhook' : 'Via webhook'}
         </div>
       </div>
 
@@ -103,11 +103,11 @@ function HeroIllustration({ isRTL }: { isRTL: boolean }) {
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse flex-shrink-0" />
           <span className="text-white font-semibold text-xs whitespace-nowrap">
-            {isRTL ? 'درجة الثقة: 98%' : 'Trust Score: 98%'}
+            {isRTL ? '140 جواز سفر مدعوم' : '140 ePassports Supported'}
           </span>
         </div>
         <div className="text-white/55 text-xs mt-1">
-          {isRTL ? 'اتصال آمن' : 'Secure connection'}
+          {isRTL ? 'تغطية عالمية' : 'Worldwide coverage'}
         </div>
       </div>
     </div>
@@ -115,7 +115,7 @@ function HeroIllustration({ isRTL }: { isRTL: boolean }) {
 }
 
 export default function Hero() {
-  const { t, isRTL } = useLanguage();
+  const { t, isRTL, href } = useLanguage();
   const h = t.hero;
 
   return (
@@ -187,15 +187,15 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-wrap gap-4"
             >
-              <Link href="/contact" className="btn-primary text-sm sm:text-base px-6 py-3 shadow-glow">
+              <Link href={href('/contact')} className="btn-primary text-sm sm:text-base px-6 py-3 shadow-glow">
                 {h.cta1}
                 <svg className="w-4 h-4 flex-shrink-0 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
-              <Link href="/contact" className="btn-outline-white text-sm sm:text-base px-6 py-3">
+              <a href="#how-it-works" className="btn-outline-white text-sm sm:text-base px-6 py-3">
                 {h.cta2}
-              </Link>
+              </a>
             </motion.div>
 
           </motion.div>

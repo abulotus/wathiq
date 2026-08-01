@@ -29,14 +29,19 @@ export default function SecurityCompliance() {
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto text-center">
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              {isRTL
-                ? 'نطبّق TLS على كل الاتصالات، وتوقيع HMAC-SHA256 وطابعاً زمنياً على إشعارات Webhook، وإلغاء تكرار الأحداث، وصلاحيات مالك/مسؤول منفصلة لإدارة التكامل. تفاصيل إضافية — مواقع الاستضافة وفترات الاحتفاظ بالبيانات — قيد المراجعة النهائية.'
-                : 'We apply TLS on every connection, HMAC-SHA256 signing and a timestamp on webhook notifications, event deduplication, and separate Owner/Admin roles for managing integration. Additional specifics — hosting locations, data retention periods — are in final review.'}
-            </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-10">
+            {(isRTL
+              ? ['TLS على كل اتصال', 'توقيع Webhook بـ HMAC-SHA256', 'إلغاء تكرار الأحداث', 'صلاحيات مالك/مسؤول']
+              : ['TLS on every connection', 'HMAC-SHA256 signed webhooks', 'Event deduplication', 'Owner/Admin roles']
+            ).map((item, i) => (
+              <div key={i} className="bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-center">
+                <span className="text-slate-200 text-xs sm:text-sm font-medium">{item}</span>
+              </div>
+            ))}
+          </div>
 
-            <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="flex flex-wrap items-center justify-center gap-4">
               <a
                 href={href('/security')}
                 className="inline-flex items-center gap-1.5 text-electric-400 font-semibold text-sm hover:text-electric-300 transition-colors"

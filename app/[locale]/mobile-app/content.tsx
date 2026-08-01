@@ -4,11 +4,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import PageHero from '@/components/ui/PageHero';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import Link from 'next/link';
-import { MobileMockup } from '@/components/ui/ProductMockups';
+import { MobileVerifyChecklist } from '@/components/ui/RealProductUI';
 
 const features = {
-  en: ['Arabic interface', 'Clear user instructions', 'Verification progress', 'Result or completion state', 'Accessible error handling'],
-  ar: ['واجهة عربية', 'تعليمات واضحة للمستخدم', 'متابعة تقدّم التحقق', 'حالة النتيجة أو الإكمال', 'معالجة أخطاء يسهل الوصول إليها'],
+  en: ['Arabic interface', 'Guided step-by-step capture', 'NFC chip reading for ePassports', 'Live selfie for biometric matching', 'Clear result state'],
+  ar: ['واجهة عربية', 'التقاط موجَّه خطوة بخطوة', 'قراءة شريحة NFC لجوازات السفر الإلكترونية', 'صورة ذاتية مباشرة للمطابقة البيومترية', 'حالة نتيجة واضحة'],
 };
 
 export default function MobileAppPage() {
@@ -28,9 +28,9 @@ export default function MobileAppPage() {
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
             <AnimatedSection className="flex flex-col items-center">
-              <MobileMockup isRTL={isRTL} />
+              <MobileVerifyChecklist isRTL={isRTL} />
               <p className="text-slate-400 text-xs text-center mt-4">
-                {isRTL ? 'واجهة توضيحية للرحلة، ببيانات افتراضية — وليست لقطة شاشة فعلية.' : "An illustrative recreation of the capture journey, with fictional sample data — not an actual screenshot."}
+                {isRTL ? 'إعادة بناء دقيقة لخطوات رحلة التحقق الفعلية، ببيانات افتراضية.' : "A faithful recreation of the real verification journey's steps, with fictional sample data."}
               </p>
             </AnimatedSection>
 
@@ -46,6 +46,11 @@ export default function MobileAppPage() {
                   </div>
                 ))}
               </div>
+              <p className="text-slate-500 text-sm leading-relaxed mb-4">
+                {isRTL
+                  ? 'للتحقق من جوازات السفر الإلكترونية تحديداً، يقرأ التطبيق شريحة NFC للجواز — وهي قناة الأدلة الأعلى ضماناً، ومتاحة فقط عبر تطبيق واثق للجوال، وليس عبر متصفح الويب.'
+                  : "For ePassport verification specifically, the app reads the passport's NFC chip — the highest-assurance evidence channel, available only through the Wathiq mobile app, not the web browser."}
+              </p>
               <p className="text-slate-500 text-sm leading-relaxed mb-8">
                 {isRTL
                   ? 'واثق لا يوفر حالياً SDK للجوال. تتصل أنظمة الأعمال عبر API وWebhooks المتاحة، بينما يوفر التطبيق تجربة التحقق المدعومة عبر الهاتف.'

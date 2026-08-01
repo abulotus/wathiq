@@ -5,9 +5,8 @@ import Hero from '@/components/sections/Hero';
 import TrustedBy from '@/components/sections/TrustedBy';
 import HowItWorks from '@/components/sections/HowItWorks';
 import PlatformOverview from '@/components/sections/PlatformOverview';
+import ProductShowcase from '@/components/sections/ProductShowcase';
 import ArabicFirstExperience from '@/components/sections/ArabicFirstExperience';
-import ProductPreview from '@/components/sections/ProductPreview';
-import UseCases from '@/components/sections/UseCases';
 import SecurityCompliance from '@/components/sections/SecurityCompliance';
 import FAQ from '@/components/sections/FAQ';
 import FinalCTA from '@/components/sections/FinalCTA';
@@ -36,9 +35,8 @@ export default function HomePage() {
       <TrustedBy />
       <HowItWorks />
       <PlatformOverview />
+      <ProductShowcase />
       <ArabicFirstExperience />
-      <ProductPreview />
-      <UseCases />
       <SecurityCompliance />
       <FAQ />
       <FinalCTA />

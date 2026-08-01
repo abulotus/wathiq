@@ -4,7 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import PageHero from '@/components/ui/PageHero';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import Link from 'next/link';
-import Image from 'next/image';
+import { VerificationChecksCard } from '@/components/ui/RealProductUI';
 
 const features = {
   en: [
@@ -49,19 +49,11 @@ export default function ClientDashboardPage() {
       <section className="section-pad bg-white">
         <div className="container-wide">
           <AnimatedSection className="max-w-4xl mx-auto mb-10">
-            <div className="rounded-2xl border border-slate-200 shadow-xl overflow-hidden">
-              <Image
-                src="/screenshots/national-id-verification-controls.png"
-                alt={isRTL ? 'لقطة شاشة حقيقية من لوحة تحكم واثق تعرض ضوابط التحقق من الهوية الوطنية' : "Real screenshot from the Wathiq dashboard showing National ID verification controls"}
-                width={2260}
-                height={990}
-                className="w-full h-auto"
-              />
-            </div>
+            <VerificationChecksCard isRTL={isRTL} />
             <p className="text-slate-400 text-xs text-center mt-4">
               {isRTL
-                ? 'لقطة شاشة حقيقية من لوحة تحكم واثق (مقصوصة لإزالة بيانات الحساب والحالة الفردية).'
-                : "A real screenshot from the Wathiq dashboard, cropped to remove account and case-specific details."}
+                ? 'إعادة بناء دقيقة لبنية لوحة التحكم الفعلية وتصنيفاتها، ببيانات افتراضية.'
+                : "A faithful recreation of the real dashboard's structure and labels, with fictional sample data."}
             </p>
           </AnimatedSection>
 

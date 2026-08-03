@@ -95,24 +95,24 @@ export default function AboutPage() {
             </AnimatedSection>
           </div>
         </div>
-        {/* Diagonal divider → navy-950 */}
+        {/* Diagonal divider → slate-50 */}
         <div className="absolute bottom-0 inset-x-0 overflow-hidden leading-none pointer-events-none" style={{ height: 72 }}>
           <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0 72L1440 10V72H0Z" fill="#04091C" />
+            <path d="M0 72L1440 10V72H0Z" fill="#F8FAFC" />
           </svg>
         </div>
       </section>
 
       {/* ── Mission & Vision ── */}
-      <section id="mission" className="section-pad bg-navy-950 relative overflow-hidden">
-        <div className="absolute inset-0 grid-mesh opacity-20" />
+      <section id="mission" className="section-pad bg-slate-50 relative overflow-hidden">
+        <div className="absolute inset-0 grid-mesh opacity-40" />
         <div className="absolute -end-20 top-0 w-[420px] h-[420px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 65%)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 65%)' }} />
 
         <div className="container-wide relative z-10">
           <AnimatedSection className="text-center mb-16">
-            <SectionTag label={isRTL ? 'غايتنا' : 'Our Purpose'} variant="white" />
-            <h2 className="heading-lg text-white mt-4">
+            <SectionTag label={isRTL ? 'غايتنا' : 'Our Purpose'} variant="blue" />
+            <h2 className="heading-lg text-navy-900 mt-4">
               {isRTL ? 'مهمتنا ورؤيتنا' : 'Our Mission & Vision'}
             </h2>
           </AnimatedSection>
@@ -120,16 +120,16 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Mission */}
             <AnimatedItem index={0}>
-              <div className="h-full p-5 sm:p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/8 transition-colors">
+              <div className="h-full p-5 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-card-hover transition-shadow">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-electric-500/20 border border-electric-500/30 flex items-center justify-center text-electric-400 font-black text-lg">
+                  <div className="w-12 h-12 rounded-xl bg-electric-50 border border-electric-100 flex items-center justify-center text-electric-600 font-black text-lg">
                     01
                   </div>
-                  <h3 className="text-white text-xl font-bold">{about.mission.title}</h3>
+                  <h3 className="text-navy-900 text-xl font-bold">{about.mission.title}</h3>
                 </div>
-                <p className="text-slate-300 leading-relaxed text-base">{about.mission.body}</p>
-                <div className="mt-6 pt-6 border-t border-white/10">
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                <p className="text-slate-600 leading-relaxed text-base">{about.mission.body}</p>
+                <div className="mt-6 pt-6 border-t border-slate-100">
+                  <p className="text-slate-500 text-sm leading-relaxed">
                     {isRTL
                       ? 'نسعى لتمكين المؤسسات من بناء علاقات رقمية موثوقة مع عملائها، عبر تقنيات التحقق والحماية الحديثة.'
                       : 'We strive to empower organisations to build trusted digital relationships with their customers through modern verification and protection technologies.'}
@@ -140,16 +140,16 @@ export default function AboutPage() {
 
             {/* Vision */}
             <AnimatedItem index={1}>
-              <div className="h-full p-5 sm:p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/8 transition-colors">
+              <div className="h-full p-5 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-card-hover transition-shadow">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-black text-lg">
+                  <div className="w-12 h-12 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center text-teal-600 font-black text-lg">
                     02
                   </div>
-                  <h3 className="text-white text-xl font-bold">{about.vision.title}</h3>
+                  <h3 className="text-navy-900 text-xl font-bold">{about.vision.title}</h3>
                 </div>
-                <p className="text-slate-300 leading-relaxed text-base">{about.vision.body}</p>
-                <div className="mt-6 pt-6 border-t border-white/10">
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                <p className="text-slate-600 leading-relaxed text-base">{about.vision.body}</p>
+                <div className="mt-6 pt-6 border-t border-slate-100">
+                  <p className="text-slate-500 text-sm leading-relaxed">
                     {isRTL
                       ? 'نطمح أن نكون الشريك التقني الأول للمؤسسات في المنطقة الساعية إلى التحول الرقمي الآمن والمستدام.'
                       : 'We aspire to be the go-to technology partner for organisations across the region seeking secure and sustainable digital transformation.'}
@@ -158,12 +158,6 @@ export default function AboutPage() {
               </div>
             </AnimatedItem>
           </div>
-        </div>
-        {/* Diagonal divider → slate-50 */}
-        <div className="absolute bottom-0 inset-x-0 overflow-hidden leading-none pointer-events-none" style={{ height: 72 }}>
-          <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0 72L1440 10V72H0Z" fill="#F8FAFC" />
-          </svg>
         </div>
       </section>
 
@@ -205,15 +199,15 @@ export default function AboutPage() {
       <section className="section-pad bg-white">
         <div className="container-wide">
           <AnimatedSection>
-            <div className="relative rounded-3xl bg-navy-900 overflow-hidden px-5 py-10 sm:px-14 sm:py-14 text-center">
-              <div className="absolute inset-0 hero-pattern" />
+            <div className="relative rounded-3xl bg-gradient-to-br from-electric-50 to-teal-50 border border-electric-100 overflow-hidden px-5 py-10 sm:px-14 sm:py-14 text-center">
+              <div className="absolute inset-0 grid-mesh opacity-40" />
               <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full pointer-events-none"
-                style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 65%)' }} />
+                style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.10) 0%, transparent 65%)' }} />
               <div className="relative z-10">
-                <h2 className="text-white text-2xl sm:text-3xl font-bold mb-4">
+                <h2 className="text-navy-900 text-2xl sm:text-3xl font-bold mb-4">
                   {isRTL ? 'مهتم بالعمل معنا؟' : 'Interested in Working With Us?'}
                 </h2>
-                <p className="text-slate-300 mb-8 max-w-xl mx-auto">
+                <p className="text-slate-600 mb-8 max-w-xl mx-auto">
                   {isRTL
                     ? 'تواصل مع فريقنا لمناقشة كيف يمكن لحلولنا دعم مؤسستك.'
                     : 'Get in touch with our team to discuss how our solutions can support your organisation.'}

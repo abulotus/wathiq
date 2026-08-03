@@ -201,21 +201,16 @@ export default function PrivacyPage() {
 
   return (
     <>
-      <section className="relative bg-navy-900 pt-28 pb-16 sm:pt-36 sm:pb-20 overflow-hidden">
+      <section className="relative bg-slate-50 pt-28 pb-16 sm:pt-36 sm:pb-20 overflow-hidden">
         <div className="absolute inset-0 hero-pattern" />
         <div className="absolute -top-20 -start-20 w-[420px] h-[420px] rounded-full pointer-events-none"
-          style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.16) 0%, transparent 65%)' }} />
-        <div className="absolute bottom-0 inset-x-0 overflow-hidden leading-none pointer-events-none" style={{ height: 72 }}>
-          <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0 72L1440 10V72H0Z" fill="#ffffff" />
-          </svg>
-        </div>
+          style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.10) 0%, transparent 65%)' }} />
         <div className={`container-wide relative z-10 ${isRTL ? 'text-right' : ''}`}>
-          <span className="inline-flex items-center gap-2 text-xs font-semibold text-electric-400 uppercase tracking-widest mb-4">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold text-electric-600 uppercase tracking-widest mb-4">
             {c.meta.label}
           </span>
-          <h1 className="heading-xl text-white mb-3">{c.meta.title}</h1>
-          <p className="text-slate-400 text-sm">{c.meta.updated}</p>
+          <h1 className="heading-xl text-navy-900 mb-3">{c.meta.title}</h1>
+          <p className="text-slate-500 text-sm">{c.meta.updated}</p>
         </div>
       </section>
 

@@ -174,19 +174,13 @@ export default function PlatformPage() {
           );
         })}
 
-        <div className="relative h-[72px] bg-slate-50 overflow-hidden">
-          <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0 72L1440 10V72H0Z" fill="#071130" />
-          </svg>
-        </div>
-
-        <section className="py-20 bg-navy-900">
+        <section className="py-20 bg-slate-50">
           <div className="container-wide">
             <AnimatedSection className="text-center">
-              <h2 className="heading-lg text-white mb-4">
+              <h2 className="heading-lg text-navy-900 mb-4">
                 {isRTL ? 'لديك أسئلة حول المنصة؟' : 'Questions about the platform?'}
               </h2>
-              <p className="text-slate-300 text-lg mb-8 max-w-xl mx-auto">
+              <p className="text-slate-600 text-lg mb-8 max-w-xl mx-auto">
                 {isRTL
                   ? 'تحدث مع فريقنا وسنوضح لك كيف يعمل واثق مع أنظمتك.'
                   : "Talk to our team and we'll walk through how Wathiq connects to your systems."}

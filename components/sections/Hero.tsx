@@ -67,46 +67,46 @@ function HeroIllustration({ isRTL }: { isRTL: boolean }) {
 
       {/* Floating cards — CSS animations, no Framer Motion, no backdrop-blur */}
       <div
-        className="absolute top-10 start-0 bg-navy-800/85 border border-white/20 rounded-xl px-3 py-2 sm:px-4 sm:py-3 shadow-lg"
+        className="absolute top-10 start-0 bg-white border border-slate-200 rounded-xl px-3 py-2 sm:px-4 sm:py-3 shadow-lg"
         style={{ animation: 'tech-float 4.5s ease-in-out 0.3s infinite', willChange: 'transform' }}
       >
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-teal-400 animate-pulse flex-shrink-0" />
-          <span className="text-white font-semibold text-xs whitespace-nowrap">
+          <div className="w-2 h-2 rounded-full bg-teal-500 animate-pulse flex-shrink-0" />
+          <span className="text-navy-900 font-semibold text-xs whitespace-nowrap">
             {isRTL ? 'تم التحقق من الهوية ✓' : 'Identity Verified ✓'}
           </span>
         </div>
-        <div className="text-white/55 text-xs mt-1">
+        <div className="text-slate-500 text-xs mt-1">
           {isRTL ? 'التحقق من المستخدم' : 'User authentication'}
         </div>
       </div>
 
       <div
-        className="absolute top-28 end-0 bg-navy-800/85 border border-white/20 rounded-xl px-3 py-2 sm:px-4 sm:py-3 shadow-lg"
+        className="absolute top-28 end-0 bg-white border border-slate-200 rounded-xl px-3 py-2 sm:px-4 sm:py-3 shadow-lg"
         style={{ animation: 'tech-float-down 5s ease-in-out 1s infinite', willChange: 'transform' }}
       >
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
-          <span className="text-white font-semibold text-xs whitespace-nowrap">
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
+          <span className="text-navy-900 font-semibold text-xs whitespace-nowrap">
             {isRTL ? 'تم إرسال النتيجة' : 'Result Delivered'}
           </span>
         </div>
-        <div className="text-white/55 text-xs mt-1">
+        <div className="text-slate-500 text-xs mt-1">
           {isRTL ? 'عبر Webhook' : 'Via webhook'}
         </div>
       </div>
 
       <div
-        className="absolute bottom-16 start-2 bg-navy-800/85 border border-white/20 rounded-xl px-3 py-2 sm:px-4 sm:py-3 shadow-lg"
+        className="absolute bottom-16 start-2 bg-white border border-slate-200 rounded-xl px-3 py-2 sm:px-4 sm:py-3 shadow-lg"
         style={{ animation: 'tech-float 5.5s ease-in-out 2s infinite', willChange: 'transform' }}
       >
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-gold-400 animate-pulse flex-shrink-0" />
-          <span className="text-white font-semibold text-xs whitespace-nowrap">
+          <div className="w-2 h-2 rounded-full bg-gold-500 animate-pulse flex-shrink-0" />
+          <span className="text-navy-900 font-semibold text-xs whitespace-nowrap">
             {isRTL ? '140 جواز سفر مدعوم' : '140 ePassports Supported'}
           </span>
         </div>
-        <div className="text-white/55 text-xs mt-1">
+        <div className="text-slate-500 text-xs mt-1">
           {isRTL ? 'تغطية عالمية' : 'Worldwide coverage'}
         </div>
       </div>
@@ -119,18 +119,18 @@ export default function Hero() {
   const h = t.hero;
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-navy-900">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-white">
       <div className="absolute inset-0 hero-pattern" />
-      <div className="absolute inset-0 grid-mesh opacity-20" />
+      <div className="absolute inset-0 grid-mesh opacity-40" />
       {/* Aurora gradient blobs */}
       <div className="absolute w-[700px] h-[700px] rounded-full -top-40 -start-40 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 70%)', animation: 'aurora-1 22s ease-in-out infinite', willChange: 'transform' }} />
+        style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.10) 0%, transparent 70%)', animation: 'aurora-1 22s ease-in-out infinite', willChange: 'transform' }} />
       <div className="absolute w-[600px] h-[600px] rounded-full top-1/3 -end-32 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.13) 0%, transparent 70%)', animation: 'aurora-2 28s ease-in-out infinite', willChange: 'transform' }} />
+        style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 70%)', animation: 'aurora-2 28s ease-in-out infinite', willChange: 'transform' }} />
       <div className="absolute w-[450px] h-[450px] rounded-full -bottom-20 start-1/3 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%)', animation: 'aurora-3 19s ease-in-out infinite', willChange: 'transform' }} />
+        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)', animation: 'aurora-3 19s ease-in-out infinite', willChange: 'transform' }} />
       <NetworkSVG />
-      <TechBackground variant="dark" />
+      <TechBackground variant="light" />
 
       <div className="container-wide relative z-10 pt-24 pb-16 sm:pt-28 sm:pb-24 lg:pt-36 lg:pb-32">
         {/*
@@ -150,8 +150,8 @@ export default function Hero() {
           >
             {/* Badge — inline-flex; in RTL the dot (first child) sits at inline-end naturally */}
             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-              <span className="inline-flex items-center gap-2 bg-electric-500/20 border border-electric-400/30 text-electric-200 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse flex-shrink-0" />
+              <span className="inline-flex items-center gap-2 bg-electric-50 border border-electric-100 text-electric-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse flex-shrink-0" />
                 {h.badge}
               </span>
             </motion.div>
@@ -161,10 +161,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className={`text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6 ${isRTL ? '!leading-[1.35] py-1' : '!leading-[1.1]'}`}
+              className={`text-3xl sm:text-5xl lg:text-6xl font-bold text-navy-900 tracking-tight mb-6 ${isRTL ? '!leading-[1.35] py-1' : '!leading-[1.1]'}`}
             >
               {h.headline1}{' '}
-              <span className={isRTL ? 'text-teal-400' : 'gradient-text'}>{h.headline2}</span>
+              <span className="gradient-text">{h.headline2}</span>
             </motion.h1>
 
             {/* Sub */}
@@ -172,7 +172,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className={`text-base lg:text-lg text-slate-300 max-w-xl mb-10 ${isRTL ? 'leading-[2]' : 'leading-relaxed'}`}
+              className={`text-base lg:text-lg text-slate-600 max-w-xl mb-10 ${isRTL ? 'leading-[2]' : 'leading-relaxed'}`}
             >
               {h.subheadline}
             </motion.p>
@@ -193,7 +193,7 @@ export default function Hero() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
-              <a href="#how-it-works" className="btn-outline-white text-sm sm:text-base px-6 py-3">
+              <a href="#how-it-works" className="btn-secondary text-sm sm:text-base px-6 py-3">
                 {h.cta2}
               </a>
             </motion.div>
@@ -210,19 +210,6 @@ export default function Hero() {
             <HeroIllustration isRTL={isRTL} />
           </motion.div>
         </div>
-      </div>
-
-      {/* Section divider — diagonal geometric cut, fills with TrustedBy's white background */}
-      <div className="absolute bottom-0 inset-x-0 overflow-hidden leading-none pointer-events-none" style={{ height: 72 }}>
-        <svg
-          viewBox="0 0 1440 72"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          className="w-full h-full"
-        >
-          {/* Main diagonal fill */}
-          <path d="M0 72L1440 10V72H0Z" fill="#ffffff" />
-        </svg>
       </div>
     </section>
   );

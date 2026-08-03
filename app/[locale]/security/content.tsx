@@ -83,17 +83,17 @@ export default function SecurityPage() {
         {/* Diagonal divider → navy-950 */}
         <div className="absolute bottom-0 inset-x-0 overflow-hidden leading-none pointer-events-none" style={{ height: 72 }}>
           <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0 72L1440 10V72H0Z" fill="#04091C" />
+            <path d="M0 72L1440 10V72H0Z" fill="#F8FAFC" />
           </svg>
         </div>
       </section>
 
       {/* Security architecture visual */}
-      <section className="section-pad bg-navy-950">
+      <section className="section-pad bg-slate-50">
         <div className="container-wide">
           <AnimatedSection className={`text-center mb-14 ${isRTL ? 'text-right' : ''}`}>
-            <SectionTag label={isRTL ? 'البنية الأمنية' : 'Security Architecture'} variant="white" />
-            <h2 className="heading-lg text-white mt-4">
+            <SectionTag label={isRTL ? 'البنية الأمنية' : 'Security Architecture'} variant="blue" />
+            <h2 className="heading-lg text-navy-900 mt-4">
               {isRTL ? 'حماية متعددة الطبقات' : 'Multi-Layer Protection Approach'}
             </h2>
           </AnimatedSection>
@@ -103,26 +103,26 @@ export default function SecurityPage() {
               {
                 layer: isRTL ? 'طبقة الهوية' : 'Identity Layer',
                 desc: isRTL ? 'التحقق من كل مستخدم وكيان' : 'Verify every user and entity',
-                color: 'border-electric-500/30 bg-electric-500/10',
-                iconBg: 'bg-electric-500/20 border-electric-400/40 text-electric-300',
+                color: 'border-electric-100 bg-electric-50',
+                iconBg: 'bg-white border-electric-200 text-electric-600',
               },
               {
                 layer: isRTL ? 'طبقة الوصول' : 'Access Layer',
                 desc: isRTL ? 'التحكم الدقيق في الصلاحيات' : 'Fine-grained permission controls',
-                color: 'border-teal-500/30 bg-teal-500/10',
-                iconBg: 'bg-teal-500/20 border-teal-400/40 text-teal-300',
+                color: 'border-teal-100 bg-teal-50',
+                iconBg: 'bg-white border-teal-200 text-teal-600',
               },
               {
                 layer: isRTL ? 'طبقة الرصد' : 'Monitoring Layer',
                 desc: isRTL ? 'مراقبة مستمرة وتنبيه فوري' : 'Continuous monitoring & alerting',
-                color: 'border-indigo-500/30 bg-indigo-500/10',
-                iconBg: 'bg-indigo-500/20 border-indigo-400/40 text-indigo-300',
+                color: 'border-indigo-100 bg-indigo-50',
+                iconBg: 'bg-white border-indigo-200 text-indigo-600',
               },
               {
                 layer: isRTL ? 'طبقة الامتثال' : 'Compliance Layer',
                 desc: isRTL ? 'الامتثال للمعايير واللوائح' : 'Standards & regulatory alignment',
-                color: 'border-amber-400/30 bg-amber-400/10',
-                iconBg: 'bg-amber-400/20 border-amber-300/40 text-amber-300',
+                color: 'border-amber-100 bg-amber-50',
+                iconBg: 'bg-white border-amber-200 text-amber-600',
               },
             ].map((item, i) => (
               <AnimatedItem key={i} index={i}>
@@ -130,8 +130,8 @@ export default function SecurityPage() {
                   <div className={`w-12 h-12 rounded-xl border ${item.iconBg} flex items-center justify-center mx-auto mb-4`}>
                     {layerIcons[i]}
                   </div>
-                  <h3 className="text-white font-bold mb-2">{item.layer}</h3>
-                  <p className="text-slate-400 text-sm">{item.desc}</p>
+                  <h3 className="text-navy-900 font-bold mb-2">{item.layer}</h3>
+                  <p className="text-slate-500 text-sm">{item.desc}</p>
                 </div>
               </AnimatedItem>
             ))}
@@ -139,48 +139,48 @@ export default function SecurityPage() {
 
           {/* Confirmed security practices */}
           <AnimatedSection delay={0.4} className="mt-12">
-            <div className="rounded-3xl bg-white/5 border border-white/10 p-8">
-              <h3 className="text-white font-bold text-lg mb-6 text-center">
+            <div className="rounded-3xl bg-white border border-slate-200 shadow-sm p-8">
+              <h3 className="text-navy-900 font-bold text-lg mb-6 text-center">
                 {isRTL ? 'ممارسات مؤكدة' : 'Confirmed practices'}
               </h3>
               <div className="grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
                 {(isRTL
                   ? [
-                      'كل استدعاءات API وWebhooks تتم عبر TLS',
-                      'إشعارات Webhook موقّعة بـ HMAC-SHA256 مع طابع زمني',
-                      'مفاتيح API وأسرار Webhook تُعرض مرة واحدة فقط عند الإنشاء',
-                      'إمكانية تدوير مفاتيح API وأسرار التوقيع عند الحاجة',
-                      'صلاحيات مالك/مسؤول منفصلة لإدارة Webhooks على مستوى المؤسسة',
-                      'سجل تدقيق لعمليات التحقق ومحاولات تسليم Webhook',
-                      'إلغاء تكرار الأحداث عبر معرّف فريد لكل حدث',
-                      'لا تُسجَّل مفاتيح أو أسرار أو مستندات في سجلات النظام',
+                      'كل اتصالات API وWebhooks تمر عبر TLS',
+                      'إشعارات Webhook موقّعة بـ HMAC-SHA256 مع معرّف حدث وطابع زمني',
+                      'تشفير الحقول الحساسة من بيانات الهوية بـ AES-256-GCM',
+                      'تخزين المستندات والصور الذاتية وأدلة جوازات السفر الإلكترونية في تخزين خاص محدود الوصول ومحدود المدة',
+                      'روابط وأكواد التحقق تُستخدم مرة واحدة وتنتهي صلاحيتها تلقائياً',
+                      'عزل منطقي لبيانات كل مؤسسة مع صلاحيات يفرضها الخادم',
+                      'صلاحيات وصول قائمة على الأدوار: مالك، مسؤول، مراجع، ومُطّلع',
+                      'القرار النهائي للتحقق يصدره الخادم فقط — لا يملك التطبيق أو لوحة التحكم صلاحية تغييره',
                     ]
                   : [
-                      'TLS on every API and webhook call',
-                      'Webhook notifications signed with HMAC-SHA256 and a timestamp',
-                      'API keys and webhook signing secrets are shown only once, at creation',
-                      'API keys and webhook signing secrets can be rotated',
-                      'Separate Owner/Admin roles required to manage webhooks',
-                      'Audit log of verification activity and webhook delivery attempts',
-                      'Event deduplication via a unique ID per webhook event',
-                      'Keys, secrets, and documents are never written to system logs',
+                      'TLS on every API and webhook connection',
+                      'Webhook notifications signed with HMAC-SHA256, with an event ID and timestamp',
+                      'Sensitive identity fields encrypted with AES-256-GCM',
+                      'Documents, selfies, and ePassport evidence stored in private, access-controlled, time-limited storage',
+                      'Verification links and activation codes are single-use and expire automatically',
+                      'Each organisation\'s data is logically isolated with backend-enforced authorization',
+                      'Role-based access: Owner, Admin, Reviewer, and Viewer',
+                      'The final verification decision is made by the backend only — the mobile app and dashboard cannot override it',
                     ]
                 ).map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <svg className="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
-                    <span className="text-slate-300 text-sm">{item}</span>
+                    <svg className="w-4 h-4 text-teal-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
+                    <span className="text-slate-600 text-sm">{item}</span>
                   </div>
                 ))}
               </div>
-              <p className="text-slate-400 text-xs text-center mt-8 max-w-xl mx-auto">
+              <p className="text-slate-500 text-xs text-center mt-8 max-w-xl mx-auto">
                 {isRTL
-                  ? 'تفاصيل إضافية — مواقع الاستضافة، فترات الاحتفاظ بالبيانات، الجهات المعالجة الفرعية — قيد المراجعة النهائية وستُنشر هنا فور اكتمالها.'
-                  : "Additional specifics — hosting locations, data retention periods, subprocessors — are in final review and will be published here once complete."}
+                  ? 'تفاصيل إضافية — مواقع الاستضافة وفترات الاحتفاظ الدقيقة بالبيانات — قيد التوثيق النهائي وستُنشر هنا فور اكتمالها.'
+                  : "Additional specifics — hosting locations and exact data retention periods — are being finalized and will be published here once complete."}
               </p>
               <div className="text-center mt-6">
                 <a
                   href={href('/contact')}
-                  className="inline-flex items-center gap-1.5 text-electric-400 font-semibold text-sm hover:text-electric-300 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-electric-600 font-semibold text-sm hover:text-electric-700 transition-colors"
                 >
                   {isRTL ? 'هل لديك متطلبات امتثال محددة؟ تواصل معنا' : 'Have specific compliance requirements? Talk to us'}
                   <svg className="w-3.5 h-3.5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -117,10 +117,10 @@ export default function PartnershipPage() {
 
             {/* CTA card */}
             <AnimatedSection delay={0.2} direction="left">
-              <div className="relative bg-navy-900 rounded-3xl overflow-hidden p-5 sm:p-10">
-                <div className="absolute inset-0 hero-pattern" />
+              <div className="relative bg-gradient-to-br from-electric-50 to-teal-50 border border-electric-100 rounded-3xl overflow-hidden p-5 sm:p-10">
+                <div className="absolute inset-0 grid-mesh opacity-40" />
                 <div className="absolute -end-10 -top-10 w-64 h-64 rounded-full pointer-events-none"
-                  style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.20) 0%, transparent 65%)' }} />
+                  style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.10) 0%, transparent 65%)' }} />
 
                 <div className="relative z-10">
                   <div className="w-14 h-14 rounded-2xl bg-electric-500 flex items-center justify-center mb-6">
@@ -129,8 +129,8 @@ export default function PartnershipPage() {
                     </svg>
                   </div>
 
-                  <h3 className="text-white text-2xl font-bold mb-3">{part.cta}</h3>
-                  <p className="text-slate-300 text-sm leading-relaxed mb-8">{part.ctaSubtext}</p>
+                  <h3 className="text-navy-900 text-2xl font-bold mb-3">{part.cta}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-8">{part.ctaSubtext}</p>
 
                   <Link href={href('/contact')} className="btn-primary w-full justify-center py-3.5 text-base shadow-glow">
                     {part.cta}
@@ -140,8 +140,8 @@ export default function PartnershipPage() {
                   </Link>
 
                   <div className="flex items-center gap-2 mt-6">
-                    <div className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
-                    <span className="text-slate-400 text-xs">
+                    <div className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
+                    <span className="text-slate-500 text-xs">
                       {isRTL ? 'فريقنا جاهز للتواصل' : 'Our team is ready to connect'}
                     </span>
                   </div>

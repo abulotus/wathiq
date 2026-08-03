@@ -30,8 +30,13 @@ export default function ServiceDataPage() {
             </p>
             <p>
               {isRTL
-                ? 'نعمل حالياً على استكمال المراجعة الفنية والقانونية الكاملة لكيفية جمع بيانات التحقق ونقلها وتخزينها والاحتفاظ بها وحذفها، والجهات التي قد تعالجها نيابةً عنا، ومسؤوليات العميل المرتبطة بها. سننشر تفاصيل دقيقة هنا فور اكتمال هذه المراجعة والتحقق منها.'
-                : "We are completing a full technical and legal review of how verification data is collected, transmitted, stored, retained, and deleted, which subprocessors (if any) may handle it, and the client responsibilities involved. We'll publish precise details here once that review is complete and verified."}
+                ? 'أثناء عملية التحقق، يجمع واثق صور الوثيقة والصورة الذاتية، وأدلة جواز السفر الإلكتروني عند وجودها (بيانات الشريحة الموقّعة)، إضافة إلى البيانات المستخرجة من OCR والمنطقة القابلة للقراءة آلياً والباركود. تُشفَّر حقول الهوية الحساسة باستخدام AES-256-GCM، وتُخزَّن المستندات والصور الذاتية وأدلة الشريحة في تخزين خاص محدود الوصول ومحدود المدة.'
+                : "During a verification, Wathiq collects document images, a selfie, and — where applicable — ePassport chip evidence (signed chip data), along with data extracted via OCR, the machine-readable zone, and barcodes. Sensitive identity fields are encrypted with AES-256-GCM, and documents, selfies, and chip evidence are stored in private, access-controlled, time-limited storage."}
+            </p>
+            <p>
+              {isRTL
+                ? 'بيانات كل مؤسسة معزولة منطقياً عن بيانات المؤسسات الأخرى، والقرار النهائي للتحقق يصدره الخادم فقط — لا يملك تطبيق الجوال أو لوحة التحكم صلاحية تغييره. لا تزال تفاصيل دقيقة — مواقع الاستضافة، وفترات الاحتفاظ بالبيانات، والجهات المعالجة الفرعية إن وُجدت — قيد التوثيق النهائي وستُنشر هنا فور اكتمالها.'
+                : "Each organisation's data is logically isolated from other organisations', and the final verification decision is made by the backend only — the mobile app and dashboard cannot override it. Exact specifics — hosting locations, data retention periods, and any subprocessors — are still being finalized and will be published here once complete."}
             </p>
             <p>
               {isRTL

@@ -45,7 +45,7 @@ const faqs = {
     },
     {
       q: 'How is verification information handled?',
-      a: 'We are finalising complete security and privacy documentation covering data handling, retention, and access controls, and will publish it here once verified. Contact us if you need specific answers sooner.',
+      a: "Sensitive identity fields are encrypted with AES-256-GCM, and documents, selfies, and ePassport chip evidence are stored in private, access-controlled, time-limited storage. Each organisation's data is logically isolated, and the final decision is made by the backend only. Exact hosting locations and retention periods are still being finalized — see our Service Data Information page for details.",
     },
     {
       q: 'How can an organisation request access?',
@@ -91,7 +91,7 @@ const faqs = {
     },
     {
       q: 'كيف تُعالَج معلومات التحقق؟',
-      a: 'نعمل على استكمال توثيق كامل للأمان والخصوصية يغطي التعامل مع البيانات والاحتفاظ بها وضوابط الوصول، وسننشره هنا فور التحقق منه. تواصل معنا إن احتجت إجابات محددة بشكل أسرع.',
+      a: 'تُشفَّر حقول الهوية الحساسة باستخدام AES-256-GCM، وتُخزَّن المستندات والصور الذاتية وأدلة شريحة جواز السفر الإلكتروني في تخزين خاص محدود الوصول ومحدود المدة. بيانات كل مؤسسة معزولة منطقياً، والقرار النهائي يصدره الخادم فقط. لا تزال مواقع الاستضافة وفترات الاحتفاظ الدقيقة قيد التوثيق النهائي — راجع صفحة بيانات خدمة التحقق للتفاصيل.',
     },
     {
       q: 'كيف يمكن لمؤسسة طلب الوصول؟',

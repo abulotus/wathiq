@@ -133,18 +133,17 @@ export default function ContactPage() {
 
               {/* Visual card */}
               <AnimatedSection delay={0.3}>
-                <div className="relative bg-navy-900 rounded-3xl overflow-hidden p-6">
-                  <div className="absolute inset-0 hero-pattern" />
+                <div className="relative bg-gradient-to-br from-electric-50 to-teal-50 border border-electric-100 rounded-3xl overflow-hidden p-6">
                   <div className="absolute -end-5 -top-5 w-36 h-36 rounded-full pointer-events-none"
-                    style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.22) 0%, transparent 65%)' }} />
+                    style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.10) 0%, transparent 65%)' }} />
                   <div className="relative z-10">
                     <div className="flex items-center gap-2 mb-3">
-                      <div className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
-                      <span className="text-teal-400 text-xs font-semibold">
+                      <div className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
+                      <span className="text-teal-700 text-xs font-semibold">
                         {isRTL ? 'متاح الآن' : 'Available Now'}
                       </span>
                     </div>
-                    <p className={`text-white text-sm leading-relaxed ${isRTL ? 'text-right' : ''}`}>
+                    <p className={`text-navy-900 text-sm leading-relaxed ${isRTL ? 'text-right' : ''}`}>
                       {isRTL
                         ? 'فريقنا مستعد للإجابة على أسئلتك والمساعدة في تحديد الحل المناسب لمؤسستك.'
                         : 'Our team is ready to answer your questions and help identify the right solution for your organization.'}

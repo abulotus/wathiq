@@ -103,10 +103,10 @@ export default function IndustriesPage() {
 
           {/* Stats banner */}
           <AnimatedSection delay={0.4} className="mt-20">
-            <div className="relative bg-navy-900 rounded-3xl overflow-hidden px-5 py-8 sm:px-8 sm:py-12">
-              <div className="absolute inset-0 hero-pattern" />
+            <div className="relative bg-white border border-slate-200 shadow-sm rounded-3xl overflow-hidden px-5 py-8 sm:px-8 sm:py-12">
+              <div className="absolute inset-0 grid-mesh opacity-40" />
               <div className="absolute -end-10 -top-10 w-80 h-80 rounded-full pointer-events-none"
-                style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.16) 0%, transparent 65%)' }} />
+                style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 65%)' }} />
 
               <div className={`relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-8 ${isRTL ? 'text-right' : 'text-center'}`}>
                 {[
@@ -116,8 +116,8 @@ export default function IndustriesPage() {
                   { val: '2', label: isRTL ? 'لوحة تحكم وتطبيق جوال' : 'Client Dashboard & Mobile App' },
                 ].map((stat, i) => (
                   <div key={i} className="text-center">
-                    <div className="text-3xl sm:text-4xl font-black text-white mb-1">{stat.val}</div>
-                    <div className="text-slate-400 text-sm">{stat.label}</div>
+                    <div className="text-3xl sm:text-4xl font-black text-navy-900 mb-1">{stat.val}</div>
+                    <div className="text-slate-500 text-sm">{stat.label}</div>
                   </div>
                 ))}
               </div>

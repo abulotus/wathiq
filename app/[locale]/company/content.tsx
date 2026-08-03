@@ -187,16 +187,10 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-        {/* Diagonal divider → white */}
-        <div className="absolute bottom-0 inset-x-0 overflow-hidden leading-none pointer-events-none" style={{ height: 72 }}>
-          <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0 72L1440 10V72H0Z" fill="#ffffff" />
-          </svg>
-        </div>
       </section>
 
       {/* ── CTA ── */}
-      <section className="section-pad bg-white">
+      <section className="pt-10 sm:pt-14 pb-14 sm:pb-20 lg:pb-28 bg-white">
         <div className="container-wide">
           <AnimatedSection>
             <div className="relative rounded-3xl bg-gradient-to-br from-electric-50 to-teal-50 border border-electric-100 overflow-hidden px-5 py-10 sm:px-14 sm:py-14 text-center">

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
 import SectionTag from '@/components/ui/SectionTag';
+import ApiHubDiagram from '@/components/ui/ApiHubDiagram';
 
 const pillars = {
   en: [
@@ -72,6 +73,22 @@ export default function PlatformOverview() {
               </div>
             </AnimatedItem>
           ))}
+        </div>
+
+        <div className="mt-16 sm:mt-20 pt-16 sm:pt-20 border-t border-slate-100">
+          <AnimatedSection className="text-center max-w-xl mx-auto mb-10 sm:mb-12">
+            <h3 className="heading-md text-navy-900">
+              {isRTL ? 'كل ذلك عبر نظام واحد متصل' : 'All connected through one system'}
+            </h3>
+            <p className="body-md mt-3">
+              {isRTL
+                ? 'من قراءة الوثيقة إلى الفحص الحيوي، وصولاً إلى API وWebhooks ولوحة التحكم.'
+                : 'From document capture to biometric checks, through to the API, webhooks, and dashboard that connect it all to your systems.'}
+            </p>
+          </AnimatedSection>
+          <AnimatedSection delay={0.15}>
+            <ApiHubDiagram />
+          </AnimatedSection>
         </div>
       </div>
     </section>

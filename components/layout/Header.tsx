@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import WathiqLogo from '@/components/ui/WathiqLogo';
-import SecurityWeave from '@/components/ui/SecurityWeave';
 
 const navItems = [
   { path: '/platform', en: 'Platform', ar: 'المنصة' },
@@ -51,22 +50,17 @@ export default function Header() {
 
   return (
     <>
-      {/* Always dark — the header stays navy regardless of page/section theme. */}
+      {/* Light, solid-white header in the same minimal-enterprise pattern as Uqudo/Didit-style ID-verification sites — plain white bar, hairline border, shadow only once scrolled. */}
       <header
-        className={`fixed top-0 inset-x-0 z-50 overflow-hidden transition-shadow duration-200 ${scrolled ? 'shadow-[0_8px_30px_rgba(4,9,28,0.35)]' : ''}`}
-        style={{ background: 'linear-gradient(180deg, #0A1530 0%, #071130 55%, #04091C 100%)' }}
+        className={`fixed top-0 inset-x-0 z-50 bg-white border-b transition-shadow duration-200 ${
+          scrolled ? 'shadow-[0_4px_20px_rgba(10,26,71,0.08)] border-slate-200' : 'border-slate-100'
+        }`}
       >
-        <SecurityWeave className="opacity-[0.07]" />
-        <div
-          className="absolute bottom-0 inset-x-0 h-px"
-          style={{ background: 'linear-gradient(90deg, transparent, rgba(96,165,250,0.4), rgba(251,191,36,0.35), transparent)' }}
-        />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
 
             <Link href={href('/')} className="flex-shrink-0 z-10">
-              <WathiqLogo variant="light" size="md" />
+              <WathiqLogo variant="dark" size="md" />
             </Link>
 
             <nav className="hidden lg:flex items-center gap-1">
@@ -76,13 +70,13 @@ export default function Header() {
                   href={href(item.path)}
                   className={`relative px-3.5 py-2 text-sm font-medium transition-colors duration-150 whitespace-nowrap ${
                     isActive(item.path)
-                      ? 'text-white'
-                      : 'text-white/70 hover:text-white'
+                      ? 'text-navy-900'
+                      : 'text-slate-500 hover:text-navy-900'
                   }`}
                 >
                   {isRTL ? item.ar : item.en}
                   <span
-                    className={`absolute left-3.5 right-3.5 -bottom-0.5 h-[2px] rounded-full bg-gradient-to-r from-electric-300 to-gold-300 transition-transform duration-200 origin-center ${
+                    className={`absolute left-3.5 right-3.5 -bottom-0.5 h-[2px] rounded-full bg-electric-500 transition-transform duration-200 origin-center ${
                       isActive(item.path) ? 'scale-x-100' : 'scale-x-0'
                     }`}
                   />
@@ -94,33 +88,33 @@ export default function Header() {
               <Link
                 href={otherLocaleHref(pathname)}
                 onClick={switchLanguage}
-                className="px-3 py-1.5 rounded-full text-sm font-medium border border-white/20 hover:border-white/40 text-white/75 hover:text-white transition-colors duration-150"
+                className="px-3 py-1.5 rounded-full text-sm font-medium border border-slate-200 hover:border-slate-300 text-slate-600 hover:text-navy-900 transition-colors duration-150"
               >
                 {isRTL ? 'English' : 'العربية'}
               </Link>
               <a
                 href="#"
-                className="px-3.5 py-2 rounded-full text-sm font-medium text-white/75 hover:text-white hover:bg-white/[0.06] transition-colors duration-150"
+                className="px-3.5 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-navy-900 hover:bg-slate-50 transition-colors duration-150"
               >
                 {isRTL ? 'دخول العملاء' : 'Client Login'}
               </a>
               <Link
                 href={href('/contact')}
-                className="px-5 py-2 rounded-full text-sm font-semibold bg-electric-500 text-white hover:bg-electric-600 transition-all duration-150 shadow-[0_4px_18px_rgba(37,99,235,0.45)] hover:shadow-[0_6px_22px_rgba(37,99,235,0.6)]"
+                className="px-5 py-2 rounded-full text-sm font-semibold bg-electric-500 text-white hover:bg-electric-600 transition-all duration-150 shadow-[0_4px_14px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_18px_rgba(37,99,235,0.4)]"
               >
                 {isRTL ? 'اطلب عرضاً تجريبياً' : 'Request a Demo'}
               </Link>
             </div>
 
             <button
-              className="lg:hidden p-3 rounded-lg hover:bg-white/10 transition-colors"
+              className="lg:hidden p-3 rounded-lg hover:bg-slate-100 transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
               <div className="w-6 flex flex-col gap-[5px]">
-                <span className={`block h-[2px] rounded bg-white transition-all duration-200 origin-center ${mobileOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-                <span className={`block h-[2px] rounded bg-white transition-all duration-200 ${mobileOpen ? 'opacity-0 scale-x-0' : ''}`} />
-                <span className={`block h-[2px] rounded bg-white transition-all duration-200 origin-center ${mobileOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+                <span className={`block h-[2px] rounded bg-navy-900 transition-all duration-200 origin-center ${mobileOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+                <span className={`block h-[2px] rounded bg-navy-900 transition-all duration-200 ${mobileOpen ? 'opacity-0 scale-x-0' : ''}`} />
+                <span className={`block h-[2px] rounded bg-navy-900 transition-all duration-200 origin-center ${mobileOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
               </div>
             </button>
           </div>

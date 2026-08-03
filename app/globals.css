@@ -79,7 +79,7 @@ body {
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 html[dir="rtl"] {
@@ -185,15 +185,15 @@ a {
   }
 
   .heading-sm {
-    @apply text-lg sm:text-xl sm:text-2xl font-semibold;
+    @apply text-lg sm:text-xl lg:text-2xl font-semibold;
   }
 
   .body-lg {
-    @apply text-base sm:text-lg leading-relaxed text-slate-600;
+    @apply text-lg sm:text-xl leading-relaxed text-slate-600;
   }
 
   .body-md {
-    @apply text-base leading-relaxed text-slate-600;
+    @apply text-base sm:text-lg leading-relaxed text-slate-600;
   }
 
   .tag-label {

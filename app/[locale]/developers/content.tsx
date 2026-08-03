@@ -52,7 +52,7 @@ export default function DevelopersPage() {
       {/* Flow diagram */}
       <section className="section-pad bg-white relative overflow-hidden">
         <div className="container-wide relative z-10">
-          <div className={`flex flex-col lg:flex-row items-stretch gap-3 lg:gap-2 max-w-5xl mx-auto ${isRTL ? 'lg:flex-row-reverse' : ''}`}>
+          <div className="flex flex-col lg:flex-row items-stretch gap-3 lg:gap-2 max-w-5xl mx-auto">
             {flow.map((step, i) => (
               <div key={i} className="flex items-center gap-2 flex-1">
                 <div className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-5 text-center">

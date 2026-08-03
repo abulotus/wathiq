@@ -8,7 +8,7 @@ const content = {
     body: (
       <>
         <p>
-          This Cookie Policy explains how Wathiq Digital Ltd ("<strong>Wathiq</strong>") uses cookies and similar technologies on our website at <a href="https://wathiq.digital">wathiq.digital</a>. It should be read alongside our <a href="/privacy">Privacy Policy</a>.
+          This Cookie Policy explains how Wathiq Digital Ltd ("<strong>Wathiq</strong>") uses cookies and similar technologies on our website at <a href="https://www.wathiq-sy.com">www.wathiq-sy.com</a>. It should be read alongside our <a href="/privacy">Privacy Policy</a>.
         </p>
 
         <h2>1. What Are Cookies?</h2>
@@ -76,7 +76,7 @@ const content = {
 
         <h2>6. Contact Us</h2>
         <ul>
-          <li><strong>Email:</strong> <a href="mailto:privacy@wathiq.digital">privacy@wathiq.digital</a></li>
+          <li><strong>Email:</strong> <a href="mailto:info@wathiq-sy.com">info@wathiq-sy.com</a></li>
           <li><strong>Post:</strong> Wathiq Digital Ltd, 71-75 Shelton Street, London, WC2H 9JQ, United Kingdom</li>
           <li><strong>Phone:</strong> +44 7547 044020</li>
         </ul>
@@ -88,7 +88,7 @@ const content = {
     body: (
       <>
         <p>
-          تشرح سياسة ملفات تعريف الارتباط هذه كيفية استخدام واثق ديجيتال المحدودة ("<strong>واثق</strong>") لملفات تعريف الارتباط والتقنيات المماثلة على موقعنا <a href="https://wathiq.digital">wathiq.digital</a>. يجب قراءتها جنباً إلى جنب مع <a href="/privacy">سياسة الخصوصية</a> الخاصة بنا.
+          تشرح سياسة ملفات تعريف الارتباط هذه كيفية استخدام واثق ديجيتال المحدودة ("<strong>واثق</strong>") لملفات تعريف الارتباط والتقنيات المماثلة على موقعنا <a href="https://www.wathiq-sy.com">www.wathiq-sy.com</a>. يجب قراءتها جنباً إلى جنب مع <a href="/privacy">سياسة الخصوصية</a> الخاصة بنا.
         </p>
 
         <h2>١. ما هي ملفات تعريف الارتباط؟</h2>
@@ -156,7 +156,7 @@ const content = {
 
         <h2>٦. اتصل بنا</h2>
         <ul>
-          <li><strong>البريد الإلكتروني:</strong> <a href="mailto:privacy@wathiq.digital">privacy@wathiq.digital</a></li>
+          <li><strong>البريد الإلكتروني:</strong> <a href="mailto:info@wathiq-sy.com">info@wathiq-sy.com</a></li>
           <li><strong>البريد العادي:</strong> واثق ديجيتال المحدودة، 71-75 شيلتون ستريت، لندن، WC2H 9JQ، المملكة المتحدة</li>
           <li><strong>الهاتف:</strong> +44 7547 044020</li>
         </ul>

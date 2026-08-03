@@ -71,7 +71,7 @@ const content = {
           <li><strong>Withdraw consent</strong> — where processing is based on consent, you may withdraw it at any time</li>
         </ul>
         <p>
-          To exercise any of these rights, contact us at <a href="mailto:privacy@wathiq.digital">privacy@wathiq.digital</a>. We will respond within one calendar month. You also have the right to lodge a complaint with the UK Information Commissioner&apos;s Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>.
+          To exercise any of these rights, contact us at <a href="mailto:info@wathiq-sy.com">info@wathiq-sy.com</a>. We will respond within one calendar month. You also have the right to lodge a complaint with the UK Information Commissioner&apos;s Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>.
         </p>
 
         <h2>7. Security</h2>
@@ -91,7 +91,7 @@ const content = {
 
         <h2>10. Contact Us</h2>
         <ul>
-          <li><strong>Email:</strong> <a href="mailto:privacy@wathiq.digital">privacy@wathiq.digital</a></li>
+          <li><strong>Email:</strong> <a href="mailto:info@wathiq-sy.com">info@wathiq-sy.com</a></li>
           <li><strong>Post:</strong> Wathiq Digital Ltd, 71-75 Shelton Street, London, WC2H 9JQ, United Kingdom</li>
           <li><strong>Phone:</strong> +44 7547 044020</li>
         </ul>
@@ -166,7 +166,7 @@ const content = {
           <li><strong>سحب الموافقة</strong> — حيث تستند المعالجة إلى الموافقة، يمكنك سحبها في أي وقت</li>
         </ul>
         <p>
-          لممارسة أي من هذه الحقوق، تواصل معنا على <a href="mailto:privacy@wathiq.digital">privacy@wathiq.digital</a>. سنرد خلال شهر تقويمي واحد. يحق لك أيضاً تقديم شكوى إلى مكتب مفوض المعلومات في المملكة المتحدة (ICO) على <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>.
+          لممارسة أي من هذه الحقوق، تواصل معنا على <a href="mailto:info@wathiq-sy.com">info@wathiq-sy.com</a>. سنرد خلال شهر تقويمي واحد. يحق لك أيضاً تقديم شكوى إلى مكتب مفوض المعلومات في المملكة المتحدة (ICO) على <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>.
         </p>
 
         <h2>٧. الأمن</h2>
@@ -186,7 +186,7 @@ const content = {
 
         <h2>١٠. اتصل بنا</h2>
         <ul>
-          <li><strong>البريد الإلكتروني:</strong> <a href="mailto:privacy@wathiq.digital">privacy@wathiq.digital</a></li>
+          <li><strong>البريد الإلكتروني:</strong> <a href="mailto:info@wathiq-sy.com">info@wathiq-sy.com</a></li>
           <li><strong>البريد العادي:</strong> واثق ديجيتال المحدودة، 71-75 شيلتون ستريت، لندن، WC2H 9JQ، المملكة المتحدة</li>
           <li><strong>الهاتف:</strong> +44 7547 044020</li>
         </ul>

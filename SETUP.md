@@ -27,11 +27,14 @@ To enable contact form submissions to work:
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_SECURE=false
-SMTP_USER=abo-barhoom@hotmail.com
+SMTP_USER=info@wathiq-sy.com
 SMTP_PASS=your-16-char-app-password-here
-SMTP_FROM=noreply@wathiq.digital
-CONTACT_EMAIL=abo-barhoom@hotmail.com
+SMTP_FROM=info@wathiq-sy.com
+CONTACT_EMAIL=sales@wathiq-sy.com
+CAREERS_EMAIL=info@wathiq-sy.com
 ```
+
+`SMTP_USER`/`SMTP_PASS` must be real credentials for whichever mailbox actually sends outgoing mail (e.g. `info@wathiq-sy.com` via Google Workspace/Zoho Mail/whatever provider hosts the `wathiq-sy.com` domain's email) — `CONTACT_EMAIL`/`CAREERS_EMAIL` just control where submissions are *delivered*, they don't need SMTP login access.
 
 #### For Outlook/Hotmail:
 
@@ -39,10 +42,11 @@ CONTACT_EMAIL=abo-barhoom@hotmail.com
 SMTP_HOST=smtp-mail.outlook.com
 SMTP_PORT=587
 SMTP_SECURE=false
-SMTP_USER=abo-barhoom@hotmail.com
+SMTP_USER=info@wathiq-sy.com
 SMTP_PASS=your-password
-SMTP_FROM=abo-barhoom@hotmail.com
-CONTACT_EMAIL=abo-barhoom@hotmail.com
+SMTP_FROM=info@wathiq-sy.com
+CONTACT_EMAIL=sales@wathiq-sy.com
+CAREERS_EMAIL=info@wathiq-sy.com
 ```
 
 #### For SendGrid:
@@ -53,8 +57,9 @@ SMTP_PORT=587
 SMTP_SECURE=false
 SMTP_USER=apikey
 SMTP_PASS=SG.xxxxxxxxxxxxx
-SMTP_FROM=noreply@wathiq.digital
-CONTACT_EMAIL=abo-barhoom@hotmail.com
+SMTP_FROM=info@wathiq-sy.com
+CONTACT_EMAIL=sales@wathiq-sy.com
+CAREERS_EMAIL=info@wathiq-sy.com
 ```
 
 ### 3. Test Email Configuration
@@ -111,9 +116,10 @@ After setting up, test the contact form:
 | `SMTP_SECURE` | No | `false` | Use TLS (usually false for 587) |
 | `SMTP_USER` | Yes | `your-email@gmail.com` | SMTP login username |
 | `SMTP_PASS` | Yes | `your-app-password` | SMTP login password |
-| `SMTP_FROM` | Yes | `noreply@wathiq.digital` | Sender email address |
-| `CONTACT_EMAIL` | Yes | `abo-barhoom@hotmail.com` | Where contact submissions go |
-| `NEXT_PUBLIC_SITE_URL` | No | `https://wathiq.digital` | Site URL (for SEO) |
+| `SMTP_FROM` | Yes | `info@wathiq-sy.com` | Sender email address |
+| `CONTACT_EMAIL` | Yes | `sales@wathiq-sy.com` | Where contact/demo-request submissions go |
+| `CAREERS_EMAIL` | No | `info@wathiq-sy.com` | Where job applications go (falls back to `info@wathiq-sy.com`) |
+| `NEXT_PUBLIC_SITE_URL` | No | `https://www.wathiq-sy.com` | Site URL (for SEO) |
 
 ## API Endpoints
 

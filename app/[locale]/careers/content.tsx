@@ -121,7 +121,7 @@ export default function CareersPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [dragOver, setDragOver] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '', phone: '', website: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', website: '', message: '', hp_field: '' });
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [fileError, setFileError] = useState('');
 
@@ -156,6 +156,7 @@ export default function CareersPage() {
       fd.append('phone', form.phone);
       fd.append('website', form.website);
       fd.append('message', form.message);
+      fd.append('hp_field', form.hp_field);
       fd.append('cv', cvFile);
       const res = await fetch('/api/apply', { method: 'POST', body: fd });
       if (!res.ok) throw new Error();
@@ -296,6 +297,20 @@ export default function CareersPage() {
                 onSubmit={handleSubmit}
                 className={`bg-white rounded-3xl border border-slate-100 shadow-card p-6 sm:p-10 space-y-5 ${isRTL ? 'text-right' : ''}`}
               >
+                {/* Honeypot — hidden from real visitors; bots that auto-fill every field trip it. */}
+                <div style={{ position: 'absolute', left: '-9999px', width: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
+                  <label htmlFor="hp_field">Leave this field blank</label>
+                  <input
+                    id="hp_field"
+                    name="hp_field"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={form.hp_field}
+                    onChange={handleChange}
+                  />
+                </div>
+
                 {/* Name + Email */}
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
@@ -470,8 +485,8 @@ export default function CareersPage() {
 
                 <p className="text-xs text-slate-400 text-center">
                   {isRTL
-                    ? 'سيُرسل طلبك مباشرةً إلى فريق التوظيف لدينا على career@wathiq.digital'
-                    : 'Your application is sent directly to our hiring team at career@wathiq.digital'}
+                    ? 'سيُرسل طلبك مباشرةً إلى فريق التوظيف لدينا على info@wathiq-sy.com'
+                    : 'Your application is sent directly to our hiring team at info@wathiq-sy.com'}
                 </p>
               </form>
             )}

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { getClientIp, isRateLimited } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
 
@@ -25,7 +26,18 @@ function safeUrl(value: string): string | null {
 
 export async function POST(req: NextRequest) {
   try {
+    if (isRateLimited(`apply:${getClientIp(req)}`)) {
+      return NextResponse.json({ error: 'Too many submissions. Please try again later.' }, { status: 429 });
+    }
+
     const formData = await req.formData();
+
+    // Honeypot: real applicants never see or fill this field. Return a normal
+    // success response so scrapers don't learn it exists.
+    const honeypot = (formData.get('hp_field') as string) || '';
+    if (honeypot.trim()) {
+      return NextResponse.json({ success: true });
+    }
 
     const name     = (formData.get('name')    as string) || '';
     const email    = (formData.get('email')   as string) || '';
@@ -61,14 +73,14 @@ export async function POST(req: NextRequest) {
 
     await transporter.sendMail({
       from:    `"WATHIQ Careers" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
-      to:      'career@wathiq.digital',
+      to:      process.env.CAREERS_EMAIL || 'info@wathiq-sy.com',
       replyTo: email,
       subject: `Job Application — ${name}`,
       html: `
         <div style="font-family:Inter,sans-serif;max-width:600px;color:#0f172a;">
           <div style="background:#071130;padding:24px 32px;border-radius:12px 12px 0 0;">
             <h1 style="color:#fff;font-size:20px;margin:0;">New Job Application</h1>
-            <p style="color:#94a3b8;font-size:13px;margin:4px 0 0;">Received via wathiq.digital/careers</p>
+            <p style="color:#94a3b8;font-size:13px;margin:4px 0 0;">Received via www.wathiq-sy.com/careers</p>
           </div>
           <div style="background:#f8fafc;padding:32px;border:1px solid #e2e8f0;border-top:none;border-radius:0 0 12px 12px;">
             <table style="width:100%;border-collapse:collapse;margin-bottom:24px;">

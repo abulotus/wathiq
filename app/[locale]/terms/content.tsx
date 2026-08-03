@@ -8,7 +8,7 @@ const content = {
     body: (
       <>
         <p>
-          These Terms of Service ("<strong>Terms</strong>") govern your access to and use of the website at <a href="https://wathiq.digital">wathiq.digital</a> and any related services provided by Wathiq Digital Ltd ("<strong>Wathiq</strong>", "<strong>we</strong>", "<strong>us</strong>", or "<strong>our</strong>"), incorporated in England and Wales, registered address: 71-75 Shelton Street, London, WC2H 9JQ.
+          These Terms of Service ("<strong>Terms</strong>") govern your access to and use of the website at <a href="https://www.wathiq-sy.com">www.wathiq-sy.com</a> and any related services provided by Wathiq Digital Ltd ("<strong>Wathiq</strong>", "<strong>we</strong>", "<strong>us</strong>", or "<strong>our</strong>"), incorporated in England and Wales, registered address: 71-75 Shelton Street, London, WC2H 9JQ.
         </p>
         <p>By accessing or using our website, you agree to be bound by these Terms.</p>
 
@@ -63,7 +63,7 @@ const content = {
 
         <h2>9. Contact</h2>
         <ul>
-          <li><strong>Email:</strong> <a href="mailto:legal@wathiq.digital">legal@wathiq.digital</a></li>
+          <li><strong>Email:</strong> <a href="mailto:info@wathiq-sy.com">info@wathiq-sy.com</a></li>
           <li><strong>Post:</strong> Wathiq Digital Ltd, 71-75 Shelton Street, London, WC2H 9JQ, United Kingdom</li>
           <li><strong>Phone:</strong> +44 7547 044020</li>
         </ul>
@@ -75,7 +75,7 @@ const content = {
     body: (
       <>
         <p>
-          تحكم شروط الخدمة هذه ("<strong>الشروط</strong>") وصولك إلى موقع <a href="https://wathiq.digital">wathiq.digital</a> واستخدامه وأي خدمات ذات صلة تقدمها واثق ديجيتال المحدودة ("<strong>واثق</strong>"، "<strong>نحن</strong>"، "<strong>لنا</strong>"، أو "<strong>خاصتنا</strong>")، المسجلة في إنجلترا وويلز، العنوان المسجل: 71-75 شيلتون ستريت، لندن، WC2H 9JQ.
+          تحكم شروط الخدمة هذه ("<strong>الشروط</strong>") وصولك إلى موقع <a href="https://www.wathiq-sy.com">www.wathiq-sy.com</a> واستخدامه وأي خدمات ذات صلة تقدمها واثق ديجيتال المحدودة ("<strong>واثق</strong>"، "<strong>نحن</strong>"، "<strong>لنا</strong>"، أو "<strong>خاصتنا</strong>")، المسجلة في إنجلترا وويلز، العنوان المسجل: 71-75 شيلتون ستريت، لندن، WC2H 9JQ.
         </p>
         <p>بالوصول إلى موقعنا أو استخدامه، فأنت توافق على الالتزام بهذه الشروط.</p>
 
@@ -130,7 +130,7 @@ const content = {
 
         <h2>٩. اتصل بنا</h2>
         <ul>
-          <li><strong>البريد الإلكتروني:</strong> <a href="mailto:legal@wathiq.digital">legal@wathiq.digital</a></li>
+          <li><strong>البريد الإلكتروني:</strong> <a href="mailto:info@wathiq-sy.com">info@wathiq-sy.com</a></li>
           <li><strong>البريد العادي:</strong> واثق ديجيتال المحدودة، 71-75 شيلتون ستريت، لندن، WC2H 9JQ، المملكة المتحدة</li>
           <li><strong>الهاتف:</strong> +44 7547 044020</li>
         </ul>

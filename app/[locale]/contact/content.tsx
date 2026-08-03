@@ -45,6 +45,7 @@ export default function ContactPage() {
     phone: '',
     industry: '',
     message: '',
+    hp_field: '',
   });
   const [errors, setErrors] = useState<ValidationError>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
@@ -83,7 +84,7 @@ export default function ContactPage() {
       }
 
       setStatus('sent');
-      setFormState({ company: '', name: '', email: '', phone: '', industry: '', message: '' });
+      setFormState({ company: '', name: '', email: '', phone: '', industry: '', message: '', hp_field: '' });
     } catch (err) {
       setStatus('error');
       setErrorMessage(err instanceof Error ? err.message : 'Failed to send message. Please try again.');
@@ -124,7 +125,13 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">{item.label}</div>
-                        <div className="text-navy-900 font-medium text-sm">{item.value}</div>
+                        {item.key === 'email' ? (
+                          <a href={`mailto:${item.value}`} className="text-navy-900 font-medium text-sm hover:text-electric-600 transition-colors" dir="ltr">
+                            {item.value}
+                          </a>
+                        ) : (
+                          <div className="text-navy-900 font-medium text-sm">{item.value}</div>
+                        )}
                       </div>
                     </div>
                   </AnimatedItem>
@@ -197,6 +204,20 @@ export default function ContactPage() {
                     onSubmit={handleSubmit}
                     className={`bg-white rounded-3xl border border-slate-100 shadow-card p-5 sm:p-8 space-y-5 ${isRTL ? 'text-right' : ''}`}
                   >
+                    {/* Honeypot — hidden from real visitors; bots that auto-fill every field trip it. */}
+                    <div style={{ position: 'absolute', left: '-9999px', width: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
+                      <label htmlFor="hp_field">Leave this field blank</label>
+                      <input
+                        id="hp_field"
+                        name="hp_field"
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={formState.hp_field}
+                        onChange={handleChange}
+                      />
+                    </div>
+
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label htmlFor="company" className="block text-sm font-semibold text-slate-700 mb-1.5">{form.company} *</label>

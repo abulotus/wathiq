@@ -180,7 +180,7 @@ export const translations = {
       },
       info: {
         location: { label: 'Registered Address', value: '71-75 Shelton Street, London, WC2H 9JQ, United Kingdom' },
-        email: { label: 'Email', value: 'contact@wathiq.digital' },
+        email: { label: 'Email', value: 'sales@wathiq-sy.com' },
         phone: { label: 'Phone', value: '+44 7547 044020' },
         hours: { label: 'Business Hours', value: 'Sun – Thu, 9:00 AM – 5:00 PM' },
       },
@@ -381,7 +381,7 @@ export const translations = {
       },
       info: {
         location: { label: 'العنوان المسجل', value: '71-75 شيلتون ستريت، لندن، WC2H 9JQ، المملكة المتحدة' },
-        email: { label: 'البريد الإلكتروني', value: 'contact@wathiq.digital' },
+        email: { label: 'البريد الإلكتروني', value: 'sales@wathiq-sy.com' },
         phone: { label: 'الهاتف', value: '+44 7547 044020' },
         hours: { label: 'ساعات العمل', value: 'الأحد – الخميس، 9:00 صباحاً – 5:00 مساءً' },
       },

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Language } from '@/lib/translations';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://wathiq.digital';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://www.wathiq-sy.com';
 
 /**
  * Builds canonical + hreflang metadata for a localized page.

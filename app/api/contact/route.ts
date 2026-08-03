@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { getClientIp, isRateLimited } from '@/lib/rate-limit';
+import { looksLikeLinkSpam } from '@/lib/spam-filter';
 
 export const runtime = 'nodejs';
 
@@ -23,7 +25,17 @@ function safeUrl(value: string): string | null {
 
 export async function POST(req: NextRequest) {
   try {
+    if (isRateLimited(`contact:${getClientIp(req)}`)) {
+      return NextResponse.json({ error: 'Too many submissions. Please try again later.' }, { status: 429 });
+    }
+
     const body = await req.json();
+
+    // Honeypot: real visitors never see or fill this field. Bots that blindly fill
+    // every input do. Return a normal success response so scrapers don't learn it exists.
+    if ((body.hp_field as string || '').trim()) {
+      return NextResponse.json({ success: true });
+    }
 
     const company = (body.company as string) || '';
     const name = (body.name as string) || '';
@@ -36,14 +48,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const recipientEmail = process.env.CONTACT_EMAIL || process.env.SMTP_FROM;
-    if (!recipientEmail) {
-      console.error('[contact] CONTACT_EMAIL not configured');
-      return NextResponse.json(
-        { error: 'Email service not configured' },
-        { status: 500 }
-      );
+    // Silently drop obvious link-spam/phishing too, rather than surfacing an error
+    // that would tip off whatever is submitting it.
+    if (looksLikeLinkSpam(message)) {
+      return NextResponse.json({ success: true });
     }
+
+    const recipientEmail = process.env.CONTACT_EMAIL || process.env.SMTP_FROM || 'sales@wathiq-sy.com';
 
     const safeName = escapeHtml(name);
     const safeEmail = escapeHtml(email);
@@ -71,7 +82,7 @@ export async function POST(req: NextRequest) {
         <div style="font-family:Inter,sans-serif;max-width:600px;color:#0f172a;">
           <div style="background:#071130;padding:24px 32px;border-radius:12px 12px 0 0;">
             <h1 style="color:#fff;font-size:20px;margin:0;">New Contact Form Submission</h1>
-            <p style="color:#94a3b8;font-size:13px;margin:4px 0 0;">Received via wathiq.digital/contact</p>
+            <p style="color:#94a3b8;font-size:13px;margin:4px 0 0;">Received via www.wathiq-sy.com/contact</p>
           </div>
           <div style="background:#f8fafc;padding:32px;border:1px solid #e2e8f0;border-top:none;border-radius:0 0 12px 12px;">
             <table style="width:100%;border-collapse:collapse;margin-bottom:24px;">

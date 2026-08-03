@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import WathiqLogo from '@/components/ui/WathiqLogo';
+import SecurityWeave from '@/components/ui/SecurityWeave';
 
 const socialLinks = [
   {
@@ -100,14 +101,18 @@ export default function Footer() {
   const navGroups = isRTL ? groups.ar : groups.en;
 
   return (
-    <footer className="bg-navy-950 text-white">
-      <div className="w-full overflow-hidden leading-none" style={{ height: 72 }}>
+    <footer
+      className="relative text-white overflow-hidden"
+      style={{ background: 'linear-gradient(180deg, #0A1530 0%, #071130 45%, #04091C 100%)' }}
+    >
+      <SecurityWeave className="opacity-[0.06]" />
+      <div className="w-full overflow-hidden leading-none relative" style={{ height: 72 }}>
         <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-full">
-          <path d="M0 72L1440 10V72H0Z" fill="#04091C" />
+          <path d="M0 72L1440 10V72H0Z" fill="#0A1530" />
         </svg>
       </div>
 
-      <div className="container-wide pt-8 pb-12 sm:pt-12 sm:pb-16">
+      <div className="container-wide pt-8 pb-12 sm:pt-12 sm:pb-16 relative">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 pb-10 sm:pb-12 border-b border-white/10">
           <div className="lg:col-span-2">
             <WathiqLogo variant="light" size="md" />

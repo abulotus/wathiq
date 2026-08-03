@@ -136,7 +136,7 @@ export default function ApiHubDiagram() {
       ))}
     </div>
 
-    <div className="relative w-full max-w-[440px] sm:max-w-[520px] aspect-square mx-auto hidden sm:block">
+    <div className="relative w-full max-w-[440px] sm:max-w-[520px] aspect-square mx-auto my-8 sm:my-10 hidden sm:block">
       {/* faint outer ring, slow ambient rotation */}
       <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full" aria-hidden="true">
         <circle cx="50" cy="50" r="48" fill="none" stroke="#F1F5F9" strokeWidth="0.4" />
@@ -191,26 +191,43 @@ export default function ApiHubDiagram() {
         </span>
       </div>
 
-      {/* nodes */}
+      {/* nodes — icon is anchored exactly on the spoke's endpoint; the label sits on
+          whichever side (above/below) points away from the hub, so it never sits on
+          top of the connecting line for the diagonal nodes. */}
       {nodes.map((node, i) => {
         const { x, y } = pos(i);
         const isActive = i === active;
+        const labelAbove = y < 49;
         return (
-          <div
-            key={i}
-            className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5"
-            style={{ left: `${x}%`, top: `${y}%` }}
-          >
+          <div key={i}>
             <div
-              className={`w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white flex items-center justify-center border-2 transition-all duration-300 ${
-                isActive ? 'border-electric-500 text-electric-600 shadow-[0_0_0_5px_rgba(37,99,235,0.08)]' : 'border-slate-200 text-slate-400'
-              }`}
+              className="absolute -translate-x-1/2 -translate-y-1/2"
+              style={{ left: `${x}%`, top: `${y}%` }}
             >
-              {node.icon}
+              <div
+                className={`w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white flex items-center justify-center border-2 shadow-sm transition-all duration-300 ${
+                  isActive ? 'border-electric-500 text-electric-600 shadow-[0_0_0_5px_rgba(37,99,235,0.08)]' : 'border-slate-200 text-slate-400'
+                }`}
+              >
+                {node.icon}
+              </div>
             </div>
-            <span className={`text-[11px] sm:text-xs font-medium whitespace-nowrap transition-colors duration-300 ${isActive ? 'text-navy-900' : 'text-slate-500'}`}>
-              {isRTL ? node.ar : node.en}
-            </span>
+            <div
+              className={`absolute -translate-x-1/2 ${
+                labelAbove
+                  ? 'translate-y-[calc(-100%-30px)] sm:translate-y-[calc(-100%-38px)]'
+                  : 'translate-y-[30px] sm:translate-y-[38px]'
+              }`}
+              style={{ left: `${x}%`, top: `${y}%` }}
+            >
+              <span
+                className={`inline-block text-[11px] sm:text-xs font-medium whitespace-nowrap px-1.5 rounded transition-colors duration-300 ${
+                  isActive ? 'text-navy-900 bg-white/70' : 'text-slate-500'
+                }`}
+              >
+                {isRTL ? node.ar : node.en}
+              </span>
+            </div>
           </div>
         );
       })}

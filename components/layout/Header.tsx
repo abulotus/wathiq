@@ -50,10 +50,12 @@ export default function Header() {
 
   return (
     <>
-      {/* Light, solid-white header in the same minimal-enterprise pattern as Uqudo/Didit-style ID-verification sites — plain white bar, hairline border, shadow only once scrolled. */}
+      {/* Transparent over the hero so it blends with its light gradient tint; solidifies to white once scrolled past the hero. */}
       <header
-        className={`fixed top-0 inset-x-0 z-50 bg-white border-b transition-shadow duration-200 ${
-          scrolled ? 'shadow-[0_4px_20px_rgba(10,26,71,0.08)] border-slate-200' : 'border-slate-100'
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-200 ${
+          scrolled
+            ? 'bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-[0_4px_20px_rgba(10,26,71,0.08)]'
+            : 'bg-transparent border-b border-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

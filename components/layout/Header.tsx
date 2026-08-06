@@ -94,12 +94,6 @@ export default function Header() {
               >
                 {isRTL ? 'English' : 'العربية'}
               </Link>
-              <a
-                href="#"
-                className="px-3.5 py-2 rounded-full text-sm font-medium text-slate-600 hover:text-navy-900 hover:bg-slate-50 transition-colors duration-150"
-              >
-                {isRTL ? 'دخول العملاء' : 'Client Login'}
-              </a>
               <Link
                 href={href('/contact')}
                 className="px-5 py-2 rounded-full text-sm font-semibold bg-electric-500 text-white hover:bg-electric-600 transition-all duration-150 shadow-[0_4px_14px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_18px_rgba(37,99,235,0.4)]"
@@ -164,13 +158,6 @@ export default function Header() {
               {isRTL ? item.ar : item.en}
             </Link>
           ))}
-          <a
-            href="#"
-            onClick={() => setMobileOpen(false)}
-            className="flex items-center px-4 py-3 rounded-xl text-sm font-medium mb-1 text-slate-700 hover:bg-slate-50"
-          >
-            {isRTL ? 'دخول العملاء' : 'Client Login'}
-          </a>
         </nav>
 
         <div className="p-4 border-t border-slate-100 space-y-3">

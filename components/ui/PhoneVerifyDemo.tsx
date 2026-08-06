@@ -90,58 +90,84 @@ export default function PhoneVerifyDemo() {
           {/* Camera-mode stages */}
           {isCamera && (
             <div key={stage.kind} className="absolute inset-0 stage-fade">
-              {/* Dim viewfinder backdrop */}
-              <div className="absolute inset-0 bg-gradient-to-b from-[#111826] via-[#0B0F1A] to-[#05070C]" />
+              {/* Dim viewfinder backdrop + soft center vignette for depth */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#141C2C] via-[#0B0F1A] to-[#05070C]" />
+              <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 40%, rgba(59,130,246,0.14), transparent 62%)' }} />
 
               {/* Guide frame */}
               <div className="absolute inset-0 flex items-center justify-center px-8">
                 {stage.kind === 'selfie' ? (
-                  <div className="relative flex h-[62%] w-[68%] items-center justify-center rounded-full border-2 border-white/85">
-                    <svg viewBox="0 0 24 24" className="h-14 w-14 text-white/25" fill="currentColor">
+                  <div className="relative flex h-[62%] w-[68%] items-center justify-center rounded-full">
+                    <div className="oval-glow absolute inset-0 rounded-full border-2 border-white/85" />
+                    <svg viewBox="0 0 24 24" className="face-breathe h-14 w-14 text-white/30" fill="currentColor">
                       <circle cx="12" cy="8" r="4" />
                       <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7v1H4v-1z" />
                     </svg>
                   </div>
-                ) : (
+                ) : stage.kind === 'barcode' ? (
                   <div className="relative aspect-[85.6/54] w-full max-w-[210px] rounded-xl">
-                    {/* Corner brackets */}
                     <span className="corner-pulse absolute -left-0.5 -top-0.5 h-7 w-7 rounded-tl-xl border-l-[3px] border-t-[3px] border-white" />
                     <span className="corner-pulse absolute -right-0.5 -top-0.5 h-7 w-7 rounded-tr-xl border-r-[3px] border-t-[3px] border-white" />
                     <span className="corner-pulse absolute -bottom-0.5 -left-0.5 h-7 w-7 rounded-bl-xl border-b-[3px] border-l-[3px] border-white" />
                     <span className="corner-pulse absolute -bottom-0.5 -right-0.5 h-7 w-7 rounded-br-xl border-b-[3px] border-r-[3px] border-white" />
-                    {/* Placeholder document silhouette */}
-                    <div className="absolute inset-3 rounded-md bg-white/[0.06]">
-                      {stage.kind === 'barcode' ? (
-                        <div className="flex h-full items-center justify-center gap-[3px] px-4">
-                          {[3, 1, 2, 4, 1, 3, 2, 1, 4, 2, 1, 3].map((w, i) => (
-                            <span key={i} className="h-8 bg-white/30" style={{ width: `${w}px` }} />
-                          ))}
-                        </div>
-                      ) : (
-                        <div className="flex h-full flex-col justify-center gap-1.5 px-4">
-                          <div className="h-2 w-2/5 rounded-full bg-white/20" />
-                          <div className="h-1.5 w-3/5 rounded-full bg-white/10" />
-                          <div className="h-1.5 w-2/5 rounded-full bg-white/10" />
-                        </div>
-                      )}
+                    <div className="absolute inset-3 flex items-center justify-center gap-[3px] rounded-md bg-white/[0.06] px-4">
+                      {[3, 1, 2, 4, 1, 3, 2, 1, 4, 2, 1, 3, 2, 1].map((w, i) => (
+                        <span key={i} className="h-9 bg-white/35" style={{ width: `${w}px` }} />
+                      ))}
                     </div>
-                    {/* Scan line */}
+                    <div className="absolute inset-x-3 h-px scan-sweep bg-gradient-to-r from-transparent via-electric-300 to-transparent" />
+                  </div>
+                ) : (
+                  <div className="relative aspect-[85.6/54] w-full max-w-[220px] rounded-xl">
+                    <span className="corner-pulse absolute -left-0.5 -top-0.5 h-7 w-7 rounded-tl-xl border-l-[3px] border-t-[3px] border-white" />
+                    <span className="corner-pulse absolute -right-0.5 -top-0.5 h-7 w-7 rounded-tr-xl border-r-[3px] border-t-[3px] border-white" />
+                    <span className="corner-pulse absolute -bottom-0.5 -left-0.5 h-7 w-7 rounded-bl-xl border-b-[3px] border-l-[3px] border-white" />
+                    <span className="corner-pulse absolute -bottom-0.5 -right-0.5 h-7 w-7 rounded-br-xl border-b-[3px] border-r-[3px] border-white" />
+                    {/* Illustrative generic ID-card layout — not a real or copied document design */}
+                    <div className="absolute inset-2.5 overflow-hidden rounded-lg bg-[#EDEFF3]">
+                      <div className="h-[22%] w-full bg-gradient-to-r from-navy-800 to-electric-700" />
+                      <div className="flex gap-2.5 px-3 pt-2.5">
+                        <div className="flex h-11 w-9 flex-shrink-0 items-center justify-center rounded-[3px] border border-slate-300 bg-slate-200">
+                          <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-400" fill="currentColor">
+                            <circle cx="12" cy="8" r="3.6" />
+                            <path d="M5 20c0-3.9 3.1-6.2 7-6.2s7 2.3 7 6.2v.4H5v-.4z" />
+                          </svg>
+                        </div>
+                        <div className="flex flex-1 flex-col justify-center gap-1.5 pt-0.5">
+                          <div className="h-1.5 w-3/5 rounded-full bg-slate-400/70" />
+                          <div className="h-1.5 w-4/5 rounded-full bg-slate-300" />
+                          <div className="h-1.5 w-2/5 rounded-full bg-slate-300" />
+                        </div>
+                      </div>
+                      <div className="mt-2 space-y-1 px-3">
+                        <div className="h-1 w-full rounded-full bg-slate-300/70" />
+                        <div className="h-1 w-5/6 rounded-full bg-slate-300/70" />
+                      </div>
+                    </div>
                     <div className="absolute inset-x-3 h-px scan-sweep bg-gradient-to-r from-transparent via-electric-300 to-transparent" />
                   </div>
                 )}
               </div>
 
-              {/* Top instruction bar */}
+              {/* Top chrome: flash / tips buttons flanking the instruction bar */}
               <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-black/70 to-transparent px-4 pb-8 pt-6 text-center">
-                <div className="mb-2 flex justify-center gap-1">
-                  {CAMERA_KINDS.map((kind, i) => {
-                    const currentDot = CAMERA_KINDS.indexOf(stage.kind);
-                    return (
-                      <span key={kind} className={`h-1 rounded-full transition-all duration-300 ${
-                        i === currentDot ? 'w-4 bg-white' : i < currentDot ? 'w-1 bg-white/70' : 'w-1 bg-white/25'
-                      }`} />
-                    );
-                  })}
+                <div className="mb-3 flex items-center justify-between">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-white/70">
+                    <svg viewBox="0 0 24 24" className="h-3 w-3" fill="currentColor"><path d="M11 2L4 14h5l-1 8 9-12h-5l1-8z" /></svg>
+                  </span>
+                  <div className="flex justify-center gap-1">
+                    {CAMERA_KINDS.map((kind, i) => {
+                      const currentDot = CAMERA_KINDS.indexOf(stage.kind);
+                      return (
+                        <span key={kind} className={`h-1 rounded-full transition-all duration-300 ${
+                          i === currentDot ? 'w-4 bg-white' : i < currentDot ? 'w-1 bg-white/70' : 'w-1 bg-white/25'
+                        }`} />
+                      );
+                    })}
+                  </div>
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-white/70">
+                    <svg viewBox="0 0 24 24" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="9" /><path d="M12 16v-4M12 8h.01" strokeLinecap="round" /></svg>
+                  </span>
                 </div>
                 <p className="text-[11px] font-semibold leading-tight text-white">{isRTL ? stage.title.ar : stage.title.en}</p>
               </div>
@@ -204,6 +230,10 @@ export default function PhoneVerifyDemo() {
         .stage-fade { animation: stageFade .4s ease-out both; }
         @keyframes cornerPulseKf { 0%, 100% { opacity: 1; } 50% { opacity: .45; } }
         .corner-pulse { animation: cornerPulseKf 1.6s ease-in-out infinite; }
+        @keyframes ovalGlowKf { 0%, 100% { box-shadow: 0 0 0 0 rgba(147,197,253,0.35); } 50% { box-shadow: 0 0 0 8px rgba(147,197,253,0); } }
+        .oval-glow { animation: ovalGlowKf 2s ease-out infinite; }
+        @keyframes faceBreatheKf { 0%, 100% { transform: scale(1); opacity: .3; } 50% { transform: scale(1.06); opacity: .45; } }
+        .face-breathe { animation: faceBreatheKf 2.4s ease-in-out infinite; }
         @keyframes scanSweepKf { 0% { top: 8%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { top: 88%; opacity: 0; } }
         .scan-sweep { animation: scanSweepKf 1.9s ease-in-out infinite; }
         @keyframes progressSlideKf { 0% { transform: translateX(-100%); } 100% { transform: translateX(300%); } }

@@ -6,7 +6,6 @@ import TrustedBy from '@/components/sections/TrustedBy';
 import HowItWorks from '@/components/sections/HowItWorks';
 import VerificationExperience from '@/components/sections/VerificationExperience';
 import PlatformOverview from '@/components/sections/PlatformOverview';
-import ProductShowcase from '@/components/sections/ProductShowcase';
 import ArabicFirstExperience from '@/components/sections/ArabicFirstExperience';
 import SecurityCompliance from '@/components/sections/SecurityCompliance';
 import FAQ from '@/components/sections/FAQ';
@@ -37,7 +36,6 @@ export default function HomePage() {
       <HowItWorks />
       <VerificationExperience />
       <PlatformOverview />
-      <ProductShowcase />
       <ArabicFirstExperience />
       <SecurityCompliance />
       <FAQ />

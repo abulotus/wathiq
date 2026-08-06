@@ -72,7 +72,7 @@ export default function HowItWorks() {
   const { isRTL } = useLanguage();
 
   return (
-    <section id="how-it-works" className="section-pad bg-slate-50 relative overflow-hidden scroll-mt-20">
+    <section id="how-it-works" className="section-pad bg-white relative overflow-hidden scroll-mt-20">
       <div className="absolute inset-0 grid-mesh opacity-40" />
       <TechBackground variant="light" />
       {/* Radial gradient blobs — fade to transparent so overflow-hidden doesn't create a hard cut */}

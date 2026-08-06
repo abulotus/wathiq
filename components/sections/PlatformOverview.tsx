@@ -45,7 +45,7 @@ export default function PlatformOverview() {
   const items = isRTL ? pillars.ar : pillars.en;
 
   return (
-    <section className="section-pad bg-white">
+    <section className="section-pad bg-slate-50">
       <div className="container-wide">
         <AnimatedSection className="text-center max-w-2xl mx-auto mb-14">
           <SectionTag label={isRTL ? 'المنصة' : 'Platform'} />
@@ -57,7 +57,7 @@ export default function PlatformOverview() {
         <div className="grid sm:grid-cols-3 gap-6">
           {items.map((item, i) => (
             <AnimatedItem key={i} index={i}>
-              <div className={`h-full rounded-2xl border border-slate-100 p-6 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 ${isRTL ? 'text-right' : ''}`}>
+              <div className={`h-full rounded-2xl bg-white border border-slate-100 p-6 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 ${isRTL ? 'text-right' : ''}`}>
                 <div className="w-12 h-12 rounded-xl bg-electric-50 text-electric-600 flex items-center justify-center mb-5">
                   {icons[i]}
                 </div>

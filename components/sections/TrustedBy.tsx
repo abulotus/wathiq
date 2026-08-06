@@ -51,10 +51,6 @@ export default function TrustedBy() {
 
   return (
     <section className="bg-white py-14 relative overflow-hidden">
-      {/* Soft fades at the top/bottom so this section blends into the hero's tinted tail
-          and the next section's slate-50, instead of cutting to flat white on a hard edge. */}
-      <div className="absolute inset-x-0 top-0 h-28 sm:h-36 bg-gradient-to-b from-electric-50/70 to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-24 sm:h-32 bg-gradient-to-t from-slate-100/80 to-transparent pointer-events-none" />
       <TechBackground variant="light" />
       <div className="container-wide relative z-10">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 text-center mb-8">

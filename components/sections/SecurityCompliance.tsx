@@ -19,11 +19,11 @@ export default function SecurityCompliance() {
         <AnimatedSection className="text-center mb-10">
           <SectionTag label={isRTL ? 'الأمان والخصوصية' : 'Security & Privacy'} variant="blue" />
           <h2 className="heading-lg text-navy-900 mt-4">
-            {isRTL ? 'الأمان أساس كل ما نبنيه' : 'Security Is the Foundation of Everything We Build'}
+            {isRTL ? 'الأمان في صميم كل ما نبنيه' : 'Security Is the Foundation of Everything We Build'}
           </h2>
           <p className="body-lg text-slate-600 mt-4 max-w-xl mx-auto">
             {isRTL
-              ? 'من التقاط الوثيقة إلى تسليم القرار، تُشفَّر بيانات الهوية الحساسة وتُخزَّن الأدلة بشكل خاص ومحدود المدة — إليك ملخص ممارساتنا المؤكدة.'
+              ? 'من لحظة التقاط الوثيقة حتى إصدار نتيجة التحقق، نُشفّر بيانات الهوية الحساسة ونحفظ الأدلة في مساحة تخزين خاصة، محدودة الوصول ولفترة زمنية محددة. وفيما يلي ملخص لممارساتنا الأمنية.'
               : 'From document capture to decision delivery, sensitive identity data is encrypted and evidence is stored privately with time-limited access — here is a summary of our confirmed practices.'}
           </p>
         </AnimatedSection>
@@ -31,7 +31,7 @@ export default function SecurityCompliance() {
         <AnimatedSection delay={0.2}>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-10">
             {(isRTL
-              ? ['TLS على كل اتصال', 'تشفير AES-256-GCM للبيانات الحساسة', 'تخزين أدلة خاص ومحدود المدة', 'صلاحيات قائمة على الأدوار']
+              ? ['تشفير جميع الاتصالات باستخدام TLS', 'تشفير البيانات الحساسة باستخدام AES-256-GCM', 'تخزين خاص للأدلة، بصلاحيات محدودة ولفترة زمنية محددة', 'صلاحيات وصول قائمة على الأدوار']
               : ['TLS on every connection', 'AES-256-GCM encryption for sensitive data', 'Private, time-limited evidence storage', 'Role-based access control']
             ).map((item, i) => (
               <div key={i} className="bg-white border border-slate-200 shadow-sm rounded-xl px-4 py-4 text-center">
@@ -46,7 +46,7 @@ export default function SecurityCompliance() {
                 href={href('/security')}
                 className="inline-flex items-center gap-1.5 text-electric-600 font-semibold text-sm hover:text-electric-700 transition-colors"
               >
-                {isRTL ? 'اقرأ مبادئ الأمان لدينا' : 'Read our security principles'}
+                {isRTL ? 'اطّلع على مبادئ الأمان لدينا' : 'Read our security principles'}
                 <svg className="w-3.5 h-3.5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -56,7 +56,7 @@ export default function SecurityCompliance() {
                 href={href('/contact')}
                 className="inline-flex items-center gap-1.5 text-electric-600 font-semibold text-sm hover:text-electric-700 transition-colors"
               >
-                {isRTL ? 'هل لديك متطلبات امتثال محددة؟ تواصل معنا' : 'Have specific compliance requirements? Talk to us'}
+                {isRTL ? 'هل لديك متطلبات امتثال محددة؟ تواصل معنا.' : 'Have specific compliance requirements? Talk to us'}
                 <svg className="w-3.5 h-3.5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>

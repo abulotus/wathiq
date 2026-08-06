@@ -21,8 +21,8 @@ const steps = [
     },
     ar: {
       title: 'التكامل',
-      desc: 'اربط نظامك أو منصتك بنظام واثق من خلال واجهة برمجة التطبيقات، واستلم نتائج التحقق وتحديثات الحالة عبر إشعارات Webhook.',
-      detail: 'API · Webhooks',
+      desc: 'اربط نظامك أو منصتك بواثق عبر واجهة برمجة التطبيقات (API)، وتلقَّ نتائج التحقق وتحديثات الحالة من خلال إشعارات Webhook.',
+      detail: 'API · إشعارات Webhook',
     },
   },
   {
@@ -41,7 +41,7 @@ const steps = [
     },
     ar: {
       title: 'التحقق',
-      desc: 'يكمل المستخدم رحلة التحقق من جواز السفر الإلكتروني أو البطاقة الشخصية عبر تجربة واثق للجوال أو عبر المتصفح ذات الواجهة العربية.',
+      desc: 'يُكمل المستخدم عملية التحقق من بطاقة الهوية الوطنية أو جواز السفر الإلكتروني عبر تطبيق واثق للجوال أو المتصفح، من خلال واجهة عربية واضحة وسلسة.',
       detail: 'تطبيق الجوال · المتصفح',
     },
   },
@@ -61,8 +61,8 @@ const steps = [
     },
     ar: {
       title: 'الإدارة',
-      desc: 'نتائج التحقق تظهر مباشرة عبر لوحة التحكم، مع استلام إشعارات عبر Webhook.',
-      detail: 'لوحة تحكم العملاء · حالة Webhook',
+      desc: 'تظهر نتائج التحقق مباشرة في لوحة التحكم، وتتلقى أنظمتك تحديثات الحالة عبر إشعارات Webhook.',
+      detail: 'لوحة تحكم العملاء · حالة إشعارات Webhook',
     },
   },
 ];
@@ -76,11 +76,11 @@ export default function HowItWorks() {
         <AnimatedSection className={`max-w-2xl mx-auto text-center mb-16 sm:mb-20`}>
           <SectionTag label={isRTL ? 'كيف يعمل واثق' : 'How It Works'} variant="blue" />
           <h2 className="heading-lg text-navy-900 mt-4">
-            {isRTL ? 'ثلاث خطوات إلى التحقق' : 'Three Steps to Verification'}
+            {isRTL ? 'إتمام التحقق في ثلاث خطوات' : 'Three Steps to Verification'}
           </h2>
           <p className="body-lg text-slate-500 mt-4 max-w-xl mx-auto">
             {isRTL
-              ? 'من التكامل إلى النتيجة في لوحة التحكم.'
+              ? 'من ربط نظامك إلى ظهور النتيجة في لوحة التحكم.'
               : 'From integration to a result in your client dashboard.'}
           </p>
         </AnimatedSection>
@@ -130,7 +130,7 @@ export default function HowItWorks() {
             <div className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
             <span className="text-slate-600 text-sm">
               {isRTL
-                ? 'لوحة تحكم بواجهة عربية أو اتصال كامل عبر API وWebhook'
+                ? 'إدارة عبر لوحة تحكم عربية، أو تكامل كامل عبر API وإشعارات Webhook.'
                 : 'An Arabic-interface dashboard, or full connectivity through API and webhook'}
             </span>
           </div>

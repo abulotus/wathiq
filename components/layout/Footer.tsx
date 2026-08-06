@@ -79,7 +79,7 @@ const groups = {
     {
       title: 'الموارد',
       items: [
-        { label: 'دراسات الحالات', path: '/case-studies' },
+        { label: 'دراسات حالة', path: '/case-studies' },
         { label: 'التسعير', path: '/pricing' },
         { label: 'المدونة', path: '/blog' },
       ],
@@ -90,7 +90,7 @@ const groups = {
         { label: 'إشعار الخصوصية', path: '/privacy' },
         { label: 'بيانات خدمة التحقق', path: '/service-data' },
         { label: 'الشروط', path: '/terms' },
-        { label: 'إشعار الكوكيز', path: '/cookies' },
+        { label: 'إشعار ملفات تعريف الارتباط', path: '/cookies' },
       ],
     },
   ],
@@ -118,7 +118,7 @@ export default function Footer() {
             <WathiqLogo variant="light" size="md" />
             <p className={`mt-4 text-slate-400 text-sm leading-relaxed max-w-xs ${isRTL ? 'text-right' : ''}`}>
               {isRTL
-                ? 'منصة عربية أولاً للتحقق من جوازات السفر الإلكترونية، مصممة للسوق السورية ومتصلة عالمياً.'
+                ? 'منصة للتحقق من جوازات السفر الإلكترونية، مصمّمة بالعربية لتلبية احتياجات السوق السورية، مع تغطية عالمية.'
                 : 'An Arabic-first ePassport verification platform designed for the Syrian market and connected internationally.'}
             </p>
 
@@ -169,7 +169,7 @@ export default function Footer() {
               {isRTL ? 'الشروط' : 'Terms'}
             </Link>
             <Link href={href('/cookies')} className="text-slate-500 hover:text-slate-300 text-xs transition-colors">
-              {isRTL ? 'الكوكيز' : 'Cookies'}
+              {isRTL ? 'ملفات تعريف الارتباط' : 'Cookies'}
             </Link>
           </div>
         </div>

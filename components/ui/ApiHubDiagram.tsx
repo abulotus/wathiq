@@ -23,7 +23,7 @@ const nodes: Node[] = [
   },
   {
     en: 'National ID',
-    ar: 'الهوية الوطنية',
+    ar: 'بطاقة الهوية الوطنية',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="w-5 h-5 sm:w-6 sm:h-6">
         <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -34,7 +34,7 @@ const nodes: Node[] = [
   },
   {
     en: 'Liveness',
-    ar: 'الفحص الحيوي',
+    ar: 'فحص الحيوية',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="w-5 h-5 sm:w-6 sm:h-6">
         <circle cx="12" cy="12" r="4" />
@@ -64,7 +64,7 @@ const nodes: Node[] = [
   },
   {
     en: 'Webhooks',
-    ar: 'Webhooks',
+    ar: 'إشعارات Webhook',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} className="w-5 h-5 sm:w-6 sm:h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" />

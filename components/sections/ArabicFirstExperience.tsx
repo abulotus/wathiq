@@ -11,9 +11,9 @@ const points = {
     { title: 'Consistent across platforms', desc: 'The same Arabic-first experience carries through the mobile app and client dashboard.' },
   ],
   ar: [
-    { title: 'واجهة عربية سهلة', desc: 'المنتج نفسه مبني بالعربية وليس فقط صفحات التسويق.' },
-    { title: 'إجراءات بسيطة وواضحة', desc: 'تعليمات للمستخدم لإكمال عملية التحقق بسلاسة ووضوح.' },
-    { title: 'تجربة متسقة عبر المنصات', desc: 'التجربة العربية نفسها تمتد عبر تطبيق الجوال ولوحة تحكم العملاء.' },
+    { title: 'واجهة عربية سهلة الاستخدام', desc: 'العربية جزء أصيل من تصميم المنصة، وليست مجرد ترجمة لصفحاتها التسويقية.' },
+    { title: 'خطوات بسيطة وواضحة', desc: 'تعليمات واضحة تساعد المستخدم على إكمال عملية التحقق بسهولة وسلاسة.' },
+    { title: 'تجربة متسقة عبر المنصات', desc: 'تتوفر واجهة عربية متسقة عبر تطبيق الجوال والمتصفح ولوحة تحكم العملاء.' },
   ],
 };
 
@@ -25,9 +25,9 @@ export default function ArabicFirstExperience() {
     <section className="section-pad bg-white">
       <div className="container-wide">
         <AnimatedSection className="text-center max-w-2xl mx-auto mb-14">
-          <SectionTag label={isRTL ? 'تجربة عربية أولاً' : 'Arabic-First Experience'} />
+          <SectionTag label={isRTL ? 'تجربة عربية من الأساس' : 'Arabic-First Experience'} />
           <h2 className="heading-lg text-navy-900 mt-4">
-            {isRTL ? 'مصممة خصيصاً للمستخدمين الناطقين بالعربية' : 'Designed specifically for Arabic-speaking users'}
+            {isRTL ? 'مصمّمة خصيصًا للمستخدمين الناطقين بالعربية' : 'Designed specifically for Arabic-speaking users'}
           </h2>
         </AnimatedSection>
 

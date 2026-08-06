@@ -13,9 +13,9 @@ const pillars = {
     { tag: 'Client Dashboard', title: 'Client Dashboard', body: 'Manage verification operations and review status and results from one place.', path: '/client-dashboard', linkLabel: 'View Dashboard' },
   ],
   ar: [
-    { tag: 'التحقق من جوازات السفر الإلكترونية', title: 'التحقق من جوازات السفر الحديثة (مع شريحة)', body: 'تحقّق من جوازات السفر الحديثة التي تحتوي على شريحة والصادرة عن عدة دول حول العالم، عبر رحلة بواجهة عربية أولاً.', path: '/epassport-coverage', linkLabel: 'اطّلع على التغطية' },
-    { tag: 'API وWebhooks', title: 'اربط أنظمتك', body: 'ابدأ عمليات التحقق واستلم النتائج وتحديثات الحالة من خلال ربط نظامك مع واثق.', path: '/developers', linkLabel: 'استعرض المطورين' },
-    { tag: 'لوحة تحكم العملاء', title: 'لوحة تحكم العملاء', body: 'أدر عمليات التحقق وراجع الحالة والنتائج من مكان واحد.', path: '/client-dashboard', linkLabel: 'استعرض لوحة التحكم' },
+    { tag: 'التحقق من جوازات السفر الإلكترونية', title: 'التحقق من جوازات السفر الإلكترونية الحديثة المزوّدة بشريحة', body: 'تحقّق من جوازات السفر الإلكترونية الحديثة المزوّدة بشريحة والصادرة عن دول متعددة حول العالم، عبر تجربة مصمّمة بالعربية من الأساس.', path: '/epassport-coverage', linkLabel: 'اطّلع على الدول والوثائق المدعومة' },
+    { tag: 'API وإشعارات Webhook', title: 'اربط أنظمتك بمنصة واثق', body: 'ابدأ طلبات التحقق وتلقَّ النتائج وتحديثات الحالة من خلال تكامل مباشر بين أنظمتك ومنصة واثق.', path: '/developers', linkLabel: 'استكشف أدوات المطورين' },
+    { tag: 'لوحة تحكم العملاء', title: 'أدِر عمليات التحقق من مكان واحد', body: 'راجِع طلبات التحقق وحالاتها ونتائجها من لوحة تحكم مركزية واحدة.', path: '/client-dashboard', linkLabel: 'استكشف لوحة تحكم العملاء' },
   ],
 };
 
@@ -50,7 +50,7 @@ export default function PlatformOverview() {
         <AnimatedSection className="text-center max-w-2xl mx-auto mb-14">
           <SectionTag label={isRTL ? 'المنصة' : 'Platform'} />
           <h2 className="heading-lg text-navy-900 mt-4">
-            {isRTL ? 'ثلاث ميزات أساسية' : 'Three core features'}
+            {isRTL ? 'ثلاث مزايا أساسية' : 'Three core features'}
           </h2>
         </AnimatedSection>
 
@@ -78,11 +78,11 @@ export default function PlatformOverview() {
         <div className="mt-16 sm:mt-20 pt-16 sm:pt-20 border-t border-slate-100">
           <AnimatedSection className="text-center max-w-xl mx-auto mb-10 sm:mb-12">
             <h3 className="heading-md text-navy-900">
-              {isRTL ? 'كل ذلك عبر نظام واحد متصل' : 'All connected through one system'}
+              {isRTL ? 'كل ذلك ضمن نظام واحد متكامل' : 'All connected through one system'}
             </h3>
             <p className="body-md mt-3">
               {isRTL
-                ? 'من قراءة الوثيقة إلى الفحص الحيوي، وصولاً إلى API وWebhooks ولوحة التحكم.'
+                ? 'من قراءة الوثائق والتحقق البيومتري إلى التكامل عبر API وإشعارات Webhook وإدارة النتائج من لوحة التحكم.'
                 : 'From document capture to biometric checks, through to the API, webhooks, and dashboard that connect it all to your systems.'}
             </p>
           </AnimatedSection>

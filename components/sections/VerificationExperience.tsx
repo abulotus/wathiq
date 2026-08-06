@@ -18,7 +18,7 @@ const bullets = {
     'التقاط موجَّه بالكاميرا الحيّة لبطاقة الهوية الوطنية وجواز السفر',
     'قراءة تلقائية لباركود PDF417',
     'مطابقة الوجه عبر صورة ذاتية حيّة',
-    'وصول النتيجة عبر API وWebhook إلى لوحة التحكم',
+    'وصول النتيجة عبر API وإشعارات Webhook إلى لوحة التحكم',
   ],
 };
 
@@ -42,7 +42,7 @@ export default function VerificationExperience() {
             </h2>
             <p className="body-lg text-white/70 mt-4">
               {isRTL
-                ? 'يُكمل المتقدّم رحلة التحقق عبر تطبيق واثق للجوال — من التقاط الوثيقة إلى الصورة الذاتية وصولاً إلى النتيجة — بواجهة عربية أولاً من البداية حتى النهاية.'
+                ? 'يُكمل المتقدّم رحلة التحقق عبر تطبيق واثق للجوال — من التقاط الوثيقة إلى الصورة الذاتية وصولاً إلى النتيجة — بواجهة عربية كاملة من البداية حتى النهاية.'
                 : "The applicant completes the verification journey through the Wathiq mobile app — from document capture to a selfie through to a result — in an Arabic-first experience from start to finish."}
             </p>
             <ul className="mt-7 space-y-3.5">

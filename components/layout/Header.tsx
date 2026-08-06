@@ -8,9 +8,9 @@ import WathiqLogo from '@/components/ui/WathiqLogo';
 
 const navItems = [
   { path: '/platform', en: 'Platform', ar: 'المنصة' },
-  { path: '/epassport-coverage', en: 'ePassport Coverage', ar: 'تغطية الجوازات' },
+  { path: '/epassport-coverage', en: 'ePassport Coverage', ar: 'تغطية جوازات السفر' },
   { path: '/developers', en: 'Developers', ar: 'المطورون' },
-  { path: '/client-dashboard', en: 'Client Dashboard', ar: 'لوحة التحكم' },
+  { path: '/client-dashboard', en: 'Client Dashboard', ar: 'لوحة تحكم العملاء' },
   { path: '/mobile-app', en: 'Mobile App', ar: 'تطبيق الجوال' },
   { path: '/security', en: 'Security', ar: 'الأمان' },
   { path: '/company', en: 'Company', ar: 'الشركة' },
@@ -98,7 +98,7 @@ export default function Header() {
                 href={href('/contact')}
                 className="px-5 py-2 rounded-full text-sm font-semibold bg-electric-500 text-white hover:bg-electric-600 transition-all duration-150 shadow-[0_4px_14px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_18px_rgba(37,99,235,0.4)]"
               >
-                {isRTL ? 'اطلب عرضاً تجريبياً' : 'Request a Demo'}
+                {isRTL ? 'اطلب عرضًا تجريبيًا' : 'Request a Demo'}
               </Link>
             </div>
 
@@ -166,7 +166,7 @@ export default function Header() {
             onClick={() => setMobileOpen(false)}
             className="flex items-center justify-center w-full px-5 py-3 bg-electric-500 text-white text-sm font-semibold rounded-xl hover:bg-electric-600 transition-colors"
           >
-            {isRTL ? 'اطلب عرضاً تجريبياً' : 'Request a Demo'}
+            {isRTL ? 'اطلب عرضًا تجريبيًا' : 'Request a Demo'}
           </Link>
           <Link
             href={otherLocaleHref(pathname)}

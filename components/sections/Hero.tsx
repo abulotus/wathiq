@@ -77,7 +77,7 @@ function HeroIllustration({ isRTL }: { isRTL: boolean }) {
           </span>
         </div>
         <div className="text-slate-500 text-xs mt-1">
-          {isRTL ? 'التحقق من المستخدم' : 'User authentication'}
+          {isRTL ? 'التحقق من هوية المستخدم' : 'User authentication'}
         </div>
       </div>
 
@@ -88,11 +88,11 @@ function HeroIllustration({ isRTL }: { isRTL: boolean }) {
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
           <span className="text-navy-900 font-semibold text-xs whitespace-nowrap">
-            {isRTL ? 'تم إرسال النتيجة' : 'Result Delivered'}
+            {isRTL ? 'أُرسلت النتيجة' : 'Result Delivered'}
           </span>
         </div>
         <div className="text-slate-500 text-xs mt-1">
-          {isRTL ? 'عبر Webhook' : 'Via webhook'}
+          {isRTL ? 'عبر إشعار Webhook' : 'Via webhook'}
         </div>
       </div>
 
@@ -103,7 +103,7 @@ function HeroIllustration({ isRTL }: { isRTL: boolean }) {
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-gold-500 animate-pulse flex-shrink-0" />
           <span className="text-navy-900 font-semibold text-xs whitespace-nowrap">
-            {isRTL ? '140 جواز سفر مدعوم' : '140 ePassports Supported'}
+            {isRTL ? 'جوازات سفر إلكترونية حديثة من 140 دولة' : '140 ePassports Supported'}
           </span>
         </div>
         <div className="text-slate-500 text-xs mt-1">

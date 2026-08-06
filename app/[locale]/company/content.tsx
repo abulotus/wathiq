@@ -104,7 +104,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Mission & Vision ── */}
-      <section id="mission" className="section-pad bg-slate-50 relative overflow-hidden">
+      <section id="mission" className="pt-14 sm:pt-20 lg:pt-28 pb-8 sm:pb-10 bg-slate-50 relative overflow-hidden">
         <div className="absolute inset-0 grid-mesh opacity-40" />
         <div className="absolute -end-20 top-0 w-[420px] h-[420px] rounded-full pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 65%)' }} />
@@ -162,7 +162,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Values ── */}
-      <section className="section-pad bg-slate-50 relative overflow-hidden">
+      <section className="pt-8 sm:pt-10 pb-14 sm:pb-20 lg:pb-28 bg-slate-50 relative overflow-hidden">
         <div className="absolute inset-0 grid-mesh opacity-40" />
         <TechBackground variant="light" />
         <div className="container-wide relative z-10">

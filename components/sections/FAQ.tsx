@@ -106,7 +106,7 @@ export default function FAQ() {
   const items = isRTL ? faqs.ar : faqs.en;
 
   return (
-    <section className="section-pad bg-white">
+    <section className="pt-14 sm:pt-20 lg:pt-28 pb-8 sm:pb-10 bg-white">
       <div className="container-wide">
         <AnimatedSection className={`text-center max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
           <SectionTag label={isRTL ? 'الأسئلة الشائعة' : 'FAQ'} />

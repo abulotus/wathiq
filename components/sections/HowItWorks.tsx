@@ -2,7 +2,6 @@
 
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
 import SectionTag from '@/components/ui/SectionTag';
-import TechBackground from '@/components/ui/TechBackground';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const steps = [
@@ -72,16 +71,8 @@ export default function HowItWorks() {
   const { isRTL } = useLanguage();
 
   return (
-    <section id="how-it-works" className="section-pad bg-white relative overflow-hidden scroll-mt-20">
-      <div className="absolute inset-0 grid-mesh opacity-40" />
-      <TechBackground variant="light" />
-      {/* Radial gradient blobs — fade to transparent so overflow-hidden doesn't create a hard cut */}
-      <div className="absolute -top-40 -end-40 w-[520px] h-[520px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.10) 0%, transparent 65%)' }} />
-      <div className="absolute -bottom-32 -start-32 w-96 h-96 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 65%)' }} />
-
-      <div className="container-wide relative z-10">
+    <section id="how-it-works" className="pt-8 sm:pt-10 lg:pt-14 pb-14 sm:pb-20 lg:pb-28 bg-white scroll-mt-20">
+      <div className="container-wide">
         <AnimatedSection className={`max-w-2xl mx-auto text-center mb-16 sm:mb-20`}>
           <SectionTag label={isRTL ? 'كيف يعمل واثق' : 'How It Works'} variant="blue" />
           <h2 className="heading-lg text-navy-900 mt-4">
@@ -144,13 +135,6 @@ export default function HowItWorks() {
             </span>
           </div>
         </AnimatedSection>
-      </div>
-
-      {/* Bottom diagonal divider */}
-      <div className="absolute bottom-0 inset-x-0 overflow-hidden leading-none pointer-events-none" style={{ height: 72 }}>
-        <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-full">
-          <path d="M0 72L1440 10V72H0Z" fill="#ffffff" />
-        </svg>
       </div>
     </section>
   );

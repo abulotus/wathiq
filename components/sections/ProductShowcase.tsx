@@ -10,7 +10,7 @@ export default function ProductShowcase() {
   const { isRTL, href } = useLanguage();
 
   return (
-    <section className="section-pad bg-slate-50">
+    <section className="pt-8 sm:pt-10 pb-14 sm:pb-20 lg:pb-28 bg-slate-50">
       <div className="container-wide">
         <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
           <SectionTag label={isRTL ? 'المنتج' : 'Product'} />

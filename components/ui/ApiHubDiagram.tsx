@@ -136,7 +136,7 @@ export default function ApiHubDiagram() {
       ))}
     </div>
 
-    <div className="relative w-full max-w-[440px] sm:max-w-[520px] aspect-square mx-auto my-8 sm:my-10 hidden sm:block">
+    <div className="relative w-full max-w-[440px] sm:max-w-[520px] aspect-square mx-auto mt-8 sm:mt-10 hidden sm:block">
       {/* faint outer ring, slow ambient rotation */}
       <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full" aria-hidden="true">
         <circle cx="50" cy="50" r="48" fill="none" stroke="#F1F5F9" strokeWidth="0.4" />

@@ -1,7 +1,6 @@
 'use client';
 
 import { useLanguage } from '@/contexts/LanguageContext';
-import TechBackground from '@/components/ui/TechBackground';
 
 const facts = [
   {
@@ -50,9 +49,8 @@ export default function TrustedBy() {
   const { isRTL } = useLanguage();
 
   return (
-    <section className="bg-white py-14 relative overflow-hidden">
-      <TechBackground variant="light" />
-      <div className="container-wide relative z-10">
+    <section className="bg-white pt-14 pb-8">
+      <div className="container-wide">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 text-center mb-8">
           {isRTL ? 'حقائق مؤكدة عن المنصة' : 'Verified platform facts'}
         </p>

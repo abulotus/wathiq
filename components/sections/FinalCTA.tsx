@@ -8,7 +8,7 @@ export default function FinalCTA() {
   const { isRTL, href } = useLanguage();
 
   return (
-    <section className="section-pad bg-white">
+    <section className="pt-8 sm:pt-10 pb-14 sm:pb-20 lg:pb-28 bg-white">
       <div className="container-wide">
         <AnimatedSection>
           <div className="relative rounded-3xl bg-gradient-to-br from-electric-50 to-teal-50 border border-electric-100 overflow-hidden px-5 py-14 sm:px-14 sm:py-16 text-center">

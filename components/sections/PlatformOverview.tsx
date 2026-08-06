@@ -45,7 +45,7 @@ export default function PlatformOverview() {
   const items = isRTL ? pillars.ar : pillars.en;
 
   return (
-    <section className="section-pad bg-slate-50">
+    <section className="pt-14 sm:pt-20 lg:pt-28 pb-8 sm:pb-10 bg-slate-50">
       <div className="container-wide">
         <AnimatedSection className="text-center max-w-2xl mx-auto mb-14">
           <SectionTag label={isRTL ? 'المنصة' : 'Platform'} />

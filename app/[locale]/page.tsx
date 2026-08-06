@@ -4,6 +4,7 @@ import { Language } from '@/lib/translations';
 import Hero from '@/components/sections/Hero';
 import TrustedBy from '@/components/sections/TrustedBy';
 import HowItWorks from '@/components/sections/HowItWorks';
+import VerificationExperience from '@/components/sections/VerificationExperience';
 import PlatformOverview from '@/components/sections/PlatformOverview';
 import ProductShowcase from '@/components/sections/ProductShowcase';
 import ArabicFirstExperience from '@/components/sections/ArabicFirstExperience';
@@ -34,6 +35,7 @@ export default function HomePage() {
       <Hero />
       <TrustedBy />
       <HowItWorks />
+      <VerificationExperience />
       <PlatformOverview />
       <ProductShowcase />
       <ArabicFirstExperience />

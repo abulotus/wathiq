@@ -97,11 +97,31 @@ export default function PhoneVerifyDemo() {
               {/* Guide frame */}
               <div className="absolute inset-0 flex items-center justify-center px-8">
                 {stage.kind === 'selfie' ? (
-                  <div className="relative flex h-[62%] w-[68%] items-center justify-center rounded-full">
-                    <div className="oval-glow absolute inset-0 rounded-full border-2 border-white/85" />
-                    <svg viewBox="0 0 24 24" className="face-breathe h-14 w-14 text-white/30" fill="currentColor">
-                      <circle cx="12" cy="8" r="4" />
-                      <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7v1H4v-1z" />
+                  <div className="relative flex h-[64%] w-[70%] items-center justify-center rounded-full"
+                    style={{ boxShadow: '0 0 0 1px rgba(147,197,253,0.15), 0 0 60px 12px rgba(59,130,246,0.16)' }}
+                  >
+                    <div className="oval-glow absolute inset-0 rounded-full border-[2.5px] border-electric-300/90" />
+                    {/* Corner ticks, echoing the document guide's brackets */}
+                    <span className="absolute -top-0.5 left-1/2 h-3 w-[2.5px] -translate-x-1/2 rounded-full bg-electric-300/70" />
+                    <span className="absolute -bottom-0.5 left-1/2 h-3 w-[2.5px] -translate-x-1/2 rounded-full bg-electric-300/70" />
+                    {/* Face scan mesh instead of a flat silhouette icon */}
+                    <svg viewBox="0 0 100 130" className="face-breathe h-[85%] w-auto">
+                      <ellipse cx="50" cy="58" rx="30" ry="38" fill="none" stroke="white" strokeOpacity="0.35" strokeWidth="1.3" />
+                      <g fill="#93C5FD">
+                        <circle cx="36" cy="48" r="2.2" />
+                        <circle cx="64" cy="48" r="2.2" />
+                        <circle cx="50" cy="64" r="2.2" />
+                        <circle cx="40" cy="80" r="2.2" />
+                        <circle cx="60" cy="80" r="2.2" />
+                      </g>
+                      <g stroke="#93C5FD" strokeOpacity="0.55" strokeWidth="0.8">
+                        <line x1="36" y1="48" x2="64" y2="48" />
+                        <line x1="36" y1="48" x2="50" y2="64" />
+                        <line x1="64" y1="48" x2="50" y2="64" />
+                        <line x1="50" y1="64" x2="40" y2="80" />
+                        <line x1="50" y1="64" x2="60" y2="80" />
+                        <line x1="40" y1="80" x2="60" y2="80" />
+                      </g>
                     </svg>
                   </div>
                 ) : stage.kind === 'barcode' ? (
@@ -232,7 +252,7 @@ export default function PhoneVerifyDemo() {
         .corner-pulse { animation: cornerPulseKf 1.6s ease-in-out infinite; }
         @keyframes ovalGlowKf { 0%, 100% { box-shadow: 0 0 0 0 rgba(147,197,253,0.35); } 50% { box-shadow: 0 0 0 8px rgba(147,197,253,0); } }
         .oval-glow { animation: ovalGlowKf 2s ease-out infinite; }
-        @keyframes faceBreatheKf { 0%, 100% { transform: scale(1); opacity: .3; } 50% { transform: scale(1.06); opacity: .45; } }
+        @keyframes faceBreatheKf { 0%, 100% { transform: scale(1); opacity: .92; } 50% { transform: scale(1.03); opacity: 1; } }
         .face-breathe { animation: faceBreatheKf 2.4s ease-in-out infinite; }
         @keyframes scanSweepKf { 0% { top: 8%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { top: 88%; opacity: 0; } }
         .scan-sweep { animation: scanSweepKf 1.9s ease-in-out infinite; }

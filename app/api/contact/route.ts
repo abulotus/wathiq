@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
 import { getClientIp, isRateLimited } from '@/lib/rate-limit';
 import { looksLikeLinkSpam } from '@/lib/spam-filter';
+import { sendEmail } from '@/lib/email';
 
 export const runtime = 'nodejs';
 
@@ -63,18 +63,8 @@ export async function POST(req: NextRequest) {
     const safeIndustry = escapeHtml(industry);
     const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
 
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT || 587),
-      secure: process.env.SMTP_SECURE === 'true',
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
-    await transporter.sendMail({
-      from: `"WATHIQ Contact" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+    await sendEmail({
+      from: `WATHIQ Contact <${process.env.SMTP_FROM || 'info@wathiq-sy.com'}>`,
       to: recipientEmail,
       replyTo: email,
       subject: `Contact Form Submission — ${safeName} (${safeCompany})`,

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
 import { getClientIp, isRateLimited } from '@/lib/rate-limit';
+import { sendEmail } from '@/lib/email';
 
 export const runtime = 'nodejs';
 
@@ -61,18 +61,8 @@ export async function POST(req: NextRequest) {
     const websiteUrl  = website ? safeUrl(website) : null;
     const safeWebsite = websiteUrl ? escapeHtml(websiteUrl) : '';
 
-    const transporter = nodemailer.createTransport({
-      host:   process.env.SMTP_HOST,
-      port:   Number(process.env.SMTP_PORT || 587),
-      secure: process.env.SMTP_SECURE === 'true',
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
-    await transporter.sendMail({
-      from:    `"WATHIQ Careers" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+    await sendEmail({
+      from:    `WATHIQ Careers <${process.env.SMTP_FROM || 'info@wathiq-sy.com'}>`,
       to:      process.env.CAREERS_EMAIL || 'info@wathiq-sy.com',
       replyTo: email,
       subject: `Job Application — ${name}`,
@@ -107,9 +97,8 @@ export async function POST(req: NextRequest) {
       `,
       attachments: [
         {
-          filename:    cv.name,
-          content:     cvBuffer,
-          contentType: cv.type || 'application/octet-stream',
+          filename: cv.name,
+          content:  cvBuffer.toString('base64'),
         },
       ],
     });

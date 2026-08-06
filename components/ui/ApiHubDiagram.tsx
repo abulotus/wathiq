@@ -181,9 +181,12 @@ export default function ApiHubDiagram() {
       {/* center hub */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
         <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-electric-500 via-electric-600 to-teal-500 shadow-glow flex items-center justify-center">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={1.7} className="w-7 h-7 sm:w-9 sm:h-9">
-            <path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" />
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
+          {/* Wathiq mark: broken ring + diagonal accent + center dot */}
+          <svg viewBox="0 0 24 24" className="w-8 h-8 sm:w-10 sm:h-10">
+            <circle cx="12" cy="12" r="6" fill="none" stroke="white" strokeWidth="3.7"
+              strokeLinecap="butt" strokeDasharray="29.5 8.2" transform="rotate(-8 12 12)" />
+            <rect x="14.2" y="3.6" width="2.9" height="7.2" rx="0.3" fill="#FBBF24" transform="rotate(24 15.6 7.2)" />
+            <circle cx="12" cy="12" r="2.4" fill="#FBBF24" />
           </svg>
         </div>
         <span className="mt-2 text-[10px] sm:text-[11px] font-bold tracking-[0.15em] text-slate-400 uppercase whitespace-nowrap">

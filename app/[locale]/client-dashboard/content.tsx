@@ -4,7 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import PageHero from '@/components/ui/PageHero';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import Link from 'next/link';
-import { VerificationChecksCard } from '@/components/ui/RealProductUI';
+import { VerificationChecksCard, NewVerificationCard } from '@/components/ui/RealProductUI';
 
 const features = {
   en: [
@@ -48,7 +48,11 @@ export default function ClientDashboardPage() {
 
       <section className="section-pad bg-white">
         <div className="container-wide">
-          <AnimatedSection className="max-w-4xl mx-auto mb-10">
+          <AnimatedSection className="max-w-4xl mx-auto mb-8">
+            <NewVerificationCard isRTL={isRTL} />
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.1} className="max-w-4xl mx-auto mb-10">
             <VerificationChecksCard isRTL={isRTL} />
             <p className="text-slate-400 text-xs text-center mt-4">
               {isRTL
@@ -57,7 +61,7 @@ export default function ClientDashboardPage() {
             </p>
           </AnimatedSection>
 
-          <AnimatedSection delay={0.15} className="max-w-3xl mx-auto">
+          <AnimatedSection delay={0.2} className="max-w-3xl mx-auto">
             <h2 className={`text-navy-900 font-bold text-lg mb-5 ${isRTL ? 'text-right' : ''}`}>
               {isRTL ? 'ما توفره لوحة التحكم اليوم' : "What the dashboard provides today"}
             </h2>

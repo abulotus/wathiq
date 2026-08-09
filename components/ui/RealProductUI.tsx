@@ -173,3 +173,123 @@ export function MobileVerifyChecklist({ isRTL }: { isRTL: boolean }) {
     </div>
   );
 }
+
+/** Decorative QR pattern — visually a QR code, not a real encodable one (no real session exists). */
+function SampleQrCode() {
+  const size = 15;
+  const inFinder = (x: number, y: number) =>
+    (x < 4 && y < 4) || (x > size - 5 && y < 4) || (x < 4 && y > size - 5);
+  const filled = (x: number, y: number) => (x * 3 + y * 7 + x * y) % 5 === 0;
+  const cells: { x: number; y: number }[] = [];
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      if (!inFinder(x, y) && filled(x, y)) cells.push({ x, y });
+    }
+  }
+  const finderOrigins = [
+    [0, 0],
+    [size - 4, 0],
+    [0, size - 4],
+  ];
+
+  return (
+    <svg viewBox={`0 0 ${size} ${size}`} className="h-full w-full" shapeRendering="crispEdges">
+      <rect width={size} height={size} fill="white" />
+      {cells.map((c, i) => (
+        <rect key={i} x={c.x} y={c.y} width="1" height="1" fill="#0F172A" />
+      ))}
+      {finderOrigins.map(([fx, fy], i) => (
+        <g key={i}>
+          <rect x={fx} y={fy} width="4" height="4" fill="#0F172A" />
+          <rect x={fx + 0.8} y={fy + 0.8} width="2.4" height="2.4" fill="white" />
+          <rect x={fx + 1.4} y={fy + 1.4} width="1.2" height="1.2" fill="#0F172A" />
+        </g>
+      ))}
+    </svg>
+  );
+}
+
+const newVerificationCopy = {
+  en: {
+    title: 'Start a New Verification',
+    desc: 'The client initiates a request; the applicant starts their session on the link, QR code, or activation code — whichever is easiest to hand off.',
+    warning: 'Verification created. The activation code and link are one-time credentials shown only now — share them only with the applicant.',
+    activationCode: 'Activation code',
+    copyCode: 'Copy code',
+    verificationLink: 'Verification link',
+    copyLink: 'Copy link',
+    done: 'Done',
+    qrAlt: 'QR code for the verification link',
+    sample: "Faithful recreation of the real dashboard's session-creation panel, with a sample code and link — no real session exists behind them.",
+  },
+  ar: {
+    title: 'ابدأ طلب تحقّق جديد',
+    desc: 'تبدأ المؤسسة الطلب، ويبدأ المتقدّم جلسته عبر الرابط أو رمز QR أو رمز التفعيل — أيهما أسهل لتسليمه.',
+    warning: 'تم إنشاء التحقّق. رمز التفعيل والرابط بيانات اعتماد لمرة واحدة تظهر الآن فقط — شاركها مع مقدم الطلب فقط.',
+    activationCode: 'رمز التفعيل',
+    copyCode: 'نسخ الرمز',
+    verificationLink: 'رابط التحقّق',
+    copyLink: 'نسخ الرابط',
+    done: 'تم',
+    qrAlt: 'رمز QR لرابط التحقّق',
+    sample: 'إعادة بناء دقيقة للوحة إنشاء الجلسة الفعلية، برمز ورابط افتراضيين — لا توجد جلسة حقيقية خلفهما.',
+  },
+};
+
+/** Faithful recreation of the real dashboard's "verification created" panel (NewVerificationPanel.tsx). */
+export function NewVerificationCard({ isRTL }: { isRTL: boolean }) {
+  const t = isRTL ? newVerificationCopy.ar : newVerificationCopy.en;
+  const sampleCode = '94870456'.split('');
+  const sampleUrl = 'https://verify.wathiq-sy.com/verify#session_token=tDqCSiLsgP7HDJ_GrMK2…';
+
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm" dir={isRTL ? 'rtl' : 'ltr'}>
+      <div className={isRTL ? 'text-right' : ''}>
+        <h3 className="text-base font-semibold text-slate-900">{t.title}</h3>
+        <p className="mt-1 text-sm text-slate-500">{t.desc}</p>
+      </div>
+
+      <div className="mt-5 flex flex-wrap items-start gap-5">
+        <div className="min-w-[240px] flex-1">
+          <p className="rounded-md bg-amber-50 px-3 py-2 text-xs text-amber-800">{t.warning}</p>
+
+          <div className="mt-4">
+            <p className="text-xs font-medium text-slate-500">{t.activationCode}</p>
+            <div className="mt-1.5 flex items-center gap-2">
+              <div aria-label="Activation code" dir="ltr" className="flex items-center gap-1.5">
+                {sampleCode.map((digit, i) => (
+                  <span key={i} className="flex h-11 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 font-mono text-lg font-semibold text-slate-900">
+                    {digit}
+                  </span>
+                ))}
+              </div>
+              <span className="shrink-0 rounded-md border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600">
+                {t.copyCode}
+              </span>
+            </div>
+          </div>
+
+          <p className="mt-4 text-xs font-medium text-slate-500">{t.verificationLink}</p>
+          <div className="mt-1.5 flex items-center gap-2">
+            <code className="flex-1 truncate rounded-md border border-slate-200 bg-slate-50 px-2 py-1.5 text-xs text-slate-700" dir="ltr">
+              {sampleUrl}
+            </code>
+            <span className="shrink-0 rounded-md border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600">
+              {t.copyLink}
+            </span>
+          </div>
+
+          <span className="mt-4 inline-block rounded-md border border-slate-200 px-3 py-1 text-xs font-medium text-slate-600">
+            {t.done}
+          </span>
+        </div>
+
+        <div className="h-[150px] w-[150px] shrink-0 overflow-hidden rounded-md border border-slate-200 p-1.5" role="img" aria-label={t.qrAlt}>
+          <SampleQrCode />
+        </div>
+      </div>
+
+      <p className="mt-5 border-t border-slate-100 pt-3 text-xs text-slate-400">{t.sample}</p>
+    </div>
+  );
+}

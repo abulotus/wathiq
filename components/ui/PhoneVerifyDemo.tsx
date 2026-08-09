@@ -101,37 +101,15 @@ export default function PhoneVerifyDemo() {
                     style={{ boxShadow: '0 0 0 1px rgba(147,197,253,0.15), 0 0 60px 12px rgba(59,130,246,0.16)' }}
                   >
                     <div className="oval-glow absolute inset-0 rounded-[50%] border-[2.5px] border-electric-300/90" />
-                    {/* Corner ticks, echoing the document guide's brackets */}
-                    <span className="absolute -top-0.5 left-1/2 h-3 w-[2.5px] -translate-x-1/2 rounded-full bg-electric-300/70" />
-                    <span className="absolute -bottom-0.5 left-1/2 h-3 w-[2.5px] -translate-x-1/2 rounded-full bg-electric-300/70" />
                     {/* Illustrative generic headshot placeholder — same treatment as the ID
                         photo box (a flat silhouette, no real or web-sourced photo), filling
-                        the oval instead of floating as a small icon. */}
-                    <div className="absolute inset-[3px] overflow-hidden rounded-[50%] bg-gradient-to-b from-slate-300 to-slate-400">
+                        the oval instead of floating as a small icon. One shape, one frame. */}
+                    <div className="face-breathe absolute inset-[3px] overflow-hidden rounded-[50%] bg-gradient-to-b from-slate-300 to-slate-400">
                       <svg viewBox="0 0 100 130" className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMax slice">
                         <circle cx="50" cy="46" r="25" fill="#64748B" />
                         <path d="M6 132C6 97 24 78 50 78C76 78 94 97 94 132Z" fill="#64748B" />
                       </svg>
                     </div>
-                    {/* Face-scan landmark mesh, layered on top as the "actively detecting" cue */}
-                    <svg viewBox="0 0 100 130" className="face-breathe absolute h-[85%] w-auto">
-                      <ellipse cx="50" cy="58" rx="30" ry="38" fill="none" stroke="white" strokeOpacity="0.4" strokeWidth="1.3" />
-                      <g fill="#BFDBFE">
-                        <circle cx="36" cy="48" r="2.2" />
-                        <circle cx="64" cy="48" r="2.2" />
-                        <circle cx="50" cy="64" r="2.2" />
-                        <circle cx="40" cy="80" r="2.2" />
-                        <circle cx="60" cy="80" r="2.2" />
-                      </g>
-                      <g stroke="#BFDBFE" strokeOpacity="0.7" strokeWidth="0.8">
-                        <line x1="36" y1="48" x2="64" y2="48" />
-                        <line x1="36" y1="48" x2="50" y2="64" />
-                        <line x1="64" y1="48" x2="50" y2="64" />
-                        <line x1="50" y1="64" x2="40" y2="80" />
-                        <line x1="50" y1="64" x2="60" y2="80" />
-                        <line x1="40" y1="80" x2="60" y2="80" />
-                      </g>
-                    </svg>
                   </div>
                 ) : stage.kind === 'barcode' ? (
                   <div className="relative aspect-[85.6/54] w-full max-w-[210px] rounded-xl">

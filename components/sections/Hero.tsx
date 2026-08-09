@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import TechBackground from '@/components/ui/TechBackground';
+import DocumentScanIllustration from '@/components/ui/DocumentScanIllustration';
 
 
 const NetworkSVG = memo(function NetworkSVG() {
@@ -43,26 +44,7 @@ function HeroIllustration({ isRTL }: { isRTL: boolean }) {
         className="relative z-10"
         style={{ animation: 'tech-float 6s ease-in-out infinite', willChange: 'transform' }}
       >
-        <svg className="w-24 sm:w-[220px] h-auto" viewBox="0 0 260 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <ellipse cx="130" cy="200" rx="90" ry="18" fill="#2563EB" opacity="0.12" />
-          <path d="M130 20L220 60V160C220 210 180 255 130 270C80 255 40 210 40 160V60L130 20Z" fill="url(#shieldGrad)" opacity="0.95" />
-          <path d="M130 35L205 70V160C205 205 170 245 130 258C90 245 55 205 55 160V70L130 35Z" fill="url(#shieldInner)" opacity="0.5" />
-          <path d="M110 145C110 133 119 124 130 124C141 124 150 133 150 145V158H110V145Z" stroke="white" strokeWidth="3" fill="none" strokeLinecap="round" />
-          <rect x="104" y="155" width="52" height="38" rx="6" fill="white" opacity="0.9" />
-          <circle cx="130" cy="172" r="5" fill="url(#shieldGrad)" />
-          <rect x="128" y="172" width="4" height="10" rx="2" fill="url(#shieldGrad)" />
-          <defs>
-            <linearGradient id="shieldGrad" x1="40" y1="20" x2="220" y2="270" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="#1E40AF" />
-              <stop offset="50%" stopColor="#2563EB" />
-              <stop offset="100%" stopColor="#0891B2" />
-            </linearGradient>
-            <linearGradient id="shieldInner" x1="55" y1="35" x2="205" y2="258" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stopColor="white" stopOpacity="0.35" />
-              <stop offset="100%" stopColor="white" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
+        <DocumentScanIllustration />
       </div>
 
       {/* Floating cards — CSS animations, no Framer Motion, no backdrop-blur */}
@@ -97,12 +79,12 @@ function HeroIllustration({ isRTL }: { isRTL: boolean }) {
       </div>
 
       <div
-        className="absolute bottom-16 start-2 bg-white border border-slate-200 rounded-xl px-3 py-2 sm:px-4 sm:py-3 shadow-lg"
+        className="absolute bottom-16 start-2 max-w-[180px] bg-white border border-slate-200 rounded-xl px-3 py-2 sm:max-w-none sm:px-4 sm:py-3 shadow-lg"
         style={{ animation: 'tech-float 5.5s ease-in-out 2s infinite', willChange: 'transform' }}
       >
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-gold-500 animate-pulse flex-shrink-0" />
-          <span className="text-navy-900 font-semibold text-xs whitespace-nowrap">
+          <span className="text-navy-900 font-semibold text-xs leading-snug sm:whitespace-nowrap">
             {isRTL ? 'جوازات سفر إلكترونية حديثة من 140 دولة' : '140 ePassports Supported'}
           </span>
         </div>

@@ -343,7 +343,7 @@ export default function ContactPage() {
 
                     <p className={`text-xs text-slate-400 ${isRTL ? 'text-right' : ''}`}>
                       {isRTL
-                        ? 'بتقديم هذا النموذج، أنت توافق على سياسة الخصوصية الخاصة بنا.'
+                        ? 'بإرسال هذا النموذج، فإنك توافق على سياسة الخصوصية الخاصة بنا.'
                         : 'By submitting this form, you agree to our Privacy Policy.'}
                     </p>
                   </form>

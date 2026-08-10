@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 const flowSteps = {
   en: ['Your backend', 'Wathiq API', 'Applicant capture', 'Signed webhook', 'Fetch result'],
-  ar: ['نظام العميل', 'واجهة برمجة تطبيقات واثق', 'التقاط بيانات المتقدّم', 'Webhook موقّع', 'استرجاع النتيجة'],
+  ar: ['نظام العميل', 'API واثق', 'التقاط بيانات المتقدّم', 'Webhook موقّع', 'استرجاع النتيجة'],
 };
 
 function CodeBlock({ children, label }: { children: string; label?: string }) {
@@ -68,7 +68,7 @@ export default function DevelopersPage() {
           </div>
           <p className={`text-slate-500 text-xs text-center mt-6 max-w-xl mx-auto`}>
             {isRTL
-              ? 'الحالة الظاهرة للمتقدّم واجهة استخدام فقط — لا تُعتمد كإثبات للنتيجة. النتيجة المعتمدة تصل عبر Webhook موقّع ثم تُسترجع من واجهة برمجة التطبيقات.'
+              ? 'ما يظهر للمتقدّم مجرد تجربة استخدام، ولا يُعتمد كإثبات للنتيجة. النتيجة المعتمدة تصل عبر Webhook موقّع، ثم تُسترجع من واجهة برمجة التطبيقات.'
               : "What the applicant sees is UX only — never treat it as proof of a result. The authoritative result arrives via a signed webhook and is then fetched from the API."}
           </p>
         </div>
@@ -116,7 +116,7 @@ X-API-Key: wk_live_<key-prefix>_<secret>`}</CodeBlock>
 }`}</CodeBlock>
             <p className="text-slate-500 text-xs leading-relaxed mt-4">
               {isRTL
-                ? 'الأنواع المدعومة: الهوية الوطنية، جواز السفر (القديم)، جواز السفر الإلكتروني، وأنواع عامة حسب الاتفاق مع واثق.'
+                ? 'الأنواع المدعومة: الهوية الوطنية، جواز السفر القديم (غير الإلكتروني)، جواز السفر الإلكتروني، وأنواع عامة حسب الاتفاق مع واثق.'
                 : 'Supported types: national ID, old (non-electronic) passport, ePassport, and generic types by agreement with Wathiq.'}
             </p>
           </AnimatedSection>

@@ -85,7 +85,7 @@ export default function PartnershipPage() {
                 {[
                   {
                     title: isRTL ? 'وصول للسوق الإقليمي' : 'Regional Market Access',
-                    desc: isRTL ? 'استفد من معرفتنا العميقة بالسوق السوري والشرق أوسطي.' : 'Leverage our deep knowledge of the Syrian and Middle Eastern market.',
+                    desc: isRTL ? 'استفد من معرفتنا العميقة بسوق سوريا والشرق الأوسط.' : 'Leverage our deep knowledge of the Syrian and Middle Eastern market.',
                   },
                   {
                     title: isRTL ? 'دعم تقني كامل' : 'Full Technical Support',

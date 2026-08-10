@@ -99,11 +99,11 @@ const openRoles = {
   ],
   ar: [
     {
-      title: 'مهندس خلفية أول',
+      title: 'مهندس باك إند أول',
       team: 'الهندسة',
       location: 'عن بُعد (الشرق الأوسط / أوروبا)',
       type: 'دوام كامل',
-      desc: 'امتلك البنية التحتية الأساسية لـ API التي تدعم التحقق من الهوية. ستقوم بتصميم وبناء الخدمات التي تعالج طلبات التحقق من جوازات السفر الإلكترونية، بالتعاون الوثيق مع فريق المنتج والامتثال.',
+      desc: 'امتلك البنية التحتية الأساسية لواجهة برمجة التطبيقات (API) التي تدعم التحقق من الهوية. ستقوم بتصميم وبناء الخدمات التي تعالج طلبات التحقق من جوازات السفر الإلكترونية، بالتعاون الوثيق مع فريق المنتج والامتثال.',
       skills: ['Node.js / Python', 'REST و Webhooks', 'الأنظمة الموزعة', 'PostgreSQL / Redis'],
     },
   ],
@@ -267,7 +267,7 @@ export default function CareersPage() {
             </h2>
             <p className="body-lg text-slate-500 mt-4">
               {isRTL
-                ? 'أرسل سيرتك الذاتية ونبذة عنك وسنرد عليك في أقرب وقت.'
+                ? 'أرسل سيرتك الذاتية ونبذة عنك، وسنرد على طلبك خلال 5 أيام عمل.'
                 : 'Send us your CV and a brief note — we respond to every application within 5 business days.'}
             </p>
           </AnimatedSection>
@@ -288,7 +288,7 @@ export default function CareersPage() {
                 </h3>
                 <p className="text-slate-500 text-sm leading-relaxed">
                   {isRTL
-                    ? 'شكراً لتقديمك. سيراجع فريقنا طلبك ويتواصل معك قريباً.'
+                    ? 'شكراً لتقديمك. سيراجع فريقنا طلبك ويتواصل معك خلال 5 أيام عمل.'
                     : "Thank you for applying. Our team will review your application and get back to you within 5 business days."}
                 </p>
               </div>

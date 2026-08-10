@@ -30,7 +30,7 @@ export default function EpassportCoveragePage() {
                 : 'Wathiq supports verification of electronic passports issued by 140 countries worldwide, including Syrian ePassports.'}
             </p>
             <p className="text-slate-500 text-sm leading-relaxed mt-4">
-              {isRTL ? 'للمستندات السورية غير الإلكترونية — بطاقة الهوية الوطنية وجواز السفر القديم — يتحقق واثق عبر قراءة باركود PDF417 بدلاً من التحقق الخاص بجوازات السفر الإلكترونية. راجع ' : "For non-electronic Syrian documents — the national ID card and the older passport — Wathiq verifies by reading the PDF417 barcode rather than ePassport verification. See the "}
+              {isRTL ? 'للمستندات السورية غير الإلكترونية — بطاقة الهوية الوطنية وجواز السفر القديم — يتحقق واثق منها عبر قراءة باركود PDF417، لا عبر آلية التحقق الخاصة بجوازات السفر الإلكترونية. راجع ' : "For non-electronic Syrian documents — the national ID card and the older passport — Wathiq verifies by reading the PDF417 barcode rather than ePassport verification. See the "}
               <Link href={href('/platform')} className="text-electric-600 font-semibold hover:underline">
                 {isRTL ? 'صفحة المنصة' : 'Platform page'}
               </Link>

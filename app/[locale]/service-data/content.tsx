@@ -30,7 +30,7 @@ export default function ServiceDataPage() {
             </p>
             <p>
               {isRTL
-                ? 'أثناء عملية التحقق، يجمع واثق صور الوثيقة والصورة الذاتية، وأدلة جواز السفر الإلكتروني عند وجودها (بيانات الشريحة الموقّعة)، إضافة إلى البيانات المستخرجة من OCR والمنطقة القابلة للقراءة آلياً والباركود. تُشفَّر حقول الهوية الحساسة باستخدام AES-256-GCM، وتُخزَّن المستندات والصور الذاتية وأدلة الشريحة في تخزين خاص محدود الوصول ومحدود المدة.'
+                ? 'أثناء عملية التحقق، يجمع واثق صور الوثيقة والصورة الذاتية، وأدلة جواز السفر الإلكتروني عند وجودها (بيانات الشريحة الموقّعة)، إضافة إلى البيانات المستخرجة من OCR والمنطقة القابلة للقراءة آلياً والباركود. تُشفَّر حقول الهوية الحساسة باستخدام AES-256-GCM، وتُحفَظ المستندات والصور الذاتية وأدلة الشريحة في مساحة تخزين خاصة، محدودة الوصول والمدة.'
                 : "During a verification, Wathiq collects document images, a selfie, and — where applicable — ePassport chip evidence (signed chip data), along with data extracted via OCR, the machine-readable zone, and barcodes. Sensitive identity fields are encrypted with AES-256-GCM, and documents, selfies, and chip evidence are stored in private, access-controlled, time-limited storage."}
             </p>
             <p>

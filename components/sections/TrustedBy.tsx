@@ -6,7 +6,7 @@ const facts = [
   {
     val: '140',
     en: 'Supported ePassports Worldwide',
-    ar: 'دولة ضمن تغطية جوازات السفر الإلكترونية الحديثة حول العالم',
+    ar: 'دولة ضمن التغطية العالمية لجوازات السفر الإلكترونية الحديثة',
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" />
@@ -36,7 +36,7 @@ const facts = [
   {
     val: '2',
     en: 'Client Dashboard & Mobile App',
-    ar: 'قناتان: لوحة تحكم وتطبيق جوال',
+    ar: 'لوحة تحكم وتطبيق جوال',
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <path d="M4 5a1 1 0 011-1h5a1 1 0 011 1v5a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM13 5a1 1 0 011-1h5a1 1 0 011 1v3a1 1 0 01-1 1h-5a1 1 0 01-1-1V5zM13 13a1 1 0 011-1h5a1 1 0 011 1v6a1 1 0 01-1 1h-5a1 1 0 01-1-1v-6zM4 15a1 1 0 011-1h5a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4z" strokeLinecap="round" strokeLinejoin="round" />

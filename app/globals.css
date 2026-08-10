@@ -118,11 +118,11 @@ html {
 }
 
 html[dir="rtl"] {
-  font-family: Tahoma, Arial, sans-serif;
+  font-family: 'Tajawal', 'Cairo', sans-serif;
 }
 
 html[dir="ltr"] {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 body {
@@ -288,7 +288,7 @@ a {
 [dir="rtl"] .heading-lg,
 [dir="rtl"] .heading-md,
 [dir="rtl"] .heading-sm {
-  font-family: Tahoma, Arial, sans-serif;
+  font-family: 'Tajawal', 'Cairo', sans-serif;
   font-weight: 800;
   letter-spacing: 0;
   line-height: 1.45;
@@ -296,13 +296,13 @@ a {
 
 [dir="rtl"] .body-lg,
 [dir="rtl"] .body-md {
-  font-family: Tahoma, Arial, sans-serif;
+  font-family: 'Tajawal', 'Cairo', sans-serif;
   letter-spacing: 0;
   line-height: 1.9;
 }
 
 [dir="rtl"] .tag-label {
-  font-family: Tahoma, Arial, sans-serif;
+  font-family: 'Tajawal', 'Cairo', sans-serif;
   letter-spacing: 0;
 }
 

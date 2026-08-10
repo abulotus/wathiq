@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import TechBackground from '@/components/ui/TechBackground';
-import IdentityVerificationAnimation from '@/components/ui/IdentityVerificationAnimation';
 
 
 const NetworkSVG = memo(function NetworkSVG() {
@@ -56,82 +55,59 @@ export default function Hero() {
       <TechBackground variant="light" />
 
       <div className="container-wide relative z-10 pt-24 pb-16 sm:pt-28 sm:pb-24 lg:pt-36 lg:pb-32">
-        {/*
-          Two-column grid.
-          In LTR: [text col] [illustration col]
-          In RTL:  browser automatically fills grid right→left, so:
-                   [text col on RIGHT] [illustration col on LEFT]
-          No order classes needed — dir="rtl" on <html> handles this.
-        */}
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          {/* Badge */}
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
+            <span className="inline-flex items-center gap-2 bg-electric-50 border border-electric-100 text-electric-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse flex-shrink-0" />
+              {h.badge}
+            </span>
+          </motion.div>
 
-          {/* ── Text column ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className={`text-3xl sm:text-5xl lg:text-6xl font-bold text-navy-900 tracking-tight mb-6 ${isRTL ? '!leading-[1.35] py-1' : '!leading-[1.1]'}`}
           >
-            {/* Badge */}
-            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-              <span className="inline-flex items-center gap-2 bg-electric-50 border border-electric-100 text-electric-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse flex-shrink-0" />
-                {h.badge}
-              </span>
-            </motion.div>
+            {h.headline1}{' '}
+            <span className="gradient-text">{h.headline2}</span>
+          </motion.h1>
 
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className={`text-3xl sm:text-5xl lg:text-6xl font-bold text-navy-900 tracking-tight mb-6 ${isRTL ? '!leading-[1.35] py-1' : '!leading-[1.1]'}`}
-            >
-              {h.headline1}{' '}
-              <span className="gradient-text">{h.headline2}</span>
-            </motion.h1>
+          {/* Sub */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className={`text-base lg:text-lg text-slate-600 max-w-xl mx-auto mb-10 ${isRTL ? 'leading-[2]' : 'leading-relaxed'}`}
+          >
+            {h.subheadline}
+          </motion.p>
 
-            {/* Sub */}
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className={`text-base lg:text-lg text-slate-600 max-w-xl mb-10 ${isRTL ? 'leading-[2]' : 'leading-relaxed'}`}
-            >
-              {h.subheadline}
-            </motion.p>
-
-            {/* CTA buttons
-                No flex-row-reverse — dir="rtl" on <html> already makes flex-row flow right→left.
-                Arrow icons flip via rtl:rotate-180.
-            */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-4"
-            >
-              <Link href={href('/contact')} className="btn-primary text-sm sm:text-base px-6 py-3 shadow-glow">
-                {h.cta1}
-                <svg className="w-4 h-4 flex-shrink-0 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-              <a href="#how-it-works" className="btn-secondary text-sm sm:text-base px-6 py-3">
-                {h.cta2}
-              </a>
-            </motion.div>
-          </motion.div>
-
-          {/* ── Illustration column ── */}
+          {/* CTA buttons */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.25 }}
-            className="relative flex items-center justify-center"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-wrap justify-center gap-4"
           >
-            <IdentityVerificationAnimation isRTL={isRTL} />
+            <Link href={href('/contact')} className="btn-primary text-sm sm:text-base px-6 py-3 shadow-glow">
+              {h.cta1}
+              <svg className="w-4 h-4 flex-shrink-0 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+            <a href="#how-it-works" className="btn-secondary text-sm sm:text-base px-6 py-3">
+              {h.cta2}
+            </a>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

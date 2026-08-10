@@ -19,27 +19,45 @@ export default function DocumentScanIllustration() {
     setReducedMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   }, []);
 
-  const barWidths = [3, 1, 2, 4, 1, 3, 2, 4, 1, 2, 3, 1, 4, 2, 1, 3];
+  const barWidths = [3, 1, 2, 4, 1, 3, 2, 4, 1, 2, 3, 1, 4, 2, 1, 3, 2, 1, 4, 3];
+  // Each row: a short label tick + a redacted value bar of its own width — denser
+  // and more convincingly "a real ID with the personal data blanked out" than a
+  // few generic lines, without ever rendering an actual name or number.
+  const fieldRows = [72, 90, 58, 84, 66];
 
   return (
-    <div className="relative w-[220px] sm:w-[300px]" style={{ transform: 'rotate(-5deg)' }}>
+    <div className="relative w-[240px] sm:w-[320px]">
       {/* Card */}
       <div
         className="relative aspect-[85.6/54] w-full overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10"
-        style={{ background: 'linear-gradient(135deg, #0A1A47 0%, #1D4ED8 100%)' }}
+        style={{ background: 'linear-gradient(160deg, #0A1A47 0%, #123068 55%, #1D4ED8 100%)' }}
       >
         <SecurityWeave className="opacity-[0.18]" />
 
-        <div className="absolute inset-0 flex flex-col p-4 sm:p-5">
-          <div className="flex gap-3">
-            <div className="h-12 w-9 flex-shrink-0 rounded-[3px] border border-white/25 bg-white/15 sm:h-16 sm:w-12" />
-            <div className="flex flex-1 flex-col justify-center gap-1.5 sm:gap-2">
-              <div className="h-1.5 w-3/5 rounded-full bg-white/45 sm:h-2" />
-              <div className="h-1.5 w-4/5 rounded-full bg-white/25 sm:h-2" />
-              <div className="h-1.5 w-2/5 rounded-full bg-white/25 sm:h-2" />
+        {/* Header band: generic seal + redacted authority lines — no real emblem or text */}
+        <div className="absolute inset-x-0 top-0 flex items-center gap-2 border-b border-white/10 bg-black/15 px-3 py-2 sm:px-4 sm:py-2.5">
+          <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-gold-300/70 sm:h-6 sm:w-6">
+            <div className="h-1.5 w-1.5 rounded-full bg-gold-300/80 sm:h-2 sm:w-2" />
+          </div>
+          <div className="flex flex-1 flex-col gap-1">
+            <div className="h-1 w-2/5 rounded-full bg-white/50 sm:h-[5px]" />
+            <div className="h-1 w-3/5 rounded-full bg-white/25 sm:h-[5px]" />
+          </div>
+        </div>
+
+        <div className="absolute inset-x-0 bottom-0 top-[26%] flex flex-col p-3 pt-2.5 sm:p-4 sm:pt-3">
+          <div className="flex flex-1 gap-3">
+            <div className="h-full w-9 flex-shrink-0 rounded-[3px] border border-white/25 bg-white/15 sm:w-12" />
+            <div className="flex flex-1 flex-col justify-center gap-[5px] sm:gap-1.5">
+              {fieldRows.map((w, i) => (
+                <div key={i} className="flex items-center gap-1.5">
+                  <span className="h-[3px] w-[3px] flex-shrink-0 rounded-full bg-electric-300/70" />
+                  <span className="h-[3px] rounded-full bg-white/30 sm:h-1" style={{ width: `${w}%` }} />
+                </div>
+              ))}
             </div>
           </div>
-          <div className="mt-auto flex h-6 items-end gap-[2.5px] sm:h-8">
+          <div className="mt-2 flex h-5 items-end gap-[2.5px] sm:h-7">
             {barWidths.map((w, i) => (
               <span key={i} className="bg-white/40" style={{ width: `${w}px`, height: '100%' }} />
             ))}

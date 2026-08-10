@@ -61,7 +61,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
 
-            <Link href={href('/')} className="flex-shrink-0 z-10">
+            <Link href={href('/')} prefetch={false} className="flex-shrink-0 z-10">
               <WathiqLogo variant="dark" size="md" />
             </Link>
 
@@ -70,6 +70,7 @@ export default function Header() {
                 <Link
                   key={item.path}
                   href={href(item.path)}
+                  prefetch={false}
                   className={`relative px-3.5 py-2 text-sm font-medium transition-colors duration-150 whitespace-nowrap ${
                     isActive(item.path)
                       ? 'text-navy-900'
@@ -89,6 +90,7 @@ export default function Header() {
             <div className="hidden lg:flex items-center gap-3">
               <Link
                 href={otherLocaleHref(pathname)}
+                prefetch={false}
                 onClick={switchLanguage}
                 className="px-3 py-1.5 rounded-full text-sm font-medium border border-slate-200 hover:border-slate-300 text-slate-600 hover:text-navy-900 transition-colors duration-150"
               >
@@ -96,6 +98,7 @@ export default function Header() {
               </Link>
               <Link
                 href={href('/contact')}
+                prefetch={false}
                 className="px-5 py-2 rounded-full text-sm font-semibold bg-electric-500 text-white hover:bg-electric-600 transition-all duration-150 shadow-[0_4px_14px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_18px_rgba(37,99,235,0.4)]"
               >
                 {isRTL ? 'اطلب عرضًا تجريبيًا' : 'Request a Demo'}
@@ -150,6 +153,7 @@ export default function Header() {
             <Link
               key={item.path}
               href={href(item.path)}
+              prefetch={false}
               onClick={() => setMobileOpen(false)}
               className={`flex items-center px-4 py-3 rounded-xl text-sm font-medium mb-1 transition-colors ${
                 isActive(item.path) ? 'text-electric-600 bg-electric-50' : 'text-slate-700 hover:bg-slate-50'
@@ -163,6 +167,7 @@ export default function Header() {
         <div className="p-4 border-t border-slate-100 space-y-3">
           <Link
             href={href('/contact')}
+            prefetch={false}
             onClick={() => setMobileOpen(false)}
             className="flex items-center justify-center w-full px-5 py-3 bg-electric-500 text-white text-sm font-semibold rounded-xl hover:bg-electric-600 transition-colors"
           >
@@ -170,6 +175,7 @@ export default function Header() {
           </Link>
           <Link
             href={otherLocaleHref(pathname)}
+            prefetch={false}
             onClick={() => { switchLanguage(); setMobileOpen(false); }}
             className="flex items-center justify-center w-full px-5 py-2.5 border border-slate-200 text-slate-600 text-sm font-medium rounded-xl hover:bg-slate-50 transition-colors"
           >

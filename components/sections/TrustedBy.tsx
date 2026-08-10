@@ -1,6 +1,4 @@
-'use client';
-
-import { useLanguage } from '@/contexts/LanguageContext';
+import { Language } from '@/lib/translations';
 
 const facts = [
   {
@@ -45,8 +43,8 @@ const facts = [
   },
 ];
 
-export default function TrustedBy() {
-  const { isRTL } = useLanguage();
+export default function TrustedBy({ locale }: { locale: Language }) {
+  const isRTL = locale === 'ar';
 
   return (
     <section className="bg-white pt-14 pb-8">

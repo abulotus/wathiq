@@ -1,12 +1,11 @@
-'use client';
-
-import { useLanguage } from '@/contexts/LanguageContext';
+import { Language } from '@/lib/translations';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import SectionTag from '@/components/ui/SectionTag';
 import TechBackground from '@/components/ui/TechBackground';
 
-export default function SecurityCompliance() {
-  const { isRTL, href } = useLanguage();
+export default function SecurityCompliance({ locale }: { locale: Language }) {
+  const isRTL = locale === 'ar';
+  const href = (path: string) => `/${locale}${path}`;
 
   return (
     <section className="section-pad bg-slate-50 relative overflow-hidden">

@@ -1,7 +1,5 @@
-'use client';
-
 import Link from 'next/link';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { Language } from '@/lib/translations';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
 import SectionTag from '@/components/ui/SectionTag';
 import ApiHubDiagram from '@/components/ui/ApiHubDiagram';
@@ -40,8 +38,9 @@ const icons = [
   </svg>,
 ];
 
-export default function PlatformOverview() {
-  const { isRTL, href } = useLanguage();
+export default function PlatformOverview({ locale }: { locale: Language }) {
+  const isRTL = locale === 'ar';
+  const href = (path: string) => `/${locale}${path}`;
   const items = isRTL ? pillars.ar : pillars.en;
 
   return (
@@ -87,7 +86,7 @@ export default function PlatformOverview() {
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.15}>
-            <ApiHubDiagram />
+          <ApiHubDiagram isRTL={isRTL} />
           </AnimatedSection>
         </div>
       </div>

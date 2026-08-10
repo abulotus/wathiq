@@ -2,7 +2,6 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageHero from '@/components/ui/PageHero';
-import AnimatedSection from '@/components/ui/AnimatedSection';
 import Link from 'next/link';
 
 export default function ServiceDataPage() {

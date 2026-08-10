@@ -56,40 +56,52 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
 };
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const locale: Language = params.locale === 'ar' ? 'ar' : 'en';
+  const { locale: localeParam } = await params;
+  const locale: Language = localeParam === 'ar' ? 'ar' : 'en';
   const dir = locale === 'ar' ? 'rtl' : 'ltr';
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const gaIdJson = JSON.stringify(gaId || '');
 
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap"
-          rel="stylesheet"
-        />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            (function () {
+              var c = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+              var slow = !!(c && (c.saveData || c.effectiveType === 'slow-2g' || c.effectiveType === '2g'));
+              if (slow) document.documentElement.classList.add('low-bandwidth');
+            })();
+          `,
+        }} />
         {gaId && (
-          <>
-            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
-            <script dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaId}', {
-                  page_path: window.location.pathname,
-                });
-              `,
-            }} />
-          </>
+          <script dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                if (document.documentElement.classList.contains('low-bandwidth')) return;
+                var id = ${gaIdJson};
+                function loadAnalytics() {
+                  window.dataLayer = window.dataLayer || [];
+                  window.gtag = function(){window.dataLayer.push(arguments);};
+                  window.gtag('js', new Date());
+                  window.gtag('config', id, { page_path: window.location.pathname });
+                  var script = document.createElement('script');
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+                  document.head.appendChild(script);
+                }
+                if ('requestIdleCallback' in window) window.requestIdleCallback(loadAnalytics, { timeout: 4000 });
+                else window.addEventListener('load', function(){ setTimeout(loadAnalytics, 1500); }, { once: true });
+              })();
+            `,
+          }} />
         )}
       </head>
       <body className="antialiased overflow-x-hidden">

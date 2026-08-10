@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Node {
   en: string;
@@ -105,15 +104,15 @@ function pos(i: number) {
   };
 }
 
-export default function ApiHubDiagram() {
-  const { isRTL } = useLanguage();
+export default function ApiHubDiagram({ isRTL }: { isRTL: boolean }) {
   const [active, setActive] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReducedMotion(mq.matches);
-    if (mq.matches) return;
+    const dataSaver = document.documentElement.classList.contains('low-bandwidth');
+    setReducedMotion(mq.matches || dataSaver);
+    if (mq.matches || dataSaver) return;
     const id = setInterval(() => setActive((a) => (a + 1) % nodes.length), 2200);
     return () => clearInterval(id);
   }, []);

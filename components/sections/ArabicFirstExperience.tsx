@@ -1,6 +1,4 @@
-'use client';
-
-import { useLanguage } from '@/contexts/LanguageContext';
+import { Language } from '@/lib/translations';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
 import SectionTag from '@/components/ui/SectionTag';
 
@@ -17,8 +15,8 @@ const points = {
   ],
 };
 
-export default function ArabicFirstExperience() {
-  const { isRTL } = useLanguage();
+export default function ArabicFirstExperience({ locale }: { locale: Language }) {
+  const isRTL = locale === 'ar';
   const items = isRTL ? points.ar : points.en;
 
   return (

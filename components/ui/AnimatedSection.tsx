@@ -1,41 +1,10 @@
-'use client';
-
-import { useEffect, useRef } from 'react';
-
-const TRANSLATE: Record<string, string> = {
-  up:    'translateY(22px)',
-  down:  'translateY(-22px)',
-  left:  'translateX(22px)',
-  right: 'translateX(-22px)',
-  none:  'none',
-};
-
-function useReveal(rootMargin = '0px 0px -60px 0px') {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    // Respect prefers-reduced-motion
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-      return;
-    }
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.style.opacity = '1';
-          el.style.transform = 'none';
-          obs.disconnect();
-        }
-      },
-      { rootMargin }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [rootMargin]);
-  return ref;
-}
+const DIRECTION_CLASS = {
+  up: 'reveal-up',
+  down: 'reveal-down',
+  left: 'reveal-left',
+  right: 'reveal-right',
+  none: 'reveal-none',
+} as const;
 
 export default function AnimatedSection({
   children,
@@ -48,16 +17,10 @@ export default function AnimatedSection({
   delay?: number;
   direction?: 'up' | 'down' | 'left' | 'right' | 'none';
 }) {
-  const ref = useReveal();
   return (
     <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: 0,
-        transform: TRANSLATE[direction] ?? 'none',
-        transition: `opacity 0.55s ease ${delay}s, transform 0.55s ease ${delay}s`,
-      }}
+      className={`reveal ${DIRECTION_CLASS[direction]} ${className}`}
+      style={{ animationDelay: `${delay}s` }}
     >
       {children}
     </div>
@@ -73,16 +36,10 @@ export function AnimatedItem({
   index?: number;
   className?: string;
 }) {
-  const ref = useReveal('0px 0px -40px 0px');
   return (
     <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: 0,
-        transform: 'translateY(18px)',
-        transition: `opacity 0.5s ease ${index * 0.07}s, transform 0.5s ease ${index * 0.07}s`,
-      }}
+      className={`reveal reveal-up ${className}`}
+      style={{ animationDelay: `${index * 0.07}s` }}
     >
       {children}
     </div>
@@ -98,15 +55,10 @@ export function FadeIn({
   delay?: number;
   className?: string;
 }) {
-  const ref = useReveal();
   return (
     <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: 0,
-        transition: `opacity 0.7s ease ${delay}s`,
-      }}
+      className={`reveal reveal-none ${className}`}
+      style={{ animationDelay: `${delay}s` }}
     >
       {children}
     </div>

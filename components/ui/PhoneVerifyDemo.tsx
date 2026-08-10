@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { useLanguage } from '@/contexts/LanguageContext';
 import PhoneFrame from '@/components/ui/PhoneFrame';
 
 type StageKind = 'document' | 'barcode' | 'selfie' | 'processing' | 'result';
@@ -59,8 +58,7 @@ const STAGES: Stage[] = [
 const STAGE_DURATION_MS = 2800;
 const CAMERA_KINDS: StageKind[] = ['document', 'barcode', 'selfie'];
 
-export default function PhoneVerifyDemo() {
-  const { isRTL } = useLanguage();
+export default function PhoneVerifyDemo({ isRTL }: { isRTL: boolean }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -68,7 +66,8 @@ export default function PhoneVerifyDemo() {
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReducedMotion(mq.matches);
+    const dataSaver = document.documentElement.classList.contains('low-bandwidth');
+    setReducedMotion(mq.matches || dataSaver);
   }, []);
 
   useEffect(() => {
@@ -99,10 +98,12 @@ export default function PhoneVerifyDemo() {
                     <div className="oval-glow absolute inset-0 rounded-[50%] border-[2.5px] border-electric-300/90" />
                     <div className="face-breathe absolute inset-[3px] overflow-hidden rounded-[50%]">
                       <Image
-                        src="/demo/cartoon-selfie.png"
+                        src="/demo/cartoon-selfie.webp"
                         alt="Fictional cartoon selfie used for the verification demo"
                         fill
                         sizes="190px"
+                        loading="lazy"
+                        unoptimized
                         className="object-cover"
                       />
                     </div>
@@ -115,12 +116,14 @@ export default function PhoneVerifyDemo() {
                     <span className="corner-pulse absolute -bottom-0.5 -right-0.5 h-7 w-7 rounded-br-xl border-b-[3px] border-r-[3px] border-white" />
                     <div className="absolute inset-2.5 overflow-hidden rounded-lg bg-[#EDEFF3]">
                       <Image
-                        src={stage.kind === 'document' ? '/demo/cartoon-id-front.png' : '/demo/cartoon-id-back.png'}
+                        src={stage.kind === 'document' ? '/demo/cartoon-id-front.webp' : '/demo/cartoon-id-back.webp'}
                         alt={stage.kind === 'document'
                           ? 'Fictional cartoon ID front used for the verification demo'
                           : 'Fictional cartoon ID barcode side used for the verification demo'}
                         fill
                         sizes="220px"
+                        loading="lazy"
+                        unoptimized
                         className="object-cover"
                       />
                     </div>

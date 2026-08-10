@@ -1,5 +1,3 @@
-'use client';
-
 interface SectionTagProps {
   label: string;
   variant?: 'blue' | 'teal' | 'white';

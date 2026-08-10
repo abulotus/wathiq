@@ -8,7 +8,7 @@ const content = {
     body: (
       <>
         <p>
-          This Cookie Policy explains how Wathiq Digital Ltd ("<strong>Wathiq</strong>") uses cookies and similar technologies on our website at <a href="https://www.wathiq-sy.com">www.wathiq-sy.com</a>. It should be read alongside our <a href="/privacy">Privacy Policy</a>.
+          This Cookie Policy explains how Wathiq Digital Ltd ("<strong>Wathiq</strong>") uses cookies and similar technologies on our website at <a href="https://www.wathiq-sy.com">www.wathiq-sy.com</a>. It should be read alongside our <a href="privacy">Privacy Policy</a>.
         </p>
 
         <h2>1. What Are Cookies?</h2>
@@ -66,7 +66,7 @@ const content = {
 
         <h2>4. Cookies and Personal Data</h2>
         <p>
-          Where cookies process personal data (such as your IP address or device identifiers), this is governed by our <a href="/privacy">Privacy Policy</a>. We do not use cookies to identify you personally unless you have voluntarily provided us with personal information.
+          Where cookies process personal data (such as your IP address or device identifiers), this is governed by our <a href="privacy">Privacy Policy</a>. We do not use cookies to identify you personally unless you have voluntarily provided us with personal information.
         </p>
 
         <h2>5. Changes to This Policy</h2>
@@ -88,7 +88,7 @@ const content = {
     body: (
       <>
         <p>
-          تشرح سياسة ملفات تعريف الارتباط هذه كيفية استخدام واثق ديجيتال المحدودة ("<strong>واثق</strong>") لملفات تعريف الارتباط والتقنيات المماثلة على موقعنا <a href="https://www.wathiq-sy.com">www.wathiq-sy.com</a>. يجب قراءتها جنباً إلى جنب مع <a href="/privacy">سياسة الخصوصية</a> الخاصة بنا.
+          تشرح سياسة ملفات تعريف الارتباط هذه كيفية استخدام واثق ديجيتال المحدودة ("<strong>واثق</strong>") لملفات تعريف الارتباط والتقنيات المماثلة على موقعنا <a href="https://www.wathiq-sy.com">www.wathiq-sy.com</a>. يجب قراءتها جنباً إلى جنب مع <a href="privacy">سياسة الخصوصية</a> الخاصة بنا.
         </p>
 
         <h2>١. ما هي ملفات تعريف الارتباط؟</h2>
@@ -146,7 +146,7 @@ const content = {
 
         <h2>٤. ملفات تعريف الارتباط والبيانات الشخصية</h2>
         <p>
-          حيثما تعالج ملفات تعريف الارتباط بيانات شخصية (مثل عنوان IP أو معرفات الجهاز)، يخضع ذلك لـ<a href="/privacy">سياسة الخصوصية</a> الخاصة بنا. ولا نستخدم ملفات تعريف الارتباط لتعريفك شخصياً إلا إذا قدمت لنا معلومات شخصية طوعاً.
+          حيثما تعالج ملفات تعريف الارتباط بيانات شخصية (مثل عنوان IP أو معرفات الجهاز)، يخضع ذلك لـ<a href="privacy">سياسة الخصوصية</a> الخاصة بنا. ولا نستخدم ملفات تعريف الارتباط لتعريفك شخصياً إلا إذا قدمت لنا معلومات شخصية طوعاً.
         </p>
 
         <h2>٥. التغييرات على هذه السياسة</h2>

@@ -1,5 +1,3 @@
-'use client';
-
 /* Pure CSS animations — no Framer Motion, runs on compositor thread */
 
 const Fingerprint = () => (
@@ -111,7 +109,7 @@ export default function TechBackground({ variant = 'dark' }: { variant?: 'dark' 
   const defaultColor = variant === 'dark' ? 'white' : '#071130';
 
   return (
-    <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden>
+    <div className="bandwidth-decorative absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden>
 
       {/* Light variant: soft color blobs in corners */}
       {variant === 'light' && (

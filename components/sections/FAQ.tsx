@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
 import SectionTag from '@/components/ui/SectionTag';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { Language } from '@/lib/translations';
 
 const faqs = {
   en: [
@@ -100,8 +100,9 @@ const faqs = {
   ],
 };
 
-export default function FAQ() {
-  const { isRTL, href } = useLanguage();
+export default function FAQ({ locale }: { locale: Language }) {
+  const isRTL = locale === 'ar';
+  const href = (path: string) => `/${locale}${path}`;
   const [open, setOpen] = useState<number | null>(null);
   const items = isRTL ? faqs.ar : faqs.en;
 

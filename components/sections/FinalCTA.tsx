@@ -1,11 +1,10 @@
-'use client';
-
 import Link from 'next/link';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { Language } from '@/lib/translations';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 
-export default function FinalCTA() {
-  const { isRTL, href } = useLanguage();
+export default function FinalCTA({ locale }: { locale: Language }) {
+  const isRTL = locale === 'ar';
+  const href = (path: string) => `/${locale}${path}`;
 
   return (
     <section className="pt-8 sm:pt-10 pb-14 sm:pb-20 lg:pb-28 bg-white">

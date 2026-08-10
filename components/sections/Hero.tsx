@@ -1,16 +1,12 @@
-'use client';
-
-import { memo } from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { translations, Language } from '@/lib/translations';
 import TechBackground from '@/components/ui/TechBackground';
 
 
-const NetworkSVG = memo(function NetworkSVG() {
+function NetworkSVG() {
   return (
     <svg
-      className="absolute inset-0 w-full h-full opacity-15 pointer-events-none"
+      className="bandwidth-decorative absolute inset-0 w-full h-full opacity-15 pointer-events-none"
       viewBox="0 0 800 600"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -34,69 +30,55 @@ const NetworkSVG = memo(function NetworkSVG() {
       <circle cx="400" cy="300" r="60" stroke="#3B82F6" strokeWidth="0.5" opacity="0.15" fill="none" />
     </svg>
   );
-});
+}
 
-export default function Hero() {
-  const { t, isRTL, href } = useLanguage();
+export default function Hero({ locale }: { locale: Language }) {
+  const isRTL = locale === 'ar';
+  const t = translations[locale];
+  const href = (path: string) => `/${locale}${path === '/' ? '' : path}`;
   const h = t.hero;
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-white">
-      <div className="absolute inset-0 hero-pattern" />
-      <div className="absolute inset-0 grid-mesh opacity-40" />
+      <div className="bandwidth-decorative absolute inset-0 hero-pattern" />
+      <div className="bandwidth-decorative absolute inset-0 grid-mesh opacity-40" />
       {/* Aurora gradient blobs */}
-      <div className="absolute w-[700px] h-[700px] rounded-full -top-40 -start-40 pointer-events-none"
+      <div className="bandwidth-decorative absolute w-[700px] h-[700px] rounded-full -top-40 -start-40 pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.10) 0%, transparent 70%)', animation: 'aurora-1 22s ease-in-out infinite', willChange: 'transform' }} />
-      <div className="absolute w-[600px] h-[600px] rounded-full top-1/3 -end-32 pointer-events-none"
+      <div className="bandwidth-decorative absolute w-[600px] h-[600px] rounded-full top-1/3 -end-32 pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 70%)', animation: 'aurora-2 28s ease-in-out infinite', willChange: 'transform' }} />
-      <div className="absolute w-[450px] h-[450px] rounded-full -bottom-20 start-1/3 pointer-events-none"
+      <div className="bandwidth-decorative absolute w-[450px] h-[450px] rounded-full -bottom-20 start-1/3 pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)', animation: 'aurora-3 19s ease-in-out infinite', willChange: 'transform' }} />
       <NetworkSVG />
       <TechBackground variant="light" />
 
       <div className="container-wide relative z-10 pt-24 pb-16 sm:pt-28 sm:pb-24 lg:pt-36 lg:pb-32">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="max-w-3xl mx-auto text-center"
-        >
+        <div className="hero-enter max-w-3xl mx-auto text-center">
           {/* Badge */}
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
+          <div className="hero-enter hero-delay-1">
             <span className="inline-flex items-center gap-2 bg-electric-50 border border-electric-100 text-electric-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse flex-shrink-0" />
               {h.badge}
             </span>
-          </motion.div>
+          </div>
 
           {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+          <h1
             className={`text-3xl sm:text-5xl lg:text-6xl font-bold text-navy-900 tracking-tight mb-6 ${isRTL ? '!leading-[1.35] py-1' : '!leading-[1.1]'}`}
           >
             {h.headline1}{' '}
             <span className="gradient-text">{h.headline2}</span>
-          </motion.h1>
+          </h1>
 
           {/* Sub */}
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+          <p
             className={`text-base lg:text-lg text-slate-600 max-w-xl mx-auto mb-10 ${isRTL ? 'leading-[2]' : 'leading-relaxed'}`}
           >
             {h.subheadline}
-          </motion.p>
+          </p>
 
           {/* CTA buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-4"
-          >
+          <div className="flex flex-wrap justify-center gap-4">
             <Link href={href('/contact')} className="btn-primary text-sm sm:text-base px-6 py-3 shadow-glow">
               {h.cta1}
               <svg className="w-4 h-4 flex-shrink-0 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -106,8 +88,8 @@ export default function Hero() {
             <a href="#how-it-works" className="btn-secondary text-sm sm:text-base px-6 py-3">
               {h.cta2}
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

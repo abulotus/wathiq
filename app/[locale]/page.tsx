@@ -11,8 +11,9 @@ import SecurityCompliance from '@/components/sections/SecurityCompliance';
 import FAQ from '@/components/sections/FAQ';
 import FinalCTA from '@/components/sections/FinalCTA';
 
-export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
-  const locale = (params.locale === 'ar' ? 'ar' : 'en') as Language;
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  const locale = (localeParam === 'ar' ? 'ar' : 'en') as Language;
   return locale === 'ar'
     ? localizedMetadata({
         locale,
@@ -28,18 +29,20 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
       });
 }
 
-export default function HomePage() {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale: localeParam } = await params;
+  const locale = (localeParam === 'ar' ? 'ar' : 'en') as Language;
   return (
     <>
-      <Hero />
-      <TrustedBy />
-      <HowItWorks />
-      <VerificationExperience />
-      <PlatformOverview />
-      <ArabicFirstExperience />
-      <SecurityCompliance />
-      <FAQ />
-      <FinalCTA />
+      <Hero locale={locale} />
+      <TrustedBy locale={locale} />
+      <HowItWorks locale={locale} />
+      <VerificationExperience locale={locale} />
+      <PlatformOverview locale={locale} />
+      <ArabicFirstExperience locale={locale} />
+      <SecurityCompliance locale={locale} />
+      <FAQ locale={locale} />
+      <FinalCTA locale={locale} />
     </>
   );
 }

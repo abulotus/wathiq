@@ -48,7 +48,7 @@ const content = {
 
         <h2>6. Privacy</h2>
         <p>
-          Your use of this website is also governed by our <a href="/privacy">Privacy Policy</a>, incorporated into these Terms by reference.
+          Your use of this website is also governed by our <a href="privacy">Privacy Policy</a>, incorporated into these Terms by reference.
         </p>
 
         <h2>7. Governing Law and Jurisdiction</h2>
@@ -115,7 +115,7 @@ const content = {
 
         <h2>٦. الخصوصية</h2>
         <p>
-          يخضع استخدامك لهذا الموقع أيضاً لـ<a href="/privacy">سياسة الخصوصية</a> الخاصة بنا، المدرجة في هذه الشروط بالإشارة.
+          يخضع استخدامك لهذا الموقع أيضاً لـ<a href="privacy">سياسة الخصوصية</a> الخاصة بنا، المدرجة في هذه الشروط بالإشارة.
         </p>
 
         <h2>٧. القانون الحاكم والاختصاص القضائي</h2>

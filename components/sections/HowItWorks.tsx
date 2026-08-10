@@ -1,8 +1,6 @@
-'use client';
-
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
 import SectionTag from '@/components/ui/SectionTag';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { Language } from '@/lib/translations';
 
 const steps = [
   {
@@ -67,8 +65,8 @@ const steps = [
   },
 ];
 
-export default function HowItWorks() {
-  const { isRTL } = useLanguage();
+export default function HowItWorks({ locale }: { locale: Language }) {
+  const isRTL = locale === 'ar';
 
   return (
     <section id="how-it-works" className="pt-8 sm:pt-10 lg:pt-14 pb-14 sm:pb-20 lg:pb-28 bg-white scroll-mt-20">

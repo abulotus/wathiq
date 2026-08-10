@@ -19,7 +19,7 @@ const content = {
         <ul>
           <li><strong>Information you provide directly</strong> — when you complete our contact form, request a demo, or apply for a position, we collect your name, business email address, phone number, company name, and the content of your message.</li>
           <li><strong>Usage and technical data</strong> — when you visit our website, we automatically collect your IP address, browser type and version, pages visited, time and date of access, and referring URLs.</li>
-          <li><strong>Cookies and similar technologies</strong> — we use essential cookies to operate the website. See our <a href="/cookies">Cookie Policy</a> for details.</li>
+          <li><strong>Cookies and similar technologies</strong> — we use essential cookies to operate the website. See our <a href="cookies">Cookie Policy</a> for details.</li>
         </ul>
         <p>We do not collect sensitive personal data (such as biometric data, health information, or financial account details) through this website.</p>
 
@@ -114,7 +114,7 @@ const content = {
         <ul>
           <li><strong>المعلومات التي تقدمها مباشرة</strong> — عند إكمال نموذج الاتصال أو طلب عرض توضيحي أو التقدم لوظيفة، نجمع اسمك وبريدك الإلكتروني للأعمال ورقم هاتفك واسم شركتك ومحتوى رسالتك.</li>
           <li><strong>بيانات الاستخدام والتقنية</strong> — عند زيارة موقعنا، نجمع تلقائياً عنوان IP الخاص بك ونوع المتصفح وإصداره والصفحات التي تمت زيارتها ووقت وتاريخ الوصول وعناوين URL المُحيلة.</li>
-          <li><strong>ملفات تعريف الارتباط والتقنيات المماثلة</strong> — نستخدم ملفات تعريف الارتباط الأساسية لتشغيل الموقع. راجع <a href="/cookies">سياسة ملفات تعريف الارتباط</a> للاطلاع على التفاصيل.</li>
+          <li><strong>ملفات تعريف الارتباط والتقنيات المماثلة</strong> — نستخدم ملفات تعريف الارتباط الأساسية لتشغيل الموقع. راجع <a href="cookies">سياسة ملفات تعريف الارتباط</a> للاطلاع على التفاصيل.</li>
         </ul>
         <p>لا نجمع بيانات شخصية حساسة (مثل البيانات البيومترية أو المعلومات الصحية أو تفاصيل الحسابات المالية) عبر هذا الموقع.</p>
 

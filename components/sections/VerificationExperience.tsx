@@ -1,7 +1,5 @@
-'use client';
-
 import Link from 'next/link';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { Language } from '@/lib/translations';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import SectionTag from '@/components/ui/SectionTag';
 import PhoneVerifyDemo from '@/components/ui/PhoneVerifyDemo';
@@ -22,8 +20,9 @@ const bullets = {
   ],
 };
 
-export default function VerificationExperience() {
-  const { isRTL, href } = useLanguage();
+export default function VerificationExperience({ locale }: { locale: Language }) {
+  const isRTL = locale === 'ar';
+  const href = (path: string) => `/${locale}${path}`;
   const items = isRTL ? bullets.ar : bullets.en;
 
   return (
@@ -32,7 +31,7 @@ export default function VerificationExperience() {
       <div className="container-wide relative z-10">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-10">
           <AnimatedSection className="order-2 lg:order-1">
-            <PhoneVerifyDemo />
+            <PhoneVerifyDemo isRTL={isRTL} />
           </AnimatedSection>
 
           <AnimatedSection delay={0.1} className={`order-1 lg:order-2 ${isRTL ? 'text-right' : ''}`}>

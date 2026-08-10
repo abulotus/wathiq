@@ -3,7 +3,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageHero from '@/components/ui/PageHero';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
-import Link from 'next/link';
 import TechBackground from '@/components/ui/TechBackground';
 
 const industryIconMap: Record<string, React.ReactNode> = {

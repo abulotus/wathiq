@@ -1,5 +1,3 @@
-'use client';
-
 import PhoneFrame from '@/components/ui/PhoneFrame';
 
 /**

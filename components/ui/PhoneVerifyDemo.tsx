@@ -60,8 +60,10 @@ const CAMERA_KINDS: StageKind[] = ['document', 'barcode', 'selfie'];
 
 // Dense, deterministic (not Math.random — must match between server and
 // client render) bar-width pattern standing in for a real PDF417 barcode.
+// 50 bars/row at ~2px avg width + 1px gaps fills the ~150px printable
+// width edge-to-edge (26 bars previously left half the row blank).
 const PDF417_ROWS: number[][] = Array.from({ length: 9 }, (_, r) =>
-  Array.from({ length: 26 }, (_, i) => ((i * 5 + r * 7) % 3) + 1)
+  Array.from({ length: 50 }, (_, i) => ((i * 5 + r * 7) % 3) + 1)
 );
 
 export default function PhoneVerifyDemo() {

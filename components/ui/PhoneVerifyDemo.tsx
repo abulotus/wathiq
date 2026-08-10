@@ -58,6 +58,12 @@ const STAGES: Stage[] = [
 const STAGE_DURATION_MS = 2800;
 const CAMERA_KINDS: StageKind[] = ['document', 'barcode', 'selfie'];
 
+// Dense, deterministic (not Math.random — must match between server and
+// client render) bar-width pattern standing in for a real PDF417 barcode.
+const PDF417_ROWS: number[][] = Array.from({ length: 9 }, (_, r) =>
+  Array.from({ length: 26 }, (_, i) => ((i * 5 + r * 7) % 3) + 1)
+);
+
 export default function PhoneVerifyDemo() {
   const { isRTL } = useLanguage();
   const [index, setIndex] = useState(0);
@@ -96,20 +102,27 @@ export default function PhoneVerifyDemo() {
                     style={{ boxShadow: '0 0 0 1px rgba(147,197,253,0.15), 0 0 60px 12px rgba(59,130,246,0.16)' }}
                   >
                     <div className="oval-glow absolute inset-0 rounded-[50%] border-[2.5px] border-electric-300/90" />
-                    {/* Illustrative generic headshot placeholder — same treatment as the ID
-                        photo box (a flat silhouette, no real or web-sourced photo), filling
-                        the oval instead of floating as a small icon. One shape, one frame. */}
-                    <div className="face-breathe absolute inset-[3px] overflow-hidden rounded-[50%] bg-gradient-to-b from-slate-300 to-slate-400">
+                    {/* Soft studio-lit generic silhouette — gradient-modeled for depth, no
+                        drawn facial features (avoids reading as a cartoon/emoji), and never
+                        a real or web-sourced photo. */}
+                    <div className="face-breathe absolute inset-[3px] overflow-hidden rounded-[50%]">
                       <svg viewBox="0 0 100 130" className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMax slice">
-                        <circle cx="50" cy="46" r="25" fill="#64748B" />
-                        <path d="M6 132C6 97 24 78 50 78C76 78 94 97 94 132Z" fill="#64748B" />
-                        {/* Simple illustrated features — a friendly generic icon, not a real or photo-realistic face */}
-                        <ellipse cx="41" cy="43" rx="2.4" ry="3" fill="#334155" />
-                        <ellipse cx="59" cy="43" rx="2.4" ry="3" fill="#334155" />
-                        <path d="M38 34c1.6-1.6 4.4-2 6.4-1" stroke="#334155" strokeWidth="1.4" strokeLinecap="round" fill="none" />
-                        <path d="M62 34c-1.6-1.6-4.4-2-6.4-1" stroke="#334155" strokeWidth="1.4" strokeLinecap="round" fill="none" />
-                        <path d="M49 47c-.5 2.5-1.2 4-2 5" stroke="#54606F" strokeWidth="1.1" strokeLinecap="round" fill="none" />
-                        <path d="M42 56c3 3 13 3 16 0" stroke="#334155" strokeWidth="1.6" strokeLinecap="round" fill="none" />
+                        <defs>
+                          <linearGradient id="faceBase" x1="0.15" y1="0" x2="0.85" y2="1">
+                            <stop offset="0%" stopColor="#B8C2D0" />
+                            <stop offset="50%" stopColor="#94A3B8" />
+                            <stop offset="100%" stopColor="#6B7B92" />
+                          </linearGradient>
+                          <radialGradient id="faceSheen" cx="36%" cy="26%" r="50%">
+                            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.4" />
+                            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+                          </radialGradient>
+                        </defs>
+                        <rect width="100" height="130" fill="url(#faceBase)" />
+                        <circle cx="50" cy="45" r="25" fill="#7C8CA1" />
+                        <path d="M6 132C6 96 24 77 50 77C76 77 94 96 94 132Z" fill="#7C8CA1" />
+                        <circle cx="50" cy="45" r="25" fill="url(#faceSheen)" />
+                        <path d="M6 132C6 96 24 77 50 77C76 77 94 96 94 132Z" fill="url(#faceSheen)" />
                       </svg>
                     </div>
                   </div>
@@ -119,22 +132,31 @@ export default function PhoneVerifyDemo() {
                     <span className="corner-pulse absolute -right-0.5 -top-0.5 h-7 w-7 rounded-tr-xl border-r-[3px] border-t-[3px] border-white" />
                     <span className="corner-pulse absolute -bottom-0.5 -left-0.5 h-7 w-7 rounded-bl-xl border-b-[3px] border-l-[3px] border-white" />
                     <span className="corner-pulse absolute -bottom-0.5 -right-0.5 h-7 w-7 rounded-br-xl border-b-[3px] border-r-[3px] border-white" />
-                    {/* Stacked-row pattern matching real PDF417 (the barcode Wathiq actually
-                        reads on the Syrian ID/passport), not a single-row 1D barcode. */}
-                    <div className="absolute inset-3 flex flex-col justify-center gap-[3px] rounded-md bg-white/[0.06] px-3 py-4">
-                      {[
-                        [2, 1, 3, 1, 2, 4, 1, 2, 3, 1, 4, 2, 1, 3, 2],
-                        [1, 3, 2, 1, 4, 1, 2, 3, 1, 2, 4, 1, 3, 2, 1],
-                        [3, 1, 2, 4, 1, 3, 1, 2, 4, 2, 1, 3, 1, 2, 4],
-                        [2, 4, 1, 3, 2, 1, 4, 1, 2, 3, 1, 2, 4, 1, 3],
-                        [1, 2, 4, 1, 3, 2, 1, 4, 1, 2, 3, 1, 2, 4, 1],
-                      ].map((row, r) => (
-                        <div key={r} className="flex flex-1 gap-[2px]">
-                          {row.map((w, i) => (
-                            <span key={i} className="bg-white/40" style={{ width: `${w}px` }} />
+                    {/* Back-of-card layout: header band matching the front side, then the
+                        barcode printed dark-on-light the way PDF417 actually appears on a
+                        physical card, not white bars floating on a dark viewfinder. */}
+                    <div className="absolute inset-2.5 overflow-hidden rounded-lg bg-[#EDEFF3]">
+                      <div className="flex items-center gap-1.5 border-b border-slate-300/60 bg-gradient-to-r from-navy-800 to-electric-700 px-2.5 py-1.5">
+                        <div className="flex h-3.5 w-3.5 flex-shrink-0 items-center justify-center rounded-full border border-gold-300/80">
+                          <div className="h-1 w-1 rounded-full bg-gold-300" />
+                        </div>
+                        <div className="h-[3px] w-2/5 rounded-full bg-white/50" />
+                      </div>
+                      <div className="flex flex-col items-center gap-2 px-3 py-2.5">
+                        <div className="flex w-full flex-col gap-[1.5px] rounded-[3px] bg-white p-2 ring-1 ring-slate-300/70">
+                          {PDF417_ROWS.map((row, r) => (
+                            <div key={r} className="flex h-[5px] gap-[1px]">
+                              {row.map((w, i) => (
+                                <span key={i} className="bg-slate-800" style={{ width: `${w}px` }} />
+                              ))}
+                            </div>
                           ))}
                         </div>
-                      ))}
+                        <div className="flex w-full items-center gap-1">
+                          <span className="h-[2px] w-[2px] flex-shrink-0 rounded-full bg-electric-500/70" />
+                          <span className="h-[2px] w-3/5 rounded-full bg-slate-400/70" />
+                        </div>
+                      </div>
                     </div>
                     <div className="absolute inset-x-3 h-px scan-sweep bg-gradient-to-r from-transparent via-electric-300 to-transparent" />
                   </div>

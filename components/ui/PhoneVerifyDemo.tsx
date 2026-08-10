@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import PhoneFrame from '@/components/ui/PhoneFrame';
 
 type StageKind = 'document' | 'barcode' | 'selfie' | 'processing' | 'result';
 
@@ -79,14 +80,8 @@ export default function PhoneVerifyDemo() {
   const isCamera = stage.kind === 'document' || stage.kind === 'barcode' || stage.kind === 'selfie';
 
   return (
-    <div className="relative mx-auto w-[260px] sm:w-[290px]">
-      {/* Phone bezel */}
-      <div className="relative rounded-[2.75rem] bg-navy-950 p-3 shadow-[0_30px_80px_-20px_rgba(4,9,28,0.6)] ring-1 ring-white/10">
-        {/* Dynamic-island notch */}
-        <div className="absolute left-1/2 top-3 z-20 h-6 w-24 -translate-x-1/2 rounded-full bg-navy-950" />
-
-        {/* Screen */}
-        <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[2rem] bg-[#0B0F1A]">
+    <div className="relative mx-auto w-fit">
+      <PhoneFrame>
           {/* Camera-mode stages */}
           {isCamera && (
             <div key={stage.kind} className="absolute inset-0 stage-fade">
@@ -108,6 +103,13 @@ export default function PhoneVerifyDemo() {
                       <svg viewBox="0 0 100 130" className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMax slice">
                         <circle cx="50" cy="46" r="25" fill="#64748B" />
                         <path d="M6 132C6 97 24 78 50 78C76 78 94 97 94 132Z" fill="#64748B" />
+                        {/* Simple illustrated features — a friendly generic icon, not a real or photo-realistic face */}
+                        <ellipse cx="41" cy="43" rx="2.4" ry="3" fill="#334155" />
+                        <ellipse cx="59" cy="43" rx="2.4" ry="3" fill="#334155" />
+                        <path d="M38 34c1.6-1.6 4.4-2 6.4-1" stroke="#334155" strokeWidth="1.4" strokeLinecap="round" fill="none" />
+                        <path d="M62 34c-1.6-1.6-4.4-2-6.4-1" stroke="#334155" strokeWidth="1.4" strokeLinecap="round" fill="none" />
+                        <path d="M49 47c-.5 2.5-1.2 4-2 5" stroke="#54606F" strokeWidth="1.1" strokeLinecap="round" fill="none" />
+                        <path d="M42 56c3 3 13 3 16 0" stroke="#334155" strokeWidth="1.6" strokeLinecap="round" fill="none" />
                       </svg>
                     </div>
                   </div>
@@ -117,9 +119,21 @@ export default function PhoneVerifyDemo() {
                     <span className="corner-pulse absolute -right-0.5 -top-0.5 h-7 w-7 rounded-tr-xl border-r-[3px] border-t-[3px] border-white" />
                     <span className="corner-pulse absolute -bottom-0.5 -left-0.5 h-7 w-7 rounded-bl-xl border-b-[3px] border-l-[3px] border-white" />
                     <span className="corner-pulse absolute -bottom-0.5 -right-0.5 h-7 w-7 rounded-br-xl border-b-[3px] border-r-[3px] border-white" />
-                    <div className="absolute inset-3 flex items-center justify-center gap-[3px] rounded-md bg-white/[0.06] px-4">
-                      {[3, 1, 2, 4, 1, 3, 2, 1, 4, 2, 1, 3, 2, 1].map((w, i) => (
-                        <span key={i} className="h-9 bg-white/35" style={{ width: `${w}px` }} />
+                    {/* Stacked-row pattern matching real PDF417 (the barcode Wathiq actually
+                        reads on the Syrian ID/passport), not a single-row 1D barcode. */}
+                    <div className="absolute inset-3 flex flex-col justify-center gap-[3px] rounded-md bg-white/[0.06] px-3 py-4">
+                      {[
+                        [2, 1, 3, 1, 2, 4, 1, 2, 3, 1, 4, 2, 1, 3, 2],
+                        [1, 3, 2, 1, 4, 1, 2, 3, 1, 2, 4, 1, 3, 2, 1],
+                        [3, 1, 2, 4, 1, 3, 1, 2, 4, 2, 1, 3, 1, 2, 4],
+                        [2, 4, 1, 3, 2, 1, 4, 1, 2, 3, 1, 2, 4, 1, 3],
+                        [1, 2, 4, 1, 3, 2, 1, 4, 1, 2, 3, 1, 2, 4, 1],
+                      ].map((row, r) => (
+                        <div key={r} className="flex flex-1 gap-[2px]">
+                          {row.map((w, i) => (
+                            <span key={i} className="bg-white/40" style={{ width: `${w}px` }} />
+                          ))}
+                        </div>
                       ))}
                     </div>
                     <div className="absolute inset-x-3 h-px scan-sweep bg-gradient-to-r from-transparent via-electric-300 to-transparent" />
@@ -132,23 +146,31 @@ export default function PhoneVerifyDemo() {
                     <span className="corner-pulse absolute -bottom-0.5 -right-0.5 h-7 w-7 rounded-br-xl border-b-[3px] border-r-[3px] border-white" />
                     {/* Illustrative generic ID-card layout — not a real or copied document design */}
                     <div className="absolute inset-2.5 overflow-hidden rounded-lg bg-[#EDEFF3]">
-                      <div className="h-[22%] w-full bg-gradient-to-r from-navy-800 to-electric-700" />
-                      <div className="flex gap-2.5 px-3 pt-2.5">
-                        <div className="flex h-11 w-9 flex-shrink-0 items-center justify-center rounded-[3px] border border-slate-300 bg-slate-200">
+                      {/* Header band: generic seal + redacted authority lines, no real emblem/text */}
+                      <div className="flex items-center gap-1.5 border-b border-slate-300/60 bg-gradient-to-r from-navy-800 to-electric-700 px-2.5 py-1.5">
+                        <div className="flex h-3.5 w-3.5 flex-shrink-0 items-center justify-center rounded-full border border-gold-300/80">
+                          <div className="h-1 w-1 rounded-full bg-gold-300" />
+                        </div>
+                        <div className="flex flex-1 flex-col gap-[3px]">
+                          <div className="h-[3px] w-2/5 rounded-full bg-white/50" />
+                          <div className="h-[3px] w-3/5 rounded-full bg-white/25" />
+                        </div>
+                      </div>
+                      <div className="flex gap-2 px-2.5 pt-2">
+                        <div className="flex h-14 w-9 flex-shrink-0 items-center justify-center rounded-[3px] border border-slate-300 bg-slate-200">
                           <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-400" fill="currentColor">
                             <circle cx="12" cy="8" r="3.6" />
                             <path d="M5 20c0-3.9 3.1-6.2 7-6.2s7 2.3 7 6.2v.4H5v-.4z" />
                           </svg>
                         </div>
-                        <div className="flex flex-1 flex-col justify-center gap-1.5 pt-0.5">
-                          <div className="h-1.5 w-3/5 rounded-full bg-slate-400/70" />
-                          <div className="h-1.5 w-4/5 rounded-full bg-slate-300" />
-                          <div className="h-1.5 w-2/5 rounded-full bg-slate-300" />
+                        <div className="flex flex-1 flex-col justify-center gap-[3.5px]">
+                          {[75, 90, 60, 85].map((w, i) => (
+                            <div key={i} className="flex items-center gap-1">
+                              <span className="h-[2px] w-[2px] flex-shrink-0 rounded-full bg-electric-500/70" />
+                              <span className="h-[2px] rounded-full bg-slate-400/70" style={{ width: `${w}%` }} />
+                            </div>
+                          ))}
                         </div>
-                      </div>
-                      <div className="mt-2 space-y-1 px-3">
-                        <div className="h-1 w-full rounded-full bg-slate-300/70" />
-                        <div className="h-1 w-5/6 rounded-full bg-slate-300/70" />
                       </div>
                     </div>
                     <div className="absolute inset-x-3 h-px scan-sweep bg-gradient-to-r from-transparent via-electric-300 to-transparent" />
@@ -215,8 +237,7 @@ export default function PhoneVerifyDemo() {
               </div>
             </div>
           )}
-        </div>
-      </div>
+      </PhoneFrame>
 
       {/* Play/pause control */}
       <button

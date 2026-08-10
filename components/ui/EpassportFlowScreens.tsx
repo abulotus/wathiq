@@ -1,5 +1,7 @@
 'use client';
 
+import PhoneFrame from '@/components/ui/PhoneFrame';
+
 /**
  * Faithful, code-based recreations of two real screens from the mobile app's
  * ePassport flow (VERIFY/src/components/id/EpassportDocumentStep.tsx and
@@ -40,24 +42,12 @@ const copy = {
   },
 };
 
-function PhoneFrame({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="relative w-[220px] flex-shrink-0 sm:w-[240px]">
-      <div className="relative rounded-[2.25rem] bg-navy-950 p-2.5 shadow-[0_24px_60px_-16px_rgba(4,9,28,0.55)] ring-1 ring-white/10">
-        <div className="absolute left-1/2 top-2.5 z-20 h-5 w-20 -translate-x-1/2 rounded-full bg-navy-950" />
-        <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[1.7rem] bg-[#0B0F1A]">
-          {children}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /** Screen 1: passport data-page capture, with the MRZ band the national-ID guide doesn't have. */
 function PassportCaptureScreen({ isRTL }: { isRTL: boolean }) {
   const t = isRTL ? copy.ar : copy.en;
   return (
-    <PhoneFrame>
+    <PhoneFrame size="sm">
       <div className="absolute inset-0 bg-gradient-to-b from-[#141C2C] via-[#0B0F1A] to-[#05070C]" />
       <div className="absolute inset-0 flex items-center justify-center px-6">
         <div className="relative aspect-[1.42/1] w-full max-w-[190px] rounded-lg">
@@ -105,7 +95,7 @@ function PassportCaptureScreen({ isRTL }: { isRTL: boolean }) {
 function NfcChipScreen({ isRTL }: { isRTL: boolean }) {
   const t = isRTL ? copy.ar : copy.en;
   return (
-    <PhoneFrame>
+    <PhoneFrame size="sm">
       <div className="absolute inset-0 bg-gradient-to-b from-[#0E1526] to-[#05070C]" />
       <div className="relative flex h-full flex-col items-center px-4 pt-14 text-center">
         <h4 className="text-[13px] font-bold leading-tight text-white">{t.step2Title}</h4>

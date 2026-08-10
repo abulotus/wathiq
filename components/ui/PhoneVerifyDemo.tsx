@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PhoneFrame from '@/components/ui/PhoneFrame';
 
@@ -58,14 +59,6 @@ const STAGES: Stage[] = [
 const STAGE_DURATION_MS = 2800;
 const CAMERA_KINDS: StageKind[] = ['document', 'barcode', 'selfie'];
 
-// Dense, deterministic (not Math.random — must match between server and
-// client render) bar-width pattern standing in for a real PDF417 barcode.
-// 50 bars/row at ~2px avg width + 1px gaps fills the ~150px printable
-// width edge-to-edge (26 bars previously left half the row blank).
-const PDF417_ROWS: number[][] = Array.from({ length: 9 }, (_, r) =>
-  Array.from({ length: 50 }, (_, i) => ((i * 5 + r * 7) % 3) + 1)
-);
-
 export default function PhoneVerifyDemo() {
   const { isRTL } = useLanguage();
   const [index, setIndex] = useState(0);
@@ -104,63 +97,15 @@ export default function PhoneVerifyDemo() {
                     style={{ boxShadow: '0 0 0 1px rgba(147,197,253,0.15), 0 0 60px 12px rgba(59,130,246,0.16)' }}
                   >
                     <div className="oval-glow absolute inset-0 rounded-[50%] border-[2.5px] border-electric-300/90" />
-                    {/* Soft studio-lit generic silhouette — gradient-modeled for depth, no
-                        drawn facial features (avoids reading as a cartoon/emoji), and never
-                        a real or web-sourced photo. */}
                     <div className="face-breathe absolute inset-[3px] overflow-hidden rounded-[50%]">
-                      <svg viewBox="0 0 100 130" className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMax slice">
-                        <defs>
-                          <linearGradient id="faceBase" x1="0.15" y1="0" x2="0.85" y2="1">
-                            <stop offset="0%" stopColor="#B8C2D0" />
-                            <stop offset="50%" stopColor="#94A3B8" />
-                            <stop offset="100%" stopColor="#6B7B92" />
-                          </linearGradient>
-                          <radialGradient id="faceSheen" cx="36%" cy="26%" r="50%">
-                            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.4" />
-                            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
-                          </radialGradient>
-                        </defs>
-                        <rect width="100" height="130" fill="url(#faceBase)" />
-                        <circle cx="50" cy="45" r="25" fill="#7C8CA1" />
-                        <path d="M6 132C6 96 24 77 50 77C76 77 94 96 94 132Z" fill="#7C8CA1" />
-                        <circle cx="50" cy="45" r="25" fill="url(#faceSheen)" />
-                        <path d="M6 132C6 96 24 77 50 77C76 77 94 96 94 132Z" fill="url(#faceSheen)" />
-                      </svg>
+                      <Image
+                        src="/demo/cartoon-selfie.png"
+                        alt="Fictional cartoon selfie used for the verification demo"
+                        fill
+                        sizes="190px"
+                        className="object-cover"
+                      />
                     </div>
-                  </div>
-                ) : stage.kind === 'barcode' ? (
-                  <div className="relative aspect-[85.6/54] w-full max-w-[210px] rounded-xl">
-                    <span className="corner-pulse absolute -left-0.5 -top-0.5 h-7 w-7 rounded-tl-xl border-l-[3px] border-t-[3px] border-white" />
-                    <span className="corner-pulse absolute -right-0.5 -top-0.5 h-7 w-7 rounded-tr-xl border-r-[3px] border-t-[3px] border-white" />
-                    <span className="corner-pulse absolute -bottom-0.5 -left-0.5 h-7 w-7 rounded-bl-xl border-b-[3px] border-l-[3px] border-white" />
-                    <span className="corner-pulse absolute -bottom-0.5 -right-0.5 h-7 w-7 rounded-br-xl border-b-[3px] border-r-[3px] border-white" />
-                    {/* Back-of-card layout: header band matching the front side, then the
-                        barcode printed dark-on-light the way PDF417 actually appears on a
-                        physical card, not white bars floating on a dark viewfinder. */}
-                    <div className="absolute inset-2.5 overflow-hidden rounded-lg bg-[#EDEFF3]">
-                      <div className="flex items-center gap-1.5 border-b border-slate-300/60 bg-gradient-to-r from-navy-800 to-electric-700 px-2.5 py-1.5">
-                        <div className="flex h-3.5 w-3.5 flex-shrink-0 items-center justify-center rounded-full border border-gold-300/80">
-                          <div className="h-1 w-1 rounded-full bg-gold-300" />
-                        </div>
-                        <div className="h-[3px] w-2/5 rounded-full bg-white/50" />
-                      </div>
-                      <div className="flex flex-col items-center gap-2 px-3 py-2.5">
-                        <div className="flex w-full flex-col gap-[1.5px] rounded-[3px] bg-white p-2 ring-1 ring-slate-300/70">
-                          {PDF417_ROWS.map((row, r) => (
-                            <div key={r} className="flex h-[5px] gap-[1px]">
-                              {row.map((w, i) => (
-                                <span key={i} className="bg-slate-800" style={{ width: `${w}px` }} />
-                              ))}
-                            </div>
-                          ))}
-                        </div>
-                        <div className="flex w-full items-center gap-1">
-                          <span className="h-[2px] w-[2px] flex-shrink-0 rounded-full bg-electric-500/70" />
-                          <span className="h-[2px] w-3/5 rounded-full bg-slate-400/70" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="absolute inset-x-3 h-px scan-sweep bg-gradient-to-r from-transparent via-electric-300 to-transparent" />
                   </div>
                 ) : (
                   <div className="relative aspect-[85.6/54] w-full max-w-[220px] rounded-xl">
@@ -168,34 +113,16 @@ export default function PhoneVerifyDemo() {
                     <span className="corner-pulse absolute -right-0.5 -top-0.5 h-7 w-7 rounded-tr-xl border-r-[3px] border-t-[3px] border-white" />
                     <span className="corner-pulse absolute -bottom-0.5 -left-0.5 h-7 w-7 rounded-bl-xl border-b-[3px] border-l-[3px] border-white" />
                     <span className="corner-pulse absolute -bottom-0.5 -right-0.5 h-7 w-7 rounded-br-xl border-b-[3px] border-r-[3px] border-white" />
-                    {/* Illustrative generic ID-card layout — not a real or copied document design */}
                     <div className="absolute inset-2.5 overflow-hidden rounded-lg bg-[#EDEFF3]">
-                      {/* Header band: generic seal + redacted authority lines, no real emblem/text */}
-                      <div className="flex items-center gap-1.5 border-b border-slate-300/60 bg-gradient-to-r from-navy-800 to-electric-700 px-2.5 py-1.5">
-                        <div className="flex h-3.5 w-3.5 flex-shrink-0 items-center justify-center rounded-full border border-gold-300/80">
-                          <div className="h-1 w-1 rounded-full bg-gold-300" />
-                        </div>
-                        <div className="flex flex-1 flex-col gap-[3px]">
-                          <div className="h-[3px] w-2/5 rounded-full bg-white/50" />
-                          <div className="h-[3px] w-3/5 rounded-full bg-white/25" />
-                        </div>
-                      </div>
-                      <div className="flex gap-2 px-2.5 pt-2">
-                        <div className="flex h-14 w-9 flex-shrink-0 items-center justify-center rounded-[3px] border border-slate-300 bg-slate-200">
-                          <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-400" fill="currentColor">
-                            <circle cx="12" cy="8" r="3.6" />
-                            <path d="M5 20c0-3.9 3.1-6.2 7-6.2s7 2.3 7 6.2v.4H5v-.4z" />
-                          </svg>
-                        </div>
-                        <div className="flex flex-1 flex-col justify-center gap-[3.5px]">
-                          {[75, 90, 60, 85].map((w, i) => (
-                            <div key={i} className="flex items-center gap-1">
-                              <span className="h-[2px] w-[2px] flex-shrink-0 rounded-full bg-electric-500/70" />
-                              <span className="h-[2px] rounded-full bg-slate-400/70" style={{ width: `${w}%` }} />
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+                      <Image
+                        src={stage.kind === 'document' ? '/demo/cartoon-id-front.png' : '/demo/cartoon-id-back.png'}
+                        alt={stage.kind === 'document'
+                          ? 'Fictional cartoon ID front used for the verification demo'
+                          : 'Fictional cartoon ID barcode side used for the verification demo'}
+                        fill
+                        sizes="220px"
+                        className="object-cover"
+                      />
                     </div>
                     <div className="absolute inset-x-3 h-px scan-sweep bg-gradient-to-r from-transparent via-electric-300 to-transparent" />
                   </div>

@@ -5,8 +5,6 @@ import PageHero from '@/components/ui/PageHero';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import Link from 'next/link';
 import { MobileVerifyChecklist } from '@/components/ui/RealProductUI';
-import { EpassportFlowShowcase } from '@/components/ui/EpassportFlowScreens';
-import SectionTag from '@/components/ui/SectionTag';
 
 const features = {
   en: ['Arabic interface', 'Guided step-by-step capture', 'NFC chip reading for ePassports', 'Live selfie for biometric matching', 'Clear result state'],
@@ -66,30 +64,6 @@ export default function MobileAppPage() {
               </Link>
             </AnimatedSection>
           </div>
-        </div>
-      </section>
-
-      <section className="section-pad bg-slate-50">
-        <div className="container-wide">
-          <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
-            <SectionTag label={isRTL ? 'جواز السفر الإلكتروني' : 'ePassport'} variant="blue" />
-            <h2 className="heading-lg text-navy-900 mt-4">
-              {isRTL ? 'خطوتان إضافيتان لجواز السفر الإلكتروني' : 'Two extra steps for an ePassport'}
-            </h2>
-            <p className="body-lg mt-4 max-w-xl mx-auto">
-              {isRTL
-                ? 'إلى جانب خطوات الهوية الوطنية، تضيف رحلة جواز السفر الإلكتروني تصوير صفحة البيانات ثم قراءة شريحة الجواز عبر NFC — أعلى قناة أدلة ضماناً، ومتاحة فقط عبر التطبيق.'
-                : "Alongside the national ID steps, the ePassport journey adds a data-page photo and then reading the passport's chip over NFC — the highest-assurance evidence channel, available only through the app."}
-            </p>
-          </AnimatedSection>
-          <AnimatedSection delay={0.1}>
-            <EpassportFlowShowcase isRTL={isRTL} />
-            <p className="text-slate-400 text-xs text-center mt-6">
-              {isRTL
-                ? 'إعادة بناء دقيقة لشاشتين من رحلة جواز السفر الإلكتروني الفعلية — لا توجد أداة لالتقاط لقطات شاشة حقيقية من التطبيق في هذه البيئة.'
-                : "A faithful recreation of two real screens from the ePassport journey — no tool available in this environment to capture real screenshots from the app."}
-            </p>
-          </AnimatedSection>
         </div>
       </section>
     </>

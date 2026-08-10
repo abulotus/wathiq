@@ -121,14 +121,35 @@ const verifySteps = {
   ],
 };
 
+// Matches the real app's actual icon set (Ionicons book-outline /
+// radio-outline / person-circle-outline via @expo/vector-icons), redrawn as
+// inline SVG since the web has no Ionicons dependency.
 function StepIcon({ kind, className }: { kind: string; className?: string }) {
   if (kind === 'nfc') {
-    return <svg className={className} fill="currentColor" viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h9a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm2 1v3h9V6H6zm0 5v7h9v-7H6z" /></svg>;
+    return (
+      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.5h.01" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8.5 15.3a5 5 0 017 0" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5.5 12.2a9 9 0 0113 0" />
+      </svg>
+    );
   }
   if (kind === 'selfie') {
-    return <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>;
+    return (
+      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="9.8" r="2.6" />
+        <path strokeLinecap="round" d="M6.3 18.2a6.3 6.3 0 0111.4 0" />
+      </svg>
+    );
   }
-  return <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" /><circle cx="9" cy="10" r="2" strokeWidth={1.8} /><path strokeLinecap="round" strokeLinejoin="round" d="M4 17l4-4 3 3 5-5 4 4" /></svg>;
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.7c-1.5-1-4-1.4-6-1.15a1 1 0 00-.85 1v10.7a1 1 0 001.15.99c1.85-.28 4.1.1 5.7 1.26" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.7c1.5-1 4-1.4 6-1.15a1 1 0 01.85 1v10.7a1 1 0 01-1.15.99c-1.85-.28-4.1.1-5.7 1.26" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.7v12.8" />
+    </svg>
+  );
 }
 
 /**
@@ -141,46 +162,47 @@ function StepIcon({ kind, className }: { kind: string; className?: string }) {
  */
 export function MobileVerifyChecklist({ isRTL }: { isRTL: boolean }) {
   const steps = isRTL ? verifySteps.ar : verifySteps.en;
-  const arabicDigits = ['١', '٢', '٣'];
 
   return (
     <PhoneFrame>
-      <div className="absolute inset-0 bg-white" dir={isRTL ? 'rtl' : 'ltr'}>
-        <div className="px-5 pt-9 pb-7">
-          <h2 className="text-lg font-bold text-navy-900 text-center">
+      <div className="absolute inset-0 flex flex-col bg-[#F6F8FC]" dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="flex-1 px-5 pt-9">
+          <h2 className="text-2xl font-bold leading-tight text-navy-900 text-center">
             {isRTL ? 'تحقّق من هويتك' : 'Verify your identity'}
           </h2>
-          <p className="mt-1.5 text-xs text-slate-500 text-center">
+          <p className="mt-1.5 text-sm leading-snug text-slate-500 text-center">
             {isRTL ? 'ثلاث خطوات — سنرشدك خلال كل خطوة عبر الكاميرا.' : "Three steps — we'll guide you through each one."}
           </p>
 
-          <ol className="mt-5 space-y-2.5">
+          <ol className="mt-5 space-y-3">
             {steps.map((s, i) => {
               const current = i === 0;
               return (
                 <li
                   key={i}
-                  className={`flex items-center gap-3 rounded-2xl border p-3 transition-colors ${
-                    current ? 'border-electric-200 bg-electric-50' : 'border-slate-100 bg-white opacity-60'
+                  className={`flex min-h-[72px] items-center gap-3 rounded-2xl border p-3 transition-colors ${
+                    current
+                      ? 'border-electric-300 bg-electric-50 shadow-[0_2px_8px_rgba(11,27,58,0.06)]'
+                      : 'border-slate-100 bg-white opacity-[0.62]'
                   }`}
                 >
-                  <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${
-                    current ? 'bg-electric-600 text-white' : 'bg-slate-100 text-slate-400'
+                  <span className={`flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-xl border ${
+                    current ? 'border-electric-300 bg-white text-electric-500' : 'border-transparent bg-slate-100 text-slate-500'
                   }`}>
                     <StepIcon kind={s.icon} className="h-5 w-5" />
                   </span>
-                  <span className={`flex-1 text-xs font-semibold ${current ? 'text-navy-900' : 'text-slate-500'}`}>{s.label}</span>
-                  <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-bold ${
-                    current ? 'bg-electric-100 text-electric-700' : 'bg-slate-100 text-slate-400'
-                  }`}>
-                    {isRTL ? arabicDigits[i] : i + 1}
+                  <span className={`flex-1 text-sm font-semibold ${current ? 'text-navy-900' : 'text-slate-500'}`}>{s.label}</span>
+                  <span className={`shrink-0 text-xs font-semibold tabular-nums ${current ? 'text-electric-500' : 'text-slate-500'}`}>
+                    {String(i + 1).padStart(2, '0')}
                   </span>
                 </li>
               );
             })}
           </ol>
+        </div>
 
-          <button className="mt-6 w-full rounded-md bg-navy-900 px-4 py-3 text-sm font-semibold text-white">
+        <div className="border-t border-slate-100 bg-white px-5 pb-5 pt-4">
+          <button className="min-h-[56px] w-full rounded-2xl bg-gradient-to-br from-electric-500 to-electric-600 text-base font-bold text-white shadow-[0_2px_8px_rgba(11,27,58,0.06)]">
             {isRTL ? 'ابدأ' : 'Start'}
           </button>
         </div>

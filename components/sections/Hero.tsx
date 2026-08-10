@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import TechBackground from '@/components/ui/TechBackground';
-import VerificationJourneyIllustration from '@/components/ui/VerificationJourneyIllustration';
+import PassportVerifyIllustration from '@/components/ui/PassportVerifyIllustration';
 
 
 const NetworkSVG = memo(function NetworkSVG() {
@@ -36,65 +36,6 @@ const NetworkSVG = memo(function NetworkSVG() {
     </svg>
   );
 });
-
-function HeroIllustration({ isRTL }: { isRTL: boolean }) {
-  return (
-    <div className="relative w-full h-full flex items-center justify-center">
-      <div
-        className="relative z-10"
-        style={{ animation: 'tech-float 6s ease-in-out infinite', willChange: 'transform' }}
-      >
-        <VerificationJourneyIllustration isRTL={isRTL} />
-      </div>
-
-      {/* Floating cards — CSS animations, no Framer Motion, no backdrop-blur */}
-      <div
-        className="absolute top-10 start-0 bg-white border border-slate-200 rounded-xl px-3 py-2 sm:px-4 sm:py-3 shadow-lg"
-        style={{ animation: 'tech-float 4.5s ease-in-out 0.3s infinite', willChange: 'transform' }}
-      >
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-teal-500 animate-pulse flex-shrink-0" />
-          <span className="text-navy-900 font-semibold text-xs whitespace-nowrap">
-            {isRTL ? 'تم التحقق من الهوية ✓' : 'Identity Verified ✓'}
-          </span>
-        </div>
-        <div className="text-slate-500 text-xs mt-1">
-          {isRTL ? 'التحقق من هوية المستخدم' : 'User authentication'}
-        </div>
-      </div>
-
-      <div
-        className="absolute top-28 end-0 bg-white border border-slate-200 rounded-xl px-3 py-2 sm:px-4 sm:py-3 shadow-lg"
-        style={{ animation: 'tech-float-down 5s ease-in-out 1s infinite', willChange: 'transform' }}
-      >
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
-          <span className="text-navy-900 font-semibold text-xs whitespace-nowrap">
-            {isRTL ? 'أُرسلت النتيجة' : 'Result Delivered'}
-          </span>
-        </div>
-        <div className="text-slate-500 text-xs mt-1">
-          {isRTL ? 'عبر إشعار Webhook' : 'Via webhook'}
-        </div>
-      </div>
-
-      <div
-        className="absolute bottom-16 start-2 max-w-[180px] bg-white border border-slate-200 rounded-xl px-3 py-2 sm:max-w-none sm:px-4 sm:py-3 shadow-lg"
-        style={{ animation: 'tech-float 5.5s ease-in-out 2s infinite', willChange: 'transform' }}
-      >
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-gold-500 animate-pulse flex-shrink-0" />
-          <span className="text-navy-900 font-semibold text-xs leading-snug sm:whitespace-nowrap">
-            {isRTL ? 'جوازات سفر إلكترونية حديثة من 140 دولة' : '140 ePassports Supported'}
-          </span>
-        </div>
-        <div className="text-slate-500 text-xs mt-1">
-          {isRTL ? 'تغطية عالمية' : 'Worldwide coverage'}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function Hero() {
   const { t, isRTL, href } = useLanguage();
@@ -130,7 +71,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
           >
-            {/* Badge — inline-flex; in RTL the dot (first child) sits at inline-end naturally */}
+            {/* Badge */}
             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
               <span className="inline-flex items-center gap-2 bg-electric-50 border border-electric-100 text-electric-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse flex-shrink-0" />
@@ -179,7 +120,6 @@ export default function Hero() {
                 {h.cta2}
               </a>
             </motion.div>
-
           </motion.div>
 
           {/* ── Illustration column ── */}
@@ -187,9 +127,9 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.25 }}
-            className="relative h-72 lg:h-[480px]"
+            className="relative flex items-center justify-center"
           >
-            <HeroIllustration isRTL={isRTL} />
+            <PassportVerifyIllustration isRTL={isRTL} />
           </motion.div>
         </div>
       </div>

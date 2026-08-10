@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import TechBackground from '@/components/ui/TechBackground';
-import DocumentScanIllustration from '@/components/ui/DocumentScanIllustration';
+import VerificationJourneyIllustration from '@/components/ui/VerificationJourneyIllustration';
 
 
 const NetworkSVG = memo(function NetworkSVG() {
@@ -44,7 +44,7 @@ function HeroIllustration({ isRTL }: { isRTL: boolean }) {
         className="relative z-10"
         style={{ animation: 'tech-float 6s ease-in-out infinite', willChange: 'transform' }}
       >
-        <DocumentScanIllustration />
+        <VerificationJourneyIllustration isRTL={isRTL} />
       </div>
 
       {/* Floating cards — CSS animations, no Framer Motion, no backdrop-blur */}

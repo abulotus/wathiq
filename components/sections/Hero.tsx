@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import TechBackground from '@/components/ui/TechBackground';
-import PassportVerifyIllustration from '@/components/ui/PassportVerifyIllustration';
+import IdentityVerificationAnimation from '@/components/ui/IdentityVerificationAnimation';
 
 
 const NetworkSVG = memo(function NetworkSVG() {
@@ -129,7 +129,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="relative flex items-center justify-center"
           >
-            <PassportVerifyIllustration isRTL={isRTL} />
+            <IdentityVerificationAnimation isRTL={isRTL} />
           </motion.div>
         </div>
       </div>

@@ -39,10 +39,10 @@ export default function AmlScreeningPage() {
   return (
     <>
       <PageHero
-        tag={isRTL ? 'فحص AML' : 'AML Screening'}
+        tag={isRTL ? 'فحص غسل الاموال' : 'AML Screening'}
         title={isRTL ? 'فحص العقوبات وقوائم الحظر للجهات المنظّمة' : 'Sanctions & watchlist screening for regulated clients'}
         subtitle={isRTL
-          ? 'للبنوك وشركات التقنية المالية: فحص AML إضافة تُفعَّل فوق خدمة التحقق من جواز السفر الإلكتروني — تلقائياً عند قبول التحقق، أو يدوياً من لوحة التحكم لأي شخص.'
+          ? 'للبنوك وشركات التقنية المالية: فحص غسل الاموال إضافة تُفعَّل فوق خدمة التحقق من جواز السفر الإلكتروني — تلقائياً عند قبول التحقق، أو يدوياً من لوحة التحكم لأي شخص.'
           : 'For banks and fintechs: AML screening is an add-on to ePassport verification — running automatically when a verification is accepted, or manually from the dashboard for any person.'}
       />
 
@@ -57,7 +57,7 @@ export default function AmlScreeningPage() {
               </h2>
               <p className="body-lg mb-8">
                 {isRTL
-                  ? 'يمكنك الاشتراك في التحقق من جواز السفر الإلكتروني وحده، أو إضافة فحص AML فوقه. بمجرد التفعيل، يفحص واثق الأشخاص الطبيعيين مقابل مصادر العقوبات وقوائم الحظر الرسمية التي تختارها مؤسستك — تلقائياً بمجرد قبول طلب تحقق من الهوية، أو يدوياً على أي شخص من لوحة التحكم أو عبر API — دون أن يُلغي الفحص وحده قرار التحقق من الهوية.'
+                  ? 'يمكنك الاشتراك في التحقق من جواز السفر الإلكتروني وحده، أو إضافة فحص غسل الاموال فوقه. بمجرد التفعيل، يفحص واثق الأشخاص الطبيعيين مقابل مصادر العقوبات وقوائم الحظر الرسمية التي تختارها مؤسستك — تلقائياً بمجرد قبول طلب تحقق من الهوية، أو يدوياً على أي شخص من لوحة التحكم أو عبر API — دون أن يُلغي الفحص وحده قرار التحقق من الهوية.'
                   : "You can subscribe to ePassport verification on its own, or add AML screening on top of it. Once enabled, Wathiq screens named individuals against the official sanctions and watchlist sources your organisation has selected — automatically as soon as an identity verification is accepted, or manually on any person from the dashboard or API — and it never overrides the identity verification decision on its own."}
               </p>
 
@@ -87,7 +87,7 @@ export default function AmlScreeningPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4" />
                     </svg>
                   </div>
-                  <h3 className="text-white text-xl font-bold mb-2">{isRTL ? 'فحص AML' : 'AML Screening'}</h3>
+                  <h3 className="text-white text-xl font-bold mb-2">{isRTL ? 'فحص غسل الاموال' : 'AML Screening'}</h3>
                   <p className="text-white/90 text-sm mb-6 leading-relaxed">
                     {isRTL
                       ? 'مطابقة محتملة تفتح حالة تحقيق للامتثال — لا تُرفض هوية العميل تلقائياً.'
@@ -201,7 +201,7 @@ export default function AmlScreeningPage() {
             <div className={`rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8 ${isRTL ? 'text-right' : ''}`}>
               <p className="text-slate-600 text-sm leading-relaxed">
                 {isRTL
-                  ? 'درجة التشابه مؤشر للتحقيق، وليست احتمالاً أو حكماً قانونياً على الهوية. النتيجة النهائية لأي حالة يحددها فريق الامتثال لديك. فحص AML يغطي مطابقة الأسماء مقابل مصادر العقوبات وقوائم الحظر؛ فحص الشخصيات السياسية المعرضة للمخاطر (PEP) والإعلام السلبي على خارطة طريقنا — تواصل معنا لمناقشة متطلباتك التنظيمية المحددة.'
+                  ? 'درجة التشابه مؤشر للتحقيق، وليست احتمالاً أو حكماً قانونياً على الهوية. النتيجة النهائية لأي حالة يحددها فريق الامتثال لديك. فحص غسل الاموال يغطي مطابقة الأسماء مقابل مصادر العقوبات وقوائم الحظر؛ فحص الشخصيات السياسية المعرضة للمخاطر (PEP) والإعلام السلبي على خارطة طريقنا — تواصل معنا لمناقشة متطلباتك التنظيمية المحددة.'
                   : "A similarity score is an investigation indicator, not a probability or a legal determination of identity. The final outcome of any case is decided by your compliance team. AML screening covers name-matching against sanctions and watchlist sources; PEP and adverse-media screening are on our roadmap — contact us to discuss your specific regulatory requirements."}
               </p>
             </div>
@@ -214,7 +214,7 @@ export default function AmlScreeningPage() {
         <div className="container-wide">
           <AnimatedSection className="text-center">
             <h2 className="heading-lg text-navy-900 mb-4">
-              {isRTL ? 'هل تحتاج فحص AML لمؤسستك؟' : 'Need AML screening for your organisation?'}
+              {isRTL ? 'هل تحتاج فحص غسل الاموال لمؤسستك؟' : 'Need AML screening for your organisation?'}
             </h2>
             <p className="text-slate-600 text-lg mb-8 max-w-xl mx-auto">
               {isRTL

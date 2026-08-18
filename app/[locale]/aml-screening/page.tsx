@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     ? localizedMetadata({
         locale,
         path: '/aml-screening',
-        title: 'فحص AML — العقوبات وقوائم الحظر',
+        title: 'فحص غسل الاموال — العقوبات وقوائم الحظر',
         description: 'يفحص واثق الأفراد مقابل مصادر العقوبات وقوائم الحظر الرسمية التي تختارها مؤسستك، تلقائياً أو عند الطلب، مع حالة تحقيق ومراجعة امتثال كاملة.',
       })
     : localizedMetadata({

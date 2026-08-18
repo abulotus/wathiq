@@ -9,7 +9,7 @@ import WathiqLogo from '@/components/ui/WathiqLogo';
 const navItems = [
   { path: '/platform', en: 'Platform', ar: 'المنصة' },
   { path: '/epassport-coverage', en: 'ePassport Coverage', ar: 'تغطية جوازات السفر' },
-  { path: '/aml-screening', en: 'AML Screening', ar: 'فحص AML' },
+  { path: '/aml-screening', en: 'AML Screening', ar: 'فحص غسل الاموال' },
   { path: '/developers', en: 'Developers', ar: 'المطورون' },
   { path: '/client-dashboard', en: 'Client Dashboard', ar: 'لوحة تحكم العملاء' },
   { path: '/mobile-app', en: 'Mobile App', ar: 'تطبيق الجوال' },

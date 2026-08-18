@@ -175,10 +175,10 @@ expected = "v1=" + hex(HMAC-SHA256(signing_secret, signed_payload))
       <section className="section-pad bg-slate-50 relative overflow-hidden">
         <div className="container-wide relative z-10 max-w-3xl mx-auto">
           <AnimatedSection className={isRTL ? 'text-right' : ''}>
-            <h2 className="heading-md text-navy-900 mb-4">{isRTL ? 'فحص AML' : 'AML screening'}</h2>
+            <h2 className="heading-md text-navy-900 mb-4">{isRTL ? 'فحص غسل الاموال' : 'AML screening'}</h2>
             <p className="text-slate-600 text-sm leading-relaxed mb-4">
               {isRTL
-                ? 'لعملاء البنوك والتقنية المالية، يتوفر فحص AML بنفس نمط API وWebhooks: أنشئ طلب فحص — إما مرتبطاً بتحقق سابق أو لملف شخص مباشر — واستلم النتيجة عبر Webhook موقّع أو استرجعها من واجهة برمجة التطبيقات.'
+                ? 'لعملاء البنوك والتقنية المالية، يتوفر فحص غسل الاموال بنفس نمط API وWebhooks: أنشئ طلب فحص — إما مرتبطاً بتحقق سابق أو لملف شخص مباشر — واستلم النتيجة عبر Webhook موقّع أو استرجعها من واجهة برمجة التطبيقات.'
                 : 'For banking and fintech clients, AML screening follows the same API and webhook pattern: create a screening request — either linked to an existing verification or as a direct person profile — and receive the result through a signed webhook or by fetching it from the API.'}
             </p>
             <CodeBlock label="POST /api/v1/client/aml/screenings">{`{
@@ -189,7 +189,7 @@ expected = "v1=" + hex(HMAC-SHA256(signing_secret, signed_payload))
                 ? 'يعمل الفحص بشكل غير متزامن؛ استلم إشعار Webhook عند اكتمال الفحص ثم استرجع النتيجة. اطّلع على '
                 : "Screening runs asynchronously — receive a webhook when it completes, then fetch the result. See the "}
               <Link href={href('/aml-screening')} className="text-electric-600 font-semibold hover:underline">
-                {isRTL ? 'صفحة فحص AML' : 'AML Screening page'}
+                {isRTL ? 'صفحة فحص غسل الاموال' : 'AML Screening page'}
               </Link>
               {isRTL ? ' للتفاصيل حول حالة التحقيق والمراجعة.' : ' for details on the investigation and review workflow.'}
             </p>

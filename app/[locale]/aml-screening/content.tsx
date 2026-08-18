@@ -17,7 +17,7 @@ function CheckIcon() {
 
 const flowSteps = {
   en: ['Verification accepted, or a manual request', 'Matched against your selected lists', 'Clean or Potential Match', 'Compliance review & resolution'],
-  ar: ['قبول التحقق، أو طلب يدوي', 'مطابقة مع القوائم التي تختارها', 'نتيجة نظيفة أو مطابقة محتملة', 'مراجعة الامتثال والحل'],
+  ar: ['قبول التحقق، أو طلب يدوي', 'مطابقة مع القوائم التي تختارها', 'لا يوجد تشابه أو تشابه محتمل', 'مراجعة الامتثال والحل'],
 };
 
 const screeningFeatures = {
@@ -42,7 +42,7 @@ export default function AmlScreeningPage() {
         tag={isRTL ? 'فحص غسل الاموال' : 'AML Screening'}
         title={isRTL ? 'فحص العقوبات وقوائم الحظر للجهات المنظّمة' : 'Sanctions & watchlist screening for regulated clients'}
         subtitle={isRTL
-          ? 'للبنوك وشركات التقنية المالية: فحص غسل الاموال إضافة تُفعَّل فوق خدمة التحقق من جواز السفر الإلكتروني — تلقائياً عند قبول التحقق، أو يدوياً من لوحة التحكم لأي شخص.'
+          ? 'للبنوك وشركات التقنية المالية: فحص غسل الاموال خدمة اضافية تُفعَّل فوق خدمة التحقق من الهوية — تلقائياً عند قبول التحقق، أو يدوياً من لوحة التحكم لأي شخص.'
           : 'For banks and fintechs: AML screening is an add-on to ePassport verification — running automatically when a verification is accepted, or manually from the dashboard for any person.'}
       />
 
@@ -57,7 +57,7 @@ export default function AmlScreeningPage() {
               </h2>
               <p className="body-lg mb-8">
                 {isRTL
-                  ? 'يمكنك الاشتراك في التحقق من جواز السفر الإلكتروني وحده، أو إضافة فحص غسل الاموال فوقه. بمجرد التفعيل، يفحص واثق الأشخاص الطبيعيين مقابل مصادر العقوبات وقوائم الحظر الرسمية التي تختارها مؤسستك — تلقائياً بمجرد قبول طلب تحقق من الهوية، أو يدوياً على أي شخص من لوحة التحكم أو عبر API — دون أن يُلغي الفحص وحده قرار التحقق من الهوية.'
+                  ? 'يمكنك الاشتراك في التحقق من الهوية وحده، أو إضافة فحص غسل الاموال كخدمة اضافية. بمجرد التفعيل، يفحص واثق الأشخاص الطبيعيين مقابل مصادر العقوبات وقوائم الحظر الرسمية التي تختارها مؤسستك — تلقائياً بمجرد قبول طلب تحقق من الهوية، أو يدوياً على أي شخص من لوحة التحكم أو عبر API — دون أن يُلغي الفحص وحده قرار التحقق من الهوية.'
                   : "You can subscribe to ePassport verification on its own, or add AML screening on top of it. Once enabled, Wathiq screens named individuals against the official sanctions and watchlist sources your organisation has selected — automatically as soon as an identity verification is accepted, or manually on any person from the dashboard or API — and it never overrides the identity verification decision on its own."}
               </p>
 
@@ -90,13 +90,13 @@ export default function AmlScreeningPage() {
                   <h3 className="text-white text-xl font-bold mb-2">{isRTL ? 'فحص غسل الاموال' : 'AML Screening'}</h3>
                   <p className="text-white/90 text-sm mb-6 leading-relaxed">
                     {isRTL
-                      ? 'مطابقة محتملة تفتح حالة تحقيق للامتثال — لا تُرفض هوية العميل تلقائياً.'
+                      ? 'تشابه محتمل يفتح حالة تحقيق للامتثال — لا تُرفض هوية العميل تلقائياً.'
                       : "A potential match opens a compliance investigation case — it doesn't automatically reject the customer."}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {[
-                      isRTL ? 'نظيف' : 'Clean',
-                      isRTL ? 'مطابقة محتملة' : 'Potential Match',
+                      isRTL ? 'لا يوجد تشابه' : 'Clean',
+                      isRTL ? 'تشابه محتمل' : 'Potential Match',
                       isRTL ? 'غير مكتمل' : 'Incomplete',
                     ].map((f, i) => (
                       <span key={i} className="bg-white/20 text-white text-xs px-3 py-1 rounded-full border border-white/30">{f}</span>
@@ -148,7 +148,7 @@ export default function AmlScreeningPage() {
               </h2>
               <p className="body-lg mb-8">
                 {isRTL
-                  ? 'كل مطابقة محتملة تُفتح كحالة تحقيق في لوحة التحكم: تغطية المصادر، ودرجة تشابه لكل نتيجة، ومقارنة الحقول جنباً إلى جنب، وأدلة المصدر. يراجع فريقك الحالة ويغلقها كمطابقة إيجابية زائفة، أو مطابقة مؤكدة، أو بحاجة لمزيد من المعلومات — ويُسجَّل كل إجراء في سجل تدقيق.'
+                  ? 'كل تشابه محتمل يُفتح كحالة تحقيق في لوحة التحكم: تغطية المصادر، ودرجة تشابه لكل نتيجة، ومقارنة الحقول جنباً إلى جنب، وأدلة المصدر. يراجع فريقك الحالة ويغلقها كمطابقة إيجابية زائفة، أو تطابق مؤكد، أو بحاجة لمزيد من المعلومات — ويُسجَّل كل إجراء في سجل تدقيق.'
                   : 'Every potential match opens as an investigation case in the dashboard: source coverage, a similarity score per result, side-by-side field comparison, and source evidence. Your team resolves the case as a false positive, a confirmed match, or as needing more information — and every action is captured in an audit trail.'}
               </p>
 
@@ -167,7 +167,7 @@ export default function AmlScreeningPage() {
                 <div className="flex items-center justify-between mb-5">
                   <span className="text-navy-900 font-bold text-sm">{isRTL ? 'حالة الفحص' : 'Screening case'}</span>
                   <span className="bg-amber-100 text-amber-700 text-xs font-bold px-3 py-1 rounded-full">
-                    {isRTL ? 'مطابقة محتملة' : 'Potential Match'}
+                    {isRTL ? 'تشابه محتمل' : 'Potential Match'}
                   </span>
                 </div>
                 <div className="space-y-3">

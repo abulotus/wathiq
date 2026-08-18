@@ -178,13 +178,12 @@ expected = "v1=" + hex(HMAC-SHA256(signing_secret, signed_payload))
             <h2 className="heading-md text-navy-900 mb-4">{isRTL ? 'فحص AML' : 'AML screening'}</h2>
             <p className="text-slate-600 text-sm leading-relaxed mb-4">
               {isRTL
-                ? 'لعملاء البنوك والتقنية المالية، يتوفر فحص AML بنفس نمط API وWebhooks: أنشئ طلب فحص، واستلم النتيجة عبر Webhook موقّع أو استرجعها من واجهة برمجة التطبيقات.'
-                : 'For banking and fintech clients, AML screening follows the same API and webhook pattern: create a screening request and receive the result through a signed webhook or by fetching it from the API.'}
+                ? 'لعملاء البنوك والتقنية المالية، يتوفر فحص AML بنفس نمط API وWebhooks: أنشئ طلب فحص — إما مرتبطاً بتحقق سابق أو لملف شخص مباشر — واستلم النتيجة عبر Webhook موقّع أو استرجعها من واجهة برمجة التطبيقات.'
+                : 'For banking and fintech clients, AML screening follows the same API and webhook pattern: create a screening request — either linked to an existing verification or as a direct person profile — and receive the result through a signed webhook or by fetching it from the API.'}
             </p>
             <CodeBlock label="POST /api/v1/client/aml/screenings">{`{
   "verification_id": "c767ef96-2209-4fd6-9062-97e2687886e5"
-}
-# or a direct person profile, without a linked verification`}</CodeBlock>
+}`}</CodeBlock>
             <p className="text-slate-500 text-xs leading-relaxed mt-4">
               {isRTL
                 ? 'يعمل الفحص بشكل غير متزامن؛ استلم إشعار Webhook عند اكتمال الفحص ثم استرجع النتيجة. اطّلع على '

@@ -7,8 +7,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale: localeParam } = await params;
   const locale = (localeParam === 'ar' ? 'ar' : 'en') as Language;
   return locale === 'ar'
-    ? localizedMetadata({ locale, path: '/platform', title: 'المنصة', description: 'التحقق من جوازات السفر الإلكترونية، وAPI وWebhooks، ولوحة تحكم العملاء — ثلاثة مكونات متصلة.' })
-    : localizedMetadata({ locale, path: '/platform', title: 'Platform', description: 'ePassport verification, API & webhooks, and a client dashboard — three connected components.' });
+    ? localizedMetadata({ locale, path: '/platform', title: 'المنصة', description: 'التحقق من جوازات السفر الإلكترونية، مع فحص AML كإضافة — متصلان بواجهة برمجة تطبيقات وWebhooks ولوحة تحكم عملاء مشتركة.' })
+    : localizedMetadata({ locale, path: '/platform', title: 'Platform', description: 'ePassport verification, with AML screening as an add-on — both connected through a shared API, webhooks, and client dashboard.' });
 }
 
 export default function Page() {

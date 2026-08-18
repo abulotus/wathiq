@@ -24,6 +24,7 @@ const groups = {
       items: [
         { label: 'Platform', path: '/platform' },
         { label: 'ePassport Coverage', path: '/epassport-coverage' },
+        { label: 'AML Screening', path: '/aml-screening' },
         { label: 'Developers', path: '/developers' },
         { label: 'Client Dashboard', path: '/client-dashboard' },
         { label: 'Mobile App', path: '/mobile-app' },
@@ -62,6 +63,7 @@ const groups = {
       items: [
         { label: 'المنصة', path: '/platform' },
         { label: 'تغطية جوازات السفر', path: '/epassport-coverage' },
+        { label: 'فحص AML', path: '/aml-screening' },
         { label: 'المطورون', path: '/developers' },
         { label: 'لوحة تحكم العملاء', path: '/client-dashboard' },
         { label: 'تطبيق الجوال', path: '/mobile-app' },

@@ -66,7 +66,7 @@ export default function Header() {
               <WathiqLogo variant="dark" size="md" />
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden xl:flex items-center gap-1">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
@@ -88,7 +88,7 @@ export default function Header() {
               ))}
             </nav>
 
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden xl:flex items-center gap-3">
               <Link
                 href={otherLocaleHref(pathname)}
                 prefetch={false}
@@ -107,7 +107,7 @@ export default function Header() {
             </div>
 
             <button
-              className="lg:hidden p-3 rounded-lg hover:bg-slate-100 transition-colors"
+              className="xl:hidden p-3 rounded-lg hover:bg-slate-100 transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
@@ -123,14 +123,14 @@ export default function Header() {
 
       {/* Mobile menu — CSS only, no framer-motion */}
       <div
-        className={`fixed inset-0 z-40 bg-navy-950/60 lg:hidden transition-opacity duration-200 ${
+        className={`fixed inset-0 z-40 bg-navy-950/60 xl:hidden transition-opacity duration-200 ${
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setMobileOpen(false)}
       />
 
       <div
-        className={`fixed top-0 z-50 w-72 h-full bg-white shadow-2xl flex flex-col lg:hidden transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 z-50 w-72 h-full bg-white shadow-2xl flex flex-col xl:hidden transition-transform duration-300 ease-in-out ${
           isRTL ? 'left-0' : 'right-0'
         } ${
           mobileOpen ? 'translate-x-0' : (isRTL ? '-translate-x-full' : 'translate-x-full')

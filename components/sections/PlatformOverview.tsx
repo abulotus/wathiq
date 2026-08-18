@@ -4,16 +4,17 @@ import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
 import SectionTag from '@/components/ui/SectionTag';
 import ApiHubDiagram from '@/components/ui/ApiHubDiagram';
 
-const pillars = {
+// Two separate, independently-enabled services. Not to be presented as
+// interchangeable "features" alongside API/dashboard, which are shared
+// infrastructure rather than services in their own right.
+const services = {
   en: [
-    { tag: 'ePassport Verification', title: 'Verify modern ePassports (with chip)', body: 'Verify modern electronic passports with a chip, issued by multiple countries worldwide, through an Arabic-first journey.', path: '/epassport-coverage', linkLabel: 'See coverage' },
-    { tag: 'API & Webhooks', title: 'Connect your systems', body: 'Start verifications and receive results and status updates by connecting your system with Wathiq.', path: '/developers', linkLabel: 'View Developers' },
-    { tag: 'Client Dashboard', title: 'Client Dashboard', body: 'Manage verification operations and review status and results from one place.', path: '/client-dashboard', linkLabel: 'View Dashboard' },
+    { tag: 'Service 1 — ePassport Verification', title: 'Verify modern ePassports (with chip)', body: 'Verify modern electronic passports with a chip, issued by multiple countries worldwide, through an Arabic-first journey.', path: '/epassport-coverage', linkLabel: 'See coverage' },
+    { tag: 'Add-on — AML Screening', title: 'Screen against sanctions & watchlists', body: 'Add sanctions and watchlist screening on top of ePassport verification. Once enabled, screening runs automatically whenever a verification is accepted, or your team can run it manually from the dashboard.', path: '/aml-screening', linkLabel: 'View AML Screening' },
   ],
   ar: [
-    { tag: 'التحقق من جوازات السفر الإلكترونية', title: 'تحقّق من جوازات السفر الإلكترونية الحديثة المزوّدة بشريحة', body: 'تحقّق من جوازات السفر الإلكترونية الحديثة المزوّدة بشريحة والصادرة عن دول متعددة حول العالم، عبر تجربة مصمّمة بالعربية من الأساس.', path: '/epassport-coverage', linkLabel: 'اطّلع على الدول والوثائق المدعومة' },
-    { tag: 'API وإشعارات Webhook', title: 'اربط أنظمتك بمنصة واثق', body: 'ابدأ طلبات التحقق وتلقَّ النتائج وتحديثات الحالة من خلال تكامل مباشر بين أنظمتك ومنصة واثق.', path: '/developers', linkLabel: 'استكشف أدوات المطورين' },
-    { tag: 'لوحة تحكم العملاء', title: 'أدِر عمليات التحقق من مكان واحد', body: 'راجِع طلبات التحقق وحالاتها ونتائجها من لوحة تحكم مركزية واحدة.', path: '/client-dashboard', linkLabel: 'استكشف لوحة تحكم العملاء' },
+    { tag: 'الخدمة 1 — التحقق من جوازات السفر الإلكترونية', title: 'تحقّق من جوازات السفر الإلكترونية الحديثة المزوّدة بشريحة', body: 'تحقّق من جوازات السفر الإلكترونية الحديثة المزوّدة بشريحة والصادرة عن دول متعددة حول العالم، عبر تجربة مصمّمة بالعربية من الأساس.', path: '/epassport-coverage', linkLabel: 'اطّلع على الدول والوثائق المدعومة' },
+    { tag: 'إضافة — فحص AML', title: 'فحص العقوبات وقوائم الحظر', body: 'أضف فحص العقوبات وقوائم الحظر فوق خدمة التحقق من جواز السفر الإلكتروني. بعد التفعيل، يعمل الفحص تلقائياً عند قبول كل طلب تحقق، أو يمكن لفريقك تشغيله يدوياً من لوحة التحكم.', path: '/aml-screening', linkLabel: 'استعرض فحص AML' },
   ],
 };
 
@@ -25,35 +26,34 @@ const icons = [
     <circle cx="17" cy="17" r="5" fill="white" />
     <path strokeLinecap="round" strokeLinejoin="round" d="M15 17l1.5 1.5L19.5 15" />
   </svg>,
-  // API / connection: link icon
+  // AML Screening: shield with check
   <svg key="b" className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
-  </svg>,
-  // Dashboard: widget grid
-  <svg key="c" className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
-    <rect x="3.5" y="3.5" width="7" height="7" rx="1.5" />
-    <rect x="13.5" y="3.5" width="7" height="4.5" rx="1.5" />
-    <rect x="13.5" y="10.5" width="7" height="10" rx="1.5" />
-    <rect x="3.5" y="13" width="7" height="7.5" rx="1.5" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
   </svg>,
 ];
 
 export default function PlatformOverview({ locale }: { locale: Language }) {
   const isRTL = locale === 'ar';
   const href = (path: string) => `/${locale}${path}`;
-  const items = isRTL ? pillars.ar : pillars.en;
+  const items = isRTL ? services.ar : services.en;
 
   return (
     <section className="section-pad bg-slate-50">
       <div className="container-wide">
         <AnimatedSection className="text-center max-w-2xl mx-auto mb-14">
-          <SectionTag label={isRTL ? 'المنصة' : 'Platform'} />
+          <SectionTag label={isRTL ? 'خدماتنا' : 'Our Services'} />
           <h2 className="heading-lg text-navy-900 mt-4">
-            {isRTL ? 'ثلاث مزايا أساسية' : 'Three core features'}
+            {isRTL ? 'التحقق من الهوية، مع فحص AML كإضافة' : 'ID verification, with AML screening as an add-on'}
           </h2>
+          <p className="body-md mt-3">
+            {isRTL
+              ? 'اشترك في التحقق من جواز السفر الإلكتروني وحده، أو أضف فحص AML فوقه لمؤسستك.'
+              : 'Subscribe to ePassport verification on its own, or add AML screening on top of it for your organisation.'}
+          </p>
         </AnimatedSection>
 
-        <div className="grid sm:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {items.map((item, i) => (
             <AnimatedItem key={i} index={i}>
               <div className={`h-full rounded-2xl bg-white border border-slate-100 p-6 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 ${isRTL ? 'text-right' : ''}`}>
@@ -77,12 +77,12 @@ export default function PlatformOverview({ locale }: { locale: Language }) {
         <div className="mt-16 sm:mt-20 pt-16 sm:pt-20 border-t border-slate-100">
           <AnimatedSection className="text-center max-w-xl mx-auto mb-10 sm:mb-12">
             <h3 className="heading-md text-navy-900">
-              {isRTL ? 'كل ذلك ضمن نظام واحد متكامل' : 'All connected through one system'}
+              {isRTL ? 'كلتا الخدمتين عبر منصة واحدة' : 'Both services, one shared platform'}
             </h3>
             <p className="body-md mt-3">
               {isRTL
-                ? 'من قراءة الوثائق والتحقق البيومتري إلى التكامل عبر API وإشعارات Webhook وإدارة النتائج من لوحة التحكم.'
-                : 'From document capture to biometric checks, through to the API, webhooks, and dashboard that connect it all to your systems.'}
+                ? 'سواء اشتركت بالتحقق من الهوية وحده أو أضفت فحص AML فوقه، تدير كلتا الخدمتين عبر نفس واجهة برمجة التطبيقات وإشعارات Webhook ولوحة تحكم العملاء.'
+                : "Whether you subscribe to ID verification alone or add AML screening on top of it, you manage both through the same API, webhooks, and client dashboard."}
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.15}>

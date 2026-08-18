@@ -79,7 +79,7 @@ export const translations = {
       items: [
         {
           title: 'Financial Services',
-          desc: 'Helping financial organizations improve customer trust and digital experiences.',
+          desc: 'Helping financial organizations improve customer trust and digital experiences — including AML sanctions and watchlist screening for regulated institutions.',
           examples: ['Banks & Credit Institutions', 'Payment Service Providers', 'Digital Finance Companies', 'Insurance Firms'],
           icon: 'finance',
         },
@@ -283,7 +283,7 @@ export const translations = {
       items: [
         {
           title: 'الخدمات المالية',
-          desc: 'مساعدة المؤسسات المالية على تحسين ثقة العملاء والتجارب الرقمية.',
+          desc: 'مساعدة المؤسسات المالية على تحسين ثقة العملاء والتجارب الرقمية — بما في ذلك فحص العقوبات وقوائم الحظر (AML) للمؤسسات الخاضعة للتنظيم.',
           examples: ['البنوك ومؤسسات الائتمان', 'مزودو خدمات الدفع', 'شركات التمويل الرقمي', 'شركات التأمين'],
           icon: 'finance',
         },

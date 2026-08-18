@@ -48,6 +48,18 @@ const faqs = {
       a: "Sensitive identity fields are encrypted with AES-256-GCM, and documents, selfies, and ePassport chip evidence are stored in private, access-controlled, time-limited storage. Each organisation's data is logically isolated, and the final decision is made by the backend only. Exact hosting locations and retention periods are still being finalized — see our Service Data Information page for details.",
     },
     {
+      q: 'Does Wathiq offer AML screening?',
+      a: "Yes. For banks and fintechs, AML screening is an add-on you enable on top of ePassport verification. Once enabled, Wathiq screens individuals against your organisation's selected official sanctions and watchlist sources.",
+    },
+    {
+      q: 'Is AML screening automatic or manual?',
+      a: 'Both. You can enable automatic screening so it runs whenever a verification is accepted, and your team can also run a screening manually on any person from the dashboard at any time.',
+    },
+    {
+      q: 'What happens when AML screening finds a potential match?',
+      a: "A potential match opens a compliance investigation case with source-by-source evidence and a similarity score — it does not automatically reject the customer. Your team reviews the case and resolves it as a false positive, a confirmed match, or as needing more information.",
+    },
+    {
       q: 'How can an organisation request access?',
       a: 'Request a demo or contact our team, and we will walk through your verification requirements and how Wathiq can connect to your systems.',
     },
@@ -92,6 +104,18 @@ const faqs = {
     {
       q: 'كيف تُعالَج بيانات التحقق؟',
       a: 'تُشفَّر حقول الهوية الحساسة باستخدام AES-256-GCM، وتُحفظ الوثائق وصور الوجه والأدلة الناتجة عن قراءة شريحة جواز السفر الإلكتروني في مساحة تخزين خاصة ومحدودة الوصول، ولفترة زمنية محددة. كما تُعزل بيانات كل مؤسسة منطقيًا عن بيانات المؤسسات الأخرى، ولا تُصدر نتيجة التحقق النهائية إلا من الخادم.',
+    },
+    {
+      q: 'هل يقدّم واثق فحص AML؟',
+      a: 'نعم. بالنسبة للبنوك وشركات التقنية المالية، فحص AML إضافة تُفعَّل فوق خدمة التحقق من جواز السفر الإلكتروني. بعد التفعيل، يفحص واثق الأفراد مقابل مصادر العقوبات وقوائم الحظر الرسمية التي تختارها مؤسستك.',
+    },
+    {
+      q: 'هل فحص AML تلقائي أم يدوي؟',
+      a: 'كلاهما. يمكنك تفعيل الفحص التلقائي ليعمل عند قبول كل طلب تحقق، كما يمكن لفريقك تشغيل فحص يدوي على أي شخص من لوحة التحكم في أي وقت.',
+    },
+    {
+      q: 'ماذا يحدث عند العثور على مطابقة محتملة في فحص AML؟',
+      a: 'تفتح المطابقة المحتملة حالة تحقيق للامتثال مزودة بأدلة تفصيلية لكل مصدر ودرجة تشابه — دون رفض العميل تلقائياً. يراجع فريقك الحالة ويغلقها كمطابقة إيجابية زائفة، أو مطابقة مؤكدة، أو بحاجة لمزيد من المعلومات.',
     },
     {
       q: 'كيف يمكن للمؤسسة طلب الوصول إلى المنصة؟',

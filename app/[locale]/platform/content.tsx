@@ -2,7 +2,7 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageHero from '@/components/ui/PageHero';
-import AnimatedSection from '@/components/ui/AnimatedSection';
+import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
 import SectionTag from '@/components/ui/SectionTag';
 import Link from 'next/link';
 
@@ -14,11 +14,14 @@ function CheckIcon() {
   );
 }
 
-const pillars = {
+// The two separate services Wathiq offers. Each stands on its own and can be
+// enabled independently — AML screening is not a feature of ID verification,
+// and vice versa.
+const services = {
   en: [
     {
       id: 'verification',
-      tag: 'ePassport Verification',
+      tag: 'Service 1 — ePassport Verification',
       title: 'Verify supported ePassports across borders.',
       body: "For the Syrian market, Wathiq reads the PDF417 barcode on the Syrian national ID card and the older (non-electronic) Syrian passport, and verifies electronic passports for Syrian citizens and 140 countries worldwide — including EU member states, the United States, and most Middle Eastern countries. The applicant completes document and biometric capture through Wathiq's Arabic-first mobile experience, and a decision is returned.",
       features: ['140 supported ePassports worldwide', 'National ID & legacy passport support', 'Biometric liveness & face match', 'Decision delivered to your dashboard'],
@@ -32,40 +35,26 @@ const pillars = {
       gradient: 'from-blue-600 to-blue-900',
     },
     {
-      id: 'api',
-      tag: 'API & Webhooks',
-      title: 'Connect Wathiq to your existing systems.',
-      body: 'Integrate verification into your product through Wathiq\'s API. Start a verification request, retrieve or receive the result, and get webhook notifications as status changes.',
-      features: ['API integration', 'Start a verification request', 'Retrieve or receive results', 'Webhook status notifications'],
-      linkLabel: 'View Developers',
-      linkPath: '/developers',
+      id: 'aml',
+      tag: 'Add-on — AML Screening',
+      title: 'Screen against sanctions and watchlists.',
+      body: "For banks and fintechs, AML screening is an add-on you enable on top of ePassport verification. Once enabled, it screens individuals against your organisation's selected official sanctions and watchlist sources — automatically whenever a verification is accepted, or run directly on any person from the dashboard or API. A potential match opens a compliance investigation case with source-by-source evidence; it never overrides the identity verification decision on its own.",
+      features: ['Screening against your selected list sources', 'Automatic or on-demand screening', 'Investigation view with match evidence', 'Compliance review & audit trail'],
+      linkLabel: 'View AML Screening',
+      linkPath: '/aml-screening',
       icon: (
         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4" />
         </svg>
       ),
-      gradient: 'from-emerald-500 to-emerald-800',
-    },
-    {
-      id: 'dashboard',
-      tag: 'Client Dashboard',
-      title: 'Manage verification activity from one place.',
-      body: 'Your team reviews verification references, status, and details in the client dashboard, searches and filters activity, and tracks webhook delivery status.',
-      features: ['Verification references & status', 'Search and filtering', 'Submission and result dates', 'Webhook delivery status & team access'],
-      linkLabel: 'View Client Dashboard',
-      linkPath: '/client-dashboard',
-      icon: (
-        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a1 1 0 011-1h5a1 1 0 011 1v5a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM13 5a1 1 0 011-1h5a1 1 0 011 1v3a1 1 0 01-1 1h-5a1 1 0 01-1-1V5zM13 13a1 1 0 011-1h5a1 1 0 011 1v6a1 1 0 01-1 1h-5a1 1 0 01-1-1v-6zM4 15a1 1 0 011-1h5a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4z" />
-        </svg>
-      ),
-      gradient: 'from-purple-600 to-purple-900',
+      gradient: 'from-teal-600 to-teal-900',
     },
   ],
   ar: [
     {
       id: 'verification',
-      tag: 'التحقق من جوازات السفر الإلكترونية',
+      tag: 'الخدمة 1 — التحقق من جوازات السفر الإلكترونية',
       title: 'تحقّق من جوازات السفر الإلكترونية المدعومة عبر الحدود.',
       body: 'للسوق السورية، يقرأ واثق باركود PDF417 على بطاقة الهوية الوطنية السورية وجواز السفر السوري القديم (غير الإلكتروني)، ويتحقق من جوازات السفر الإلكترونية للمواطنين السوريين ولـ140 دولة حول العالم — منها دول الاتحاد الأوروبي والولايات المتحدة ومعظم دول الشرق الأوسط. يكمل المتقدّم التقاط الوثيقة والبيانات الحيوية عبر تجربة واثق للجوال ذات الواجهة العربية، ثم يصل القرار.',
       features: ['140 جواز سفر إلكتروني مدعوم حول العالم', 'دعم الهوية الوطنية وجوازات السفر القديمة', 'التحقق من الحيوية ومطابقة الوجه', 'القرار يصل إلى لوحة التحكم'],
@@ -79,41 +68,86 @@ const pillars = {
       gradient: 'from-blue-600 to-blue-900',
     },
     {
-      id: 'api',
-      tag: 'API وWebhooks',
-      title: 'اربط واثق بأنظمتك الحالية.',
-      body: 'ادمج التحقق في منتجك من خلال واجهة برمجة تطبيقات واثق. ابدأ طلب تحقق، واسترجع أو استلم النتيجة، واحصل على إشعارات Webhook عند تغيّر الحالة.',
-      features: ['تكامل عبر API', 'بدء طلب تحقق', 'استرجاع أو استلام النتائج', 'إشعارات حالة عبر Webhook'],
-      linkLabel: 'استعرض قسم المطورين',
-      linkPath: '/developers',
+      id: 'aml',
+      tag: 'إضافة — فحص AML',
+      title: 'افحص العقوبات وقوائم الحظر.',
+      body: 'للبنوك وشركات التقنية المالية، فحص AML إضافة تُفعَّل فوق خدمة التحقق من جواز السفر الإلكتروني. بعد التفعيل، يفحص واثق الأفراد مقابل مصادر العقوبات وقوائم الحظر الرسمية التي تختارها مؤسستك — تلقائياً عند قبول طلب التحقق، أو مباشرة على أي شخص من لوحة التحكم أو عبر API. تفتح أي مطابقة محتملة حالة تحقيق للامتثال مزودة بأدلة تفصيلية لكل مصدر، ولا تُلغي وحدها قرار التحقق من الهوية.',
+      features: ['فحص مقابل مصادر القوائم التي تختارها', 'فحص تلقائي أو عند الطلب', 'واجهة تحقيق مع أدلة المطابقة', 'مراجعة امتثال وسجل تدقيق'],
+      linkLabel: 'استعرض فحص AML',
+      linkPath: '/aml-screening',
       icon: (
         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4" />
         </svg>
       ),
-      gradient: 'from-emerald-500 to-emerald-800',
+      gradient: 'from-teal-600 to-teal-900',
+    },
+  ],
+};
+
+// Shared infrastructure that both services run on. These are not services
+// themselves — they're how you connect to and manage whichever service(s)
+// your organisation has enabled.
+const platformLayer = {
+  en: [
+    {
+      id: 'api',
+      title: 'API & Webhooks',
+      body: 'Start requests for either service and receive results and status updates by connecting your systems to Wathiq.',
+      linkLabel: 'View Developers',
+      linkPath: '/developers',
+      icon: (
+        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
     },
     {
       id: 'dashboard',
-      tag: 'لوحة تحكم العملاء',
-      title: 'أدر نشاط التحقق من مكان واحد.',
-      body: 'يراجع فريقك مراجع التحقق وحالتها وتفاصيلها في لوحة تحكم العملاء، ويبحث ويصفّي النشاط، ويتابع حالة تسليم Webhook.',
-      features: ['مراجع التحقق وحالتها', 'البحث والتصفية', 'تواريخ الإرسال والنتيجة', 'حالة تسليم Webhook ووصول الفريق'],
+      title: 'Client Dashboard',
+      body: 'Manage activity for both services from one place — review status, results, and investigation cases.',
+      linkLabel: 'View Client Dashboard',
+      linkPath: '/client-dashboard',
+      icon: (
+        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M4 5a1 1 0 011-1h5a1 1 0 011 1v5a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM13 5a1 1 0 011-1h5a1 1 0 011 1v3a1 1 0 01-1 1h-5a1 1 0 01-1-1V5zM13 13a1 1 0 011-1h5a1 1 0 011 1v6a1 1 0 01-1 1h-5a1 1 0 01-1-1v-6zM4 15a1 1 0 011-1h5a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4z" />
+        </svg>
+      ),
+    },
+  ],
+  ar: [
+    {
+      id: 'api',
+      title: 'API وWebhooks',
+      body: 'ابدأ طلبات لأي من الخدمتين، وتلقَّ النتائج وتحديثات الحالة من خلال ربط أنظمتك بمنصة واثق.',
+      linkLabel: 'استعرض قسم المطورين',
+      linkPath: '/developers',
+      icon: (
+        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
+    },
+    {
+      id: 'dashboard',
+      title: 'لوحة تحكم العملاء',
+      body: 'أدِر نشاط الخدمتين من مكان واحد — راجع الحالة والنتائج وحالات التحقيق.',
       linkLabel: 'استعرض لوحة تحكم العملاء',
       linkPath: '/client-dashboard',
       icon: (
-        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a1 1 0 011-1h5a1 1 0 011 1v5a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM13 5a1 1 0 011-1h5a1 1 0 011 1v3a1 1 0 01-1 1h-5a1 1 0 01-1-1V5zM13 13a1 1 0 011-1h5a1 1 0 011 1v6a1 1 0 01-1 1h-5a1 1 0 01-1-1v-6zM4 15a1 1 0 011-1h5a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4z" />
+        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M4 5a1 1 0 011-1h5a1 1 0 011 1v5a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM13 5a1 1 0 011-1h5a1 1 0 011 1v3a1 1 0 01-1 1h-5a1 1 0 01-1-1V5zM13 13a1 1 0 011-1h5a1 1 0 011 1v6a1 1 0 01-1 1h-5a1 1 0 01-1-1v-6zM4 15a1 1 0 011-1h5a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1v-4z" />
         </svg>
       ),
-      gradient: 'from-purple-600 to-purple-900',
     },
   ],
 };
 
 export default function PlatformPage() {
   const { isRTL, href } = useLanguage();
-  const items = isRTL ? pillars.ar : pillars.en;
+  const items = isRTL ? services.ar : services.en;
+  const layer = isRTL ? platformLayer.ar : platformLayer.en;
 
   return (
     <>
@@ -121,11 +155,17 @@ export default function PlatformPage() {
         tag={isRTL ? 'المنصة' : 'Platform'}
         title={isRTL ? 'منصة واثق' : 'The Wathiq Platform'}
         subtitle={isRTL
-          ? 'ثلاثة مكونات متصلة: التحقق من جوازات السفر الإلكترونية، وواجهة برمجة التطبيقات وWebhooks، ولوحة تحكم العملاء.'
-          : 'Three connected components: ePassport verification, an API and webhooks, and a client dashboard.'}
+          ? 'اشترك في التحقق من جوازات السفر الإلكترونية وحده، أو أضف فحص AML فوقه — كلاهما متصل بواجهة برمجة تطبيقات وWebhooks ولوحة تحكم عملاء مشتركة.'
+          : 'Subscribe to ePassport verification on its own, or add AML screening on top of it — both connected through one shared API, webhook layer, and client dashboard.'}
       />
 
       <div className="bg-white">
+        <div className="container-wide pt-14 sm:pt-20">
+          <AnimatedSection className="text-center max-w-2xl mx-auto mb-4">
+            <SectionTag label={isRTL ? 'خدماتنا' : 'Our Services'} variant="blue" />
+          </AnimatedSection>
+        </div>
+
         {items.map((item, idx) => {
           const isEven = idx % 2 === 0;
           return (
@@ -173,6 +213,43 @@ export default function PlatformPage() {
             </section>
           );
         })}
+
+        {/* Shared platform layer — clearly demoted from "service" to "infrastructure" */}
+        <section className="section-pad bg-white border-t border-slate-100">
+          <div className="container-wide">
+            <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
+              <SectionTag label={isRTL ? 'كيف تتصل بالخدمتين' : 'How you connect to both'} variant="teal" />
+              <h2 className="heading-lg text-navy-900 mt-4">
+                {isRTL ? 'طبقة مشتركة واحدة لكلتا الخدمتين' : 'One shared layer for both services'}
+              </h2>
+              <p className="body-md mt-3">
+                {isRTL
+                  ? 'واجهة برمجة التطبيقات ولوحة التحكم ليستا خدمة بحد ذاتها — بل الطريقة التي تدير وتتابع بها أي خدمة فعّلتها مؤسستك.'
+                  : 'The API and the dashboard are not a service on their own — they are how you manage and track whichever service your organisation has enabled.'}
+              </p>
+            </AnimatedSection>
+
+            <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+              {layer.map((item, i) => (
+                <AnimatedItem key={item.id} index={i}>
+                  <div className={`h-full rounded-2xl bg-slate-50 border border-slate-100 p-6 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 ${isRTL ? 'text-right' : ''}`}>
+                    <div className="w-12 h-12 rounded-xl bg-electric-50 text-electric-600 flex items-center justify-center mb-5">
+                      {item.icon}
+                    </div>
+                    <h3 className="text-navy-900 font-bold text-lg mb-2">{item.title}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed mb-5">{item.body}</p>
+                    <Link href={href(item.linkPath)} className="inline-flex items-center gap-1.5 text-electric-600 font-semibold text-sm hover:text-electric-700">
+                      {item.linkLabel}
+                      <svg className="w-3.5 h-3.5 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
+                  </div>
+                </AnimatedItem>
+              ))}
+            </div>
+          </div>
+        </section>
 
         <section className="py-20 bg-slate-50">
           <div className="container-wide">

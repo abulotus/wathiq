@@ -40,14 +40,6 @@ const groups = {
       ],
     },
     {
-      title: 'Resources',
-      items: [
-        { label: 'Case Studies', path: '/case-studies' },
-        { label: 'Pricing', path: '/pricing' },
-        { label: 'Blog', path: '/blog' },
-      ],
-    },
-    {
       title: 'Legal',
       items: [
         { label: 'Privacy Notice', path: '/privacy' },
@@ -76,14 +68,6 @@ const groups = {
         { label: 'وظائف', path: '/careers' },
         { label: 'الشراكات', path: '/partnerships' },
         { label: 'تواصل معنا', path: '/contact' },
-      ],
-    },
-    {
-      title: 'الموارد',
-      items: [
-        { label: 'دراسات حالة', path: '/case-studies' },
-        { label: 'التسعير', path: '/pricing' },
-        { label: 'المدونة', path: '/blog' },
       ],
     },
     {

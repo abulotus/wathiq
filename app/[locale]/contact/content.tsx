@@ -132,7 +132,7 @@ export default function ContactPage() {
                             {item.value}
                           </a>
                         ) : item.key.includes('phone') ? (
-                          <div className="text-navy-900 font-medium text-sm" dir="ltr">{item.value}</div>
+                          <div className="text-navy-900 font-medium text-sm text-start" dir="ltr">{item.value}</div>
                         ) : (
                           <div className="text-navy-900 font-medium text-sm">{item.value}</div>
                         )}

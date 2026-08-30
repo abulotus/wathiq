@@ -83,7 +83,7 @@ const groups = {
 };
 
 export default function Footer() {
-  const { isRTL, href } = useLanguage();
+  const { isRTL, href, t } = useLanguage();
   const navGroups = isRTL ? groups.ar : groups.en;
 
   return (
@@ -145,7 +145,7 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8">
           <p className="text-slate-500 text-sm">
-            © {new Date().getFullYear()} {isRTL ? 'واثق للتقنيات الرقمية. جميع الحقوق محفوظة.' : 'Wathiq Digital Technologies. All rights reserved.'}
+            © {new Date().getFullYear()} {t.footer.copyright}
           </p>
           <div className="flex items-center gap-6">
             <Link href={href('/privacy')} className="text-slate-500 hover:text-slate-300 text-xs transition-colors">

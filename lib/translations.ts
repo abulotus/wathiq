@@ -179,8 +179,8 @@ export const translations = {
         ],
       },
       info: {
-        location_uk: { label: 'UK Office', value: 'Thiqa Intelligence Company, 71-75 Shelton Street, London, Greater London, United Kingdom, WC2H 9JQ (Company No. 12576917)' },
-        location_syria: { label: 'Syria Office', value: 'Thiqa Intelligence Company, Damascus, Syria (Company No. 541792)' },
+        location_uk: { label: 'UK Office', value: 'Thiqa Intelligence LTD, 71-75 Shelton Street, London, Greater London, United Kingdom, WC2H 9JQ (Company No. 12576917)' },
+        location_syria: { label: 'Syria Office', value: 'Thiqa Intelligence LLC, Damascus, Syria (Company No. 541792)' },
         email: { label: 'Email', value: 'sales@wathiq-sy.com' },
         phone_uk: { label: 'Phone (UK)', value: '+44 7547 044020' },
         phone_syria: { label: 'Phone (Syria)', value: '+963 996 380110' },
@@ -209,7 +209,7 @@ export const translations = {
           items: ['Privacy Policy', 'Terms of Service', 'Cookie Policy'],
         },
       },
-      copyright: 'Thiqa Intelligence Company. All rights reserved.',
+      copyright: 'Thiqa Intelligence LTD. All rights reserved.',
     },
   },
 
@@ -382,7 +382,7 @@ export const translations = {
         ],
       },
       info: {
-        location_uk: { label: 'مكتب المملكة المتحدة', value: 'شركة ثقة انتلجنس لحلول الذكاء الرقمي محدودة المسؤولية، 71-75 شيلتون ستريت، لندن، جريتر لندن، المملكة المتحدة، WC2H 9JQ (رقم الشركة: 12576917)' },
+        location_uk: { label: 'مكتب المملكة المتحدة', value: 'شركة ثقة انتلجنس ليمتيد، 71-75 شيلتون ستريت، لندن، جريتر لندن، المملكة المتحدة، WC2H 9JQ (رقم الشركة: 12576917)' },
         location_syria: { label: 'مكتب سوريا', value: 'شركة ثقة انتلجنس لحلول الذكاء الرقمي محدودة المسؤولية، دمشق، سوريا (رقم الشركة: 541792)' },
         email: { label: 'البريد الإلكتروني', value: 'sales@wathiq-sy.com' },
         phone_uk: { label: 'الهاتف (المملكة المتحدة)', value: '+44 7547 044020' },
@@ -411,7 +411,7 @@ export const translations = {
           items: ['سياسة الخصوصية', 'شروط الخدمة', 'سياسة الكوكيز'],
         },
       },
-      copyright: 'شركة ثقة انتلجنس لحلول الذكاء الرقمي محدودة المسؤولية. جميع الحقوق محفوظة.',
+      copyright: 'شركة ثقة انتلجنس ليمتيد. جميع الحقوق محفوظة.',
     },
   },
 };

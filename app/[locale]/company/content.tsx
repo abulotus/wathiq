@@ -70,7 +70,7 @@ export default function AboutPage() {
                   <div className="font-semibold text-navy-900 text-sm">
                     {isRTL ? 'مسجل في المملكة المتحدة' : 'UK Registered Company'}
                   </div>
-                  <div className="text-slate-500 text-sm">Thiqa Intelligence Company (No. 12576917)</div>
+                  <div className="text-slate-500 text-sm">Thiqa Intelligence LTD (No. 12576917)</div>
                   <div className="text-slate-500 text-sm">71-75 Shelton Street, London, Greater London, WC2H 9JQ</div>
                 </div>
               </div>

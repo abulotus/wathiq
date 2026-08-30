@@ -93,9 +93,11 @@ export default function ContactPage() {
   };
 
   const infoItems = [
-    { key: 'location', ...info.location, icon: infoIcons.location },
+    { key: 'location_uk', ...info.location_uk, icon: infoIcons.location },
+    { key: 'location_syria', ...info.location_syria, icon: infoIcons.location },
     { key: 'email', ...info.email, icon: infoIcons.email },
-    { key: 'phone', ...info.phone, icon: infoIcons.phone },
+    { key: 'phone_uk', ...info.phone_uk, icon: infoIcons.phone },
+    { key: 'phone_syria', ...info.phone_syria, icon: infoIcons.phone },
     { key: 'hours', ...info.hours, icon: infoIcons.hours },
   ];
 
@@ -129,6 +131,8 @@ export default function ContactPage() {
                           <a href={`mailto:${item.value}`} className="text-navy-900 font-medium text-sm hover:text-electric-600 transition-colors" dir="ltr">
                             {item.value}
                           </a>
+                        ) : item.key.includes('phone') ? (
+                          <div className="text-navy-900 font-medium text-sm" dir="ltr">{item.value}</div>
                         ) : (
                           <div className="text-navy-900 font-medium text-sm">{item.value}</div>
                         )}

@@ -8,7 +8,7 @@ const content = {
     body: (
       <>
         <p>
-          These Terms of Service ("<strong>Terms</strong>") govern your access to and use of the website at <a href="https://www.wathiq-sy.com">www.wathiq-sy.com</a> and any related services provided by Wathiq Digital Ltd ("<strong>Wathiq</strong>", "<strong>we</strong>", "<strong>us</strong>", or "<strong>our</strong>"), incorporated in England and Wales, registered address: 71-75 Shelton Street, London, WC2H 9JQ.
+          These Terms of Service ("<strong>Terms</strong>") govern your access to and use of the website at <a href="https://www.wathiq-sy.com">www.wathiq-sy.com</a> and any related services provided by Thiqa Intelligence Company ("<strong>Thiqa Intelligence</strong>", "<strong>we</strong>", "<strong>us</strong>", or "<strong>our</strong>"), incorporated in England and Wales, Company No. 12576917, registered address: 71-75 Shelton Street, London, Greater London, United Kingdom, WC2H 9JQ.
         </p>
         <p>By accessing or using our website, you agree to be bound by these Terms.</p>
 
@@ -25,10 +25,10 @@ const content = {
 
         <h2>2. Intellectual Property</h2>
         <p>
-          All content on this website — including text, graphics, logos, icons, images, and software — is the property of Wathiq Digital Ltd or its content suppliers and is protected by applicable intellectual property laws. You may not reproduce, distribute, or modify any content without our prior written consent.
+          All content on this website — including text, graphics, logos, icons, images, and software — is the property of Thiqa Intelligence Company or its content suppliers and is protected by applicable intellectual property laws. You may not reproduce, distribute, or modify any content without our prior written consent.
         </p>
         <p>
-          The Wathiq name, logo, and all related marks are trademarks of Wathiq Digital Ltd. Nothing in these Terms grants you any right to use our trademarks without prior written permission.
+          The Wathiq and Thiqa Intelligence names, logos, and all related marks are trademarks of Thiqa Intelligence Company. Nothing in these Terms grants you any right to use our trademarks without prior written permission.
         </p>
 
         <h2>3. Disclaimer of Warranties</h2>
@@ -38,7 +38,7 @@ const content = {
 
         <h2>4. Limitation of Liability</h2>
         <p>
-          To the maximum extent permitted by law, Wathiq Digital Ltd and its directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the website. Our total liability for any claim shall not exceed £100 or the amount paid to us in the preceding twelve months, whichever is greater.
+          To the maximum extent permitted by law, Thiqa Intelligence Company and its directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the website. Our total liability for any claim shall not exceed £100 or the amount paid to us in the preceding twelve months, whichever is greater.
         </p>
 
         <h2>5. Third-Party Links</h2>
@@ -64,8 +64,8 @@ const content = {
         <h2>9. Contact</h2>
         <ul>
           <li><strong>Email:</strong> <a href="mailto:info@wathiq-sy.com">info@wathiq-sy.com</a></li>
-          <li><strong>Post:</strong> Wathiq Digital Ltd, 71-75 Shelton Street, London, WC2H 9JQ, United Kingdom</li>
-          <li><strong>Phone:</strong> +44 7547 044020</li>
+          <li><strong>Post:</strong> Thiqa Intelligence Company, 71-75 Shelton Street, London, Greater London, United Kingdom, WC2H 9JQ (Company No. 12576917)</li>
+          <li dir="ltr"><strong>Phone:</strong> +44 7547 044020</li>
         </ul>
       </>
     ),
@@ -75,7 +75,7 @@ const content = {
     body: (
       <>
         <p>
-          تحكم شروط الخدمة هذه ("<strong>الشروط</strong>") وصولك إلى موقع <a href="https://www.wathiq-sy.com">www.wathiq-sy.com</a> واستخدامه وأي خدمات ذات صلة تقدمها واثق ديجيتال المحدودة ("<strong>واثق</strong>"، "<strong>نحن</strong>"، "<strong>لنا</strong>"، أو "<strong>خاصتنا</strong>")، المسجلة في إنجلترا وويلز، العنوان المسجل: 71-75 شيلتون ستريت، لندن، WC2H 9JQ.
+          تحكم شروط الخدمة هذه ("<strong>الشروط</strong>") وصولك إلى موقع <a href="https://www.wathiq-sy.com">www.wathiq-sy.com</a> واستخدامه وأي خدمات ذات صلة تقدمها شركة ثقة انتلجنس لحلول الذكاء الرقمي محدودة المسؤولية ("<strong>ثقة انتلجنس</strong>"، "<strong>نحن</strong>"، "<strong>لنا</strong>"، أو "<strong>خاصتنا</strong>")، المسجلة في إنجلترا وويلز، رقم الشركة: 12576917، العنوان المسجل: 71-75 شيلتون ستريت، لندن، جريتر لندن، المملكة المتحدة، WC2H 9JQ.
         </p>
         <p>بالوصول إلى موقعنا أو استخدامه، فأنت توافق على الالتزام بهذه الشروط.</p>
 
@@ -92,10 +92,10 @@ const content = {
 
         <h2>٢. الملكية الفكرية</h2>
         <p>
-          جميع المحتوى على هذا الموقع — بما في ذلك النصوص والرسومات والشعارات والأيقونات والصور والبرامج — هو ملك لواثق ديجيتال المحدودة أو موردي محتواها ومحمي بموجب قوانين الملكية الفكرية المعمول بها. لا يجوز لك إعادة إنتاج أو توزيع أو تعديل أي محتوى دون موافقتنا الكتابية المسبقة.
+          جميع المحتوى على هذا الموقع — بما في ذلك النصوص والرسومات والشعارات والأيقونات والصور والبرامج — هو ملك لشركة ثقة انتلجنس لحلول الذكاء الرقمي محدودة المسؤولية أو موردي محتواها ومحمي بموجب قوانين الملكية الفكرية المعمول بها. لا يجوز لك إعادة إنتاج أو توزيع أو تعديل أي محتوى دون موافقتنا الكتابية المسبقة.
         </p>
         <p>
-          اسم واثق وشعاره وجميع العلامات المرتبطة به هي علامات تجارية لواثق ديجيتال المحدودة. ولا تمنحك هذه الشروط أي حق في استخدام علاماتنا التجارية دون إذن كتابي مسبق.
+          اسم واثق وثقة انتلجنس وشعاراتهم وجميع العلامات المرتبطة بهم هي علامات تجارية لشركة ثقة انتلجنس لحلول الذكاء الرقمي محدودة المسؤولية. ولا تمنحك هذه الشروط أي حق في استخدام علاماتنا التجارية دون إذن كتابي مسبق.
         </p>
 
         <h2>٣. إخلاء مسؤولية الضمانات</h2>
@@ -105,7 +105,7 @@ const content = {
 
         <h2>٤. تحديد المسؤولية</h2>
         <p>
-          إلى أقصى حد يسمح به القانون، لن تكون واثق ديجيتال المحدودة ومديروها وموظفوها ووكلاؤها مسؤولين عن أي أضرار غير مباشرة أو عرضية أو خاصة أو تبعية أو عقابية ناشئة عن أو مرتبطة باستخدامك للموقع. لن تتجاوز مسؤوليتنا الإجمالية عن أي مطالبة مبلغ 100 جنيه إسترليني أو المبلغ المدفوع لنا في الأشهر الاثني عشر السابقة، أيهما أكبر.
+          إلى أقصى حد يسمح به القانون، لن تكون شركة ثقة انتلجنس لحلول الذكاء الرقمي محدودة المسؤولية ومديروها وموظفوها ووكلاؤها مسؤولين عن أي أضرار غير مباشرة أو عرضية أو خاصة أو تبعية أو عقابية ناشئة عن أو مرتبطة باستخدامك للموقع. لن تتجاوز مسؤوليتنا الإجمالية عن أي مطالبة مبلغ 100 جنيه إسترليني أو المبلغ المدفوع لنا في الأشهر الاثني عشر السابقة، أيهما أكبر.
         </p>
 
         <h2>٥. روابط الطرف الثالث</h2>
@@ -131,8 +131,8 @@ const content = {
         <h2>٩. اتصل بنا</h2>
         <ul>
           <li><strong>البريد الإلكتروني:</strong> <a href="mailto:info@wathiq-sy.com">info@wathiq-sy.com</a></li>
-          <li><strong>البريد العادي:</strong> واثق ديجيتال المحدودة، 71-75 شيلتون ستريت، لندن، WC2H 9JQ، المملكة المتحدة</li>
-          <li><strong>الهاتف:</strong> +44 7547 044020</li>
+          <li><strong>البريد العادي:</strong> شركة ثقة انتلجنس لحلول الذكاء الرقمي محدودة المسؤولية، 71-75 شيلتون ستريت، لندن، جريتر لندن، المملكة المتحدة، WC2H 9JQ (رقم الشركة: 12576917)</li>
+          <li dir="ltr"><strong>الهاتف:</strong> +44 7547 044020</li>
         </ul>
       </>
     ),

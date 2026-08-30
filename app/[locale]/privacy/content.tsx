@@ -8,7 +8,7 @@ const content = {
     body: (
       <>
         <p>
-          Wathiq Digital Ltd ("<strong>Wathiq</strong>", "<strong>we</strong>", "<strong>us</strong>", or "<strong>our</strong>") is a company registered in England and Wales (registered address: 71-75 Shelton Street, London, WC2H 9JQ, United Kingdom). This Privacy Policy explains how we collect, use, disclose, and safeguard personal data when you visit our website, use our services, or otherwise interact with us.
+          Thiqa Intelligence Company ("<strong>Thiqa Intelligence</strong>", "<strong>we</strong>", "<strong>us</strong>", or "<strong>our</strong>") is a company registered in England and Wales (Company No. 12576917, registered address: 71-75 Shelton Street, London, Greater London, United Kingdom, WC2H 9JQ). This Privacy Policy explains how we collect, use, disclose, and safeguard personal data when you visit our website, use our services, or otherwise interact with us.
         </p>
         <p>
           We are committed to protecting your privacy in accordance with the UK General Data Protection Regulation (UK GDPR), the Data Protection Act 2018, and applicable data protection legislation.
@@ -92,8 +92,8 @@ const content = {
         <h2>10. Contact Us</h2>
         <ul>
           <li><strong>Email:</strong> <a href="mailto:info@wathiq-sy.com">info@wathiq-sy.com</a></li>
-          <li><strong>Post:</strong> Wathiq Digital Ltd, 71-75 Shelton Street, London, WC2H 9JQ, United Kingdom</li>
-          <li><strong>Phone:</strong> +44 7547 044020</li>
+          <li><strong>Post:</strong> Thiqa Intelligence Company, 71-75 Shelton Street, London, Greater London, United Kingdom, WC2H 9JQ (Company No. 12576917)</li>
+          <li dir="ltr"><strong>Phone:</strong> +44 7547 044020</li>
         </ul>
       </>
     ),
@@ -103,7 +103,7 @@ const content = {
     body: (
       <>
         <p>
-          واثق ديجيتال المحدودة ("<strong>واثق</strong>"، "<strong>نحن</strong>"، "<strong>لنا</strong>"، أو "<strong>خاصتنا</strong>") شركة مسجلة في إنجلترا وويلز (العنوان المسجل: 71-75 شيلتون ستريت، لندن، WC2H 9JQ، المملكة المتحدة). توضح سياسة الخصوصية هذه الطريقة التي نجمع بها البيانات الشخصية ونستخدمها ونفصح عنها ونحميها عند زيارتك لموقعنا أو استخدامك لخدماتنا أو تفاعلك معنا بأي طريقة أخرى.
+          شركة ثقة انتلجنس لحلول الذكاء الرقمي محدودة المسؤولية ("<strong>ثقة انتلجنس</strong>"، "<strong>نحن</strong>"، "<strong>لنا</strong>"، أو "<strong>خاصتنا</strong>") شركة مسجلة في إنجلترا وويلز (رقم الشركة: 12576917، العنوان المسجل: 71-75 شيلتون ستريت، لندن، جريتر لندن، المملكة المتحدة، WC2H 9JQ). توضح سياسة الخصوصية هذه الطريقة التي نجمع بها البيانات الشخصية ونستخدمها ونفصح عنها ونحميها عند زيارتك لموقعنا أو استخدامك لخدماتنا أو تفاعلك معنا بأي طريقة أخرى.
         </p>
         <p>
           نحن ملتزمون بحماية خصوصيتك وفقاً للائحة المملكة المتحدة العامة لحماية البيانات (UK GDPR) وقانون حماية البيانات 2018 وتشريعات حماية البيانات المعمول بها.
@@ -187,8 +187,8 @@ const content = {
         <h2>١٠. اتصل بنا</h2>
         <ul>
           <li><strong>البريد الإلكتروني:</strong> <a href="mailto:info@wathiq-sy.com">info@wathiq-sy.com</a></li>
-          <li><strong>البريد العادي:</strong> واثق ديجيتال المحدودة، 71-75 شيلتون ستريت، لندن، WC2H 9JQ، المملكة المتحدة</li>
-          <li><strong>الهاتف:</strong> +44 7547 044020</li>
+          <li><strong>البريد العادي:</strong> شركة ثقة انتلجنس لحلول الذكاء الرقمي محدودة المسؤولية، 71-75 شيلتون ستريت، لندن، جريتر لندن، المملكة المتحدة، WC2H 9JQ (رقم الشركة: 12576917)</li>
+          <li dir="ltr"><strong>الهاتف:</strong> +44 7547 044020</li>
         </ul>
       </>
     ),

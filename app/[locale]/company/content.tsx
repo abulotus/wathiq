@@ -60,18 +60,35 @@ export default function AboutPage() {
                   : 'We combine international technical expertise with deep understanding of regional market needs, delivering reliable and practical solutions for organisations seeking safe digital transformation.'}
               </p>
 
-              <div className="flex items-center gap-4 mt-8 p-5 rounded-2xl bg-slate-50 border border-slate-100">
-                <div className="w-12 h-12 rounded-xl bg-electric-500 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-semibold text-navy-900 text-sm">
-                    {isRTL ? 'مسجل في المملكة المتحدة' : 'UK Registered Company'}
+              <div className="space-y-4 mt-8">
+                <div className="flex items-center gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div className="w-12 h-12 rounded-xl bg-electric-500 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    </svg>
                   </div>
-                  <div className="text-slate-500 text-sm">Thiqa Intelligence LTD (No. 12576917)</div>
-                  <div className="text-slate-500 text-sm">71-75 Shelton Street, London, Greater London, WC2H 9JQ</div>
+                  <div>
+                    <div className="font-semibold text-navy-900 text-sm">
+                      {isRTL ? 'مسجل في المملكة المتحدة' : 'UK Registered Company'}
+                    </div>
+                    <div className="text-slate-500 text-sm">Thiqa Intelligence LTD (No. 12576917)</div>
+                    <div className="text-slate-500 text-sm">71-75 Shelton Street, London, Greater London, WC2H 9JQ</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div className="w-12 h-12 rounded-xl bg-teal-500 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-navy-900 text-sm">
+                      {isRTL ? 'مسجل في سوريا' : 'Syria Registered Company'}
+                    </div>
+                    <div className="text-slate-500 text-sm">Thiqa Intelligence LLC (No. 541792)</div>
+                    <div className="text-slate-500 text-sm">{isRTL ? 'دمشق، سوريا' : 'Damascus, Syria'}</div>
+                  </div>
                 </div>
               </div>
             </AnimatedSection>

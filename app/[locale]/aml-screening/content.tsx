@@ -264,8 +264,11 @@ export default function AmlScreeningPage() {
       {/* Disclaimer callout */}
       <section className="pb-14 sm:pb-20 bg-white">
         <div className="container-wide">
-          <AnimatedSection className="max-w-3xl mx-auto">
-            <div className={`rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8 ${isRTL ? 'text-right' : ''}`}>
+          <AnimatedSection className="max-w-2xl mx-auto">
+            <div className={`border-s-4 border-slate-300 bg-slate-50 rounded-e-2xl px-6 py-5 sm:px-8 sm:py-6 ${isRTL ? 'text-right' : ''}`}>
+              <div className="text-slate-500 text-xs font-bold uppercase tracking-wide mb-2">
+                {isRTL ? 'ملاحظة' : 'Note'}
+              </div>
               <p className="text-slate-600 text-sm leading-relaxed">
                 {isRTL
                   ? 'درجة التشابه مؤشر للتحقيق، وليست احتمالاً أو حكماً قانونياً على الهوية. النتيجة النهائية لأي حالة يحددها فريق الامتثال لديك. يغطي فحص غسل الاموال مطابقة الأسماء مقابل مصادر العقوبات، والشخصيات السياسية المعرّضة للمخاطر (PEP)، وأقاربها وشركائها المقرّبين (RCA)؛ فحص الإعلام السلبي على خارطة طريقنا — تواصل معنا لمناقشة متطلباتك التنظيمية المحددة.'

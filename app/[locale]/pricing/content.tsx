@@ -28,7 +28,7 @@ export default function PricingPage() {
 
   return (
     <>
-      <PageHero tag={c.tag} title={c.title} subtitle={c.subtitle} />
+      <PageHero title={c.title} subtitle={c.subtitle} />
 
       <section className="py-14 sm:py-20 bg-white relative overflow-hidden">
         <TechBackground variant="light" />

@@ -3,7 +3,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageHero from '@/components/ui/PageHero';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import SectionTag from '@/components/ui/SectionTag';
 import TechBackground from '@/components/ui/TechBackground';
 import Link from 'next/link';
 
@@ -21,8 +20,8 @@ const flowSteps = {
 };
 
 const screeningFeatures = {
-  en: ['Screening against your selected list sources', 'Automatic screening on accepted verifications (opt-in)', 'Manual screening from the dashboard or API', 'Configurable match sensitivity'],
-  ar: ['فحص مقابل مصادر القوائم التي تختارها', 'فحص تلقائي عند قبول التحقق (اختياري)', 'فحص يدوي من لوحة التحكم أو عبر API', 'حساسية مطابقة قابلة للتخصيص'],
+  en: ['Screening against sanctions, PEP, and RCA sources', 'Automatic screening on accepted verifications (opt-in)', 'Manual screening from the dashboard or API', 'Configurable match sensitivity'],
+  ar: ['فحص مقابل مصادر العقوبات والشخصيات السياسية وأقاربها', 'فحص تلقائي عند قبول التحقق (اختياري)', 'فحص يدوي من لوحة التحكم أو عبر API', 'حساسية مطابقة قابلة للتخصيص'],
 };
 
 const investigationFeatures = {
@@ -30,20 +29,25 @@ const investigationFeatures = {
   ar: ['تغطية مطابقة لكل مصدر على حدة', 'مقارنة أدلة حقلاً بحقل', 'تقارير فحص قابلة للتنزيل بصيغة PDF', 'سجل تدقيق كامل للحالة'],
 };
 
+const monitoringFeatures = {
+  en: ['Manual enrolment, or automatic after accepted KYC', 'Re-screens on list updates or identity data changes', 'Optional periodic re-screen interval, in days', 'Renewal reminder before the annual term ends'],
+  ar: ['تسجيل يدوي، أو تلقائي بعد قبول التحقق', 'إعادة فحص عند تحديث القوائم أو تغيّر بيانات الهوية', 'فاصل دوري اختياري لإعادة الفحص بالأيام', 'تذكير بالتجديد قبل انتهاء الاشتراك السنوي'],
+};
+
 export default function AmlScreeningPage() {
   const { isRTL, href } = useLanguage();
   const flow = isRTL ? flowSteps.ar : flowSteps.en;
   const screening = isRTL ? screeningFeatures.ar : screeningFeatures.en;
   const investigation = isRTL ? investigationFeatures.ar : investigationFeatures.en;
+  const monitoring = isRTL ? monitoringFeatures.ar : monitoringFeatures.en;
 
   return (
     <>
       <PageHero
-        tag={isRTL ? 'فحص غسل الاموال' : 'AML Screening'}
-        title={isRTL ? 'فحص العقوبات وقوائم الحظر للجهات المنظّمة' : 'Sanctions & watchlist screening for regulated clients'}
+        title={isRTL ? 'فحص العقوبات والشخصيات السياسية وأقاربها للجهات المنظّمة' : 'Sanctions, PEP & RCA screening for regulated clients'}
         subtitle={isRTL
-          ? 'للبنوك وشركات التقنية المالية: فحص غسل الاموال خدمة اضافية تُفعَّل فوق خدمة التحقق من الهوية — تلقائياً عند قبول التحقق، أو يدوياً من لوحة التحكم لأي شخص.'
-          : 'For banks and fintechs: AML screening is an add-on to ePassport verification — running automatically when a verification is accepted, or manually from the dashboard for any person.'}
+          ? 'للبنوك وشركات التقنية المالية: فحص غسل الاموال خدمة اضافية تُفعَّل فوق خدمة التحقق من الهوية — تلقائياً عند قبول التحقق، أو يدوياً من لوحة التحكم لأي شخص، أو بشكل مستمر عبر اشتراك مراقبة سنوي مدفوع.'
+          : 'For banks and fintechs: AML screening is an add-on to ePassport verification — run automatically when a verification is accepted, manually from the dashboard for any person, or continuously through paid annual monitoring.'}
       />
 
       {/* What Wathiq screens */}
@@ -51,14 +55,13 @@ export default function AmlScreeningPage() {
         <div className="container-wide">
           <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${isRTL ? 'text-right' : ''}`}>
             <AnimatedSection>
-              <SectionTag label={isRTL ? 'كيف يعمل الفحص' : 'How screening works'} variant="teal" />
-              <h2 className="heading-lg text-navy-900 mt-4 mb-5">
-                {isRTL ? 'فحص مطابقة اسمي مقابل القوائم التي تختارها.' : 'Name-matching screening against the lists you choose.'}
+              <h2 className="heading-lg text-navy-900 mb-5">
+                {isRTL ? 'فحص مطابقة اسمي مقابل قوائم العقوبات والشخصيات السياسية وأقاربها.' : 'Name-matching screening against sanctions, PEP, and RCA lists.'}
               </h2>
               <p className="body-lg mb-8">
                 {isRTL
-                  ? 'يمكنك الاشتراك في التحقق من الهوية وحده، أو إضافة فحص غسل الاموال كخدمة اضافية. بمجرد التفعيل، يفحص واثق الأشخاص الطبيعيين مقابل مصادر العقوبات وقوائم الحظر الرسمية التي تختارها مؤسستك — تلقائياً بمجرد قبول طلب تحقق من الهوية، أو يدوياً على أي شخص من لوحة التحكم أو عبر API — دون أن يُلغي الفحص وحده قرار التحقق من الهوية.'
-                  : "You can subscribe to ePassport verification on its own, or add AML screening on top of it. Once enabled, Wathiq screens named individuals against the official sanctions and watchlist sources your organisation has selected — automatically as soon as an identity verification is accepted, or manually on any person from the dashboard or API — and it never overrides the identity verification decision on its own."}
+                  ? 'يمكنك الاشتراك في التحقق من الهوية وحده، أو إضافة فحص غسل الاموال كخدمة اضافية. بمجرد التفعيل، يفحص واثق الأشخاص الطبيعيين مقابل مصادر العقوبات، والشخصيات السياسية المعرّضة للمخاطر (PEP)، وأقاربهم وشركائهم المقرّبين (RCA) التي تختارها مؤسستك — تلقائياً بمجرد قبول طلب تحقق من الهوية، أو يدوياً على أي شخص من لوحة التحكم أو عبر API — دون أن يُلغي الفحص وحده قرار التحقق من الهوية.'
+                  : "You can subscribe to ePassport verification on its own, or add AML screening on top of it. Once enabled, Wathiq screens named individuals against the official sanctions, PEP (Politically Exposed Persons), and RCA (their relatives and close associates) sources your organisation has selected — automatically as soon as an identity verification is accepted, or manually on any person from the dashboard or API — and it never overrides the identity verification decision on its own."}
               </p>
 
               <div className="grid sm:grid-cols-2 gap-3 mb-8">
@@ -93,6 +96,15 @@ export default function AmlScreeningPage() {
                       ? 'تشابه محتمل يفتح حالة تحقيق للامتثال — لا تُرفض هوية العميل تلقائياً.'
                       : "A potential match opens a compliance investigation case — it doesn't automatically reject the customer."}
                   </p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {[
+                      isRTL ? 'العقوبات' : 'Sanctions',
+                      'PEP',
+                      'RCA',
+                    ].map((f, i) => (
+                      <span key={i} className="bg-white/10 text-white/80 text-[11px] font-semibold px-2.5 py-1 rounded-full border border-white/20">{f}</span>
+                    ))}
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     {[
                       isRTL ? 'لا يوجد تشابه' : 'Clean',
@@ -114,8 +126,7 @@ export default function AmlScreeningPage() {
         <TechBackground variant="light" />
         <div className="container-wide relative z-10">
           <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
-            <SectionTag label={isRTL ? 'مسار الفحص' : 'Screening flow'} />
-            <h2 className="heading-lg text-navy-900 mt-4">
+            <h2 className="heading-lg text-navy-900">
               {isRTL ? 'من الفحص إلى قرار الامتثال' : 'From screening to a compliance decision'}
             </h2>
           </AnimatedSection>
@@ -142,8 +153,7 @@ export default function AmlScreeningPage() {
         <div className="container-wide">
           <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${isRTL ? 'text-right lg:grid-flow-col-dense' : ''}`}>
             <AnimatedSection delay={0.2} direction={isRTL ? 'right' : 'left'} className={isRTL ? 'lg:col-start-2' : ''}>
-              <SectionTag label={isRTL ? 'التحقيق والمراجعة' : 'Investigation & review'} variant="teal" />
-              <h2 className="heading-lg text-navy-900 mt-4 mb-5">
+              <h2 className="heading-lg text-navy-900 mb-5">
                 {isRTL ? 'أدلة كاملة لفريق الامتثال لديك.' : 'Full evidence for your compliance team.'}
               </h2>
               <p className="body-lg mb-8">
@@ -194,6 +204,63 @@ export default function AmlScreeningPage() {
         </div>
       </section>
 
+      {/* Continuous monitoring */}
+      <section className="section-pad bg-slate-50 relative overflow-hidden">
+        <TechBackground variant="light" />
+        <div className="container-wide relative z-10">
+          <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${isRTL ? 'text-right' : ''}`}>
+            <AnimatedSection>
+              <h2 className="heading-lg text-navy-900 mb-5">
+                {isRTL ? 'فحص لا يتوقف عند الموافقة.' : "Screening that doesn't stop at approval."}
+              </h2>
+              <p className="body-lg mb-8">
+                {isRTL
+                  ? 'أضف اشتراك المراقبة المستمرة المدفوع لأي هوية موثّقة: يعيد واثق فحصها تلقائياً عند تحديث إحدى القوائم المختارة أو تغيّر بيانات هويتها، وعلى فاصل دوري اختياري، لمدة اشتراك سنوية مدتها 365 يوماً — مع تذكير بالتجديد قبل انتهائها. يمكن تفعيل المراقبة يدوياً لكل هوية، أو تلقائياً بعد قبول كل عملية تحقق.'
+                  : "Add paid continuous monitoring to any verified identity: Wathiq automatically re-screens it whenever a selected list is updated or the person's identity data changes, on an optional periodic interval, for a 365-day term — with a renewal reminder before it lapses. Monitoring can be enrolled manually per identity, or automatically after every accepted verification."}
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-3 mb-8">
+                {monitoring.map((feature, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <CheckIcon />
+                    <span className="text-slate-700 text-sm font-medium">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2} direction="left">
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+                <div className="flex items-center justify-between mb-5">
+                  <span className="text-navy-900 font-bold text-sm">{isRTL ? 'ملف المراقبة' : 'Monitoring profile'}</span>
+                  <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">
+                    {isRTL ? 'نشطة' : 'Active'}
+                  </span>
+                </div>
+                <div className="space-y-3">
+                  {[
+                    { label: isRTL ? 'بداية الاشتراك' : 'Term started', value: isRTL ? '١٢ يناير ٢٠٢٦' : '12 Jan 2026' },
+                    { label: isRTL ? 'آخر إعادة فحص' : 'Last re-screen', value: isRTL ? '٣ سبتمبر ٢٠٢٦' : '3 Sep 2026' },
+                    { label: isRTL ? 'نهاية الاشتراك' : 'Term ends', value: isRTL ? '١٢ يناير ٢٠٢٧' : '12 Jan 2027' },
+                    { label: isRTL ? 'الفئات المشمولة' : 'Covered categories', value: isRTL ? 'العقوبات، PEP، RCA' : 'Sanctions, PEP, RCA' },
+                  ].map((row, i) => (
+                    <div key={i} className="flex items-center justify-between text-sm py-2 border-b border-slate-200 last:border-0">
+                      <span className="text-slate-500">{row.label}</span>
+                      <span className="text-navy-900 font-semibold">{row.value}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-slate-400 text-xs leading-relaxed mt-5">
+                  {isRTL
+                    ? 'مؤشر توضيحي — ليست بيانات فعلية.'
+                    : 'Illustrative — not actual monitoring data.'}
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* Disclaimer callout */}
       <section className="pb-14 sm:pb-20 bg-white">
         <div className="container-wide">
@@ -201,8 +268,8 @@ export default function AmlScreeningPage() {
             <div className={`rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8 ${isRTL ? 'text-right' : ''}`}>
               <p className="text-slate-600 text-sm leading-relaxed">
                 {isRTL
-                  ? 'درجة التشابه مؤشر للتحقيق، وليست احتمالاً أو حكماً قانونياً على الهوية. النتيجة النهائية لأي حالة يحددها فريق الامتثال لديك. فحص غسل الاموال يغطي مطابقة الأسماء مقابل مصادر العقوبات وقوائم الحظر؛ فحص الشخصيات السياسية المعرضة للمخاطر (PEP) والإعلام السلبي على خارطة طريقنا — تواصل معنا لمناقشة متطلباتك التنظيمية المحددة.'
-                  : "A similarity score is an investigation indicator, not a probability or a legal determination of identity. The final outcome of any case is decided by your compliance team. AML screening covers name-matching against sanctions and watchlist sources; PEP and adverse-media screening are on our roadmap — contact us to discuss your specific regulatory requirements."}
+                  ? 'درجة التشابه مؤشر للتحقيق، وليست احتمالاً أو حكماً قانونياً على الهوية. النتيجة النهائية لأي حالة يحددها فريق الامتثال لديك. يغطي فحص غسل الاموال مطابقة الأسماء مقابل مصادر العقوبات، والشخصيات السياسية المعرّضة للمخاطر (PEP)، وأقاربها وشركائها المقرّبين (RCA)؛ فحص الإعلام السلبي على خارطة طريقنا — تواصل معنا لمناقشة متطلباتك التنظيمية المحددة.'
+                  : "A similarity score is an investigation indicator, not a probability or a legal determination of identity. The final outcome of any case is decided by your compliance team. AML screening covers name-matching against sanctions, PEP (Politically Exposed Persons), and RCA (their relatives and close associates) sources; adverse-media screening is on our roadmap — contact us to discuss your specific regulatory requirements."}
               </p>
             </div>
           </AnimatedSection>

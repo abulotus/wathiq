@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageHero from '@/components/ui/PageHero';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
-import SectionTag from '@/components/ui/SectionTag';
 import TechBackground from '@/components/ui/TechBackground';
 import { validateContactForm, ValidationError } from '@/lib/validation';
 
@@ -103,7 +102,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <PageHero tag={contact.hero.tag} title={contact.hero.title} subtitle={contact.hero.subtitle} />
+      <PageHero title={contact.hero.title} subtitle={contact.hero.subtitle} />
 
       <section className="section-pad bg-white relative overflow-hidden">
         <TechBackground variant="light" />
@@ -112,8 +111,7 @@ export default function ContactPage() {
             {/* Left: Info */}
             <div className="lg:col-span-1">
               <AnimatedSection className={isRTL ? 'text-right' : ''}>
-                <SectionTag label={isRTL ? 'معلومات التواصل' : 'Contact Information'} />
-                <h2 className="heading-sm text-navy-900 mt-4 mb-6">
+                <h2 className="heading-sm text-navy-900 mb-6">
                   {isRTL ? 'نحن هنا للمساعدة' : 'We\'re Here to Help'}
                 </h2>
               </AnimatedSection>

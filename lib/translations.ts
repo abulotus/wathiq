@@ -29,7 +29,7 @@ export const translations = {
     about: {
       tag: 'Our Company',
       title: 'Built for the Syrian Market',
-      body: 'Wathiq is an Arabic-first ePassport verification platform, designed for the Syrian market and connected internationally. We are registered in the United Kingdom, and our mission is to make ePassport verification, Arabic-language customer experience, and system integration straightforward for organisations that need them.',
+      body: 'Wathiq is an Arabic-first ePassport verification platform, designed for the Syrian market and connected internationally. We are registered in the United Kingdom as well as Syria, and our mission is to make ePassport verification, Arabic-language customer experience, and system integration straightforward for organisations that need them.',
       mission: {
         title: 'Our Mission',
         body: 'Enable businesses to deliver secure and seamless digital experiences.',
@@ -237,7 +237,7 @@ export const translations = {
     about: {
       tag: 'شركتنا',
       title: 'منصة بُنيت للسوق السورية',
-      body: 'واثق منصة عربية أولاً للتحقق من جوازات السفر الإلكترونية المدعومة، مصممة للسوق السورية ومتصلة عالمياً. الشركة مسجلة في المملكة المتحدة، ومهمتنا أن نجعل هذه الخدمات بسيطة وسهلة المنال للمؤسسات التي تحتاجها: التحقق من جوازات السفر الإلكترونية، وتجربة العملاء بالعربية، وربط الأنظمة.',
+      body: 'واثق منصة عربية أولاً للتحقق من جوازات السفر الإلكترونية المدعومة، مصممة للسوق السورية ومتصلة عالمياً. الشركة مسجلة في المملكة المتحدة وسوريا، ومهمتنا أن نجعل هذه الخدمات بسيطة وسهلة المنال للمؤسسات التي تحتاجها: التحقق من جوازات السفر الإلكترونية، وتجربة العملاء بالعربية، وربط الأنظمة.',
       mission: {
         title: 'مهمتنا',
         body: 'تمكين الشركات من تقديم تجارب رقمية آمنة وسلسة.',

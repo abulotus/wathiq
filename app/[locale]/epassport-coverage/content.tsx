@@ -3,7 +3,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageHero from '@/components/ui/PageHero';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import SectionTag from '@/components/ui/SectionTag';
 import Link from 'next/link';
 
 export default function EpassportCoveragePage() {
@@ -12,7 +11,6 @@ export default function EpassportCoveragePage() {
   return (
     <>
       <PageHero
-        tag={isRTL ? 'تغطية جوازات السفر' : 'ePassport Coverage'}
         title={isRTL ? 'تغطية دولية. تجربة عربية أولاً.' : 'International passport coverage. Arabic-first experience.'}
         subtitle={isRTL
           ? 'يدعم واثق جوازات السفر الإلكترونية الصادرة عن 140 دولة.'
@@ -22,7 +20,6 @@ export default function EpassportCoveragePage() {
       <section className="section-pad bg-white">
         <div className="container-wide">
           <AnimatedSection className="max-w-3xl mx-auto text-center mb-14">
-            <SectionTag label={isRTL ? 'التغطية' : 'Coverage'} />
             <div className="text-6xl sm:text-7xl font-black text-navy-900 my-6">140</div>
             <p className="text-slate-600 text-lg leading-relaxed">
               {isRTL

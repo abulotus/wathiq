@@ -3,7 +3,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageHero from '@/components/ui/PageHero';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
-import SectionTag from '@/components/ui/SectionTag';
 import Link from 'next/link';
 import TechBackground from '@/components/ui/TechBackground';
 
@@ -36,15 +35,14 @@ export default function PartnershipPage() {
 
   return (
     <>
-      <PageHero tag={part.hero.tag} title={part.hero.title} subtitle={part.hero.subtitle} />
+      <PageHero title={part.hero.title} subtitle={part.hero.subtitle} />
 
       {/* Partner types */}
       <section className="section-pad bg-white relative overflow-hidden">
         <TechBackground variant="light" />
         <div className="container-wide relative z-10">
           <AnimatedSection className={`text-center max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
-            <SectionTag label={isRTL ? 'أنواع الشراكة' : 'Partnership Types'} />
-            <h2 className="heading-lg text-navy-900 mt-4">
+            <h2 className="heading-lg text-navy-900">
               {isRTL ? 'شراكة مصممة لأهدافك' : 'Partnership Designed for Your Goals'}
             </h2>
           </AnimatedSection>
@@ -77,8 +75,7 @@ export default function PartnershipPage() {
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection className={isRTL ? 'text-right' : ''}>
-              <SectionTag label={isRTL ? 'لماذا الشراكة معنا' : 'Why Partner With Us'} />
-              <h2 className="heading-lg text-navy-900 mt-4 mb-6">
+              <h2 className="heading-lg text-navy-900 mb-6">
                 {isRTL ? 'نمو مشترك، قيمة حقيقية' : 'Shared Growth, Real Value'}
               </h2>
               <div className="space-y-4">

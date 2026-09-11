@@ -2,7 +2,6 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import SectionTag from '@/components/ui/SectionTag';
 import TechBackground from '@/components/ui/TechBackground';
 import Link from 'next/link';
 
@@ -37,8 +36,7 @@ export default function DevelopersPage() {
           style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.10) 0%, transparent 65%)' }} />
 
         <div className={`container-wide relative z-10 max-w-3xl ${isRTL ? 'text-right' : ''}`}>
-          <SectionTag label={isRTL ? 'المطورون' : 'Developers'} variant="blue" />
-          <h1 className="heading-xl text-navy-900 mt-4 mb-5">
+          <h1 className="heading-xl text-navy-900 mb-5">
             {isRTL ? 'تكامل مباشر عبر API وWebhooks' : 'Straightforward integration through API and webhooks'}
           </h1>
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">

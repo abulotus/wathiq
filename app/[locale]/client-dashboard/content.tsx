@@ -39,7 +39,6 @@ export default function ClientDashboardPage() {
   return (
     <>
       <PageHero
-        tag={isRTL ? 'لوحة تحكم العملاء' : 'Client Dashboard'}
         title={isRTL ? 'أدر نشاط التحقق من مكان واحد' : 'Manage verification activity from one place'}
         subtitle={isRTL
           ? 'يراجع فريقك مراجع التحقق وحالتها من خلال لوحة تحكم مركزية.'

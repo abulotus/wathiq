@@ -17,7 +17,6 @@ export default function MobileAppPage() {
   return (
     <>
       <PageHero
-        tag={isRTL ? 'تطبيق الجوال' : 'Mobile App'}
         title={isRTL ? 'تجربة جوال عربية للتحقق من جوازات السفر الإلكترونية' : 'An Arabic mobile experience for ePassport verification'}
         subtitle={isRTL
           ? 'يُكمل المستخدم عبر تطبيق واثق للجوال رحلة التحقق من جواز السفر الإلكتروني المدعوم.'

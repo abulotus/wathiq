@@ -1,6 +1,5 @@
 import { Language } from '@/lib/translations';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
-import SectionTag from '@/components/ui/SectionTag';
 
 const points = {
   en: [
@@ -23,8 +22,7 @@ export default function ArabicFirstExperience({ locale }: { locale: Language }) 
     <section className="section-pad bg-white">
       <div className="container-wide">
         <AnimatedSection className="text-center max-w-2xl mx-auto mb-14">
-          <SectionTag label={isRTL ? 'تجربة عربية من الأساس' : 'Arabic-First Experience'} />
-          <h2 className="heading-lg text-navy-900 mt-4">
+          <h2 className="heading-lg text-navy-900">
             {isRTL ? 'مصمّمة خصيصًا للمستخدمين الناطقين بالعربية' : 'Designed specifically for Arabic-speaking users'}
           </h2>
         </AnimatedSection>

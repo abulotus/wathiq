@@ -3,7 +3,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageHero from '@/components/ui/PageHero';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
-import SectionTag from '@/components/ui/SectionTag';
 import Link from 'next/link';
 import TechBackground from '@/components/ui/TechBackground';
 
@@ -36,11 +35,10 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        tag={isRTL ? 'من نحن' : 'About Us'}
         title={isRTL ? 'منصة بُنيت للسوق السورية' : 'Built for the Syrian Market'}
         subtitle={isRTL
-          ? 'واثق منصة عربية أولاً للتحقق من جوازات السفر الإلكترونية المدعومة، مصممة للسوق السورية ومتصلة عالمياً. الشركة مسجلة في المملكة المتحدة.'
-          : 'Wathiq is an Arabic-first ePassport verification platform, designed for the Syrian market and connected internationally. The company is registered in the United Kingdom.'}
+          ? 'واثق منصة عربية أولاً للتحقق من جوازات السفر الإلكترونية المدعومة، مصممة للسوق السورية ومتصلة عالمياً. الشركة مسجلة في المملكة المتحدة وسوريا.'
+          : 'Wathiq is an Arabic-first ePassport verification platform, designed for the Syrian market and connected internationally. The company is registered in the United Kingdom as well as Syria.'}
       />
 
       {/* ── Who We Are ── */}
@@ -49,8 +47,7 @@ export default function AboutPage() {
         <div className="container-wide relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
-              <SectionTag label={isRTL ? 'شركتنا' : 'Our Company'} />
-              <h2 className="heading-lg text-navy-900 mt-4 mb-6">
+              <h2 className="heading-lg text-navy-900 mb-6">
                 {isRTL ? 'نبني الثقة الرقمية للمستقبل' : 'Building Digital Trust for the Future'}
               </h2>
               <p className="text-slate-600 leading-relaxed text-lg mb-6">{about.body}</p>
@@ -59,6 +56,17 @@ export default function AboutPage() {
                   ? 'نجمع بين الخبرة التقنية الدولية والفهم العميق لاحتياجات السوق الإقليمية، لتقديم حلول موثوقة وعملية للمؤسسات التي تسعى إلى التحول الرقمي الآمن.'
                   : 'We combine international technical expertise with deep understanding of regional market needs, delivering reliable and practical solutions for organisations seeking safe digital transformation.'}
               </p>
+
+              <div className="mt-8 border-s-4 border-electric-500 bg-slate-50 rounded-e-2xl px-6 py-5">
+                <div className="text-electric-600 font-semibold text-sm mb-2">
+                  {isRTL ? 'لماذا بنينا واثق' : 'Why we built Wathiq'}
+                </div>
+                <p className="text-slate-700 leading-relaxed">
+                  {isRTL
+                    ? 'أسّس واثق تقنيون سوريون مقيمون في المملكة المتحدة. هدفنا بسيط: أن ننقل معايير التحقق من الهوية التي عملنا بها عالمياً إلى الوطن — بالعربية — للمساهمة في بناء بنية رقمية موثوقة لسوريا الجديدة.'
+                    : 'Wathiq was founded by Syrian technologists based in the UK. Our aim is simple: take the identity-verification standards we have worked with internationally and bring them home — in Arabic — to help rebuild trusted digital infrastructure for the new Syria.'}
+                </p>
+              </div>
 
               <div className="space-y-4 mt-8">
                 <div className="flex items-center gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100">
@@ -129,8 +137,7 @@ export default function AboutPage() {
 
         <div className="container-wide relative z-10">
           <AnimatedSection className="text-center mb-16">
-            <SectionTag label={isRTL ? 'غايتنا' : 'Our Purpose'} variant="blue" />
-            <h2 className="heading-lg text-navy-900 mt-4">
+            <h2 className="heading-lg text-navy-900">
               {isRTL ? 'مهمتنا ورؤيتنا' : 'Our Mission & Vision'}
             </h2>
           </AnimatedSection>
@@ -185,8 +192,7 @@ export default function AboutPage() {
         <TechBackground variant="light" />
         <div className="container-wide relative z-10">
           <AnimatedSection className="text-center mb-16">
-            <SectionTag label={isRTL ? 'قيمنا' : 'Our Values'} />
-            <h2 className="heading-lg text-navy-900 mt-4">
+            <h2 className="heading-lg text-navy-900">
               {isRTL ? 'المبادئ التي نعمل بها' : 'The Principles We Work By'}
             </h2>
           </AnimatedSection>

@@ -10,14 +10,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     ? localizedMetadata({
         locale,
         path: '/aml-screening',
-        title: 'فحص غسل الاموال — العقوبات وقوائم الحظر',
-        description: 'يفحص واثق الأفراد مقابل مصادر العقوبات وقوائم الحظر الرسمية التي تختارها مؤسستك، تلقائياً أو عند الطلب، مع حالة تحقيق ومراجعة امتثال كاملة.',
+        title: 'فحص غسل الاموال — العقوبات والشخصيات السياسية وأقاربها',
+        description: 'يفحص واثق الأفراد مقابل مصادر العقوبات والشخصيات السياسية المعرّضة للمخاطر (PEP) وأقاربها (RCA) التي تختارها مؤسستك، تلقائياً أو عند الطلب أو بمراقبة مستمرة، مع حالة تحقيق ومراجعة امتثال كاملة.',
       })
     : localizedMetadata({
         locale,
         path: '/aml-screening',
-        title: 'AML Screening — Sanctions & Watchlist Matching',
-        description: "Wathiq screens individuals against your organisation's selected official sanctions and watchlist sources, automatically or on demand, with a full investigation and compliance review workflow.",
+        title: 'AML Screening — Sanctions, PEP & RCA Matching',
+        description: "Wathiq screens individuals against your organisation's selected sanctions, PEP, and RCA sources, automatically, on demand, or through continuous monitoring, with a full investigation and compliance review workflow.",
       });
 }
 

@@ -3,7 +3,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageHero from '@/components/ui/PageHero';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
-import SectionTag from '@/components/ui/SectionTag';
 import TechBackground from '@/components/ui/TechBackground';
 
 const layerIcons = [
@@ -53,15 +52,14 @@ export default function SecurityPage() {
 
   return (
     <>
-      <PageHero tag={sec.hero.tag} title={sec.hero.title} subtitle={sec.hero.subtitle} />
+      <PageHero title={sec.hero.title} subtitle={sec.hero.subtitle} />
 
       {/* Main principles */}
       <section className="section-pad bg-white relative overflow-hidden">
         <TechBackground variant="light" />
         <div className="container-wide relative z-10">
           <AnimatedSection className={`max-w-2xl ${isRTL ? 'text-right' : ''} mb-14`}>
-            <SectionTag label={isRTL ? 'مبادئنا' : 'Our Principles'} />
-            <h2 className="heading-md text-navy-900 mt-4">
+            <h2 className="heading-md text-navy-900">
               {isRTL ? 'مبني على أسس الأمن والثقة' : 'Built on Security and Trust Foundations'}
             </h2>
           </AnimatedSection>
@@ -92,8 +90,7 @@ export default function SecurityPage() {
       <section className="section-pad bg-slate-50">
         <div className="container-wide">
           <AnimatedSection className={`text-center mb-14 ${isRTL ? 'text-right' : ''}`}>
-            <SectionTag label={isRTL ? 'البنية الأمنية' : 'Security Architecture'} variant="blue" />
-            <h2 className="heading-lg text-navy-900 mt-4">
+            <h2 className="heading-lg text-navy-900">
               {isRTL ? 'حماية متعددة الطبقات' : 'Multi-Layer Protection Approach'}
             </h2>
           </AnimatedSection>

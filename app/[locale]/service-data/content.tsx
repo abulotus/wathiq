@@ -10,7 +10,6 @@ export default function ServiceDataPage() {
   return (
     <>
       <PageHero
-        tag={isRTL ? 'قانوني' : 'Legal'}
         title={isRTL ? 'بيانات خدمة التحقق' : 'Service Data Information'}
         subtitle={isRTL
           ? 'كيف يتعامل واثق مع البيانات المستخدمة أثناء عملية التحقق من جواز السفر الإلكتروني — بشكل منفصل عن خصوصية زوار الموقع.'

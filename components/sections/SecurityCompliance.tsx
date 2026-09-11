@@ -1,6 +1,5 @@
 import { Language } from '@/lib/translations';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import SectionTag from '@/components/ui/SectionTag';
 import TechBackground from '@/components/ui/TechBackground';
 
 export default function SecurityCompliance({ locale }: { locale: Language }) {
@@ -16,8 +15,7 @@ export default function SecurityCompliance({ locale }: { locale: Language }) {
 
       <div className="container-wide relative z-10">
         <AnimatedSection className="text-center mb-10">
-          <SectionTag label={isRTL ? 'الأمان والخصوصية' : 'Security & Privacy'} variant="blue" />
-          <h2 className="heading-lg text-navy-900 mt-4">
+          <h2 className="heading-lg text-navy-900">
             {isRTL ? 'الأمان في صميم كل ما نبنيه' : 'Security Is the Foundation of Everything We Build'}
           </h2>
           <p className="body-lg text-slate-600 mt-4 max-w-xl mx-auto">

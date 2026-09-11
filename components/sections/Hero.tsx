@@ -54,14 +54,6 @@ export default function Hero({ locale }: { locale: Language }) {
 
       <div className="container-wide relative z-10 pt-24 pb-16 sm:pt-28 sm:pb-24 lg:pt-36 lg:pb-32">
         <div className="hero-enter max-w-3xl mx-auto text-center">
-          {/* Badge */}
-          <div className="hero-enter hero-delay-1">
-            <span className="inline-flex items-center gap-2 bg-electric-50 border border-electric-100 text-electric-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse flex-shrink-0" />
-              {h.badge}
-            </span>
-          </div>
-
           {/* Headline */}
           <h1
             className={`text-3xl sm:text-5xl lg:text-6xl font-bold text-navy-900 tracking-tight mb-6 ${isRTL ? '!leading-[1.35] py-1' : '!leading-[1.1]'}`}

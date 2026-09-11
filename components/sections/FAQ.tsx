@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
-import SectionTag from '@/components/ui/SectionTag';
 import { Language } from '@/lib/translations';
 
 const faqs = {
@@ -134,8 +133,7 @@ export default function FAQ({ locale }: { locale: Language }) {
     <section className="pt-14 sm:pt-20 lg:pt-28 pb-8 sm:pb-10 bg-white">
       <div className="container-wide">
         <AnimatedSection className={`text-center max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
-          <SectionTag label={isRTL ? 'الأسئلة الشائعة' : 'FAQ'} />
-          <h2 className="heading-lg text-navy-900 mt-4">
+          <h2 className="heading-lg text-navy-900">
             {isRTL ? 'أسئلة شائعة من عملائنا' : 'Questions Our Clients Ask'}
           </h2>
           <p className="body-lg text-slate-500 mt-4">

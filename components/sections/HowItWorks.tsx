@@ -1,5 +1,4 @@
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
-import SectionTag from '@/components/ui/SectionTag';
 import { Language } from '@/lib/translations';
 
 const steps = [
@@ -72,8 +71,7 @@ export default function HowItWorks({ locale }: { locale: Language }) {
     <section id="how-it-works" className="pt-8 sm:pt-10 lg:pt-14 pb-14 sm:pb-20 lg:pb-28 bg-white scroll-mt-20">
       <div className="container-wide">
         <AnimatedSection className={`max-w-2xl mx-auto text-center mb-16 sm:mb-20`}>
-          <SectionTag label={isRTL ? 'كيف يعمل واثق' : 'How It Works'} variant="blue" />
-          <h2 className="heading-lg text-navy-900 mt-4">
+          <h2 className="heading-lg text-navy-900">
             {isRTL ? 'إتمام التحقق في ثلاث خطوات' : 'Three Steps to Verification'}
           </h2>
           <p className="body-lg text-slate-500 mt-4 max-w-xl mx-auto">

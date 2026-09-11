@@ -49,9 +49,6 @@ export default function TrustedBy({ locale }: { locale: Language }) {
   return (
     <section className="bg-white pt-14 pb-8">
       <div className="container-wide">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 text-center mb-8">
-          {isRTL ? 'المنصة بالأرقام' : 'Verified platform facts'}
-        </p>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
           {facts.map((f, i) => (
             <div

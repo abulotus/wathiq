@@ -4,7 +4,6 @@ import { useState, useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageHero from '@/components/ui/PageHero';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
-import SectionTag from '@/components/ui/SectionTag';
 import TechBackground from '@/components/ui/TechBackground';
 
 const whyUsItems = {
@@ -169,7 +168,6 @@ export default function CareersPage() {
   return (
     <>
       <PageHero
-        tag={isRTL ? 'الوظائف' : 'Careers'}
         title={isRTL ? 'انضم إلى بناة الثقة الرقمية' : 'Join the Builders of Digital Trust'}
         subtitle={isRTL
           ? 'نحن فريق صغير ذو تأثير كبير، يعمل على تقنية تشكّل مستقبل الهوية الرقمية في المنطقة. هل أنت مستعد؟'
@@ -181,8 +179,7 @@ export default function CareersPage() {
         <TechBackground variant="light" />
         <div className="container-wide relative z-10">
           <AnimatedSection className={`text-center max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
-            <SectionTag label={isRTL ? 'لماذا واثق' : 'Why WATHIQ'} />
-            <h2 className="heading-lg text-navy-900 mt-4">
+            <h2 className="heading-lg text-navy-900">
               {isRTL ? 'ما الذي يجعل العمل هنا مختلفاً' : 'What Makes Working Here Different'}
             </h2>
           </AnimatedSection>
@@ -206,8 +203,7 @@ export default function CareersPage() {
       <section className="section-pad bg-slate-50">
         <div className="container-wide">
           <AnimatedSection className={`text-center max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
-            <SectionTag label={isRTL ? 'الفرص المتاحة' : 'Open Roles'} />
-            <h2 className="heading-lg text-navy-900 mt-4">
+            <h2 className="heading-lg text-navy-900">
               {isRTL ? 'نبحث عن أشخاص استثنائيين' : 'We Are Looking for Exceptional People'}
             </h2>
           </AnimatedSection>
@@ -261,8 +257,7 @@ export default function CareersPage() {
         <TechBackground variant="light" />
         <div className="container-wide relative z-10">
           <AnimatedSection className={`text-center max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
-            <SectionTag label={isRTL ? 'التقديم' : 'Apply'} />
-            <h2 className="heading-lg text-navy-900 mt-4">
+            <h2 className="heading-lg text-navy-900">
               {isRTL ? 'قدّم طلبك الآن' : 'Submit Your Application'}
             </h2>
             <p className="body-lg text-slate-500 mt-4">

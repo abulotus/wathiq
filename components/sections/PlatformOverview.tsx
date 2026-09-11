@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Language } from '@/lib/translations';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
-import SectionTag from '@/components/ui/SectionTag';
 import ApiHubDiagram from '@/components/ui/ApiHubDiagram';
 
 // Two separate, independently-enabled services. Not to be presented as
@@ -10,11 +9,11 @@ import ApiHubDiagram from '@/components/ui/ApiHubDiagram';
 const services = {
   en: [
     { tag: 'Service 1 — ePassport Verification', title: 'Verify modern ePassports (with chip)', body: 'Verify modern electronic passports with a chip, issued by multiple countries worldwide, through an Arabic-first journey.', path: '/epassport-coverage', linkLabel: 'See coverage' },
-    { tag: 'Add-on — AML Screening', title: 'Screen against sanctions & watchlists', body: 'Add sanctions and watchlist screening on top of ePassport verification. Once enabled, screening runs automatically whenever a verification is accepted, or your team can run it manually from the dashboard.', path: '/aml-screening', linkLabel: 'View AML Screening' },
+    { tag: 'Add-on — AML Screening', title: 'Screen sanctions, PEP & RCA lists', body: 'Add sanctions, PEP, and RCA screening on top of ePassport verification, with optional continuous monitoring. Screening runs automatically whenever a verification is accepted, on demand from the dashboard, or continuously for enrolled identities.', path: '/aml-screening', linkLabel: 'View AML Screening' },
   ],
   ar: [
     { tag: 'الخدمة 1 — التحقق من جوازات السفر الإلكترونية', title: 'تحقّق من جوازات السفر الإلكترونية الحديثة المزوّدة بشريحة', body: 'تحقّق من جوازات السفر الإلكترونية الحديثة المزوّدة بشريحة والصادرة عن دول متعددة حول العالم، عبر تجربة مصمّمة بالعربية من الأساس.', path: '/epassport-coverage', linkLabel: 'اطّلع على الدول والوثائق المدعومة' },
-    { tag: 'إضافة — فحص غسل الاموال', title: 'فحص العقوبات وقوائم الحظر', body: 'أضف فحص العقوبات وقوائم الحظر فوق خدمة التحقق من جواز السفر الإلكتروني. بعد التفعيل، يعمل الفحص تلقائياً عند قبول كل طلب تحقق، أو يمكن لفريقك تشغيله يدوياً من لوحة التحكم.', path: '/aml-screening', linkLabel: 'استعرض فحص غسل الاموال' },
+    { tag: 'إضافة — فحص غسل الاموال', title: 'فحص العقوبات والشخصيات السياسية وأقاربها', body: 'أضف فحص العقوبات والشخصيات السياسية المعرّضة للمخاطر (PEP) وأقاربها وشركائها المقرّبين (RCA) فوق خدمة التحقق من جواز السفر الإلكتروني، مع إمكانية المراقبة المستمرة الاختيارية. يعمل الفحص تلقائياً عند قبول كل طلب تحقق، أو عند الطلب من لوحة التحكم، أو باستمرار للهويات المسجَّلة في المراقبة.', path: '/aml-screening', linkLabel: 'استعرض فحص غسل الاموال' },
   ],
 };
 
@@ -42,8 +41,7 @@ export default function PlatformOverview({ locale }: { locale: Language }) {
     <section className="section-pad bg-slate-50">
       <div className="container-wide">
         <AnimatedSection className="text-center max-w-2xl mx-auto mb-14">
-          <SectionTag label={isRTL ? 'خدماتنا' : 'Our Services'} />
-          <h2 className="heading-lg text-navy-900 mt-4">
+          <h2 className="heading-lg text-navy-900">
             {isRTL ? 'التحقق من الهوية مع فحص غسل الاموال كخدمة اضافية تفعل عند الطلب' : 'ID verification, with AML screening as an add-on'}
           </h2>
           <p className="body-md mt-3">
@@ -81,7 +79,7 @@ export default function PlatformOverview({ locale }: { locale: Language }) {
             </h3>
             <p className="body-md mt-3">
               {isRTL
-                ? 'سواء اشتركت بالتحقق من الهوية وحده أو أضفت فحص غسل الاموال فوقه، تدير كلتا الخدمتين عبر نفس واجهة برمجة التطبيقات وإشعارات Webhook ولوحة تحكم العملاء.'
+                ? 'سواء اشتركت بالتحقق من الهوية وحده أو أضفت فحص غسل الاموال كخدمة اضافية، تدير كلتا الخدمتين عبر نفس واجهة برمجة التطبيقات وإشعارات Webhook ولوحة تحكم العملاء.'
                 : "Whether you subscribe to ID verification alone or add AML screening on top of it, you manage both through the same API, webhooks, and client dashboard."}
             </p>
           </AnimatedSection>

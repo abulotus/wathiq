@@ -3,7 +3,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageHero from '@/components/ui/PageHero';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
-import SectionTag from '@/components/ui/SectionTag';
 import Link from 'next/link';
 
 function CheckIcon() {
@@ -37,9 +36,9 @@ const services = {
     {
       id: 'aml',
       tag: 'Add-on — AML Screening',
-      title: 'Screen against sanctions and watchlists.',
-      body: "For banks and fintechs, AML screening is an add-on you enable on top of ePassport verification. Once enabled, it screens individuals against your organisation's selected official sanctions and watchlist sources — automatically whenever a verification is accepted, or run directly on any person from the dashboard or API. A potential match opens a compliance investigation case with source-by-source evidence; it never overrides the identity verification decision on its own.",
-      features: ['Screening against your selected list sources', 'Automatic or on-demand screening', 'Investigation view with match evidence', 'Compliance review & audit trail'],
+      title: 'Screen sanctions, PEP, and RCA lists.',
+      body: "For banks and fintechs, AML screening is an add-on you enable on top of ePassport verification. Once enabled, it screens individuals against your organisation's selected sanctions, PEP (Politically Exposed Persons), and RCA (their relatives and close associates) sources — automatically whenever a verification is accepted, on demand from the dashboard or API, or continuously through paid annual monitoring for enrolled identities. A potential match opens a compliance investigation case with source-by-source evidence; it never overrides the identity verification decision on its own.",
+      features: ['Sanctions, PEP & RCA screening', 'Automatic, on-demand, or continuous monitoring', 'Investigation view with match evidence', 'Compliance review & audit trail'],
       linkLabel: 'View AML Screening',
       linkPath: '/aml-screening',
       icon: (
@@ -70,9 +69,9 @@ const services = {
     {
       id: 'aml',
       tag: 'إضافة — فحص غسل الاموال',
-      title: 'افحص العقوبات وقوائم الحظر.',
-      body: 'للبنوك وشركات التقنية المالية، فحص غسل الاموال إضافة تُفعَّل فوق خدمة التحقق من جواز السفر الإلكتروني. بعد التفعيل، يفحص واثق الأفراد مقابل مصادر العقوبات وقوائم الحظر الرسمية التي تختارها مؤسستك — تلقائياً عند قبول طلب التحقق، أو مباشرة على أي شخص من لوحة التحكم أو عبر API. يفتح أي تشابه محتمل حالة تحقيق للامتثال مزودة بأدلة تفصيلية لكل مصدر، ولا يُلغي وحده قرار التحقق من الهوية.',
-      features: ['فحص مقابل مصادر القوائم التي تختارها', 'فحص تلقائي أو عند الطلب', 'واجهة تحقيق مع أدلة المطابقة', 'مراجعة امتثال وسجل تدقيق'],
+      title: 'افحص العقوبات والشخصيات السياسية وأقاربها.',
+      body: 'للبنوك وشركات التقنية المالية، فحص غسل الاموال إضافة تُفعَّل فوق خدمة التحقق من جواز السفر الإلكتروني. بعد التفعيل، يفحص واثق الأفراد مقابل مصادر العقوبات، والشخصيات السياسية المعرّضة للمخاطر (PEP)، وأقاربهم وشركائهم المقرّبين (RCA) التي تختارها مؤسستك — تلقائياً عند قبول طلب التحقق، أو عند الطلب من لوحة التحكم أو عبر API، أو باستمرار عبر اشتراك مراقبة سنوي مدفوع للهويات المسجَّلة. يفتح أي تشابه محتمل حالة تحقيق للامتثال مزودة بأدلة تفصيلية لكل مصدر، ولا يُلغي وحده قرار التحقق من الهوية.',
+      features: ['فحص العقوبات وPEP وRCA', 'فحص تلقائي، أو عند الطلب، أو مراقبة مستمرة', 'واجهة تحقيق مع أدلة المطابقة', 'مراجعة امتثال وسجل تدقيق'],
       linkLabel: 'استعرض فحص غسل الاموال',
       linkPath: '/aml-screening',
       icon: (
@@ -152,7 +151,6 @@ export default function PlatformPage() {
   return (
     <>
       <PageHero
-        tag={isRTL ? 'المنصة' : 'Platform'}
         title={isRTL ? 'منصة واثق' : 'The Wathiq Platform'}
         subtitle={isRTL
           ? 'اشترك في التحقق من جوازات السفر الإلكترونية وحده، أو أضف فحص غسل الاموال فوقه — كلاهما متصل بواجهة برمجة تطبيقات وWebhooks ولوحة تحكم عملاء مشتركة.'
@@ -160,12 +158,6 @@ export default function PlatformPage() {
       />
 
       <div className="bg-white">
-        <div className="container-wide pt-14 sm:pt-20">
-          <AnimatedSection className="text-center max-w-2xl mx-auto mb-4">
-            <SectionTag label={isRTL ? 'خدماتنا' : 'Our Services'} variant="blue" />
-          </AnimatedSection>
-        </div>
-
         {items.map((item, idx) => {
           const isEven = idx % 2 === 0;
           return (
@@ -173,8 +165,7 @@ export default function PlatformPage() {
               <div className="container-wide">
                 <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${!isEven ? 'lg:grid-flow-col-dense' : ''}`}>
                   <AnimatedSection className={`${!isEven ? 'lg:col-start-1' : ''} ${isRTL ? 'text-right' : ''}`}>
-                    <SectionTag label={item.tag} variant="blue" />
-                    <h2 className="heading-lg text-navy-900 mt-4 mb-5">{item.title}</h2>
+                    <h2 className="heading-lg text-navy-900 mb-5">{item.title}</h2>
                     <p className="body-lg mb-8">{item.body}</p>
 
                     <div className="grid sm:grid-cols-2 gap-3 mb-8">
@@ -218,8 +209,7 @@ export default function PlatformPage() {
         <section className="section-pad bg-white border-t border-slate-100">
           <div className="container-wide">
             <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
-              <SectionTag label={isRTL ? 'كيف تتصل بالخدمتين' : 'How you connect to both'} variant="teal" />
-              <h2 className="heading-lg text-navy-900 mt-4">
+              <h2 className="heading-lg text-navy-900">
                 {isRTL ? 'طبقة مشتركة واحدة لكلتا الخدمتين' : 'One shared layer for both services'}
               </h2>
               <p className="body-md mt-3">

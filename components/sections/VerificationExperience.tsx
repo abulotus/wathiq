@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Language } from '@/lib/translations';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import SectionTag from '@/components/ui/SectionTag';
 import PhoneVerifyDemo from '@/components/ui/PhoneVerifyDemo';
 import SecurityWeave from '@/components/ui/SecurityWeave';
 
@@ -35,8 +34,7 @@ export default function VerificationExperience({ locale }: { locale: Language })
           </AnimatedSection>
 
           <AnimatedSection delay={0.1} className={`order-1 lg:order-2 ${isRTL ? 'text-right' : ''}`}>
-            <SectionTag label={isRTL ? 'تجربة التحقّق' : 'The Verification Experience'} variant="white" />
-            <h2 className="heading-lg text-white mt-4">
+            <h2 className="heading-lg text-white">
               {isRTL ? 'موجَّهة خطوة بخطوة، بواجهة عربية' : 'Guided, step by step, in Arabic'}
             </h2>
             <p className="body-lg text-white/70 mt-4">

@@ -1,16 +1,14 @@
 'use client';
 
-import SectionTag from '@/components/ui/SectionTag';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface PageHeroProps {
-  tag: string;
   title: string;
   subtitle: string;
   children?: React.ReactNode;
 }
 
-export default function PageHero({ tag, title, subtitle, children }: PageHeroProps) {
+export default function PageHero({ title, subtitle, children }: PageHeroProps) {
   const { isRTL } = useLanguage();
 
   return (
@@ -27,8 +25,7 @@ export default function PageHero({ tag, title, subtitle, children }: PageHeroPro
           className={`max-w-3xl ${isRTL ? 'mr-0 text-right' : ''}`}
           style={{ animation: 'fadeSlideUp 0.6s ease-out both' }}
         >
-          <SectionTag label={tag} variant="blue" />
-          <h1 className="heading-xl text-navy-900 mt-4 mb-3">{title}</h1>
+          <h1 className="heading-xl text-navy-900 mb-3">{title}</h1>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">{subtitle}</p>
           {children}
         </div>

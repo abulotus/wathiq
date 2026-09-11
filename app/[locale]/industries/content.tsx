@@ -59,7 +59,7 @@ export default function IndustriesPage() {
 
   return (
     <>
-      <PageHero tag={ind.hero.tag} title={ind.hero.title} subtitle={ind.hero.subtitle} />
+      <PageHero title={ind.hero.title} subtitle={ind.hero.subtitle} />
 
       <section className="section-pad bg-white relative overflow-hidden">
         <TechBackground variant="light" />

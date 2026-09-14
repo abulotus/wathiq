@@ -2,7 +2,7 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageHero from '@/components/ui/PageHero';
-import AnimatedSection from '@/components/ui/AnimatedSection';
+import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
 import TechBackground from '@/components/ui/TechBackground';
 import Link from 'next/link';
 
@@ -14,14 +14,40 @@ function CheckIcon() {
   );
 }
 
-const flowSteps = {
-  en: ['Verification accepted, or a manual request', 'Matched against your selected lists', 'Clean or Potential Match', 'Compliance review & resolution'],
-  ar: ['قبول التحقق، أو طلب يدوي', 'مطابقة مع القوائم التي تختارها', 'لا يوجد تشابه أو تشابه محتمل', 'مراجعة الامتثال والحل'],
+function AlertIcon() {
+  return (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4v2m0-6a4 4 0 110-8 4 4 0 010 8z" />
+    </svg>
+  );
+}
+
+const workflowSteps = {
+  en: [
+    { title: 'VERIFY', desc: "Wathiq verifies the applicant's identity before AML screening." },
+    { title: 'SCREEN', desc: 'When automatic screening is enabled by the organisation, a successfully verified identity is screened against the organisation\'s selected sanctions, PEP and RCA sources.' },
+    { title: 'REVIEW', desc: 'Wathiq presents category-level screening results. Potential matches include relevant matching information to support compliance review.' },
+    { title: 'MONITOR', desc: 'When continuous monitoring is enabled, enrolled identities can be automatically re-screened as selected screening sources are updated.' },
+  ],
+  ar: [
+    { title: 'تحقق', desc: 'يتحقق واثق من هوية المتقدم قبل فحص مكافحة غسل الأموال.' },
+    { title: 'افحص', desc: 'عند تفعيل الفحص التلقائي من قبل المؤسسة، يتم فحص الهوية الموثّقة بنجاح مقابل مصادر العقوبات والأشخاص المعرضين سياسياً والأقارب والأشخاص ذي الصلة التي اختارتها المؤسسة.' },
+    { title: 'راجع', desc: 'يقدم واثق نتائج الفحص على مستوى الفئة. التطابقات المحتملة تتضمن معلومات مطابقة ذات صلة لدعم المراجعة من فريق الامتثال.' },
+    { title: 'راقب', desc: 'عند تفعيل المراقبة المستمرة، يمكن إعادة فحص الهويات المسجلة تلقائياً عند تحديث مصادر الفحص المختارة.' },
+  ],
 };
 
-const screeningFeatures = {
-  en: ['Screening against sanctions, PEP, and RCA sources', 'Automatic screening on accepted verifications (opt-in)', 'Manual screening from the dashboard or API', 'Configurable match sensitivity'],
-  ar: ['فحص مقابل مصادر العقوبات والشخصيات السياسية وأقاربها', 'فحص تلقائي عند قبول التحقق (اختياري)', 'فحص يدوي من لوحة التحكم أو عبر API', 'حساسية مطابقة قابلة للتخصيص'],
+const screeningCategories = {
+  en: [
+    { title: 'SANCTIONS', desc: 'Screen verified identities against supported international sanctions sources selected by the organisation.' },
+    { title: 'PEP', desc: 'Identify potential politically exposed person matches, including Syria-focused PEP coverage.' },
+    { title: 'RCA', desc: 'Identify potential relatives and close associates associated with covered politically exposed persons.' },
+  ],
+  ar: [
+    { title: 'العقوبات', desc: 'افحص الهويات الموثّقة مقابل مصادر العقوبات الدولية المدعومة التي اختارتها المؤسسة.' },
+    { title: 'الأشخاص المعرضون سياسياً', desc: 'حدّد التطابقات المحتملة للأشخاص المعرضين سياسياً، مع التركيز على تغطية سوريا.' },
+    { title: 'الأقارب والأشخاص ذوو الصلة', desc: 'حدّد الأقارب والأشخاص ذوي الصلة المحتملين المرتبطين بالأشخاص المعرضين سياسياً المشمولين.' },
+  ],
 };
 
 const investigationFeatures = {
@@ -36,43 +62,121 @@ const monitoringFeatures = {
 
 export default function AmlScreeningPage() {
   const { isRTL, href } = useLanguage();
-  const flow = isRTL ? flowSteps.ar : flowSteps.en;
-  const screening = isRTL ? screeningFeatures.ar : screeningFeatures.en;
+  const workflow = isRTL ? workflowSteps.ar : workflowSteps.en;
+  const categories = isRTL ? screeningCategories.ar : screeningCategories.en;
   const investigation = isRTL ? investigationFeatures.ar : investigationFeatures.en;
   const monitoring = isRTL ? monitoringFeatures.ar : monitoringFeatures.en;
 
   return (
     <>
       <PageHero
-        title={isRTL ? 'فحص العقوبات والشخصيات السياسية وأقاربها للجهات المنظّمة' : 'Sanctions, PEP & RCA screening for regulated clients'}
+        title={isRTL ? 'التحقق من الهوية مع فحص مدمج لمكافحة غسل الأموال' : 'Identity verification with built-in AML screening'}
         subtitle={isRTL
-          ? 'للبنوك وشركات التقنية المالية: فحص غسل الاموال خدمة اضافية تُفعَّل فوق خدمة التحقق من الهوية — تلقائياً عند قبول التحقق، أو يدوياً من لوحة التحكم لأي شخص، أو بشكل مستمر عبر اشتراك مراقبة سنوي مدفوع.'
-          : 'For banks and fintechs: AML screening is an add-on to ePassport verification — run automatically when a verification is accepted, manually from the dashboard for any person, or continuously through paid annual monitoring.'}
+          ? 'تحقق من الهوية وافحصها مقابل مصادر العقوبات والأشخاص المعرضين سياسياً والأقارب والأشخاص ذوي الصلة ضمن سير عمل متكامل. تتحكم المؤسسة في توقيت الفحص والمصادر المفعّلة وتفعيل المراقبة المستمرة.'
+          : 'Verify identities and screen them against supported sanctions, PEP and RCA sources in one connected workflow. Organisations control when screening runs, which sources are enabled and whether continuous monitoring is active.'}
       />
 
-      {/* What Wathiq screens */}
+      {/* Workflow section */}
+      <section className="section-pad bg-slate-50 relative overflow-hidden">
+        <TechBackground variant="light" />
+        <div className="container-wide relative z-10">
+          <AnimatedSection className={`text-center max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
+            <h2 className="heading-lg text-navy-900">
+              {isRTL ? 'من التحقق من الهوية إلى المراقبة المستمرة' : 'From identity verification to ongoing monitoring'}
+            </h2>
+            <p className="body-lg text-slate-500 mt-4">
+              {isRTL
+                ? 'سير عمل متكامل يربط التحقق من الهوية مع فحص مكافحة غسل الأموال والمراقبة المستمرة.'
+                : 'A connected workflow linking identity verification, AML screening and continuous monitoring.'}
+            </p>
+          </AnimatedSection>
+
+          <div className={`grid md:grid-cols-4 gap-4 ${isRTL ? 'text-right' : ''}`}>
+            {workflow.map((step, i) => (
+              <AnimatedItem key={i} index={i}>
+                <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm h-full hover:shadow-md transition-shadow">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-electric-100 text-electric-600 font-bold mb-4">
+                    {i + 1}
+                  </div>
+                  <h3 className="font-bold text-navy-900 mb-3">{step.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{step.desc}</p>
+                </div>
+              </AnimatedItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Screening categories */}
       <section className="section-pad bg-white">
         <div className="container-wide">
+          <AnimatedSection className={`text-center max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
+            <h2 className="heading-lg text-navy-900">
+              {isRTL ? 'فئات الفحص الثلاث' : 'Three screening categories'}
+            </h2>
+            <p className="body-lg text-slate-500 mt-4">
+              {isRTL
+                ? 'واثق يقيّم كل فئة بشكل مستقل ويقدم نتائج واضحة.'
+                : 'Wathiq evaluates each category independently and presents clear results.'}
+            </p>
+          </AnimatedSection>
+
+          <div className={`grid md:grid-cols-3 gap-6 max-w-4xl mx-auto ${isRTL ? 'text-right' : ''}`}>
+            {categories.map((cat, i) => (
+              <AnimatedItem key={i} index={i}>
+                <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-10 h-10 rounded-lg bg-electric-100 text-electric-600 font-bold flex items-center justify-center mb-4">
+                    {cat.title}
+                  </div>
+                  <h3 className="font-bold text-navy-900 mb-3">{cat.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{cat.desc}</p>
+                </div>
+              </AnimatedItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Automatic screening section */}
+      <section className="section-pad bg-white">
+        <div className="container-wide">
+          <AnimatedSection className={`max-w-2xl ${isRTL ? 'text-right' : ''}`}>
+            <h2 className="heading-lg text-navy-900 mb-5">
+              {isRTL ? 'الفحص التلقائي بعد التحقق من الهوية' : 'Automatic screening after identity verification'}
+            </h2>
+            <p className="body-lg text-slate-600 mb-6">
+              {isRTL
+                ? 'عند تفعيله من قبل المؤسسة، يبدأ واثق فحص مكافحة غسل الأموال تلقائياً بعد نجاح التحقق من الهوية.'
+                : 'When enabled by the organisation, Wathiq automatically initiates AML screening after identity verification is successfully completed.'}
+            </p>
+            <p className="body-lg text-slate-600">
+              {isRTL
+                ? 'يمكن لمسؤولي المؤسسة تعطيل الفحص التلقائي أو بدء الفحص يدوياً عند الحاجة. الفحص اختياري، وليس إجباري.'
+                : 'Administrators can disable automatic screening or initiate screening manually when required. Automatic screening is client-controlled, not mandatory.'}
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Built for Syria section */}
+      <section className="section-pad bg-slate-50 relative overflow-hidden">
+        <TechBackground variant="light" />
+        <div className="container-wide relative z-10">
           <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${isRTL ? 'text-right' : ''}`}>
             <AnimatedSection>
               <h2 className="heading-lg text-navy-900 mb-5">
-                {isRTL ? 'فحص مطابقة اسمي مقابل قوائم العقوبات والشخصيات السياسية وأقاربها.' : 'Name-matching screening against sanctions, PEP, and RCA lists.'}
+                {isRTL ? 'مصمم لسوريا ومتصل بمصادر العقوبات الدولية' : 'Built for Syria. Connected to international sanctions sources.'}
               </h2>
-              <p className="body-lg mb-8">
+              <p className="body-lg text-slate-600 mb-6">
                 {isRTL
-                  ? 'يمكنك الاشتراك في التحقق من الهوية وحده، أو إضافة فحص غسل الاموال كخدمة اضافية. بمجرد التفعيل، يفحص واثق الأشخاص الطبيعيين مقابل مصادر العقوبات، والشخصيات السياسية المعرّضة للمخاطر (PEP)، وأقاربهم وشركائهم المقرّبين (RCA) التي تختارها مؤسستك — تلقائياً بمجرد قبول طلب تحقق من الهوية، أو يدوياً على أي شخص من لوحة التحكم أو عبر API — دون أن يُلغي الفحص وحده قرار التحقق من الهوية.'
-                  : "You can subscribe to ePassport verification on its own, or add AML screening on top of it. Once enabled, Wathiq screens named individuals against the official sanctions, PEP (Politically Exposed Persons), and RCA (their relatives and close associates) sources your organisation has selected — automatically as soon as an identity verification is accepted, or manually on any person from the dashboard or API — and it never overrides the identity verification decision on its own."}
+                  ? 'يجمع واثق بين مصادر العقوبات الدولية المدعومة مع فحص الأشخاص المعرضين سياسياً والأقارب والأشخاص ذي الصلة المطور خصيصاً لحالات الامتثال السورية.'
+                  : 'Wathiq combines supported international sanctions sources with PEP and RCA screening developed for Syrian compliance use cases.'}
               </p>
-
-              <div className="grid sm:grid-cols-2 gap-3 mb-8">
-                {screening.map((feature, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <CheckIcon />
-                    <span className="text-slate-700 text-sm font-medium">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
+              <p className="body-lg text-slate-600 mb-8">
+                {isRTL
+                  ? 'تختار المؤسسات مصادر الفحص والفئات المناسبة لسياستها الامتثالية.'
+                  : 'Organisations can select the screening sources and categories appropriate to their compliance policy.'}
+              </p>
               <Link href={href('/contact')} className="btn-primary">
                 {isRTL ? 'اطلب عرضاً تجريبياً' : 'Request a Demo'}
                 <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,11 +194,11 @@ export default function AmlScreeningPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4" />
                     </svg>
                   </div>
-                  <h3 className="text-white text-xl font-bold mb-2">{isRTL ? 'فحص غسل الاموال' : 'AML Screening'}</h3>
+                  <h3 className="text-white text-xl font-bold mb-2">{isRTL ? 'فحص مدمج' : 'Integrated screening'}</h3>
                   <p className="text-white/90 text-sm mb-6 leading-relaxed">
                     {isRTL
-                      ? 'تشابه محتمل يفتح حالة تحقيق للامتثال — لا تُرفض هوية العميل تلقائياً.'
-                      : "A potential match opens a compliance investigation case — it doesn't automatically reject the customer."}
+                      ? 'تحقق وافحص وراقب ضمن منصة واحدة. تتحكم مؤسستك بكل جانب.'
+                      : 'Verify, screen and monitor within one platform. Your organisation controls every aspect.'}
                   </p>
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {[
@@ -107,9 +211,9 @@ export default function AmlScreeningPage() {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {[
-                      isRTL ? 'لا يوجد تشابه' : 'Clean',
-                      isRTL ? 'تشابه محتمل' : 'Potential Match',
-                      isRTL ? 'غير مكتمل' : 'Incomplete',
+                      isRTL ? 'مختار' : 'Selected',
+                      isRTL ? 'قابل للتخصيص' : 'Configurable',
+                      isRTL ? 'مراقب' : 'Monitored',
                     ].map((f, i) => (
                       <span key={i} className="bg-white/20 text-white text-xs px-3 py-1 rounded-full border border-white/30">{f}</span>
                     ))}
@@ -121,42 +225,182 @@ export default function AmlScreeningPage() {
         </div>
       </section>
 
-      {/* Flow diagram */}
-      <section className="section-pad bg-slate-50 relative overflow-hidden">
-        <TechBackground variant="light" />
-        <div className="container-wide relative z-10">
-          <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
+      {/* Client-controlled configuration */}
+      <section className="section-pad bg-white">
+        <div className="container-wide">
+          <AnimatedSection className={`text-center max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
             <h2 className="heading-lg text-navy-900">
-              {isRTL ? 'من الفحص إلى قرار الامتثال' : 'From screening to a compliance decision'}
+              {isRTL ? 'قوائم الفحص حسب سياستك' : 'Configure screening around your compliance policy'}
             </h2>
+            <p className="body-lg text-slate-500 mt-4">
+              {isRTL
+                ? 'يمكن لمسؤولي المؤسسة المصرح لهم تخصيص الفحص بالكامل حول احتياجات الامتثال.'
+                : 'Authorised client administrators can configure screening around your specific compliance needs.'}
+            </p>
           </AnimatedSection>
 
-          <div className="flex flex-col lg:flex-row items-stretch gap-3 lg:gap-2 max-w-5xl mx-auto">
-            {flow.map((step, i) => (
-              <div key={i} className="flex items-center gap-2 flex-1">
-                <div className="flex-1 bg-white border border-slate-200 rounded-xl px-4 py-5 text-center shadow-sm">
-                  <span className="text-navy-900 text-sm font-semibold">{step}</span>
+          <div className={`grid md:grid-cols-2 gap-6 max-w-3xl mx-auto ${isRTL ? 'text-right' : ''}`}>
+            {[
+              { label: isRTL ? 'تفعيل/تعطيل الفحص التلقائي' : 'Enable/disable automatic screening', icon: '⚙️' },
+              { label: isRTL ? 'اختيار المصادر المفعّلة' : 'Select enabled sources', icon: '📋' },
+              { label: isRTL ? 'فئات الفحص (العقوبات، PEP، RCA)' : 'Screening categories (Sanctions, PEP, RCA)', icon: '🏷️' },
+              { label: isRTL ? 'حساسية المطابقة' : 'Matching sensitivity', icon: '🎚️' },
+              { label: isRTL ? 'المراقبة المستمرة (مفعّلة/معطّلة)' : 'Continuous monitoring (enabled/disabled)', icon: '🔔' },
+              { label: isRTL ? 'تحديثات القوائم وتغييرات البيانات' : 'Retriggers on list updates and data changes', icon: '🔄' },
+            ].map((config, i) => (
+              <AnimatedItem key={i} index={i}>
+                <div className="flex items-start gap-4 bg-slate-50 rounded-lg p-5 border border-slate-200">
+                  <div className="text-2xl flex-shrink-0">{config.icon}</div>
+                  <span className="text-slate-700 font-medium text-sm">{config.label}</span>
                 </div>
-                {i < flow.length - 1 && (
-                  <svg className={`w-5 h-5 text-teal-500 flex-shrink-0 hidden lg:block ${isRTL ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                )}
-              </div>
+              </AnimatedItem>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Investigation & review */}
+      {/* Matching sensitivity section */}
+      <section className="section-pad bg-slate-50 relative overflow-hidden">
+        <TechBackground variant="light" />
+        <div className="container-wide relative z-10">
+          <AnimatedSection className={`max-w-2xl ${isRTL ? 'text-right' : ''}`}>
+            <h2 className="heading-lg text-navy-900 mb-5">
+              {isRTL ? 'حساسية مطابقة قابلة للتخصيص' : 'Configurable matching sensitivity'}
+            </h2>
+            <p className="body-lg text-slate-600">
+              {isRTL
+                ? 'يمكن لمسؤولي المؤسسة اختيار حساسية مطابقة مناسبة أو تخصيص حد معين، مما يساعد على توازن التغطية مع عدد الحالات المحتملة التي تتطلب مراجعة يدوية.'
+                : 'Administrators can select an appropriate matching sensitivity or configure a custom threshold, helping balance detection coverage with the number of potential matches requiring manual review.'}
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Screening results section */}
       <section className="section-pad bg-white">
         <div className="container-wide">
+          <AnimatedSection className={`text-center max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
+            <h2 className="heading-lg text-navy-900">
+              {isRTL ? 'نتائج واضحة لكل فئة فحص' : 'Clear results for every screening category'}
+            </h2>
+            <p className="body-lg text-slate-500 mt-4">
+              {isRTL
+                ? 'يقيّم واثق فئات الفحص المفعّلة بشكل مستقل ويقدم نتائج واضحة.'
+                : 'Wathiq evaluates enabled screening categories independently and presents clear results.'}
+            </p>
+          </AnimatedSection>
+
+          <div className={`max-w-4xl mx-auto grid md:grid-cols-3 gap-4 mb-8 ${isRTL ? 'text-right' : ''}`}>
+            {[
+              {
+                title: isRTL ? 'العقوبات' : 'SANCTIONS',
+                status: isRTL ? 'لا توجد مطابقة' : 'No match',
+                statusType: 'clean',
+                icon: '✓',
+              },
+              {
+                title: 'PEP',
+                status: isRTL ? 'تشابه محتمل' : 'Potential match',
+                statusType: 'warning',
+                details: [
+                  { label: isRTL ? 'الحقول' : 'Matching fields', value: isRTL ? 'الاسم، الجنسية' : 'Name, nationality' },
+                  { label: isRTL ? 'درجة التشابه' : 'Similarity', value: '91.6%' },
+                ],
+                icon: '⚠️',
+              },
+              {
+                title: 'RCA',
+                status: isRTL ? 'تشابه محتمل' : 'Potential match',
+                statusType: 'warning',
+                details: [
+                  { label: isRTL ? 'الحقول' : 'Matching fields', value: isRTL ? 'الاسم، تاريخ الميلاد' : 'Name, DOB' },
+                  { label: isRTL ? 'درجة التشابه' : 'Similarity', value: '88.2%' },
+                ],
+                icon: '⚠️',
+              },
+            ].map((result, i) => (
+              <AnimatedItem key={i} index={i}>
+                <div className={`rounded-xl border p-6 shadow-sm ${
+                  result.statusType === 'clean'
+                    ? 'bg-emerald-50 border-emerald-200'
+                    : 'bg-amber-50 border-amber-200'
+                }`}>
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="font-bold text-navy-900">{result.title}</h3>
+                    <span className="text-2xl">{result.icon}</span>
+                  </div>
+                  <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-4 ${
+                    result.statusType === 'clean'
+                      ? 'bg-emerald-100 text-emerald-700'
+                      : 'bg-amber-100 text-amber-700'
+                  }`}>
+                    {result.status}
+                  </span>
+                  {result.details && (
+                    <div className="space-y-2">
+                      {result.details.map((detail, j) => (
+                        <div key={j} className="flex items-center justify-between text-sm border-t border-current border-opacity-10 pt-2">
+                          <span className="text-slate-600">{detail.label}</span>
+                          <span className="font-semibold text-navy-900">{detail.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </AnimatedItem>
+            ))}
+          </div>
+
+          <AnimatedSection className={`max-w-3xl mx-auto mb-8 ${isRTL ? 'text-right' : ''}`}>
+            <p className="body-lg text-slate-600 mb-6">
+              {isRTL
+                ? 'عند اكتشاف تشابه محتمل، يقدم واثق الفئة ذات الصلة وسجلات التطابق المحتملة ومعلومات التشابه لدعم مراجعة الامتثال.'
+                : 'When a potential match is detected, Wathiq provides the relevant category, potential-match records and similarity information to support compliance review.'}
+            </p>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
+              <div className="flex items-start gap-3">
+                <AlertIcon />
+                <div>
+                  <p className="font-semibold text-blue-900 text-sm mb-1">
+                    {isRTL ? 'ملاحظة مهمة' : 'Important note'}
+                  </p>
+                  <p className="text-blue-800 text-sm leading-relaxed">
+                    {isRTL
+                      ? 'يشير التطابق المحتمل إلى حالة تتطلب المراجعة من فريق الامتثال، ولا يعني بحد ذاته أن الشخص مدرج على قائمة عقوبات أو أنه شخص معرض سياسياً أو من الأقارب أو الأشخاص ذوي الصلة.'
+                      : 'A potential match is an indicator for compliance review. It does not by itself establish that an individual is sanctioned, a PEP or an RCA.'}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection className={`flex gap-4 flex-col sm:flex-row justify-center ${isRTL ? 'text-right' : ''}`}>
+            <Link href={href('/contact')} className="btn-primary">
+              {isRTL ? 'اطلب عرضاً تجريبياً' : 'Request a Demo'}
+              <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+            <Link href={href('/aml-screening/coverage')} className="btn-secondary">
+              {isRTL ? 'استكشف تغطية الفحص' : 'Explore screening coverage'}
+              <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Investigation & review */}
+      <section className="section-pad bg-slate-50 relative overflow-hidden">
+        <TechBackground variant="light" />
+        <div className="container-wide relative z-10">
           <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${isRTL ? 'text-right lg:grid-flow-col-dense' : ''}`}>
             <AnimatedSection delay={0.2} direction={isRTL ? 'right' : 'left'} className={isRTL ? 'lg:col-start-2' : ''}>
               <h2 className="heading-lg text-navy-900 mb-5">
                 {isRTL ? 'أدلة كاملة لفريق الامتثال لديك.' : 'Full evidence for your compliance team.'}
               </h2>
-              <p className="body-lg mb-8">
+              <p className="body-lg text-slate-600 mb-8">
                 {isRTL
                   ? 'كل تشابه محتمل يُفتح كحالة تحقيق في لوحة التحكم: تغطية المصادر، ودرجة تشابه لكل نتيجة، ومقارنة الحقول جنباً إلى جنب، وأدلة المصدر. يراجع فريقك الحالة ويغلقها كمطابقة إيجابية زائفة، أو تطابق مؤكد، أو بحاجة لمزيد من المعلومات — ويُسجَّل كل إجراء في سجل تدقيق.'
                   : 'Every potential match opens as an investigation case in the dashboard: source coverage, a similarity score per result, side-by-side field comparison, and source evidence. Your team resolves the case as a false positive, a confirmed match, or as needing more information — and every action is captured in an audit trail.'}
@@ -173,7 +417,7 @@ export default function AmlScreeningPage() {
             </AnimatedSection>
 
             <AnimatedSection className={isRTL ? 'lg:col-start-1' : ''}>
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-card">
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
                 <div className="flex items-center justify-between mb-5">
                   <span className="text-navy-900 font-bold text-sm">{isRTL ? 'حالة الفحص' : 'Screening case'}</span>
                   <span className="bg-amber-100 text-amber-700 text-xs font-bold px-3 py-1 rounded-full">
@@ -182,7 +426,7 @@ export default function AmlScreeningPage() {
                 </div>
                 <div className="space-y-3">
                   {[
-                    { label: isRTL ? 'المصدر' : 'Source', value: isRTL ? 'القائمة المختارة' : 'Selected list' },
+                    { label: isRTL ? 'المصدر' : 'Source', value: isRTL ? 'قائمة مختارة' : 'Selected source' },
                     { label: isRTL ? 'درجة التشابه' : 'Similarity score', value: '78%' },
                     { label: isRTL ? 'الحقول المتطابقة' : 'Matching fields', value: isRTL ? 'الاسم، تاريخ الميلاد' : 'Name, date of birth' },
                     { label: isRTL ? 'الحساسية' : 'Sensitivity', value: isRTL ? 'قياسي' : 'Standard' },
@@ -205,18 +449,23 @@ export default function AmlScreeningPage() {
       </section>
 
       {/* Continuous monitoring */}
-      <section className="section-pad bg-slate-50 relative overflow-hidden">
-        <TechBackground variant="light" />
-        <div className="container-wide relative z-10">
+      <section className="section-pad bg-white">
+        <div className="container-wide">
           <div className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${isRTL ? 'text-right' : ''}`}>
             <AnimatedSection>
               <h2 className="heading-lg text-navy-900 mb-5">
-                {isRTL ? 'فحص لا يتوقف عند الموافقة.' : "Screening that doesn't stop at approval."}
+                {isRTL ? 'ابقَ على اطّلاع عند تغيير بيانات الفحص' : 'Stay informed when screening data changes'}
               </h2>
-              <p className="body-lg mb-8">
+              <p className="body-lg text-slate-600 mb-8">
                 {isRTL
-                  ? 'أضف اشتراك المراقبة المستمرة المدفوع لأي هوية موثّقة: يعيد واثق فحصها تلقائياً عند تحديث إحدى القوائم المختارة أو تغيّر بيانات هويتها، وعلى فاصل دوري اختياري، لمدة اشتراك سنوية مدتها 365 يوماً — مع تذكير بالتجديد قبل انتهائها. يمكن تفعيل المراقبة يدوياً لكل هوية، أو تلقائياً بعد قبول كل عملية تحقق.'
-                  : "Add paid continuous monitoring to any verified identity: Wathiq automatically re-screens it whenever a selected list is updated or the person's identity data changes, on an optional periodic interval, for a 365-day term — with a renewal reminder before it lapses. Monitoring can be enrolled manually per identity, or automatically after every accepted verification."}
+                  ? 'قد يتغير الخطر بعد التوظيف. عند تفعيل المراقبة المستمرة، يمكن لواثق إعادة فحص الهويات المسجلة تلقائياً عند تحديث مصادر الفحص المختارة.'
+                  : 'Risk can change after onboarding. When continuous monitoring is enabled, Wathiq can automatically re-screen enrolled identities as selected screening sources are updated.'}
+              </p>
+
+              <p className="body-lg text-slate-600 mb-8">
+                {isRTL
+                  ? 'يمكن لمسؤولي المؤسسة المصرح لهم تفعيل أو تعطيل المراقبة المستمرة. المراقبة اختيارية وقابلة للتخصيص بالكامل حول احتياجات الامتثال.'
+                  : 'Authorised administrators can enable or disable continuous monitoring. Monitoring is optional and fully configurable around your compliance needs.'}
               </p>
 
               <div className="grid sm:grid-cols-2 gap-3 mb-8">
@@ -230,7 +479,7 @@ export default function AmlScreeningPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2} direction="left">
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-card">
                 <div className="flex items-center justify-between mb-5">
                   <span className="text-navy-900 font-bold text-sm">{isRTL ? 'ملف المراقبة' : 'Monitoring profile'}</span>
                   <span className="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">
@@ -261,19 +510,53 @@ export default function AmlScreeningPage() {
         </div>
       </section>
 
+      {/* Compliance team control */}
+      <section className="section-pad bg-slate-50 relative overflow-hidden">
+        <TechBackground variant="light" />
+        <div className="container-wide relative z-10">
+          <AnimatedSection className={`max-w-2xl mx-auto ${isRTL ? 'text-right' : ''}`}>
+            <h2 className="heading-lg text-navy-900 mb-5">
+              {isRTL ? 'فريق الامتثال لديك يبقى في السيطرة' : 'Your compliance team remains in control'}
+            </h2>
+            <p className="body-lg text-slate-600 mb-6">
+              {isRTL
+                ? 'يوفر واثق معلومات التحقق من الهوية والفحص لدعم سير العمل الامتثالي. يتم تسطير التطابقات المحتملة للمراجعة؛ تبقى المؤسسة مسؤولة عن قرارات الإدراج والامتثال والعمل النهائية.'
+                : 'Wathiq provides identity-verification and screening information to support compliance workflows. Potential matches are surfaced for review; the organisation remains responsible for its final onboarding, compliance and business decisions.'}
+            </p>
+            <p className="body-lg text-slate-600">
+              {isRTL
+                ? 'واثق لا يتخذ القرار النهائي بالنيابة عن فريق الامتثال. كل حالة تتطلب تقييم بشري ومراجعة.'
+                : 'Wathiq does not make the final decision on behalf of your team. Every case requires human review and assessment.'}
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* Disclaimer callout */}
-      <section className="pb-14 sm:pb-20 bg-white">
+      <section className="section-pad bg-white">
         <div className="container-wide">
-          <AnimatedSection className="max-w-2xl mx-auto">
+          <AnimatedSection className="max-w-3xl mx-auto">
             <div className={`border-s-4 border-slate-300 bg-slate-50 rounded-e-2xl px-6 py-5 sm:px-8 sm:py-6 ${isRTL ? 'text-right' : ''}`}>
-              <div className="text-slate-500 text-xs font-bold uppercase tracking-wide mb-2">
-                {isRTL ? 'ملاحظة' : 'Note'}
+              <div className="text-slate-500 text-xs font-bold uppercase tracking-wide mb-3">
+                {isRTL ? 'مهم' : 'Important'}
               </div>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                {isRTL
-                  ? 'درجة التشابه مؤشر للتحقيق، وليست احتمالاً أو حكماً قانونياً على الهوية. النتيجة النهائية لأي حالة يحددها فريق الامتثال لديك. يغطي فحص غسل الاموال مطابقة الأسماء مقابل مصادر العقوبات، والشخصيات السياسية المعرّضة للمخاطر (PEP)، وأقاربها وشركائها المقرّبين (RCA) التي تختارها مؤسستك. غير مشمول حالياً: فحص الإعلام السلبي، أخبار سلبية، أو قوائم مراقبة داخلية — تواصل معنا لمناقشة احتياجاتك التنظيمية المحددة.'
-                  : "A similarity score is an investigation indicator, not a probability or a legal determination of identity. The final outcome of any case is decided by your compliance team. AML screening covers name-matching against sanctions, PEP (Politically Exposed Persons), and RCA (their relatives and close associates) sources you select. Not currently included: adverse-media screening, negative-news sources, or internal watchlists — contact us to discuss your specific regulatory requirements."}
-              </p>
+              <div className="space-y-4 text-slate-600 text-sm leading-relaxed">
+                <p>
+                  {isRTL
+                    ? 'درجة التشابه مؤشر للتحقيق، وليست احتمالاً أو إثباتاً قانونياً. النتيجة النهائية لأي حالة يحددها فريق الامتثال لديك.'
+                    : "A similarity score is an investigation indicator, not a probability or a legal determination. The final outcome of any case is decided by your compliance team."}
+                </p>
+                <p>
+                  {isRTL
+                    ? 'يغطي فحص غسل الاموال مطابقة الأسماء مقابل مصادر العقوبات والأشخاص المعرضين سياسياً (PEP) والأقارب والأشخاص ذي الصلة (RCA) التي تختارها مؤسستك.'
+                    : 'AML screening covers name-matching against sanctions, PEP (Politically Exposed Persons), and RCA (their relatives and close associates) sources your organisation selects.'}
+                </p>
+                <p>
+                  {isRTL
+                    ? 'غير مشمول حالياً: فحص الإعلام السلبي أو أخبار سلبية — تواصل معنا لمناقشة احتياجاتك التنظيمية المحددة.'
+                    : 'Not currently included: adverse-media screening or negative-news sources — contact us to discuss your specific regulatory requirements.'}
+                </p>
+              </div>
             </div>
           </AnimatedSection>
         </div>
@@ -282,14 +565,14 @@ export default function AmlScreeningPage() {
       {/* CTA */}
       <section className="py-20 bg-slate-50">
         <div className="container-wide">
-          <AnimatedSection className="text-center">
+          <AnimatedSection className={`text-center ${isRTL ? 'text-right' : ''}`}>
             <h2 className="heading-lg text-navy-900 mb-4">
-              {isRTL ? 'هل تحتاج فحص غسل الاموال لمؤسستك؟' : 'Need AML screening for your organisation?'}
+              {isRTL ? 'هل تحتاج فحص غسل الأموال لمؤسستك؟' : 'Need AML screening for your organisation?'}
             </h2>
             <p className="text-slate-600 text-lg mb-8 max-w-xl mx-auto">
               {isRTL
-                ? 'تحدث مع فريقنا حول متطلبات الامتثال لديك وقوائم الفحص التي تحتاجها.'
-                : "Talk to our team about your compliance requirements and the list sources you need to screen against."}
+                ? 'تحدث مع فريقنا حول متطلبات الامتثال والمصادر التي تحتاج إلى الفحص مقابلها.'
+                : "Talk to our team about your compliance requirements and the sources you need to screen against."}
             </p>
             <Link href={href('/contact')} className="btn-primary shadow-glow px-8 py-3.5 text-base">
               {isRTL ? 'اطلب عرضاً تجريبياً' : 'Request a Demo'}

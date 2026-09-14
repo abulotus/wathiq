@@ -10,14 +10,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     ? localizedMetadata({
         locale,
         path: '/aml-screening',
-        title: 'فحص غسل الاموال — العقوبات والشخصيات السياسية وأقاربها',
-        description: 'يفحص واثق الأفراد مقابل مصادر العقوبات والشخصيات السياسية المعرّضة للمخاطر (PEP) وأقاربها (RCA) التي تختارها مؤسستك، تلقائياً أو عند الطلب أو بمراقبة مستمرة، مع حالة تحقيق ومراجعة امتثال كاملة.',
+        title: 'التحقق من الهوية مع فحص مكافحة غسل الأموال',
+        description: 'تحقق من الهوية وافحصها مقابل العقوبات والأشخاص المعرضين سياسياً (PEP) والأقارب والأشخاص ذي الصلة (RCA) ضمن سير عمل متكامل. تتحكم المؤسسة في توقيت الفحص والمصادر المفعّلة والمراقبة المستمرة.',
       })
     : localizedMetadata({
         locale,
         path: '/aml-screening',
-        title: 'AML Screening — Sanctions, PEP & RCA Matching',
-        description: "Wathiq screens individuals against your organisation's selected sanctions, PEP, and RCA sources, automatically, on demand, or through continuous monitoring, with a full investigation and compliance review workflow.",
+        title: 'Identity verification with built-in AML screening',
+        description: 'Verify identities and screen them against supported sanctions, PEP and RCA sources in one connected workflow. Organisations control when screening runs, which sources are enabled and whether continuous monitoring is active.',
       });
 }
 

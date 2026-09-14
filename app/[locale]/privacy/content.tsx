@@ -46,7 +46,7 @@ const content = {
         <h2>3. How We Share Your Information</h2>
         <p>We do not sell, rent, or trade your personal data. We may share information with:</p>
         <ul>
-          <li><strong>Service providers and subprocessors</strong> — third-party vendors who process data on our behalf (e.g., hosting, email delivery, analytics) under data processing agreements. For identity verification services, this includes cloud infrastructure providers and specialised verification vendors (e.g., Amazon Web Services for facial recognition and liveness detection). See <a href="service-data">Service Data Information</a> for the complete list.</li>
+          <li><strong>Service providers and subprocessors</strong> — third-party vendors who process data on our behalf (e.g., hosting, email delivery, analytics) under data processing agreements. For identity verification services, this includes cloud infrastructure providers and specialised biometric-processing providers for facial recognition and liveness detection. See <a href="service-data">Service Data Information</a> for further details.</li>
           <li><strong>Requesting organisations</strong> — the organisation that requested your identity verification receives the verification result (pass/fail decision and supporting evidence) as determined by that organisation's agreement with us.</li>
           <li><strong>Legal or regulatory authorities</strong> — where required by law, court order, or regulatory requirement</li>
           <li><strong>Business transfers</strong> — in connection with a merger, acquisition, or sale of assets, your data may be transferred as part of that transaction</li>
@@ -147,7 +147,7 @@ const content = {
         <h2>٣. كيف نشارك معلوماتك</h2>
         <p>نحن لا نبيع أو نؤجر أو نتداول بياناتك الشخصية. قد نشارك المعلومات مع:</p>
         <ul>
-          <li><strong>مزودو الخدمة والمعالجون الفرعيون</strong> — البائعون الخارجيون الذين يعالجون البيانات نيابةً عنا (مثل الاستضافة وتسليم البريد الإلكتروني والتحليلات) بموجب اتفاقيات معالجة البيانات. لخدمات التحقق من الهوية، يشمل ذلك مزودي البنية الأساسية السحابية والبائعين المتخصصين في التحقق (مثل أمازون ويب سيرفيسز للتعرف على الوجه وكشف الحيوية). راجع صفحة <a href="service-data">معلومات بيانات الخدمة</a> للحصول على القائمة الكاملة.</li>
+          <li><strong>مزودو الخدمة والمعالجون الفرعيون</strong> — البائعون الخارجيون الذين يعالجون البيانات نيابةً عنا (مثل الاستضافة وتسليم البريد الإلكتروني والتحليلات) بموجب اتفاقيات معالجة البيانات. لخدمات التحقق من الهوية، يشمل ذلك مزودي البنية الأساسية السحابية ومزودي المعالجة البيومترية المتخصصين في التعرف على الوجه وكشف الحيوية. راجع صفحة <a href="service-data">معلومات بيانات الخدمة</a> لمزيد من التفاصيل.</li>
           <li><strong>المؤسسات الطالبة</strong> — تتلقى المؤسسة التي طلبت التحقق من هويتك نتيجة التحقق (قرار النجاح/الفشل والأدلة الداعمة) كما تحدده اتفاقية تلك المؤسسة معنا.</li>
           <li><strong>السلطات القانونية أو التنظيمية</strong> — عند الاقتضاء بموجب القانون أو أمر المحكمة أو المتطلبات التنظيمية</li>
           <li><strong>عمليات نقل الأعمال</strong> — في حالة الاندماج أو الاستحواذ أو بيع الأصول، قد يتم نقل بياناتك كجزء من تلك الصفقة</li>

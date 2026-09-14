@@ -39,12 +39,12 @@ export default function ServiceDataPage() {
                   <li>بيانات المنطقة القابلة للقراءة آلياً (MRZ)</li>
                   <li>بيانات الباركود</li>
                   <li>بيانات شريحة جواز الإلكتروني (NFC) والتوقيعات الرقمية حيث ينطبق</li>
-                  <li>لقطات فحص الحيوية (صور الفيديو من فحص الحيوية)</li>
+                  <li>الصورة المرجعية الناتجة عن فحص الحيوية ونتيجة الفحص ودرجته</li>
                   <li>صور السيلفي والصورة المرجعية للوجه المستخرجة</li>
                   <li>نتائج مطابقة الوجه</li>
                 </ul>
                 <p>
-                  يُطلب من المستخدم تأكيد موافقته قبل بدء جمع البيانات. لقطات فحص الحيوية تُبث مباشرةً إلى Amazon Rekognition لمعالجتها، بينما تُرسل الأدلة الأخرى إلى خوادم واثق عبر اتصال HTTPS مشفّر.
+                  يُطلب من المستخدم تأكيد موافقته قبل جمع أدلة الهوية والبيانات البيومترية. تُبث لقطات فحص الحيوية مباشرةً إلى مزوّد خدمة سحابية متخصص لمعالجتها ولا تمر ملفات الفيديو الخام عبر خوادم واثق. يستلم واثق من المزوّد الصورة المرجعية الناتجة ونتيجة الفحص ودرجته، بينما تُرسل الأدلة الأخرى إلى خوادم واثق عبر اتصال HTTPS مشفّر.
                 </p>
 
                 <h2>2. من يبدأ التحقق</h2>
@@ -63,7 +63,7 @@ export default function ServiceDataPage() {
                   <li>معلومات المصادر الأساسية المستخدمة في التحقق</li>
                 </ul>
                 <p>
-                  لا تتلقى المؤسسة الطالبة ملفات الفيديو الخام لفحص الحيوية أو صور المرجعية المتوسطة إلا إذا طُلب منها تحديداً عبر اتفاقية الخدمة.
+                  لا تتلقى المؤسسة الطالبة ملفات الفيديو الخام لفحص الحيوية. قد تتلقى معلومات الهوية ذات الصلة ونتيجة التحقق وفقاً لاتفاقية الخدمة والغرض الذي طُلب من أجله التحقق.
                 </p>
 
                 <h2>4. الأمان والتشفير</h2>
@@ -76,9 +76,9 @@ export default function ServiceDataPage() {
                   واثق تستخدم الخدمات التالية كمعالجين فرعيين:
                 </p>
                 <ul>
-                  <li><strong>Amazon Web Services (AWS) Rekognition</strong> — للتعرف على الوجه ومطابقة الوجه وفحوصات الحيوية. تُبث لقطات الحيوية مباشرةً إلى AWS من التطبيق.</li>
-                  <li><strong>Google Play Integrity</strong> — لمنع إساءة استخدام التطبيق والتحقق من صحة جهاز المستخدم.</li>
-                  <li><strong>Firebase Crashlytics</strong> — لتشخيص أعطال التطبيق بعد موافقة المستخدم. صور الهوية وأرقام الوثائق وبيانات الشريحة والنتائج الحيوية لا تُرسل إلى Crashlytics.</li>
+                  <li><strong>مزوّد خدمة سحابية متخصص في المعالجة البيومترية</strong> — للتعرف على الوجه ومطابقة الوجه وفحوصات الحيوية. تُبث لقطات الحيوية مباشرةً إلى المزوّد من التطبيق.</li>
+                  <li><strong>مزوّد خدمة للتحقق من سلامة التطبيق والجهاز</strong> — لمنع إساءة استخدام التطبيق والتحقق من أن الطلب صادر عن تطبيق وجهاز موثوقين.</li>
+                  <li><strong>مزوّد خدمة لتشخيص الأعطال</strong> — لتشخيص أعطال التطبيق فقط إذا اختار المستخدم الموافقة الاختيارية داخل التطبيق. صور الهوية وأرقام الوثائق وبيانات الشريحة والنتائج الحيوية لا تُرسل إلى خدمة التشخيص.</li>
                 </ul>
 
                 <h2>6. مدة الاحتفاظ بالبيانات</h2>
@@ -89,7 +89,7 @@ export default function ServiceDataPage() {
                   <li>صور الوثائق</li>
                   <li>بيانات الباركود والمنطقة القابلة للقراءة آلياً</li>
                   <li>بيانات شريحة NFC والجواز الإلكتروني</li>
-                  <li>لقطات فحص الحيوية</li>
+                  <li>الصورة المرجعية الناتجة عن فحص الحيوية ونتيجة الفحص ودرجته</li>
                   <li>صور الوجه والصور المرجعية</li>
                   <li>ملفات المراجعة</li>
                 </ul>
@@ -160,12 +160,12 @@ export default function ServiceDataPage() {
                   <li>Machine-readable zone (MRZ) data</li>
                   <li>Barcode data</li>
                   <li>ePassport NFC chip data and digital signatures (where applicable)</li>
-                  <li>Liveness capture footage (video frames from liveness checks)</li>
+                  <li>The reference image returned by the liveness check, its result and score</li>
                   <li>Selfie images and extracted face reference images</li>
                   <li>Face-match results</li>
                 </ul>
                 <p>
-                  Users are asked to confirm consent before data collection begins. Liveness capture is streamed directly to Amazon Rekognition for processing; other evidence is sent to Wathiq servers over encrypted HTTPS connections.
+                  Users are asked to confirm consent before identity evidence and biometric data are collected. Liveness frames are streamed directly to a specialized cloud service provider for processing and raw video does not pass through Wathiq servers. Wathiq receives the resulting reference image, liveness result and score from the provider; other evidence is sent to Wathiq servers over encrypted HTTPS connections.
                 </p>
 
                 <h2>2. Who Initiates Verification</h2>
@@ -184,7 +184,7 @@ export default function ServiceDataPage() {
                   <li>Primary source information used in verification</li>
                 </ul>
                 <p>
-                  The requesting organisation does not receive raw liveness video frames or intermediate face reference images unless specifically requested under the service agreement.
+                  The requesting organisation does not receive raw liveness video frames. It may receive relevant identity information and the verification result under the service agreement and for the purpose for which verification was requested.
                 </p>
 
                 <h2>4. Security and Encryption</h2>
@@ -197,9 +197,9 @@ export default function ServiceDataPage() {
                   Wathiq uses the following services as data subprocessors:
                 </p>
                 <ul>
-                  <li><strong>Amazon Web Services (AWS) Rekognition</strong> — for facial recognition, face matching, and liveness checks. Liveness frames are streamed directly to AWS from the application.</li>
-                  <li><strong>Google Play Integrity</strong> — to prevent application abuse and verify device authenticity.</li>
-                  <li><strong>Firebase Crashlytics</strong> — for application crash diagnostics with user consent. Identity images, document numbers, chip data and biometric results are not sent to Crashlytics.</li>
+                  <li><strong>A specialized cloud biometric-processing provider</strong> — for facial recognition, face matching, and liveness checks. Liveness frames are streamed directly to the provider from the application.</li>
+                  <li><strong>An application and device integrity service provider</strong> — to prevent application abuse and verify that requests originate from a trusted application and device.</li>
+                  <li><strong>A crash-diagnostics service provider</strong> — to diagnose application failures only when the user selects the optional consent inside the application. Identity images, document numbers, chip data and biometric results are not sent to the diagnostics service.</li>
                 </ul>
 
                 <h2>6. Data Retention Period</h2>
@@ -210,7 +210,7 @@ export default function ServiceDataPage() {
                   <li>Document images</li>
                   <li>Barcode and machine-readable-zone data</li>
                   <li>ePassport NFC chip data and signatures</li>
-                  <li>Liveness capture footage</li>
+                  <li>The reference image returned by the liveness check, its result and score</li>
                   <li>Face images and reference photographs</li>
                   <li>Review files</li>
                 </ul>

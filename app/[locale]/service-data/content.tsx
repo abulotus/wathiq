@@ -114,11 +114,10 @@ export default function ServiceDataPage() {
                 <ul>
                   <li>الأساس القانوني للمعالجة</li>
                   <li>نطاق البيانات المراد جمعها</li>
-                  <li>المدة التي تُحتفظ فيها البيانات</li>
                   <li>الجهات المستقبلة للبيانات</li>
                 </ul>
                 <p>
-                  واثق تنفذ تعليمات المؤسسة الطالبة وتمتثل لاتفاقية معالجة البيانات.
+                  واثق تنفذ تعليمات المؤسسة الطالبة وتمتثل لاتفاقية معالجة البيانات. واثق تطبق سياسة الاحتفاظ بالبيانات المُوثقة: يتم الاحتفاظ بأدلة التحقق لمدة 2,555 يوماً (سبع سنوات) بعد اكتمال التحقق، وذلك مع مراعاة القانون المعمول به والمتطلبات التعاقدية والحجوزات القانونية.
                 </p>
 
                 <h2>10. حقوق الأفراد</h2>
@@ -236,11 +235,10 @@ export default function ServiceDataPage() {
                 <ul>
                   <li>The lawful basis for processing</li>
                   <li>Scope of data to be collected</li>
-                  <li>Duration of data retention</li>
                   <li>Recipients of the data</li>
                 </ul>
                 <p>
-                  Wathiq implements the requesting organisation's instructions and complies with the Data Processing Agreement.
+                  Wathiq implements the requesting organisation's instructions and complies with the Data Processing Agreement. Wathiq applies its documented data retention policy: verification evidence is retained for 2,555 days (seven years) after verification completion, subject to applicable law, contractual requirements, and legal holds.
                 </p>
 
                 <h2>10. Individual Rights</h2>

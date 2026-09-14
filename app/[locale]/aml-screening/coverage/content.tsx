@@ -106,22 +106,22 @@ export default function CoverageContent() {
                 <p className="body-lg text-slate-600 mb-8 max-w-2xl">{cat.desc}</p>
 
                 {cat.sources && cat.sources.length > 0 ? (
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid md:grid-cols-2 gap-6">
                     {cat.sources.map((source, i) => (
                       <AnimatedItem key={i} index={i}>
-                        <div className="bg-white rounded-lg border border-slate-200 p-4 flex items-center gap-3 hover:shadow-md transition-shadow">
+                        <div className="bg-white rounded-lg border border-slate-200 p-4 flex items-center gap-3 hover:shadow-md hover:border-electric-300 transition-all duration-200 focus-within:ring-2 focus-within:ring-electric-500">
                           <div className="w-8 h-8 rounded-full bg-electric-100 text-electric-600 flex items-center justify-center flex-shrink-0">
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                             </svg>
                           </div>
-                          <span className="text-slate-700 font-medium">{source}</span>
+                          <span className="text-slate-700 font-medium text-sm">{source}</span>
                         </div>
                       </AnimatedItem>
                     ))}
                   </div>
                 ) : (
-                  <div className="bg-white rounded-lg border border-slate-200 p-6">
+                  <div className="bg-white rounded-lg border border-slate-200 p-6 hover:shadow-md transition-shadow duration-200">
                     <p className="text-slate-700 font-medium">{cat.note}</p>
                   </div>
                 )}
@@ -140,8 +140,8 @@ export default function CoverageContent() {
             </h2>
 
             <div className="space-y-6">
-              <div className="border-s-4 border-blue-300 bg-blue-50 rounded-e-lg px-6 py-5">
-                <h3 className="font-bold text-blue-900 mb-2">
+              <div className="border-s-4 border-blue-300 bg-blue-50 rounded-e-lg px-6 py-5 hover:shadow-md transition-shadow duration-200">
+                <h3 className="font-bold text-blue-900 mb-2 text-base">
                   {isRTL ? 'مصادر قابلة للتخصيص' : 'Configurable sources'}
                 </h3>
                 <p className="text-blue-800 text-sm leading-relaxed">
@@ -151,8 +151,8 @@ export default function CoverageContent() {
                 </p>
               </div>
 
-              <div className="border-s-4 border-amber-300 bg-amber-50 rounded-e-lg px-6 py-5">
-                <h3 className="font-bold text-amber-900 mb-2">
+              <div className="border-s-4 border-amber-300 bg-amber-50 rounded-e-lg px-6 py-5 hover:shadow-md transition-shadow duration-200">
+                <h3 className="font-bold text-amber-900 mb-2 text-base">
                   {isRTL ? 'التحديثات المنتظمة' : 'Regular updates'}
                 </h3>
                 <p className="text-amber-800 text-sm leading-relaxed">
@@ -162,8 +162,8 @@ export default function CoverageContent() {
                 </p>
               </div>
 
-              <div className="border-s-4 border-slate-300 bg-slate-50 rounded-e-lg px-6 py-5">
-                <h3 className="font-bold text-slate-900 mb-2">
+              <div className="border-s-4 border-slate-300 bg-slate-50 rounded-e-lg px-6 py-5 hover:shadow-md transition-shadow duration-200">
+                <h3 className="font-bold text-slate-900 mb-2 text-base">
                   {isRTL ? 'الامتثال المحلي' : 'Local compliance'}
                 </h3>
                 <p className="text-slate-700 text-sm leading-relaxed">
@@ -191,13 +191,13 @@ export default function CoverageContent() {
                 : "Talk to our team about supported sources and configurations available for your needs."}
             </p>
             <div className="flex gap-4 flex-col sm:flex-row justify-center">
-              <Link href={href('/aml-screening')} className="btn-secondary">
+              <Link href={href('/aml-screening')} className="btn-secondary focus:ring-2 focus:ring-offset-2 focus:ring-slate-400 transition-all duration-200">
                 {isRTL ? 'العودة لفحص غسل الأموال' : 'Back to AML Screening'}
                 <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
-              <Link href={href('/contact')} className="btn-primary">
+              <Link href={href('/contact')} className="btn-primary focus:ring-2 focus:ring-offset-2 focus:ring-electric-600 transition-all duration-200">
                 {isRTL ? 'اطلب عرضاً تجريبياً' : 'Request a Demo'}
                 <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

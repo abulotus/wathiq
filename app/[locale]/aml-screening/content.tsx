@@ -91,14 +91,14 @@ export default function AmlScreeningPage() {
             </p>
           </AnimatedSection>
 
-          <div className={`grid md:grid-cols-4 gap-4 ${isRTL ? 'text-right' : ''}`}>
+          <div className={`grid md:grid-cols-4 gap-6 ${isRTL ? 'text-right' : ''}`}>
             {workflow.map((step, i) => (
               <AnimatedItem key={i} index={i}>
-                <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm h-full hover:shadow-md transition-shadow">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-electric-100 text-electric-600 font-bold mb-4">
+                <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm h-full hover:shadow-lg hover:border-slate-300 transition-all duration-200 focus-within:ring-2 focus-within:ring-electric-500 focus-within:ring-offset-2">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-electric-100 text-electric-600 font-bold text-sm mb-4">
                     {i + 1}
                   </div>
-                  <h3 className="font-bold text-navy-900 mb-3">{step.title}</h3>
+                  <h3 className="font-bold text-navy-900 mb-3 text-base">{step.title}</h3>
                   <p className="text-slate-600 text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </AnimatedItem>
@@ -124,12 +124,12 @@ export default function AmlScreeningPage() {
           <div className={`grid md:grid-cols-3 gap-6 max-w-4xl mx-auto ${isRTL ? 'text-right' : ''}`}>
             {categories.map((cat, i) => (
               <AnimatedItem key={i} index={i}>
-                <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-10 h-10 rounded-lg bg-electric-100 text-electric-600 font-bold flex items-center justify-center mb-4">
-                    {cat.title}
+                <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-lg hover:border-electric-300 transition-all duration-200 focus-within:ring-2 focus-within:ring-electric-500 focus-within:ring-offset-2">
+                  <div className="w-10 h-10 rounded-lg bg-electric-100 text-electric-600 font-bold flex items-center justify-center mb-4 text-xs">
+                    {i + 1}
                   </div>
-                  <h3 className="font-bold text-navy-900 mb-3">{cat.title}</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed">{cat.desc}</p>
+                  <h3 className="font-bold text-navy-900 mb-3 text-base">{cat.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed line-height-relaxed">{cat.desc}</p>
                 </div>
               </AnimatedItem>
             ))}
@@ -249,9 +249,9 @@ export default function AmlScreeningPage() {
               { label: isRTL ? 'تحديثات القوائم وتغييرات البيانات' : 'Retriggers on list updates and data changes', icon: '🔄' },
             ].map((config, i) => (
               <AnimatedItem key={i} index={i}>
-                <div className="flex items-start gap-4 bg-slate-50 rounded-lg p-5 border border-slate-200">
-                  <div className="text-2xl flex-shrink-0">{config.icon}</div>
-                  <span className="text-slate-700 font-medium text-sm">{config.label}</span>
+                <div className="flex items-start gap-4 bg-white border border-slate-200 rounded-lg p-5 hover:border-electric-300 hover:shadow-md transition-all duration-200 focus-within:ring-2 focus-within:ring-electric-500">
+                  <div className="text-2xl flex-shrink-0 mt-0.5">{config.icon}</div>
+                  <span className="text-slate-700 font-medium text-sm leading-relaxed">{config.label}</span>
                 </div>
               </AnimatedItem>
             ))}
@@ -290,7 +290,7 @@ export default function AmlScreeningPage() {
             </p>
           </AnimatedSection>
 
-          <div className={`max-w-4xl mx-auto grid md:grid-cols-3 gap-4 mb-8 ${isRTL ? 'text-right' : ''}`}>
+          <div className={`max-w-4xl mx-auto grid md:grid-cols-3 gap-6 mb-8 ${isRTL ? 'text-right' : ''}`}>
             {[
               {
                 title: isRTL ? 'العقوبات' : 'SANCTIONS',
@@ -320,16 +320,16 @@ export default function AmlScreeningPage() {
               },
             ].map((result, i) => (
               <AnimatedItem key={i} index={i}>
-                <div className={`rounded-xl border p-6 shadow-sm ${
+                <div className={`rounded-xl border p-6 shadow-sm hover:shadow-md transition-shadow duration-200 focus-within:ring-2 focus-within:ring-offset-2 ${
                   result.statusType === 'clean'
-                    ? 'bg-emerald-50 border-emerald-200'
-                    : 'bg-amber-50 border-amber-200'
+                    ? 'bg-emerald-50 border-emerald-200 focus-within:ring-emerald-500'
+                    : 'bg-amber-50 border-amber-200 focus-within:ring-amber-500'
                 }`}>
                   <div className="flex items-start justify-between mb-4">
-                    <h3 className="font-bold text-navy-900">{result.title}</h3>
-                    <span className="text-2xl">{result.icon}</span>
+                    <h3 className="font-bold text-navy-900 text-base">{result.title}</h3>
+                    <span className="text-2xl flex-shrink-0">{result.icon}</span>
                   </div>
-                  <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-4 ${
+                  <span className={`inline-block text-xs font-bold px-3 py-1.5 rounded-full mb-4 ${
                     result.statusType === 'clean'
                       ? 'bg-emerald-100 text-emerald-700'
                       : 'bg-amber-100 text-amber-700'
@@ -337,10 +337,10 @@ export default function AmlScreeningPage() {
                     {result.status}
                   </span>
                   {result.details && (
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       {result.details.map((detail, j) => (
-                        <div key={j} className="flex items-center justify-between text-sm border-t border-current border-opacity-10 pt-2">
-                          <span className="text-slate-600">{detail.label}</span>
+                        <div key={j} className="flex items-center justify-between text-sm border-t border-current border-opacity-10 pt-3">
+                          <span className="text-slate-600 font-medium">{detail.label}</span>
                           <span className="font-semibold text-navy-900">{detail.value}</span>
                         </div>
                       ))}
@@ -375,13 +375,13 @@ export default function AmlScreeningPage() {
           </AnimatedSection>
 
           <AnimatedSection className={`flex gap-4 flex-col sm:flex-row justify-center ${isRTL ? 'text-right' : ''}`}>
-            <Link href={href('/contact')} className="btn-primary">
+            <Link href={href('/contact')} className="btn-primary focus:ring-2 focus:ring-offset-2 focus:ring-electric-600 transition-all duration-200">
               {isRTL ? 'اطلب عرضاً تجريبياً' : 'Request a Demo'}
               <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-            <Link href={href('/aml-screening/coverage')} className="btn-secondary">
+            <Link href={href('/aml-screening/coverage')} className="btn-secondary focus:ring-2 focus:ring-offset-2 focus:ring-slate-400 transition-all duration-200">
               {isRTL ? 'استكشف تغطية الفحص' : 'Explore screening coverage'}
               <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

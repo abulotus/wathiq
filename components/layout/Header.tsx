@@ -21,6 +21,7 @@ const navItems = [
     labelAr: 'فحص غسل الاموال والامتثال',
     submenu: [
       { path: '/aml-screening', en: 'AML Screening', ar: 'فحص غسل الاموال' },
+      { path: '/aml-screening/coverage', en: 'Screening Coverage', ar: 'تغطية الفحص' },
     ],
   },
   {

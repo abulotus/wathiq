@@ -271,8 +271,8 @@ export default function AmlScreeningPage() {
               </div>
               <p className="text-slate-600 text-sm leading-relaxed">
                 {isRTL
-                  ? 'درجة التشابه مؤشر للتحقيق، وليست احتمالاً أو حكماً قانونياً على الهوية. النتيجة النهائية لأي حالة يحددها فريق الامتثال لديك. يغطي فحص غسل الاموال مطابقة الأسماء مقابل مصادر العقوبات، والشخصيات السياسية المعرّضة للمخاطر (PEP)، وأقاربها وشركائها المقرّبين (RCA)؛ فحص الإعلام السلبي على خارطة طريقنا — تواصل معنا لمناقشة متطلباتك التنظيمية المحددة.'
-                  : "A similarity score is an investigation indicator, not a probability or a legal determination of identity. The final outcome of any case is decided by your compliance team. AML screening covers name-matching against sanctions, PEP (Politically Exposed Persons), and RCA (their relatives and close associates) sources; adverse-media screening is on our roadmap — contact us to discuss your specific regulatory requirements."}
+                  ? 'درجة التشابه مؤشر للتحقيق، وليست احتمالاً أو حكماً قانونياً على الهوية. النتيجة النهائية لأي حالة يحددها فريق الامتثال لديك. يغطي فحص غسل الاموال مطابقة الأسماء مقابل مصادر العقوبات، والشخصيات السياسية المعرّضة للمخاطر (PEP)، وأقاربها وشركائها المقرّبين (RCA) التي تختارها مؤسستك. غير مشمول حالياً: فحص الإعلام السلبي، أخبار سلبية، أو قوائم مراقبة داخلية — تواصل معنا لمناقشة احتياجاتك التنظيمية المحددة.'
+                  : "A similarity score is an investigation indicator, not a probability or a legal determination of identity. The final outcome of any case is decided by your compliance team. AML screening covers name-matching against sanctions, PEP (Politically Exposed Persons), and RCA (their relatives and close associates) sources you select. Not currently included: adverse-media screening, negative-news sources, or internal watchlists — contact us to discuss your specific regulatory requirements."}
               </p>
             </div>
           </AnimatedSection>

@@ -7,8 +7,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale: localeParam } = await params;
   const locale = (localeParam === 'ar' ? 'ar' : 'en') as Language;
   return locale === 'ar'
-    ? localizedMetadata({ locale, path: '/service-data', title: 'بيانات خدمة التحقق', description: 'كيف يتعامل واثق مع بيانات التحقق من جوازات السفر الإلكترونية.' })
-    : localizedMetadata({ locale, path: '/service-data', title: 'Service Data Information', description: 'How Wathiq handles ePassport verification service data.' });
+    ? localizedMetadata({ locale, path: '/service-data', title: 'بيانات خدمة التحقق', description: 'كيف يتعامل واثق مع بيانات الهوية والمستندات والقياسات الحيوية أثناء التحقق.' })
+    : localizedMetadata({ locale, path: '/service-data', title: 'Service Data Information', description: 'How WATHIQ handles identity, document and biometric verification data.' });
 }
 
 export default function Page() {

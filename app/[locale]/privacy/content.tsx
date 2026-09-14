@@ -4,11 +4,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const content = {
   en: {
-    meta: { label: 'Legal', title: 'Privacy Policy', updated: 'Last updated: 1 June 2025' },
+    meta: { label: 'Legal', title: 'Privacy Policy', updated: 'Last updated: 14 September 2026' },
     body: (
       <>
         <p>
-          Thiqa Intelligence LTD ("<strong>Thiqa Intelligence</strong>", "<strong>we</strong>", "<strong>us</strong>", or "<strong>our</strong>") is a company registered in England and Wales (Company No. 12576917, registered address: 71-75 Shelton Street, London, Greater London, United Kingdom, WC2H 9JQ). This Privacy Policy explains how we collect, use, disclose, and safeguard personal data when you visit our website, use our services, or otherwise interact with us.
+          Thiqa Intelligence LTD ("<strong>Wathiq</strong>", "<strong>we</strong>", "<strong>us</strong>", or "<strong>our</strong>") is a company registered in England and Wales (Company No. 12576917, registered address: 71-75 Shelton Street, London, Greater London, United Kingdom, WC2H 9JQ). This Privacy Policy explains how we collect, use, disclose, and safeguard personal data when you visit our website, use our services, or otherwise interact with us.
         </p>
         <p>
           We are committed to protecting your privacy in accordance with the UK General Data Protection Regulation (UK GDPR), the Data Protection Act 2018, and applicable data protection legislation.
@@ -20,8 +20,9 @@ const content = {
           <li><strong>Information you provide directly</strong> — when you complete our contact form, request a demo, or apply for a position, we collect your name, business email address, phone number, company name, and the content of your message.</li>
           <li><strong>Usage and technical data</strong> — when you visit our website, we automatically collect your IP address, browser type and version, pages visited, time and date of access, and referring URLs.</li>
           <li><strong>Cookies and similar technologies</strong> — we use essential cookies to operate the website. See our <a href="cookies">Cookie Policy</a> for details.</li>
+          <li><strong>Identity verification service data</strong> — when you use our identity verification service via the mobile application (initiated by a requesting organisation), we collect identity document images, extracted document data (OCR), selfie images, facial information for liveness checks and face matching, machine-readable zone (MRZ) data, barcode data, and NFC/ePassport chip data (where applicable). See our <a href="service-data">Service Data Information</a> page for full details on verification data handling, retention, and your rights.</li>
         </ul>
-        <p>We do not collect sensitive personal data (such as biometric data, health information, or financial account details) through this website.</p>
+        <p>Website visitors: We do not collect sensitive personal data (such as biometric data, health information, or financial account details) through the website itself. Verification service users: Biometric data (facial images and liveness metrics) is collected as part of the identity verification process, subject to separate data handling disclosures.</p>
 
         <h2>2. How We Use Your Information</h2>
         <p>We use the personal data we collect for the following purposes:</p>
@@ -32,6 +33,7 @@ const content = {
           <li>To comply with legal obligations and regulatory requirements</li>
           <li>To detect and prevent fraud, security breaches, or other illegal activities</li>
           <li>To send administrative communications (e.g., updates to our terms or this policy)</li>
+          <li><strong>Identity verification service:</strong> For the requesting organisation to verify your identity. The requesting organisation determines the lawful basis (e.g., compliance with anti-money laundering regulations, customer due diligence, sanctions screening) and instructs us to process your data under that basis. We act as a data processor following the requesting organisation's instructions and our Data Processing Agreement with them.</li>
         </ul>
         <p>We rely on the following legal bases for processing:</p>
         <ul>
@@ -44,7 +46,8 @@ const content = {
         <h2>3. How We Share Your Information</h2>
         <p>We do not sell, rent, or trade your personal data. We may share information with:</p>
         <ul>
-          <li><strong>Service providers</strong> — third-party vendors who process data on our behalf (e.g., hosting, email delivery, analytics) under data processing agreements</li>
+          <li><strong>Service providers and subprocessors</strong> — third-party vendors who process data on our behalf (e.g., hosting, email delivery, analytics) under data processing agreements. For identity verification services, this includes cloud infrastructure providers and specialised verification vendors (e.g., Amazon Web Services for facial recognition and liveness detection). See <a href="service-data">Service Data Information</a> for the complete list.</li>
+          <li><strong>Requesting organisations</strong> — the organisation that requested your identity verification receives the verification result (pass/fail decision and supporting evidence) as determined by that organisation's agreement with us.</li>
           <li><strong>Legal or regulatory authorities</strong> — where required by law, court order, or regulatory requirement</li>
           <li><strong>Business transfers</strong> — in connection with a merger, acquisition, or sale of assets, your data may be transferred as part of that transaction</li>
         </ul>
@@ -57,6 +60,9 @@ const content = {
         <h2>5. Data Retention</h2>
         <p>
           We retain personal data only for as long as necessary to fulfil the purposes set out in this policy. Contact form submissions are retained for up to 24 months. Website usage data is retained for up to 12 months. When data is no longer needed, it is securely deleted or anonymised.
+        </p>
+        <p>
+          For identity verification service data, retention periods are specified in our <a href="service-data">Service Data Information</a> page. Document, barcode, NFC, biometric and review evidence is retained for 2,555 days (seven years) after verification completion, after which eligible evidence is deleted from storage and the deletion is recorded. Data subject to legal hold may be retained longer.
         </p>
 
         <h2>6. Your Rights</h2>
@@ -76,7 +82,7 @@ const content = {
 
         <h2>7. Security</h2>
         <p>
-          We implement technical and organisational measures designed to protect personal data against unauthorised access. We are finalising complete documentation of these measures, which will be published here once verified.
+          We implement technical and organisational measures designed to protect personal data against unauthorised access. For the identity verification service, sensitive identity fields are encrypted using AES-256-GCM and files are kept in private, access-controlled storage. Each requesting organisation's data is logically isolated from other organisations' data. Communication with our services uses encrypted HTTPS connections. TODO: Comprehensive security documentation including database encryption at rest, transport layer security, key rotation procedures, and incident response processes should be provided upon request.
         </p>
 
         <h2>8. Children&apos;s Privacy</h2>
@@ -99,11 +105,11 @@ const content = {
     ),
   },
   ar: {
-    meta: { label: 'قانوني', title: 'سياسة الخصوصية', updated: 'آخر تحديث: 1 يونيو 2025' },
+    meta: { label: 'قانوني', title: 'سياسة الخصوصية', updated: 'آخر تحديث: 14 سبتمبر 2026' },
     body: (
       <>
         <p>
-          شركة ثقة انتلجنس ليمتيد ("<strong>ثقة انتلجنس</strong>"، "<strong>نحن</strong>"، "<strong>لنا</strong>"، أو "<strong>خاصتنا</strong>") شركة مسجلة في إنجلترا وويلز (رقم الشركة: 12576917، العنوان المسجل: 71-75 شيلتون ستريت، لندن، جريتر لندن، المملكة المتحدة، WC2H 9JQ). توضح سياسة الخصوصية هذه الطريقة التي نجمع بها البيانات الشخصية ونستخدمها ونفصح عنها ونحميها عند زيارتك لموقعنا أو استخدامك لخدماتنا أو تفاعلك معنا بأي طريقة أخرى.
+          شركة ثقة انتلجنس ليمتيد ("<strong>واثق</strong>"، "<strong>نحن</strong>"، "<strong>لنا</strong>"، أو "<strong>خاصتنا</strong>") شركة مسجلة في إنجلترا وويلز (رقم الشركة: 12576917، العنوان المسجل: 71-75 شيلتون ستريت، لندن، جريتر لندن، المملكة المتحدة، WC2H 9JQ). توضح سياسة الخصوصية هذه الطريقة التي نجمع بها البيانات الشخصية ونستخدمها ونفصح عنها ونحميها عند زيارتك لموقعنا أو استخدامك لخدماتنا أو تفاعلك معنا بأي طريقة أخرى.
         </p>
         <p>
           نحن ملتزمون بحماية خصوصيتك وفقاً للائحة المملكة المتحدة العامة لحماية البيانات (UK GDPR) وقانون حماية البيانات 2018 وتشريعات حماية البيانات المعمول بها.
@@ -115,8 +121,9 @@ const content = {
           <li><strong>المعلومات التي تقدمها مباشرة</strong> — عند إكمال نموذج الاتصال أو طلب عرض توضيحي أو التقدم لوظيفة، نجمع اسمك وبريدك الإلكتروني للأعمال ورقم هاتفك واسم شركتك ومحتوى رسالتك.</li>
           <li><strong>بيانات الاستخدام والتقنية</strong> — عند زيارة موقعنا، نجمع تلقائياً عنوان IP الخاص بك ونوع المتصفح وإصداره والصفحات التي تمت زيارتها ووقت وتاريخ الوصول وعناوين URL المُحيلة.</li>
           <li><strong>ملفات تعريف الارتباط والتقنيات المماثلة</strong> — نستخدم ملفات تعريف الارتباط الأساسية لتشغيل الموقع. راجع <a href="cookies">سياسة ملفات تعريف الارتباط</a> للاطلاع على التفاصيل.</li>
+          <li><strong>بيانات خدمة التحقق من الهوية</strong> — عند استخدام خدمة التحقق من الهوية لدينا عبر تطبيق الهاتف المحمول (التي يتم بدؤها من قبل مؤسسة طالبة)، نجمع صور الوثائق الهوياتية والبيانات المستخرجة من الوثائق (OCR) وصور السيلفي والمعلومات الوجهية لفحوصات الحيوية ومطابقة الوجه وبيانات منطقة قراءة الآلة (MRZ) وبيانات الباركود وبيانات شريحة NFC/جواز الإلكتروني (حيث ينطبق). راجع صفحة <a href="service-data">معلومات بيانات الخدمة</a> للتفاصيل الكاملة حول معالجة وحفظ بيانات التحقق وحقوقك.</li>
         </ul>
-        <p>لا نجمع بيانات شخصية حساسة (مثل البيانات البيومترية أو المعلومات الصحية أو تفاصيل الحسابات المالية) عبر هذا الموقع.</p>
+        <p>زوار الموقع: لا نجمع بيانات شخصية حساسة (مثل البيانات البيومترية أو المعلومات الصحية أو تفاصيل الحسابات المالية) عبر الموقع نفسه. مستخدمو خدمة التحقق: يتم جمع البيانات البيومترية (الصور الوجهية ومقاييس الحيوية) كجزء من عملية التحقق من الهوية، وتخضع لإفصاحات منفصلة عن معالجة البيانات.</p>
 
         <h2>٢. كيف نستخدم معلوماتك</h2>
         <p>نستخدم البيانات الشخصية التي نجمعها للأغراض التالية:</p>
@@ -127,6 +134,7 @@ const content = {
           <li>الامتثال للالتزامات القانونية والمتطلبات التنظيمية</li>
           <li>اكتشاف ومنع الاحتيال وانتهاكات الأمان وغيرها من الأنشطة غير القانونية</li>
           <li>إرسال اتصالات إدارية (مثل تحديثات شروطنا أو هذه السياسة)</li>
+          <li><strong>خدمة التحقق من الهوية:</strong> للمؤسسة الطالبة للتحقق من هويتك. تحدد المؤسسة الطالبة الأساس القانوني (مثل الامتثال لأنظمة مكافحة غسل الأموال أو العناية الواجبة تجاه العملاء أو فحوصات العقوبات) وتعطينا تعليمات لمعالجة بياناتك على أساس ذلك. نعمل كمعالج بيانات متبعين تعليمات المؤسسة الطالبة واتفاقية معالجة البيانات معهم.</li>
         </ul>
         <p>نستند إلى الأسس القانونية التالية للمعالجة:</p>
         <ul>
@@ -139,7 +147,8 @@ const content = {
         <h2>٣. كيف نشارك معلوماتك</h2>
         <p>نحن لا نبيع أو نؤجر أو نتداول بياناتك الشخصية. قد نشارك المعلومات مع:</p>
         <ul>
-          <li><strong>مزودو الخدمة</strong> — البائعون الخارجيون الذين يعالجون البيانات نيابةً عنا (مثل الاستضافة وتسليم البريد الإلكتروني والتحليلات) بموجب اتفاقيات معالجة البيانات</li>
+          <li><strong>مزودو الخدمة والمعالجون الفرعيون</strong> — البائعون الخارجيون الذين يعالجون البيانات نيابةً عنا (مثل الاستضافة وتسليم البريد الإلكتروني والتحليلات) بموجب اتفاقيات معالجة البيانات. لخدمات التحقق من الهوية، يشمل ذلك مزودي البنية الأساسية السحابية والبائعين المتخصصين في التحقق (مثل أمازون ويب سيرفيسز للتعرف على الوجه وكشف الحيوية). راجع صفحة <a href="service-data">معلومات بيانات الخدمة</a> للحصول على القائمة الكاملة.</li>
+          <li><strong>المؤسسات الطالبة</strong> — تتلقى المؤسسة التي طلبت التحقق من هويتك نتيجة التحقق (قرار النجاح/الفشل والأدلة الداعمة) كما تحدده اتفاقية تلك المؤسسة معنا.</li>
           <li><strong>السلطات القانونية أو التنظيمية</strong> — عند الاقتضاء بموجب القانون أو أمر المحكمة أو المتطلبات التنظيمية</li>
           <li><strong>عمليات نقل الأعمال</strong> — في حالة الاندماج أو الاستحواذ أو بيع الأصول، قد يتم نقل بياناتك كجزء من تلك الصفقة</li>
         </ul>
@@ -152,6 +161,9 @@ const content = {
         <h2>٥. الاحتفاظ بالبيانات</h2>
         <p>
           نحتفظ بالبيانات الشخصية فقط للمدة اللازمة لتحقيق الأغراض المنصوص عليها في هذه السياسة. يتم الاحتفاظ بطلبات نموذج الاتصال لمدة تصل إلى 24 شهراً. يتم الاحتفاظ ببيانات استخدام الموقع لمدة تصل إلى 12 شهراً. عند عدم الحاجة إلى البيانات بعد الآن، يتم حذفها بشكل آمن أو إخفاء هويتها.
+        </p>
+        <p>
+          بالنسبة لبيانات خدمة التحقق من الهوية، يتم تحديد فترات الاحتفاظ في صفحة <a href="service-data">معلومات بيانات الخدمة</a>. يتم الاحتفاظ بأدلة الوثيقة والباركود وNFC والقياسات الحيوية ومراجعة لمدة 2555 يوماً (سبع سنوات) بعد اكتمال التحقق، وبعد ذلك يتم حذف الأدلة المؤهلة من التخزين وتسجيل الحذف. قد يتم الاحتفاظ بالبيانات الخاضعة للحجز القانوني لفترة أطول.
         </p>
 
         <h2>٦. حقوقك</h2>
@@ -171,7 +183,7 @@ const content = {
 
         <h2>٧. الأمن</h2>
         <p>
-          نطبق تدابير تقنية وتنظيمية مصممة لحماية البيانات الشخصية من الوصول غير المصرح به. نعمل حالياً على استكمال التوثيق الكامل لهذه التدابير، وسننشره هنا فور التحقق منه.
+          نطبق تدابير تقنية وتنظيمية مصممة لحماية البيانات الشخصية من الوصول غير المصرح به. بالنسبة لخدمة التحقق من الهوية، يتم تشفير حقول الهوية الحساسة باستخدام AES-256-GCM والاحتفاظ بالملفات في تخزين خاص محدود الوصول. يتم عزل بيانات كل مؤسسة طالبة منطقياً عن بيانات المؤسسات الأخرى. الاتصال بخدماتنا يستخدم اتصالات HTTPS مشفرة. TODO: يجب توفير التوثيق الشامل للأمن الذي يشمل تشفير قاعدة البيانات في حالة السكون وأمان طبقة النقل وإجراءات تدوير المفاتيح واستجابة الحوادث عند الطلب.
         </p>
 
         <h2>٨. خصوصية الأطفال</h2>

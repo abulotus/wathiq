@@ -77,7 +77,7 @@ export default function CoverageContent() {
       {/* Overview */}
       <section className="section-pad bg-white">
         <div className="container-wide">
-          <AnimatedSection className={`max-w-2xl mx-auto ${isRTL ? 'text-right' : ''}`}>
+          <AnimatedSection className={`max-w-2xl mx-auto ${isRTL ? 'text-right' : 'text-center'}`}>
             <h2 className="heading-lg text-navy-900 mb-5">
               {isRTL ? 'تغطية شاملة وقابلة للتخصيص' : 'Comprehensive and configurable coverage'}
             </h2>
@@ -181,7 +181,7 @@ export default function CoverageContent() {
       <section className="section-pad bg-slate-50 relative overflow-hidden">
         <TechBackground variant="light" />
         <div className="container-wide relative z-10">
-          <AnimatedSection className={`text-center max-w-2xl mx-auto ${isRTL ? 'text-right' : ''}`}>
+          <AnimatedSection className={`max-w-2xl mx-auto ${isRTL ? 'text-right' : 'text-center'}`}>
             <h2 className="heading-lg text-navy-900 mb-4">
               {isRTL ? 'تحتاج إلى معرفة المزيد؟' : 'Need more information?'}
             </h2>

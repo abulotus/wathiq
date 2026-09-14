@@ -70,7 +70,7 @@ export default function AmlScreeningPage() {
   return (
     <>
       <PageHero
-        title={isRTL ? 'التحقق من الهوية مع فحص مدمج لمكافحة غسل الأموال' : 'Identity verification with built-in AML screening'}
+        title={isRTL ? 'فحص مكافحة غسل الأموال مدمج مع التحقق من الهوية' : 'Identity verification with built-in AML screening'}
         subtitle={isRTL
           ? 'تحقق من الهوية وافحصها مقابل مصادر العقوبات والأشخاص المعرضين سياسياً والأقارب والأشخاص ذوي الصلة ضمن سير عمل متكامل. تتحكم المؤسسة في توقيت الفحص والمصادر المفعّلة وتفعيل المراقبة المستمرة.'
           : 'Verify identities and screen them against supported sanctions, PEP and RCA sources in one connected workflow. Organisations control when screening runs, which sources are enabled and whether continuous monitoring is active.'}
@@ -80,7 +80,7 @@ export default function AmlScreeningPage() {
       <section className="section-pad bg-slate-50 relative overflow-hidden">
         <TechBackground variant="light" />
         <div className="container-wide relative z-10">
-          <AnimatedSection className={`text-center max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
+          <AnimatedSection className={`max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : 'text-center'}`}>
             <h2 className="heading-lg text-navy-900">
               {isRTL ? 'من التحقق من الهوية إلى المراقبة المستمرة' : 'From identity verification to ongoing monitoring'}
             </h2>
@@ -110,7 +110,7 @@ export default function AmlScreeningPage() {
       {/* Screening categories */}
       <section className="section-pad bg-white">
         <div className="container-wide">
-          <AnimatedSection className={`text-center max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
+          <AnimatedSection className={`max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : 'text-center'}`}>
             <h2 className="heading-lg text-navy-900">
               {isRTL ? 'فئات الفحص الثلاث' : 'Three screening categories'}
             </h2>

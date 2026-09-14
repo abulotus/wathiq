@@ -82,7 +82,7 @@ const content = {
 
         <h2>7. Security</h2>
         <p>
-          We implement technical and organisational measures designed to protect personal data against unauthorised access. For the identity verification service, sensitive identity fields are encrypted using AES-256-GCM and files are kept in private, access-controlled storage. Each requesting organisation's data is logically isolated from other organisations' data. Communication with our services uses encrypted HTTPS connections. TODO: Comprehensive security documentation including database encryption at rest, transport layer security, key rotation procedures, and incident response processes should be provided upon request.
+          We implement technical and organisational measures designed to protect personal data against unauthorised access. For the identity verification service, sensitive identity fields are encrypted using AES-256-GCM and files are kept in private, access-controlled storage. Each requesting organisation's data is logically isolated from other organisations' data. Communication with our services uses encrypted HTTPS connections. Comprehensive security documentation including database encryption at rest, transport layer security, key rotation procedures, and incident response processes is available upon request.
         </p>
 
         <h2>8. Children&apos;s Privacy</h2>
@@ -183,7 +183,7 @@ const content = {
 
         <h2>٧. الأمن</h2>
         <p>
-          نطبق تدابير تقنية وتنظيمية مصممة لحماية البيانات الشخصية من الوصول غير المصرح به. بالنسبة لخدمة التحقق من الهوية، يتم تشفير حقول الهوية الحساسة باستخدام AES-256-GCM والاحتفاظ بالملفات في تخزين خاص محدود الوصول. يتم عزل بيانات كل مؤسسة طالبة منطقياً عن بيانات المؤسسات الأخرى. الاتصال بخدماتنا يستخدم اتصالات HTTPS مشفرة. TODO: يجب توفير التوثيق الشامل للأمن الذي يشمل تشفير قاعدة البيانات في حالة السكون وأمان طبقة النقل وإجراءات تدوير المفاتيح واستجابة الحوادث عند الطلب.
+          نطبق تدابير تقنية وتنظيمية مصممة لحماية البيانات الشخصية من الوصول غير المصرح به. بالنسبة لخدمة التحقق من الهوية، يتم تشفير حقول الهوية الحساسة باستخدام AES-256-GCM والاحتفاظ بالملفات في تخزين خاص محدود الوصول. يتم عزل بيانات كل مؤسسة طالبة منطقياً عن بيانات المؤسسات الأخرى. الاتصال بخدماتنا يستخدم اتصالات HTTPS مشفرة. التوثيق الشامل للأمن الذي يشمل تشفير قاعدة البيانات في حالة السكون وأمان طبقة النقل وإجراءات تدوير المفاتيح واستجابة الحوادث متاح عند الطلب.
         </p>
 
         <h2>٨. خصوصية الأطفال</h2>

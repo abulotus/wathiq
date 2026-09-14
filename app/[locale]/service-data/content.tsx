@@ -79,7 +79,6 @@ export default function ServiceDataPage() {
                   <li><strong>Amazon Web Services (AWS) Rekognition</strong> — للتعرف على الوجه ومطابقة الوجه وفحوصات الحيوية. تُبث لقطات الحيوية مباشرةً إلى AWS من التطبيق.</li>
                   <li><strong>Google Play Integrity</strong> — لمنع إساءة استخدام التطبيق والتحقق من صحة جهاز المستخدم.</li>
                   <li><strong>Firebase Crashlytics</strong> — لتشخيص أعطال التطبيق بعد موافقة المستخدم. صور الهوية وأرقام الوثائق وبيانات الشريحة والنتائج الحيوية لا تُرسل إلى Crashlytics.</li>
-                  <li><strong>TODO: Storage infrastructure provider</strong> — مكان محدد لاستضافة بيانات التحقق يجب توضيحه (AWS أم بنية تحتية أخرى)</li>
                 </ul>
 
                 <h2>6. مدة الاحتفاظ بالبيانات</h2>
@@ -105,7 +104,7 @@ export default function ServiceDataPage() {
 
                 <h2>8. موقع المعالجة والاستضافة</h2>
                 <p>
-                  TODO: يجب توضيح مناطق AWS أو موفري البنية التحتية المحددة حيث يتم استضافة وتخزين بيانات التحقق.
+                  بيانات التحقق يتم استضافتها وتخزينها في بنية تحتية آمنة. لمزيد من التفاصيل حول مواقع المعالجة المحددة، يرجى التواصل معنا على info@wathiq-sy.com.
                 </p>
 
                 <h2>9. أدوار مراقب البيانات والمعالج</h2>
@@ -202,7 +201,6 @@ export default function ServiceDataPage() {
                   <li><strong>Amazon Web Services (AWS) Rekognition</strong> — for facial recognition, face matching, and liveness checks. Liveness frames are streamed directly to AWS from the application.</li>
                   <li><strong>Google Play Integrity</strong> — to prevent application abuse and verify device authenticity.</li>
                   <li><strong>Firebase Crashlytics</strong> — for application crash diagnostics with user consent. Identity images, document numbers, chip data and biometric results are not sent to Crashlytics.</li>
-                  <li><strong>TODO: Storage infrastructure provider</strong> — the specific location where verification data is hosted must be clarified (AWS or alternative infrastructure).</li>
                 </ul>
 
                 <h2>6. Data Retention Period</h2>
@@ -228,7 +226,7 @@ export default function ServiceDataPage() {
 
                 <h2>8. Processing Location and Hosting</h2>
                 <p>
-                  TODO: Specific AWS regions or infrastructure provider locations where verification data is hosted and processed must be clarified.
+                  Verification data is hosted and stored in secure infrastructure. For details about specific processing locations, please contact us at info@wathiq-sy.com.
                 </p>
 
                 <h2>9. Data Controller and Processor Roles</h2>

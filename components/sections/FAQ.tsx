@@ -44,7 +44,7 @@ const faqs = {
     },
     {
       q: 'How is verification information handled?',
-      a: "Sensitive identity fields are encrypted with AES-256-GCM, and documents, selfies, and ePassport chip evidence are stored in private, access-controlled, time-limited storage. Each organisation's data is logically isolated, and the final decision is made by the backend only. Exact hosting locations and retention periods are still being finalized — see our Service Data Information page for details.",
+      a: "Sensitive identity fields are encrypted with AES-256-GCM, and documents, selfies, and ePassport chip evidence are stored in private, access-controlled, time-limited storage. Each organisation's data is logically isolated, and the final decision is made by the backend only. See our Service Data Information and Privacy Policy pages for details on retention periods and security measures.",
     },
     {
       q: 'Does Wathiq offer AML screening?',

@@ -55,6 +55,35 @@ export default function MobileAppPage() {
                   ? 'واثق لا يوفر حالياً SDK للجوال. تتصل أنظمة الأعمال عبر API وWebhooks المتاحة، بينما يوفر التطبيق تجربة التحقق المدعومة عبر الهاتف.'
                   : "Wathiq does not currently provide a mobile SDK. Business systems connect through the available API and webhooks, while the app provides the supported mobile verification experience."}
               </p>
+
+              <div className="bg-slate-50 rounded-lg p-6 mb-8 border border-slate-100">
+                <p className="text-slate-700 font-medium mb-4 text-sm">
+                  {isRTL ? 'معالجة البيانات والخصوصية' : 'Data processing and privacy'}
+                </p>
+                <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                  {isRTL
+                    ? 'يعالج التطبيق بيانات المستند والجواز الإلكتروني وصور السيلفي وبيانات الحيوية حيثما ينطبق، لأغراض التحقق من الهوية. يرجى مراجعة:'
+                    : "The app processes document/passport data, selfie/liveness data, and NFC/ePassport data where applicable for identity verification. Please review:"}
+                </p>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href={href('/privacy')} className="text-electric-600 hover:text-electric-700 font-medium text-sm">
+                      {isRTL ? '→ سياسة الخصوصية' : '→ Privacy Policy'}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={href('/service-data')} className="text-electric-600 hover:text-electric-700 font-medium text-sm">
+                      {isRTL ? '→ معلومات بيانات الخدمة' : '→ Service Data Information'}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={href('/terms')} className="text-electric-600 hover:text-electric-700 font-medium text-sm">
+                      {isRTL ? '→ شروط الخدمة' : '→ Terms of Service'}
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
               <Link href={href('/contact')} className="btn-primary px-8 py-3.5 shadow-glow inline-flex">
                 {isRTL ? 'اطلب عرضاً تجريبياً' : 'Request a Demo'}
                 <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">

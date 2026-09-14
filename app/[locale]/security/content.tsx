@@ -171,8 +171,8 @@ export default function SecurityPage() {
               </div>
               <p className="text-slate-500 text-xs text-center mt-8 max-w-xl mx-auto">
                 {isRTL
-                  ? 'تفاصيل إضافية — مواقع الاستضافة وفترات الاحتفاظ الدقيقة بالبيانات — قيد التوثيق النهائي وستُنشر هنا فور اكتمالها.'
-                  : "Additional specifics — hosting locations and exact data retention periods — are being finalized and will be published here once complete."}
+                  ? 'لمزيد من التفاصيل حول حماية البيانات والاحتفاظ بها والمعالجة، راجع سياسة الخصوصية وصفحة معلومات بيانات الخدمة.'
+                  : "For further details on data protection, retention, and processing, please see our Privacy Policy and Service Data Information page."}
               </p>
               <div className="text-center mt-6">
                 <a

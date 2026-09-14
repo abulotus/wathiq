@@ -6,8 +6,8 @@ export default function WhatsAppButton() {
   const { isRTL } = useLanguage();
   const phone = '447547044020';
   const message = isRTL
-    ? 'مرحباً، أود معرفة المزيد عن خدمات واثق الرقمية.'
-    : 'Hello, I would like to learn more about Wathiq Digital services.';
+    ? 'مرحباً، أود معرفة المزيد عن خدمات واثق.'
+    : 'Hello, I would like to learn more about Wathiq services.';
   const href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
   return (

@@ -18,9 +18,9 @@ const navItems = [
   },
   {
     label: 'AML & Compliance',
-    labelAr: 'فحص غسل الاموال والامتثال',
+    labelAr: 'مكافحة غسل الأموال والامتثال',
     submenu: [
-      { path: '/aml-screening', en: 'AML Screening', ar: 'فحص غسل الاموال' },
+      { path: '/aml-screening', en: 'AML Screening', ar: 'فحص مكافحة غسل الأموال' },
       { path: '/aml-screening/coverage', en: 'Screening Coverage', ar: 'تغطية الفحص' },
     ],
   },

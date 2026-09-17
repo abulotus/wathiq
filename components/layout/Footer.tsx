@@ -55,7 +55,7 @@ const groups = {
       items: [
         { label: 'المنصة', path: '/platform' },
         { label: 'تغطية جوازات السفر', path: '/epassport-coverage' },
-        { label: 'فحص غسل الاموال', path: '/aml-screening' },
+        { label: 'فحص مكافحة غسل الأموال', path: '/aml-screening' },
         { label: 'المطورون', path: '/developers' },
         { label: 'لوحة تحكم العملاء', path: '/client-dashboard' },
         { label: 'تطبيق الجوال', path: '/mobile-app' },

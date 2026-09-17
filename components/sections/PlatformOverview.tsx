@@ -13,7 +13,7 @@ const services = {
   ],
   ar: [
     { tag: 'الخدمة 1 — التحقق من جوازات السفر الإلكترونية', title: 'تحقّق من جوازات السفر الإلكترونية الحديثة المزوّدة بشريحة', body: 'تحقّق من جوازات السفر الإلكترونية الحديثة المزوّدة بشريحة والصادرة عن دول متعددة حول العالم، عبر تجربة مصمّمة بالعربية من الأساس.', path: '/epassport-coverage', linkLabel: 'اطّلع على الدول والوثائق المدعومة' },
-    { tag: 'إضافة — فحص غسل الاموال', title: 'فحص العقوبات والشخصيات السياسية وأقاربها', body: 'أضف فحص العقوبات والشخصيات السياسية المعرّضة للمخاطر (PEP) وأقاربها وشركائها المقرّبين (RCA) فوق خدمة التحقق من جواز السفر الإلكتروني، مع إمكانية المراقبة المستمرة الاختيارية. يعمل الفحص تلقائياً عند قبول كل طلب تحقق، أو عند الطلب من لوحة التحكم، أو باستمرار للهويات المسجَّلة في المراقبة.', path: '/aml-screening', linkLabel: 'استعرض فحص غسل الاموال' },
+    { tag: 'إضافة — فحص مكافحة غسل الأموال', title: 'افحص العقوبات والأشخاص المعرّضين سياسياً', body: 'أضف فحص العقوبات والأشخاص المعرّضين سياسياً (PEP) وأقاربهم والمقرّبين منهم (RCA) إلى خدمة التحقق من جواز السفر الإلكتروني، مع مراقبة مستمرة اختيارية. شغّل الفحص تلقائياً بعد قبول التحقق أو عند الطلب من لوحة التحكم.', path: '/aml-screening', linkLabel: 'استعرض فحص الامتثال' },
   ],
 };
 
@@ -42,11 +42,11 @@ export default function PlatformOverview({ locale }: { locale: Language }) {
       <div className="container-wide">
         <AnimatedSection className="text-center max-w-2xl mx-auto mb-14">
           <h2 className="heading-lg text-navy-900">
-            {isRTL ? 'التحقق من الهوية مع فحص غسل الاموال كخدمة اضافية تفعل عند الطلب' : 'ID verification, with AML screening as an add-on'}
+            {isRTL ? 'التحقق من الهوية مع فحص امتثال اختياري لمكافحة غسل الأموال' : 'ID verification, with AML screening as an add-on'}
           </h2>
           <p className="body-md mt-3">
             {isRTL
-              ? 'اشترك في التحقق من جواز السفر الإلكتروني وحده، كما تتوفر خدمة فحص غسل الاموال للمؤسسات المالية كخدمة إضافية.'
+              ? 'اشترك في التحقق من جواز السفر الإلكتروني، وأضف خدمة فحص مكافحة غسل الأموال عند الحاجة.'
               : 'Subscribe to ePassport verification on its own, or add AML screening on top of it for your organisation.'}
           </p>
         </AnimatedSection>
@@ -79,7 +79,7 @@ export default function PlatformOverview({ locale }: { locale: Language }) {
             </h3>
             <p className="body-md mt-3">
               {isRTL
-                ? 'سواء اشتركت بالتحقق من الهوية وحده أو أضفت فحص غسل الاموال كخدمة اضافية، تدير كلتا الخدمتين عبر نفس واجهة برمجة التطبيقات وإشعارات Webhook ولوحة تحكم العملاء.'
+                ? 'أدر التحقق من الهوية وفحص مكافحة غسل الأموال عبر واجهة برمجة تطبيقات واحدة وإشعارات Webhook ولوحة تحكم موحّدة.'
                 : "Whether you subscribe to ID verification alone or add AML screening on top of it, you manage both through the same API, webhooks, and client dashboard."}
             </p>
           </AnimatedSection>

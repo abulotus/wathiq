@@ -47,16 +47,16 @@ const coverageCategories = {
       ],
     },
     {
-      title: 'الأشخاص المعرضون سياسياً في سوريا',
-      desc: 'فحص الأشخاص المعرضين سياسياً المركز على سوريا مصمم للامتثال التنظيمي في الأسواق السورية.',
+      title: 'الأشخاص المعرّضون سياسياً في سوريا',
+      desc: 'تغطية تركز على الأشخاص المعرّضين سياسياً في سوريا لدعم متطلبات العناية الواجبة وإدارة المخاطر.',
       sources: [],
-      note: 'قاعدة بيانات شاملة للأشخاص المعرضين سياسياً السوريين',
+      note: 'بيانات متخصصة بالأشخاص المعرّضين سياسياً في سوريا',
     },
     {
-      title: 'الأقارب والأشخاص ذوو الصلة في سوريا',
-      desc: 'الأقارب والأشخاص ذوو الصلة بالأشخاص المعرضين سياسياً المشمولين في الفحص المركز على سوريا.',
+      title: 'أفراد الأسرة والمقرّبون في سوريا',
+      desc: 'تغطية أفراد أسر الأشخاص المعرّضين سياسياً والمقرّبين منهم ضمن نطاق الفحص الخاص بسوريا.',
       sources: [],
-      note: 'الأفراد المرتبطون بسجلات الأشخاص المعرضين سياسياً السوريين',
+      note: 'أفراد مرتبطون بسجلات الأشخاص المعرّضين سياسياً في سوريا',
     },
   ],
 };
@@ -70,7 +70,7 @@ export default function CoverageContent() {
       <PageHero
         title={isRTL ? 'تغطية فحص مكافحة غسل الأموال' : 'AML Screening Coverage'}
         subtitle={isRTL
-          ? 'يدعم واثق فحصاً قابلاً للتخصيص عبر مصادر العقوبات الدولية الرئيسية وتغطية الأشخاص المعرضين سياسياً والأقارب والأشخاص ذي الصلة المركزة على سوريا.'
+          ? 'اختر من مصادر العقوبات الدولية المدعومة، إلى جانب تغطية تركز على الأشخاص المعرّضين سياسياً في سوريا وأفراد أسرهم والمقرّبين منهم.'
           : 'Wathiq supports configurable screening across major international sanctions sources together with Syria-focused PEP and RCA coverage.'}
       />
 
@@ -79,16 +79,16 @@ export default function CoverageContent() {
         <div className="container-wide">
           <AnimatedSection className={`max-w-2xl mx-auto ${isRTL ? 'text-right' : 'text-center'}`}>
             <h2 className="heading-lg text-navy-900 mb-5">
-              {isRTL ? 'تغطية شاملة وقابلة للتخصيص' : 'Comprehensive and configurable coverage'}
+              {isRTL ? 'تغطية قابلة للضبط وفق سياسة مؤسستك' : 'Comprehensive and configurable coverage'}
             </h2>
             <p className="body-lg text-slate-600 mb-6">
               {isRTL
-                ? 'يختار مسؤولو الجهات المعتمدون من المؤسسة المصادر التي سيتم فحصها. تتحكم المؤسسة في تفعيل أو تعطيل كل مصدر بناءً على سياستها الامتثالية واحتياجات السوق.'
+                ? 'يختار المسؤولون المخوّلون المصادر التي تدخل ضمن نطاق الفحص، ويمكن تفعيل كل مصدر أو إيقافه بما يتوافق مع سياسة الامتثال والأسواق التي تعمل فيها المؤسسة.'
                 : 'Authorised client administrators select which sources to enable for screening. Organisations control which sources are active based on their compliance policy and market requirements.'}
             </p>
             <p className="body-lg text-slate-600">
               {isRTL
-                ? 'لا تدّعي التغطية أنها شاملة لجميع المصادر المتاحة عالمياً. تحدث مع فريقنا حول احتياجاتك الامتثالية المحددة.'
+                ? 'لا تمثل هذه التغطية جميع المصادر المتاحة عالمياً. تواصل مع فريقنا للتحقق من المصادر المناسبة لمتطلباتك التنظيمية.'
                 : "Coverage is not claimed to be exhaustive of all available sources globally. Contact us to discuss your specific compliance requirements."}
             </p>
           </AnimatedSection>
@@ -157,7 +157,7 @@ export default function CoverageContent() {
                 </h3>
                 <p className="text-amber-800 text-sm leading-relaxed">
                   {isRTL
-                    ? 'جميع المصادر المدعومة يتم تحديثها بانتظام. عند تفعيل المراقبة المستمرة، يعاد الفحص تلقائياً عند تحديث المصادر.'
+                    ? 'تُحدّث المصادر المدعومة دورياً. وعند تفعيل المراقبة المستمرة، يُعاد الفحص تلقائياً عند وصول تحديثات إلى المصادر المختارة.'
                     : 'All supported sources are regularly updated. When continuous monitoring is enabled, screening is automatically retriggered when sources are updated.'}
                 </p>
               </div>
@@ -168,7 +168,7 @@ export default function CoverageContent() {
                 </h3>
                 <p className="text-slate-700 text-sm leading-relaxed">
                   {isRTL
-                    ? 'الاختيار بين المصادر يجب أن يتوافق مع متطلبات الامتثال المحلية والدولية المنطبقة على عملك.'
+                    ? 'ينبغي اختيار المصادر بما يتوافق مع المتطلبات المحلية والدولية المنطبقة على نشاط مؤسستك وتقييمها للمخاطر.'
                     : 'The selection of sources should align with applicable local and international compliance requirements for your business.'}
                 </p>
               </div>
@@ -187,18 +187,18 @@ export default function CoverageContent() {
             </h2>
             <p className="text-slate-600 text-lg mb-8">
               {isRTL
-                ? 'تحدث مع فريقنا حول المصادر المدعومة والتكوينات المتاحة لاحتياجاتك.'
+                ? 'تحدث مع فريقنا حول المصادر المدعومة وخيارات الإعداد المناسبة لاحتياجاتك.'
                 : "Talk to our team about supported sources and configurations available for your needs."}
             </p>
             <div className="flex gap-4 flex-col sm:flex-row justify-center">
               <Link href={href('/aml-screening')} className="btn-secondary focus:ring-2 focus:ring-offset-2 focus:ring-slate-400 transition-all duration-200">
-                {isRTL ? 'العودة لفحص غسل الأموال' : 'Back to AML Screening'}
+                {isRTL ? 'العودة إلى فحص مكافحة غسل الأموال' : 'Back to AML Screening'}
                 <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
               <Link href={href('/contact')} className="btn-primary focus:ring-2 focus:ring-offset-2 focus:ring-electric-600 transition-all duration-200">
-                {isRTL ? 'اطلب عرضاً تجريبياً' : 'Request a Demo'}
+                {isRTL ? 'اطلب عرضاً توضيحياً' : 'Request a Demo'}
                 <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>

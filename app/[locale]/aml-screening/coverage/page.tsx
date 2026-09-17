@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         locale,
         path: '/aml-screening/coverage',
         title: 'تغطية فحص مكافحة غسل الأموال',
-        description: 'يدعم واثق فحصاً قابلاً للتخصيص عبر مصادر العقوبات الدولية الرئيسية وتغطية الأشخاص المعرضين سياسياً والأقارب والأشخاص ذي الصلة المركزة على سوريا.',
+        description: 'مصادر عقوبات دولية مدعومة وتغطية تركز على الأشخاص المعرّضين سياسياً في سوريا وأفراد أسرهم والمقرّبين منهم، قابلة للضبط وفق سياسة الامتثال.',
       })
     : localizedMetadata({
         locale,

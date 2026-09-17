@@ -39,14 +39,14 @@ const workflowSteps = {
 
 const screeningCategories = {
   en: [
-    { title: 'SANCTIONS', desc: 'Screen verified identities against supported international sanctions sources selected by the organisation.' },
-    { title: 'PEP', desc: 'Identify potential politically exposed person matches, including Syria-focused PEP coverage.' },
-    { title: 'RCA', desc: 'Identify potential relatives and close associates associated with covered politically exposed persons.' },
+    { title: 'SANCTIONS', acronym: null, desc: 'Screen verified identities against supported international sanctions sources selected by the organisation.' },
+    { title: 'PEP', acronym: null, desc: 'Identify potential politically exposed person matches, including Syria-focused PEP coverage.' },
+    { title: 'RCA', acronym: null, desc: 'Identify potential relatives and close associates associated with covered politically exposed persons.' },
   ],
   ar: [
-    { title: 'العقوبات', desc: 'افحص الهويات الموثّقة مقابل مصادر العقوبات الدولية المدعومة التي اختارتها المؤسسة.' },
-    { title: 'الأشخاص المعرّضون سياسياً (PEP)', desc: 'اكتشف التطابقات المحتملة مع الأشخاص المعرّضين سياسياً، ضمن تغطية تركز على السياق السوري.' },
-    { title: 'أفراد الأسرة والمقرّبون (RCA)', desc: 'حدّد التطابقات المحتملة مع أفراد أسر الأشخاص المعرّضين سياسياً والمقرّبين منهم.' },
+    { title: 'العقوبات', acronym: null, desc: 'افحص الهويات الموثّقة مقابل مصادر العقوبات الدولية المدعومة التي اختارتها المؤسسة.' },
+    { title: 'الأشخاص المعرّضون سياسياً', acronym: 'PEP', desc: 'اكتشف التطابقات المحتملة مع الأشخاص المعرّضين سياسياً، ضمن تغطية تركز على السياق السوري.' },
+    { title: 'أفراد الأسرة والمقرّبون', acronym: 'RCA', desc: 'حدّد التطابقات المحتملة مع أفراد أسر الأشخاص المعرّضين سياسياً والمقرّبين منهم.' },
   ],
 };
 
@@ -85,7 +85,7 @@ export default function AmlScreeningPage() {
       <section className="section-pad bg-slate-50 relative overflow-hidden">
         <TechBackground variant="light" />
         <div className="container-wide relative z-10">
-          <AnimatedSection className={`max-w-3xl mb-12 ${isRTL ? 'ms-auto text-right' : 'mx-auto text-center'}`}>
+          <AnimatedSection className="max-w-3xl mx-auto mb-12 text-center">
             <h2 className="heading-lg text-navy-900">
               {isRTL ? 'مسار امتثال واضح من أربع مراحل' : 'From identity verification to ongoing monitoring'}
             </h2>
@@ -115,7 +115,7 @@ export default function AmlScreeningPage() {
       {/* Screening categories */}
       <section className="section-pad bg-white">
         <div className="container-wide">
-          <AnimatedSection className={`max-w-3xl mb-12 ${isRTL ? 'ms-auto text-right' : 'mx-auto text-center'}`}>
+          <AnimatedSection className="max-w-3xl mx-auto mb-12 text-center">
             <h2 className="heading-lg text-navy-900">
               {isRTL ? 'تغطية الفحص الأساسية' : 'Three screening categories'}
             </h2>
@@ -129,9 +129,14 @@ export default function AmlScreeningPage() {
           <div className={`grid md:grid-cols-3 gap-6 max-w-4xl mx-auto ${isRTL ? 'text-right' : ''}`}>
             {categories.map((cat, i) => (
               <AnimatedItem key={i} index={i}>
-                <div className="bg-slate-50 rounded-2xl border border-slate-200 p-7 h-full hover:shadow-lg hover:border-electric-300 transition-all duration-200">
-                  <div className="w-10 h-1 rounded-full bg-electric-500 mb-6" aria-hidden="true" />
-                  <h3 className="font-bold text-navy-900 mb-3 text-base">{cat.title}</h3>
+                <div className={`bg-slate-50 rounded-2xl border border-slate-200 p-7 h-full min-h-[260px] hover:shadow-lg hover:border-electric-300 transition-all duration-200 ${isRTL ? 'text-right' : ''}`}>
+                  <div className={`w-10 h-1 rounded-full bg-electric-500 mb-6 ${isRTL ? 'me-auto' : ''}`} aria-hidden="true" />
+                  <div className="flex items-start gap-2 mb-3">
+                    <h3 className="font-bold text-navy-900 text-base leading-7">{cat.title}</h3>
+                    {cat.acronym && (
+                      <span dir="ltr" className="shrink-0 rounded-md bg-electric-100 px-2 py-0.5 text-xs font-bold text-electric-700">{cat.acronym}</span>
+                    )}
+                  </div>
                   <p className="text-slate-600 text-sm leading-relaxed line-height-relaxed">{cat.desc}</p>
                 </div>
               </AnimatedItem>
@@ -231,7 +236,7 @@ export default function AmlScreeningPage() {
       {/* Client-controlled configuration */}
       <section className="section-pad bg-white">
         <div className="container-wide">
-          <AnimatedSection className={`text-center max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
+          <AnimatedSection className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="heading-lg text-navy-900">
               {isRTL ? 'إعدادات فحص تتوافق مع سياسة الامتثال لديك' : 'Configure screening around your compliance policy'}
             </h2>
@@ -282,7 +287,7 @@ export default function AmlScreeningPage() {
       {/* Screening results section */}
       <section className="section-pad bg-white">
         <div className="container-wide">
-          <AnimatedSection className={`text-center max-w-2xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
+          <AnimatedSection className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="heading-lg text-navy-900">
               {isRTL ? 'نتائج واضحة لكل فئة فحص' : 'Clear results for every screening category'}
             </h2>
@@ -568,11 +573,11 @@ export default function AmlScreeningPage() {
       {/* CTA */}
       <section className="py-20 bg-slate-50">
         <div className="container-wide">
-          <AnimatedSection className={`text-center ${isRTL ? 'text-right' : ''}`}>
+          <AnimatedSection className="text-center">
             <h2 className="heading-lg text-navy-900 mb-4">
               {isRTL ? 'هل تبحث عن مسار فحص امتثال أوضح لمؤسستك؟' : 'Need AML screening for your organisation?'}
             </h2>
-            <p className="text-slate-600 text-lg mb-8 max-w-xl mx-auto">
+            <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto text-center leading-relaxed">
               {isRTL
                 ? 'تحدث مع فريقنا حول سياسة الامتثال لديك، ومصادر الفحص المطلوبة، وآلية التكامل المناسبة.'
                 : "Talk to our team about your compliance requirements and the sources you need to screen against."}

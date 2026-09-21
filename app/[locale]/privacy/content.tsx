@@ -62,7 +62,7 @@ const content = {
           We retain personal data only for as long as necessary to fulfil the purposes set out in this policy. Contact form submissions are retained for up to 24 months. Website usage data is retained for up to 12 months. When data is no longer needed, it is securely deleted or anonymised.
         </p>
         <p>
-          For identity verification service data, retention periods are specified in our <a href="service-data">Service Data Information</a> page. Document, barcode, NFC, biometric and review evidence is retained for 2,555 days (seven years) after verification completion, after which eligible evidence is deleted from storage and the deletion is recorded. Data subject to legal hold may be retained longer.
+          For identity verification service data, retention periods are specified in our <a href="service-data">Service Data Information</a> page. Document, barcode, NFC, liveness reference image/result/score, face-match, selfie/reference image, and review evidence is retained for 2,555 days (seven years) after verification completion, after which eligible evidence is deleted from storage and the deletion is recorded. Raw liveness video frames are streamed directly to our biometric-processing provider and are not retained by Wathiq. Data subject to legal hold may be retained longer.
         </p>
 
         <h2>6. Your Rights</h2>
@@ -163,7 +163,7 @@ const content = {
           نحتفظ بالبيانات الشخصية فقط للمدة اللازمة لتحقيق الأغراض المنصوص عليها في هذه السياسة. يتم الاحتفاظ بطلبات نموذج الاتصال لمدة تصل إلى 24 شهراً. يتم الاحتفاظ ببيانات استخدام الموقع لمدة تصل إلى 12 شهراً. عند عدم الحاجة إلى البيانات بعد الآن، يتم حذفها بشكل آمن أو إخفاء هويتها.
         </p>
         <p>
-          بالنسبة لبيانات خدمة التحقق من الهوية، يتم تحديد فترات الاحتفاظ في صفحة <a href="service-data">معلومات بيانات الخدمة</a>. يتم الاحتفاظ بأدلة الوثيقة والباركود وNFC والقياسات الحيوية ومراجعة لمدة 2555 يوماً (سبع سنوات) بعد اكتمال التحقق، وبعد ذلك يتم حذف الأدلة المؤهلة من التخزين وتسجيل الحذف. قد يتم الاحتفاظ بالبيانات الخاضعة للحجز القانوني لفترة أطول.
+          بالنسبة لبيانات خدمة التحقق من الهوية، يتم تحديد فترات الاحتفاظ في صفحة <a href="service-data">معلومات بيانات الخدمة</a>. يتم الاحتفاظ بأدلة الوثيقة والباركود وNFC والصورة المرجعية الناتجة عن فحص الحيوية ونتيجة الفحص ودرجته ونتائج مطابقة الوجه وصور السيلفي/الصورة المرجعية وملفات المراجعة لمدة 2555 يوماً (سبع سنوات) بعد اكتمال التحقق، وبعد ذلك يتم حذف الأدلة المؤهلة من التخزين وتسجيل الحذف. تُبث إطارات فيديو فحص الحيوية الخام مباشرةً إلى مزوّد المعالجة البيومترية ولا يحتفظ بها واثق. قد يتم الاحتفاظ بالبيانات الخاضعة للحجز القانوني لفترة أطول.
         </p>
 
         <h2>٦. حقوقك</h2>
